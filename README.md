@@ -2,8 +2,8 @@
 
 welcome to repository of Station Guide 
 
-- To get to know about Station Guide Check : - [/StationGuide.md](https://github.com/dhairyagothi/StationGuide/blob/f2d4795cf3d3c57ffafb6ce007f47173d7010b1e/StationGuide.md)
-- To check UI Prototype Figma design :- [/StationGuideFigma.md](https://github.com/dhairyagothi/StationGuide/blob/f2d4795cf3d3c57ffafb6ce007f47173d7010b1e/StationGuideFigma.md)
+- To get to know about Station Guide Check : - [StationGuide.md](https://github.com/dhairyagothi/StationGuide/blob/f2d4795cf3d3c57ffafb6ce007f47173d7010b1e/StationGuide.md)
+- To check UI Prototype Figma design :- [StationGuideFigma.md](https://github.com/dhairyagothi/StationGuide/blob/f2d4795cf3d3c57ffafb6ce007f47173d7010b1e/StationGuideFigma.md)
 
 # Using Station Guide
 
