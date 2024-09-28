@@ -1,10 +1,14 @@
 import React from 'react';
 import './Herosection.css' ;
 import logo from '../assets/stationsaarthi.svg';
-// import img1 from '../assets/hero.png';
-// import bg from '../assets/bg.png';
-// import bgmobile from '../assets/bgmobile.png';
+import navigationsvg from '../assets/svg/navigation.svg';
 // import navigation from './navigation';
+import bookingsvg from '../assets/svg/bookings.svg';
+import stationsvg from '../assets/svg/station.svg';
+import noticationsvg from '../assets/svg/notification.svg';
+import mapsvg from '../assets/svg/3dmap.svg';
+import schedulesvg from '../assets/svg/schedule.svg';
+import searchsvg from '../assets/svg/search.svg';
 import { TfiAlignLeft } from "react-icons/tfi";
 import { useNavigate } from 'react-router-dom';
 
@@ -20,19 +24,36 @@ const Herosection = () => {
     };
     return (
         <>
-        <TfiAlignLeft className='fill-white h-[10vh] w-[6vh] font-extrabold ml-4'> <navigation/>   </TfiAlignLeft>
-        <div className="flex items-center justify-center bg-center bg-cover herosection">
-            <div className='grid justify-items-center'><img src={logo} alt="" srcset="" style={{height:"40vh" }}/>
-            <h1 className='text-xl font-extrabold text-white'>Station Saarthi : Your Platform Guide</h1>
+        <div className='flex items-center justify-between pl-5 pr-5 md:pr-20 md:pl-20'>
+        <div><TfiAlignLeft className='fill-blue-800 h-[10vh] w-[6vh] font-extrabold ml-4 cursor-pointer'>  </TfiAlignLeft></div>
+        <div className='cursor-pointer'><img src={searchsvg} alt="" srcset="" /></div>
+        </div>
+        <h1 className='pl-4 text-2xl font-extrabold text-left text-white md:pl-40 '>Namaste !! Yatree </h1>
+        <div className="relative flex items-center justify-center bg-center bg-cover herosection">
+           
+            <div className='relative z-10 grid justify-items-center'>
+                <img src={logo} alt="" srcset="" style={{height:"40vh" }}/>
+                <h1 className='text-xl font-extrabold text-white'>Station Saarthi : Your Platform Guide</h1>
             </div>
             {/* <img src={bg} alt="whitishbg" style={{ position: "absolute", bottom: 0 }} />
             <img src={bgmobile} alt="" style={{ position: "absolute", bottom: 0, zIndex: "10" }} className="md:hidden" /> */}
         </div> 
         <br></br>
         <div className='flex items-center justify-center'>
-            <button type="submit" onClick={LoginClick} className="w-20 bg-blue-500 text-white py-2 rounded-lg font-semibold shadow-md transition-all duration-300 ease-in-out hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ">Login</button>
-            <button type="submit" onClick={RegisterClick} className="w-20 bg-blue-500 text-white py-2 rounded-lg font-semibold shadow-md transition-all duration-300 ease-in-out hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ml-8">Register</button>
+            <button type="submit" onClick={LoginClick} className="w-20 py-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">Login</button>
+            <button type="submit" onClick={RegisterClick} className="w-20 py-2 ml-8 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">Register</button>
+        </div>
 
+        <div className='grid grid-cols-3 gap-4 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center'>
+             <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={navigationsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Navigation</h1></div>
+                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={bookingsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Booking</h1></div>
+                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={stationsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Station</h1></div>
+                
+                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={mapsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>3D Map</h1></div>
+                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={schedulesvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Schedule</h1></div>
+                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={noticationsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Notification</h1></div>
+             
+             
         </div>
         </>
     );
