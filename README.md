@@ -1,5 +1,6 @@
 # STATION GUIDE : YOUR PLATFORM GUIDE 
 
+<a href="[https://github.com/Dhairyagoth](https://github.com/dhairyagothi)i"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=DEF72C&random=false&center=false &width=1000&lines=Station Saarthi %2C+Your+Platform+Guide" alt="Typing SVG" /></a>
 welcome to repository of Station Guide 
 
 - To get to know about Station Guide Check : - [StationGuide.md](https://github.com/dhairyagothi/StationGuide/blob/f2d4795cf3d3c57ffafb6ce007f47173d7010b1e/StationGuide.md)
