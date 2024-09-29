@@ -9,9 +9,8 @@ import noticationsvg from '../assets/svg/notification.svg';
 import mapsvg from '../assets/svg/3dmap.svg';
 import schedulesvg from '../assets/svg/schedule.svg';
 import searchsvg from '../assets/svg/search.svg';
-import { TfiAlignLeft } from "react-icons/tfi";
 import { useNavigate } from 'react-router-dom';
-
+import HamburgerMenu from './hamburger';
    
 const Herosection = () => {
     const navigate = useNavigate();
@@ -24,8 +23,9 @@ const Herosection = () => {
     };
     return (
         <>
-        <div className='flex items-center justify-between pl-5 pr-5 md:pr-20 md:pl-20'>
-        <div><TfiAlignLeft className='fill-blue-800 h-[10vh] w-[6vh] font-extrabold ml-4 cursor-pointer'>  </TfiAlignLeft></div>
+        
+        <div className='relative z-50 flex items-center justify-betweenv'>
+        <div><HamburgerMenu /></div>
         <div className='cursor-pointer'><img src={searchsvg} alt="" srcset="" /></div>
         </div>
         <h1 className='pl-4 text-2xl font-extrabold text-left text-white md:pl-40 '>Namaste !! Yatree </h1>
