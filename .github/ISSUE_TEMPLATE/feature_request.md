@@ -1,20 +1,32 @@
 ---
-name: Feature request
+name: ✨ Feature Request
 about: Suggest an idea for this project
 title: ''
 labels: ''
 assignees: ''
 
 ---
+# ✨ Feature Request
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+### **Description of the Feature**
+<!-- A clear and concise description of the feature or enhancement you want to propose. -->
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+### **Problem Statement**
+<!-- Explain the problem this feature will solve or the use-case it will address. -->
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+
+### **Proposed Solution**
+<!-- Describe the solution or implementation you have in mind. -->
+
+
+### **Alternatives Considered**
+
+<!-- Have you considered any alternative solutions or approaches? If so, please describe them. -->
+
+### **Additional Context**
+<!-- Add any other context, screenshots, or information related to the feature request here. -->
+
+### **Are you participating in GSSoC?**
+- [ ] Yes
+- [ ] No
