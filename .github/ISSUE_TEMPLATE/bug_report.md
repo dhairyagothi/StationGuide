@@ -6,33 +6,33 @@ labels: ''
 assignees: ''
 
 ---
+# 🐞 Bug Report
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+### **Describe the bug**
+<!-- A clear and concise description of what the bug is. -->
 
-**To Reproduce**
+### **Steps to Reproduce**
 Steps to reproduce the behavior:
 1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
+2. Click on '...'
+3. Scroll down to '...'
 4. See error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+### **Expected behavior**
+<!-- A clear and concise description of what you expected to happen. -->
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+### **Actual behavior**
+<!-- Describe what actually happened when the bug occurred. -->
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+### **Screenshots or Video**
+<!-- If applicable, add screenshots or a video to help explain your problem. -->
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+### **Environment**
+Please provide the following details:
+- **OS**: _e.g., iOS, Windows, Linux, macOS_
+- **Browser/Software**: _e.g., Chrome, Firefox, Node.js_
+- **Version**: _e.g., 22.0_
 
-**Additional context**
-Add any other context about the problem here.
+### **Logs & Error Messages**
+<!-- If there are any relevant logs or error messages, paste them below. -->
+
