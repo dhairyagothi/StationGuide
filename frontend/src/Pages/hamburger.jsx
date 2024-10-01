@@ -1,44 +1,84 @@
-
+// /c:/personal dg/github_repo/StationSaarthi/frontend/src/Pages/hamburger.jsx
 
 import React, { useState } from 'react';
-import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
+import styled, { keyframes } from 'styled-components';
 
-const HamburgerMenu = () => {
-    const [isOpen, setIsOpen] = useState(false);
+const fadeIn = keyframes`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`;
+
+const fadeOut = keyframes`
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+`;
+
+const MenuIcon = styled.div`
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: transform 0.4s, opacity 0.4s;
+`;
+
+const HamburgerContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+`;
+
+const Menu = styled.div`
+    display: ${({ open }) => (open ? 'block' : 'none')};
+    background-color: white;
+    position: absolute;
+    
+    height: 90vh;
+    width: 80vw;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: ${({ open }) => (open ? fadeIn : fadeOut)} 0.4s;
+`;
+
+const MenuItem = styled.a`
+    color: rgb(59 130 246);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+        background-color: rgb(59 130 246);
+        color:white;
+    }
+`;
+
+const Hamburger = () => {
+    const [open, setOpen] = useState(false);
 
     const toggleMenu = () => {
-        setIsOpen(!isOpen);
+        setOpen(!open);
     };
 
     return (
         <div>
-            <nav role="navigation">
-                <div className="relative">
-                    <input
-                        type="checkbox"
-                        checked={isOpen}
-                        onChange={toggleMenu}
-                        id="menuToggle"
-                        className={`absolute ${isOpen ? 'top-0 left-[70vw]' : 'top-0 left-0'}`}
-                    />
-                    <label htmlFor="menuToggle" className="block cursor-pointer">
-                        <div className={`w-8 h-1 bg-black my-1 transition-transform ${isOpen ? 'transform rotate-45 translate-y-2' : ''}`}></div>
-                        <div className={`w-8 h-1 bg-black my-1 transition-opacity ${isOpen ? 'opacity-0' : ''}`}></div>
-                        <div className={`w-8 h-1 bg-black my-1 transition-transform ${isOpen ? 'transform -rotate-45 -translate-y-2' : ''}`}></div>
-                    </label>
-                    <div className="absolute top-0 left-0 w-8 h-8 cursor-pointer" onClick={toggleMenu}></div>
-                    <ul className={`absolute top-0 left-0 w-[70vw] h-[100vh] bg-white transition-transform transform ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                        {['Home', 'About', 'Info', 'Contact'].map((item, index) => (
-                            <a href="#" key={index} className="block p-4 border-b border-gray-200">
-                                <li>{item}</li>
-                            </a>
-                        ))}
-                    </ul>
-                </div>
-            </nav>
+            <HamburgerContainer onClick={toggleMenu}>
+                <MenuIcon style={{ transform: open ? 'rotate(-45deg) translate(-5px, 6px)' : 'rotate(0)' }} />
+                <MenuIcon style={{ opacity: open ? 0 : 1 }} />
+                <MenuIcon style={{ transform: open ? 'rotate(45deg) translate(-5px, -6px)' : 'rotate(0)' }} />
+            </HamburgerContainer>
+            <Menu open={open}>
+                <MenuItem href="#home">Home</MenuItem>
+                <MenuItem href="#services">Services</MenuItem>
+                <MenuItem href="#contact">Contact</MenuItem>
+            </Menu>
         </div>
     );
-
 };
 
-export default HamburgerMenu;
+export default Hamburger;
