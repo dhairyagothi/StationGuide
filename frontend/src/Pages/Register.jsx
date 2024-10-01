@@ -14,7 +14,7 @@ const Register = () => {
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <h2 className="text-3xl font-bold mb-6">Register New User</h2>
             <form onSubmit={handleRegister} className="bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
-                
+
                 {/* Name Input */}
                 <div className="mb-4">
                     <label className="block text-gray-700 font-bold mb-2" htmlFor="name">Name</label>
@@ -79,6 +79,13 @@ const Register = () => {
                     Register
                 </button>
             </form>
+            {/* Already have an account link */}
+            <p className="mt-4">
+                <span className="text-gray-600">Already have an account? </span>
+                <a href="/login" className="text-blue-500 font-semibold hover:underline transition duration-300 ease-in-out transform hover:scale-105">
+                    Log in
+                </a>
+            </p>
         </div>
     );
 };
