@@ -44,10 +44,14 @@
 ### Notification 
 <img src="https://github.com/user-attachments/assets/34e5ecb6-5dab-4ade-8607-ee823ffe34de" width="200" height="350">
 
+### Chatbot 
+<img src="https://github.com/user-attachments/assets/cffa6c35-c040-4f83-af8f-168b41f2c594" width="200" height="350">
+
 
 ### Dark Mode 
 
 <img src="https://github.com/user-attachments/assets/7b800587-c3ec-4216-a87d-98666911f192" width="200" height="350">
+
 
 
 
