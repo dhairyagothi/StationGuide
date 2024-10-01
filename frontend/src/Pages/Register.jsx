@@ -8,10 +8,6 @@ const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        console.log('Name:', name);
-        console.log('Phone Number:', phoneNumber);
-        console.log('Email:', email);
-        console.log('Password:', password);
     };
 
     return (
