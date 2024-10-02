@@ -56,6 +56,14 @@ const Login = () => {
                     Login
                 </button>
             </form>
+
+            {/* Don't have an account link */}
+            <p className="mt-4 text-gray-600">
+                <span>Don't have an account? </span>
+                <a href="/register" className="text-blue-500 font-semibold hover:underline transition duration-300 ease-in-out transform hover:scale-105">
+                    Register
+                </a>
+            </p>
         </div>
     );
 };
