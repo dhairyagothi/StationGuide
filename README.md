@@ -1,4 +1,10 @@
 # STATION GUIDE : YOUR PLATFORM GUIDE 
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <a href="[https://github.com/Dhairyagoth](https://github.com/dhairyagothi)i"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=DEF72C&random=false&center=false &width=1000&lines=Station Saarthi %2C+Your+Platform+Guide" alt="Typing SVG" /></a>
 welcome to repository of Station Guide 
@@ -90,10 +96,19 @@ StationGuide/
 ├── using.md  # This file
 └── ...  # Other project configuration files (e.g., .gitignore)
 ```
+
+
+
+
 ## Contributors ✨
 
-Thanks to everyone who has contributed to this project!
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
-<a href="https://github.com/dhairyagothi/StationGuide/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dhairyagothi/StationGuide" alt="Contributors" />
-</a>
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
