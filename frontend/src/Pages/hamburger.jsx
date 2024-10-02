@@ -24,8 +24,8 @@ const fadeOut = keyframes`
 const MenuIcon = styled.div`
     width: 30px;
     height: 3px;
-    background-color: #333;
-    margin: 6px 0;
+    background-color: white;
+    margin: 6px 20px;
     transition: transform 0.4s, opacity 0.4s;
 `;
 
@@ -39,19 +39,21 @@ const Menu = styled.div`
     display: ${({ open }) => (open ? 'block' : 'none')};
     background-color: white;
     position: absolute;
-    
-    height: 90vh;
-    width: 80vw;
+    height: 100vh;
+    width: 30vw;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     animation: ${({ open }) => (open ? fadeIn : fadeOut)} 0.4s;
+      @media (max-width: 768px) {
+    width: 100vw;
+  }
 `;
 
 const MenuItem = styled.a`
     color: rgb(59 130 246);
-    padding: 12px 16px;
+    padding: 22px 16px;
     text-decoration: none;
     display: block;
-
+    text-align: center;
     &:hover {
         background-color: rgb(59 130 246);
         color:white;
@@ -68,9 +70,9 @@ const Hamburger = () => {
     return (
         <div>
             <HamburgerContainer onClick={toggleMenu}>
-                <MenuIcon style={{ transform: open ? 'rotate(-45deg) translate(-5px, 6px)' : 'rotate(0)' }} />
+                <MenuIcon style={{ transform: open ? 'rotate(-45deg) translate(-25px, -6px)' : 'rotate(0)' }} />
                 <MenuIcon style={{ opacity: open ? 0 : 1 }} />
-                <MenuIcon style={{ transform: open ? 'rotate(45deg) translate(-5px, -6px)' : 'rotate(0)' }} />
+                <MenuIcon style={{ transform: open ? 'rotate(45deg) translate(-25px, 6px)' : 'rotate(0)' }} />
             </HamburgerContainer>
             <Menu open={open}>
                 <MenuItem href="#home">Home</MenuItem>
