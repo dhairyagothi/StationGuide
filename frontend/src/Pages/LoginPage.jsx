@@ -32,9 +32,9 @@ const Login = () => {
                 <div className="mb-5">
                     <label className=" block text-gray-700 font-semibold mb-2" htmlFor="username">Username</label>
                     <input
-                        type="text"
-                        id="username"
-                        value={username}
+                        type="text" 
+                        id="username" 
+                        value={username} 
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Enter your username"
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
@@ -46,9 +46,9 @@ const Login = () => {
                 <div className="mb-6"> 
                     <label className="block  text-gray-700 font-semibold mb-2" htmlFor="password">Password</label>
                     <input 
-                        type="password"  
-                        id="password" 
-                        value={password} 
+                        type="password"    
+                        id="password"  
+                        value={password}  
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Enter your password"
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
@@ -56,7 +56,7 @@ const Login = () => {
                     />
                 </div>
 
-                {/* Login Button */}
+                {/* Login Button */} 
                 <button
                     type="submit"
                     className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105"
@@ -72,8 +72,8 @@ const Login = () => {
                     Register
                 </a> 
             </p> 
-        </div> 
-    );
-};
+        </div>  
+    ); 
+}; 
 
 export default Login;
