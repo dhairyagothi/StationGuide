@@ -1,13 +1,48 @@
 import React, { useState } from 'react';
 import logo from '../assets/stationsaarthi.svg'; // Import your logo
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
-        // Handle login logic
+
+        // Fetch the login API from the backend
+        fetch('http://localhost:3000/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                password
+            }),
+            credentials: 'include'
+        })
+        .then(res => {
+            // Check if the response is OK (status 200-299)
+            if (res.ok) {
+                return res.json(); // Parse the JSON data if response is successful
+            } else {
+                // If the response is not OK, throw an error to be caught later
+                throw new Error(`Login failed! Status: ${res.status}`);
+            }
+        })
+        .then(data => {
+            // Handle the response data if login is successful
+            console.log('Login successful:', data);
+            setTimeout(() => {
+                navigate('/logged-in');
+            }, 500);  // Short delay to allow the cookie to propagate
+        })
+        .catch(error => {
+            // Handle errors like incorrect login or network issues
+            console.error('Login failed:', error);
+        });
     };
 
     return (
@@ -21,15 +56,15 @@ const Login = () => {
 
             {/* Login Form */}
             <form onSubmit={handleLogin} className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-                {/* Username Input */}
+                {/* Email Input */}
                 <div className="mb-6">
-                    <label className="block text-gray-700 font-semibold mb-2" htmlFor="username">Username</label>
+                    <label className="block text-gray-700 font-semibold mb-2" htmlFor="email">Email</label>
                     <input
                         type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Enter your username"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
                         required
                     />

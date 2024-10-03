@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../assets/stationsaarthi.svg'; // Import your logo
 
 const Register = () => {
@@ -7,9 +8,46 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const navigate = useNavigate();
+
     const handleRegister = (e) => {
         e.preventDefault();
-        // Handle registration logic here
+
+        // Fetch the register API from the backend
+        fetch('http://localhost:3000/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name,
+                phoneNumber,
+                email,
+                password
+            }),
+            credentials: 'include'
+        })
+        .then(res => {
+            // Check if the response is OK (status 200-299)
+            if (res.ok) {
+                // If the response is successful, return the JSON data
+                return res.json();
+            } else {
+                // If the response is not OK, throw an error to be caught later
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+        })
+        .then(data => {
+            // Handle the response data if successful
+            console.log('Registration successful:', data);
+            setTimeout(() => {
+                navigate('/logged-in');
+            }, 500);  // Short delay to allow the cookie to propagate
+        })
+        .catch(error => {
+            // Handle errors such as invalid response or network issues
+            console.error('Registration failed:', error);
+        });
     };
 
     return (

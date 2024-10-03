@@ -24,8 +24,8 @@ export const verifyToken = async (token) => {
 export const addCookie = (res, name, value) => {
   res.cookie(name, value, {
     httpOnly: true,
-    secure: config.env === 'production',
-    sameSite: 'none'
+    secure: true,
+    sameSite: 'none',
   });
 }
 
