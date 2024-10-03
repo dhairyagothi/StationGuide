@@ -56,15 +56,15 @@ const Login = () => {
 
             {/* Login Form */}
             <form onSubmit={handleLogin} className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-                {/* Username Input */}
+                {/* Email Input */}
                 <div className="mb-6">
-                    <label className="block text-gray-700 font-semibold mb-2" htmlFor="username">Username</label>
+                    <label className="block text-gray-700 font-semibold mb-2" htmlFor="email">Email</label>
                     <input
                         type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Enter your username"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
                         required
                     />
