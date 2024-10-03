@@ -70,9 +70,9 @@ const Login = () => {
                 Don't have an account?{' '}
                 <a href="/register" className="text-blue-500 font-semibold hover:underline transition duration-300 transform hover:scale-105">
                     Register
-                </a>
-            </p>
-        </div>
+                </a> 
+            </p> 
+        </div> 
     );
 };
 

@@ -11,6 +11,7 @@ const fadeIn = keyframes`
   }
 `;
 
+
 const fadeOut = keyframes`
   from {
     opacity: 1;
@@ -37,6 +38,7 @@ const HamburgerContainer = styled.div`
     padding: 5px;
   }
 `;
+
 
 const Menu = styled.div`
   display: ${({ open }) => (open ? 'block' : 'none')};
@@ -119,10 +121,10 @@ const SearchContainer = styled.div`
   position: fixed;
   top: 10px;
   right: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 25px;
-  padding: 5px 10px;
-  transition: width 0.4s ease;
+  background-color: rgba(0, 0, 0, 0.5); 
+  border-radius: 25px; 
+  padding: 5px 10px; 
+  transition: width 0.4s ease; 
 `;
 
 const SearchInput = styled.input`
@@ -143,11 +145,11 @@ const SearchInput = styled.input`
   }
 `;
 
-const Hamburger = () => {
-  const [open, setOpen] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  const searchInputRef = useRef(null);
+const Hamburger = () => { 
+  const [open, setOpen] = useState(false); 
+  const [showSearch, setShowSearch] = useState(false); 
+  const [searchTerm, setSearchTerm] = useState(''); 
+  const searchInputRef = useRef(null); 
 
   const toggleMenu = () => {
     setOpen((prev) => !prev);
