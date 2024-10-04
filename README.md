@@ -4,11 +4,7 @@
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
 
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
@@ -243,6 +239,6 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## Contact Information
 
-If you have questions, suggestions, or feedback, please reach out via email at email@example.com. You can also join our discussion forum [here](https://github.com/dhairyagothi/StationGuide/discussions).
+If you have questions, suggestions, or feedback, please reach out via email at dhairyag31@gmail.com. You can also join our discussion forum [here](https://github.com/dhairyagothi/StationGuide/discussions).
 
 We value open communication and are happy to help!
