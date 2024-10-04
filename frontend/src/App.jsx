@@ -4,7 +4,7 @@ import LoginPage from './Pages/LoginPage';
 import Register from './Pages/Register';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import chatbotsvg from './assets/svg/chatbot.svg';
-
+import { useNavigate, Outlet } from 'react-router-dom';
 import './App.css'
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
         {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
         <Route element={<ProtectedRoute />}>
-          <Route path="/logged-in" element={<div className='flex items-end p-10 justify-center w-screen h-screen'><h1 className='text-7xl text-red-500'>Logged in</h1></div>} />
+          <Route path="/logged-in" element={<div className='flex items-end justify-center w-screen h-screen p-10'><h1 className='text-red-500 text-7xl'>Logged in</h1></div>} />
         </Route>
 
       </Routes>
@@ -35,7 +35,7 @@ function App() {
 
 export default App;
 
-import { useNavigate, Outlet } from 'react-router-dom';
+
 
 export function ProtectedRoute() {
   const navigate = useNavigate();
