@@ -1,5 +1,21 @@
 # Contributor Covenant Code of Conduct
 
+## Table of Contents
+- [Our Pledge](#our-pledge)
+- [Our Standards](#our-standards)
+- [Enforcement Responsibilities](#enforcement-responsibilities)
+- [Scope](#scope)
+- [Enforcement](#enforcement)
+- [Enforcement Guidelines](#enforcement-guidelines)
+  - [1. Correction](#1-correction)
+  - [2. Warning](#2-warning)
+  - [3. Temporary Ban](#3-temporary-ban)
+  - [4. Permanent Ban](#4-permanent-ban)
+- [Handling Conflicts](#handling-conflicts)
+- [Community Values](#community-values)
+- [Attribution](#attribution)
+
+
 ## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in our
@@ -68,6 +84,7 @@ reporter of any incident.
 
 ## Enforcement Guidelines
 
+
 Community leaders will follow these Community Impact Guidelines in determining
 the consequences for any action they deem in violation of this Code of Conduct:
 
@@ -111,6 +128,22 @@ individual, or aggression toward or disparagement of classes of individuals.
 
 **Consequence**: A permanent ban from any sort of public interaction within
 the community.
+
+
+
+## Handling Conflicts
+
+- Approach conflicts with an open mind, seek mediation if necessary.
+- Prioritize de-escalation over confrontation.
+- Be respectful in disagreements, and aim for constructive outcomes.
+
+## Community Values
+
+- Encourage diverse viewpoints while maintaining respect and professionalism.
+- Aim to foster collaboration and inclusivity in all interactions.
+- Ensure all members feel safe, valued, and empowered to contribute.
+
+---
 
 ## Attribution
 
