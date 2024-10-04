@@ -25,7 +25,7 @@ const Herosection = () => {
     return (
         <>
         
-        <div className='relative z-50 flex items-center justify-betweenv'>
+        <div className='relative z-50 flex items-center justify-between'>
         <div><HamburgerMenu /></div>
         <div className='cursor-pointer ml-auto mr-8'>
             <img src={searchsvg} alt="" srcset="" /></div>
@@ -47,14 +47,27 @@ const Herosection = () => {
         </div>
 
         <div className='grid grid-cols-3 gap-4 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center'>
-             <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={navigationsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Navigation</h1></div>
-                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={bookingsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Booking</h1></div>
-                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={stationsvg} alt="" srcset="" />  <h1 className='font-bold text-black'>Station</h1></div>
-                
-                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={mapsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>3D Map</h1></div>
-                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={schedulesvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Schedule</h1></div>
-                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={noticationsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Notification</h1></div>
-
+            <div className='bg-blue-200 border-2 border-blue-200 rounded-full w-[128px] h-[128px]'>
+                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-6'><img src={navigationsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Navigation</h1></div>
+            </div>
+            <div className='bg-blue-200 border-2 border-blue-200 rounded-full w-[128px] h-[128px]'>
+                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-5'><img src={bookingsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Booking</h1></div>
+            </div>
+            <div className='bg-blue-200 border-2 border-blue-200 rounded-full w-[128px] h-[128px]'>
+                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-5'><img src={stationsvg} alt="" srcset="" />  <h1 className='font-bold text-black'>Station</h1></div>
+            </div>
+            <div className='bg-blue-200 border-2 border-blue-200 rounded-full w-[128px] h-[128px]'>
+                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-5'><img src={bookingsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Booking</h1></div>
+            </div>
+            <div className='bg-blue-200 border-2 border-blue-200 rounded-full w-[128px] h-[128px]'>
+                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'><img src={mapsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>3D Map</h1></div>
+            </div>
+            <div className='bg-blue-200 border-2 border-blue-200 rounded-full w-[128px] h-[128px]'>
+                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-6'><img src={schedulesvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Schedule</h1></div>
+            </div>
+            <div className='bg-blue-200 border-2 border-blue-200 rounded-full w-[128px] h-[128px]'>
+                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-6'><img src={noticationsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Notification</h1></div>
+            </div>
         </div>
         </>
     );
