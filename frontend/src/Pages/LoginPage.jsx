@@ -1,7 +1,6 @@
 import React, { useState } from 'react'; 
-import { Link } from 'react-router-dom';
-
-import logo from '../assets/stationsaarthi.svg'; // Import your logo 
+import { Link } from 'react-router-dom'; // Add this import
+import logo from '../assets/stationsaarthi.svg';
 
 const Login = () => {
     const [username, setUsername] = useState(''); 
@@ -12,7 +11,6 @@ const Login = () => {
         // Handle login logic here 
     };  
 
-
     return ( 
         <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-100 to-blue-5000">
             {/* Logo and Title */} 
@@ -21,7 +19,6 @@ const Login = () => {
                 <h1 className="text-4xl font-bold text-gray-800 mt-4 ">Station Saarthi</h1>
                 <p className="text-gray-600 mt-2 text-lg ">Your Trusted Platform Guide</p>
             </div>
-
 
             {/* Login Form */}
             <form onSubmit={handleLogin} className="w-full max-w-sm bg-white p-8 rounded-lg shadow-md">
@@ -32,7 +29,7 @@ const Login = () => {
 
                 {/* Username Input */}
                 <div className="mb-5">
-                    <label className=" block text-gray-700 font-semibold mb-2" htmlFor="username">Username</label>
+                    <label className="block text-gray-700 font-semibold mb-2" htmlFor="username">Username</label>
                     <input
                         type="text" 
                         id="username" 
@@ -46,7 +43,7 @@ const Login = () => {
 
                 {/* Password Input */} 
                 <div className="mb-6"> 
-                    <label className="block  text-gray-700 font-semibold mb-2" htmlFor="password">Password</label>
+                    <label className="block text-gray-700 font-semibold mb-2" htmlFor="password">Password</label>
                     <input 
                         type="password"    
                         id="password"  
@@ -67,12 +64,12 @@ const Login = () => {
                 </button>
             </form>
 
-            {/* Don't have an account link */}
+            {/* Don't have an account link - Updated to use Link component */}
             <p className="mt-6 text-gray-600">
                 Don't have an account?{' '}
                 <Link to="/register" className="text-blue-500 font-semibold hover:underline transition duration-300 transform hover:scale-105">
                     Register
-                </Link>
+                </Link> 
             </p> 
         </div>  
     ); 
