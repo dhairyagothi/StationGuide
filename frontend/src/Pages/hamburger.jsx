@@ -41,16 +41,15 @@ const HamburgerContainer = styled.div`
 
 
 const Menu = styled.div`
-  display: ${({ open }) => (open ? 'block' : 'none')};
+  display: ${({ open }) => (open ? "block" : "none")};
   background-color: white;
   position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 30vw;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  animation: ${({ open }) => (open ? fadeIn : fadeOut)} 0.4s ease forwards;
+  width: 300px;
 
+  animation: ${({ open }) => (open ? fadeIn : fadeOut)} 0.4s ease forwards;
   @media (max-width: 768px) {
     width: 100vw;
   }
@@ -58,8 +57,9 @@ const Menu = styled.div`
 
 const MenuItem = styled.a`
   color: rgb(59 130 246);
-  padding: 22px 16px;
-  text-decoration: none;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 600;
   display: block;
   text-align: center;
   transition: background-color 0.3s, color 0.3s;
