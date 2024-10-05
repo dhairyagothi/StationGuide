@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Add this import
-import logo from '../assets/stationsaarthi.svg';
+import logo from '../assets/stationsaarthi.svg'; // Ensure the path is correct
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -94,12 +93,12 @@ const Register = () => {
                 </button>
             </form>
 
-            {/* Already have an account link - Updated to use Link component */}
+            {/* Already have an account link */}
             <p className="mt-4 text-gray-700 text-sm">
                 Already have an account?{' '}
-                <Link to="/login" className="text-blue-500 font-medium hover:underline transition duration-300 transform hover:scale-105">
+                <a href="/login" className="text-blue-500 font-medium hover:underline transition duration-300 transform hover:scale-105">
                     Log in
-                </Link>
+                </a>
             </p>
         </div>
     );
