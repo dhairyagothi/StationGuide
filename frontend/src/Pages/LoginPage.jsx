@@ -1,4 +1,6 @@
 import React, { useState } from 'react'; 
+import { Link } from 'react-router-dom';
+
 import logo from '../assets/stationsaarthi.svg'; // Import your logo 
 
 const Login = () => {
@@ -68,9 +70,9 @@ const Login = () => {
             {/* Don't have an account link */}
             <p className="mt-6 text-gray-600">
                 Don't have an account?{' '}
-                <a href="/Register.jsx" className="text-blue-500 font-semibold hover:underline transition duration-300 transform hover:scale-105">
+                <Link to="/register" className="text-blue-500 font-semibold hover:underline transition duration-300 transform hover:scale-105">
                     Register
-                </a> 
+                </Link>
             </p> 
         </div>  
     ); 
