@@ -2,6 +2,7 @@ import React from 'react'
 import Herosection from './Pages/Herosection'
 import LoginPage from './Pages/LoginPage';
 import Register from './Pages/Register';
+import Booking from './Pages/booking';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import chatbotsvg from './assets/svg/chatbot.svg';
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Herosection />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/booking" element={<Booking/>}/>
       </Routes>
     </Router>
 

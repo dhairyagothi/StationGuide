@@ -20,8 +20,11 @@ const Herosection = () => {
         navigate('/login'); // Navigates to the login page
     };
     const RegisterClick = () => {
-        navigate('/Register'); // Navigates to the login page
+        navigate('/register'); // Navigates to the login page
     };
+    const BookingClick =() => {
+        navigate('/booking')
+    }
     return (
         <>
         
@@ -48,7 +51,7 @@ const Herosection = () => {
 
         <div className='grid grid-cols-3 gap-4 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center'>
              <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={navigationsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Navigation</h1></div>
-                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={bookingsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>Booking</h1></div>
+                <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={bookingsvg} alt="" srcset=""  onClick={BookingClick}/> <h1 className='font-bold text-black'>Booking</h1></div>
                 <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={stationsvg} alt="" srcset="" />  <h1 className='font-bold text-black'>Station</h1></div>
                 
                 <div className='flex flex-col items-center justify-center w-16 h-16 bg-blue-200 border-2 border-blue-200 rounded-full cursor-pointer'><img src={mapsvg} alt="" srcset="" /> <h1 className='font-bold text-black'>3D Map</h1></div>
