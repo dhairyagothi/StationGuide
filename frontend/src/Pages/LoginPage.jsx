@@ -68,7 +68,7 @@ const Login = () => {
             {/* Don't have an account link */}
             <p className="mt-6 text-gray-600">
                 Don't have an account?{' '}
-                <a href="/Register" className="text-blue-500 font-semibold hover:underline transition duration-300 transform hover:scale-105">
+                <a href="/Register.jsx" className="text-blue-500 font-semibold hover:underline transition duration-300 transform hover:scale-105">
                     Register
                 </a> 
             </p> 
