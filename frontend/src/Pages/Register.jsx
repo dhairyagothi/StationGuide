@@ -96,7 +96,7 @@ const Register = () => {
             {/* Already have an account link */}
             <p className="mt-4 text-gray-700 text-sm">
                 Already have an account?{' '}
-                <a href="/Login" className="text-blue-500 font-medium hover:underline transition duration-300 transform hover:scale-105">
+                <a href="/login" className="text-blue-500 font-medium hover:underline transition duration-300 transform hover:scale-105">
                     Log in
                 </a>
             </p>
