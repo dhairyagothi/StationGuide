@@ -17,7 +17,7 @@ const Herosection = () => {
     const navigate = useNavigate();
 
     const LoginClick = () => {
-        navigate('/Login'); // Navigates to the login page
+        navigate('/login'); // Navigates to the login page
     };
     const RegisterClick = () => {
         navigate('/Register'); // Navigates to the login page
