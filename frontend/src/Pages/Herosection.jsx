@@ -17,7 +17,7 @@ const Herosection = () => {
     const navigate = useNavigate();
 
     const LoginClick = () => {
-        navigate('/Login'); // Navigates to the login page
+        navigate('/login'); // Navigates to the login page
     };
     const RegisterClick = () => {
         navigate('/Register'); // Navigates to the login page
@@ -44,14 +44,35 @@ const Herosection = () => {
             <button type="submit" onClick={RegisterClick} className="w-20 py-2 ml-8 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">Register</button>
         </div>
 
-        <div className='grid grid-cols-3 gap-4 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center'>
-                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'><img src={navigationsvg} alt="" srcset="" className='bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2' /> <h1 className='font-bold text-black'>Navigation</h1></div>
-                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'><img src={bookingsvg} alt="" srcset="" className= "bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /> <h1 className='font-bold text-black'>Booking</h1></div>
-                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'><img src={stationsvg} alt="" srcset="" className = "bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" />  <h1 className='font-bold text-black'>Station</h1></div>
-                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'><img src={mapsvg} alt="" srcset="" className = "bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /> <h1 className='font-bold text-black'>3D Map</h1></div>
-                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'><img src={schedulesvg} alt="" srcset="" className = "bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /> <h1 className='font-bold text-black'>Schedule</h1></div>
-                 <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'><img src={noticationsvg} alt="" srcset="" className = "bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /> <h1 className='font-bold text-black'>Notification</h1></div>
-        </div>
+        // In Herosection.jsx - update only the booking div in the grid section:
+
+<div className='grid grid-cols-3 gap-4 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center'>
+    <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'>
+        <img src={navigationsvg} alt="" srcset="" className='bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2' /> 
+        <h1 className='font-bold text-black'>Navigation</h1>
+    </div>
+    {/* Only this div is modified to add onClick */}
+    <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8' onClick={() => navigate('/booking')}>
+        <img src={bookingsvg} alt="" srcset="" className= "bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /> 
+        <h1 className='font-bold text-black'>Booking</h1>
+    </div>
+    <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'>
+        <img src={stationsvg} alt="" srcset="" className = "bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" />  
+        <h1 className='font-bold text-black'>Station</h1>
+    </div>
+    <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'>
+        <img src={mapsvg} alt="" srcset="" className = "bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /> 
+        <h1 className='font-bold text-black'>3D Map</h1>
+    </div>
+    <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'>
+        <img src={schedulesvg} alt="" srcset="" className = "bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /> 
+        <h1 className='font-bold text-black'>Schedule</h1>
+    </div>
+    <div className='flex flex-col items-center justify-center rounded-full cursor-pointer my-auto py-8'>
+        <img src={noticationsvg} alt="" srcset="" className = "bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /> 
+        <h1 className='font-bold text-black'>Notification</h1>
+    </div>
+</div>
         </>
     );
 };
