@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react' 
 import Herosection from './Pages/Herosection'
 import LoginPage from './Pages/LoginPage';
-import Register from './Pages/Register';
 import Booking from './Pages/booking';
+import Register from './Pages/Register';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import chatbotsvg from './assets/svg/chatbot.svg';
 import { useNavigate, Outlet } from 'react-router-dom';
 import './App.css'
-
 
 function App() {
 
@@ -16,8 +15,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Herosection />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/Register" element={<Register />} />
         <Route path="/booking" element={<Booking />} />
 
         {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
@@ -58,15 +57,15 @@ export function ProtectedRoute() {
       console.log('Token Verification error:', data.error);  // For debugging
 
       if (data.error || res.status === 400 || res.status === 500) {
-        navigate('/login');
+        navigate('/Login');
       }
 
       if (res.status === 400 || res.status === 500) {
-        navigate('/login');
+        navigate('/Login');
       }
     } catch (error) {
       console.error('Error verifying token:', error);
-      navigate('/login');
+      navigate('/Login');
     }
   };
 
