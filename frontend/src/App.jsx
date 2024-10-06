@@ -25,9 +25,9 @@ function App() {
       </Routes>
     </Router>
 
-    <div className='fixed bottom-0 right-0 z-50 m-4 cursor-pointer'>
+    {/* <div className='fixed bottom-0 right-0 z-50 m-4 cursor-pointer'>
       <img src={chatbotsvg} alt="chatbot" className='w-16 h-16' />
-    </div>
+    </div> */}
 
 </>
   )
