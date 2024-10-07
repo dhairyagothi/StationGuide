@@ -129,9 +129,8 @@ const SearchContainer = styled.div`
 
 const SearchInput = styled.input`
   display: block;
-  padding: 8px;
+  padding: 4px;
   margin-left: 10px;
-  border: 2px solid rgb(59 130 246);
   border-radius: 5px;
   width: ${({ show }) => (show ? '200px' : '0px')};
   transition: width 0.4s ease;
