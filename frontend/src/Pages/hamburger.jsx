@@ -121,7 +121,7 @@ const SearchContainer = styled.div`
   position: fixed;
   top: 10px;
   right: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 25px;
   padding: 5px 10px;
 `;
@@ -133,6 +133,10 @@ const SearchInput = styled.input`
   background-color: transparent;
   color: white;
   outline: none;
+  width: ${({ show }) => (show ? "200px" : "0px")};
+  transition: width 0.4s ease;
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  pointer-events: ${({ show }) => (show ? "auto" : "none")};
   &::placeholder {
     color: #ccc;
   }
