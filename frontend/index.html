@@ -1,13 +1,309 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./src/assets/stationsaarthi.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Station Saarthi</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <style>
+    /* Style for the Google Translate element */
+    #google_element {
+        position: absolute;
+        top: 10px; /* Distance from the top */
+        /* Position between middle and left corner */
+        margin: 40px;
+        transform: translateX(-20%); /* Adjust for half the element's width */
+       /* Ensure it stays on top */
+    }
+       /* Circle styles */
+            .circle {
+                height: 24px;
+                width: 24px;
+                border-radius: 24px;
+                background-color: black;
+                position: fixed;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                z-index: 99999999;
+                /* Stays on top of all elements */
+            }
+    
+    /* Chatbot styles */
+    .chatbot-container {
+        position: relative;
+        bottom: 20px; /* Adjust as needed */
+        right: 20px;
+        z-index: 100;
+    }
+    
+    .chatbot {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        z-index: 50;
+        margin: 20px;
+        background-color: #04aa6d;
+        border-radius: 50px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .chatbox {
+        display: none;
+        position: fixed;
+        bottom: 90px; /* Position above the bottom of the viewport */
+        right: 20px;
+        width: 300px;
+        background-color: #f9f9f9;
+        border: 2px solid #04aa6d;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .chatbox textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    
+    .chatbox button {
+        background-color: #04aa6d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 5px;
+    }
+    
+    .chatbox button:hover {
+        background-color: #028a57;
+    }
+    
+    .chat-output {
+        margin-top: 10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>    
+</head>
+<body>
+    <!-- Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="chatbot-container"></div>
+    <div class="chatbot" id="chatbotIcon">
+        <img src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="Chatbot Icon" />
+    </div>
+    <div class="chatbox" id="chatbox">
+        <h3>Saarthi</h3>
+        <div id="chatOutput" class="chat-output"></div> <!-- Output area for responses -->
+        <textarea id="chatInput" rows="4" placeholder="Type your message..."></textarea>
+        <button id="sendMessage">Send</button>
+    </div>
+
+    <script>
+        // Variable to track if the welcome message has been displayed
+        let welcomeMessageDisplayed = false;
+    
+        // Function to display the welcome message when chatbot opens
+        function displayWelcomeMessage() {
+            const chatOutput = document.getElementById('chatOutput');
+            chatOutput.innerHTML += '<p>Hi I am saarthi your Platform Guide How can I help you today?</p>';
+        }
+    
+        // Toggle the chatbot window
+        document.getElementById('chatbotIcon').addEventListener('click', function () {
+            const chatbox = document.getElementById('chatbox');
+            chatbox.style.display = chatbox.style.display === 'block' ? 'none' : 'block';
+    
+            // If chatbox is opened and the welcome message has not been displayed, display it
+            if (chatbox.style.display === 'block' && !welcomeMessageDisplayed) {
+                displayWelcomeMessage();
+                welcomeMessageDisplayed = true; // Set the flag to true after displaying the message
+            }
+        });
+    
+        // Predefined questions and answers
+       // Predefined questions and answers
+const responses = {
+    "can you help me navigate to platform 5": "You can easily navigate to Platform 5 using Navigation in the menu. Anything else I can help you with?",
+    "yes where can i find luggage storage facilities": "You can check the availability of cloakrooms in booking and book the same.",
+    "hello": "Hi there! How can I help you today?",
+    "hii": "Hello",
+    "good morning": "Good Morning! How can I help you today?",
+    "good evening": "Good Evening! How can I assist you?",
+    "what is your name?": "I am Station Saarthi, your virtual assistant.",
+    "how can I contact support?": "You can reach support at support@stationsaarthi.com.",
+    "what services do you offer?": "We offer various services related to travel and transportation.",
+    "help": "Please ask me a question, and I will do my best to assist you!",
+    "what are your operating hours?": "We are open from 9 AM to 9 PM, 7 days a week.",
+    "how do I create an account?": "You can create an account by clicking on the 'Sign Up' button on our website.",
+    "how do I reset my password?": "To reset your password, click on 'Forgot Password' on the login page.",
+    "what payment methods do you accept?": "We accept credit cards, debit cards, and PayPal.",
+    "can I cancel my order?": "Yes, you can cancel your order within 24 hours of placing it.",
+    "how can I track my order?": "You can track your order using the tracking link sent to your email.",
+    "do you offer refunds?": "Yes, we offer refunds under certain conditions. Please check our refund policy.",
+    "what is your refund policy?": "Our refund policy states that you can request a refund within 30 days of purchase.",
+    "do you have a mobile app?": "Yes, we have a mobile app available for both Android and iOS.",
+    "how can I download your app?": "You can download our app from the Google Play Store or Apple App Store.",
+    "where are you located?": "We are located in [Your Location]. You can visit us at our office during business hours.",
+    "how can I provide feedback?": "You can provide feedback by filling out the feedback form on our website.",
+    "do you have a loyalty program?": "Yes, we have a loyalty program that rewards you for your continued business.",
+    "how can I join the loyalty program?": "You can join the loyalty program by signing up on our website.",
+    "what is your privacy policy?": "Our privacy policy outlines how we collect, use, and protect your information. You can read it on our website.",
+    "can I change my account details?": "Yes, you can change your account details in the account settings section.",
+    "how do I log out?": "You can log out by clicking the 'Log Out' button in your account settings.",
+    "what should I do if I encounter a problem?": "If you encounter a problem, please contact our support team for assistance.",
+    "do you offer group discounts?": "Yes, we offer group discounts for larger bookings. Please contact support for more information.",
+    "how can I make a complaint?": "You can make a complaint by contacting our customer service department.",
+    "what is your cancellation policy?": "Our cancellation policy allows you to cancel your booking with at least 24 hours' notice.",
+    "are pets allowed?": "Yes, pets are allowed in certain services. Please check the details when booking.",
+    "do you provide travel insurance?": "Yes, we offer travel insurance as part of our services.",
+    "what is included in the service?": "The details of what is included in the service will be specified during the booking process.",
+    "can I modify my booking?": "Yes, you can modify your booking by contacting our customer service.",
+    "what happens if my flight is delayed?": "If your flight is delayed, please contact our support team for assistance.",
+    "how do I report lost items?": "You can report lost items by contacting our customer service.",
+    "can I change my pick-up location?": "Yes, you can change your pick-up location by contacting support.",
+    "do you provide child seats?": "Yes, we provide child seats upon request. Please specify when booking.",
+    "how can I view my booking history?": "You can view your booking history in your account settings.",
+    "what do I do if I missed my appointment?": "If you missed your appointment, please contact our support team to reschedule.",
+    "can I request a specific driver?": "Yes, you can request a specific driver when making a booking.",
+    "what should I do if I am running late?": "If you are running late, please contact us to inform about your situation.",
+    "do you offer last-minute bookings?": "Yes, we accept last-minute bookings depending on availability.",
+    "what is the best way to reach you?": "The best way to reach us is through our customer support email or phone number.",
+    "are there any hidden fees?": "No, we believe in transparency and do not have hidden fees. All costs will be clearly outlined.",
+};
+
+// Function to handle user input and match responses
+document.getElementById('sendMessage').addEventListener('click', function () {
+    const chatInput = document.getElementById('chatInput');
+    const chatOutput = document.getElementById('chatOutput');
+
+    if (chatInput.value.trim() !== '') {
+        const userMessages = chatInput.value.trim().split(/[?.!]+/); // Split input by sentence terminators (. ? !)
+        chatOutput.innerHTML = ''; // Clear previous output
+
+        userMessages.forEach((message) => {
+            const cleanedMessage = message.trim().toLowerCase().replace(/[?,.!]/g, ''); // Remove punctuation
+            if (cleanedMessage in responses) {
+                chatOutput.innerHTML += `<p>${responses[cleanedMessage]}</p>`;
+            } else if (cleanedMessage) {
+                chatOutput.innerHTML += `<p>I'm sorry, I don't have an answer for that.</p>`;
+            }
+        });
+
+        chatInput.value = ''; // Clear the input after processing
+    }
+});
+
+    </script>
+    
+    <div id="google_element"></div>
+    <script
+        type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
+        onerror="handleError(this)"
+    ></script>
+
+    <script type="text/javascript">
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                    includedLanguages: "en,hi,pa,sa,mr,ur,bn,es,fr,de,it",
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                },
+                "google_element"
+            );
+        }
+
+        function handleError(error) {
+            console.error("Error loading Google Translate script:", error);
+        }
+    </script>
+     <div id="root"></div>
+     <script type="module" src="/src/main.jsx"></script>
+    <script>
+            // Coordinates for the cursor
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
+
+            // Colors for the circles
+            const colors = [
+                "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+                "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+                "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+                "#680060", "#60005f", "#48005f", "#3d005e"
+            ];
+
+            // Assign colors and initial position to each circle
+            circles.forEach(function (circle, index) {
+                circle.x = 0;
+                circle.y = 0;
+                circle.style.backgroundColor = colors[index % colors.length];
+            });
+
+            // Update the coordinates when the mouse moves
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+                coords.y = e.clientY;
+            });
+
+            // Animation function to move the circles
+            function animateCircles() {
+                let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                    // Update the position and scale of each circle
+                    circle.style.left = x - 12 + "px";
+                    circle.style.top = y - 12 + "px";
+                    circle.style.scale = (circles.length - index) / circles.length;
+
+                    circle.x = x;
+                    circle.y = y;
+
+                    // Get the next circle in the sequence
+                    const nextCircle = circles[index + 1] || circles[0];
+                    x += (nextCircle.x - x) * 0.3;
+                    y += (nextCircle.y - y) * 0.3;
+                });
+
+                // Repeat the animation
+                requestAnimationFrame(animateCircles);
+            }
+
+            // Start the animation
+            animateCircles();
+        </script>
+</body>
 </html>
