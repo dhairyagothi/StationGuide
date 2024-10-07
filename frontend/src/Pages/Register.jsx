@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import logo from '../assets/stationsaarthi.svg'; // Ensure the path is correct
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+
+    const navigate = useNavigate();
+    const LoginClick = () => {
+        navigate('/Login'); // Navigates to the login page
+    };
+    
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [email, setEmail] = useState('');
@@ -13,31 +20,31 @@ const Register = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-100 to-blue-5000 px-4">
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gradient-to-b from-blue-100 to-blue-5000">
             {/* Logo and Title */}
-            <div className="text-center mb-6">
-                <img src={logo} alt="Station Saarthi Logo" className="mx-auto w-20 h-22 mb-2" />
+            <div className="mb-6 text-center">
+                <img src={logo} alt="Station Saarthi Logo" className="w-20 mx-auto mb-2 h-22" />
                 <h1 className="text-2xl font-bold text-gray-800">Station Saarthi</h1>
-                <p className="text-gray-700 mt-1 text-sm">Your Trusted Platform Guide</p>
+                <p className="mt-1 text-sm text-gray-700">Your Trusted Platform Guide</p>
             </div>
 
             {/* Registration Form */}
-            <form onSubmit={handleRegister} className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
+            <form onSubmit={handleRegister} className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
                 {/* Register Heading */}
-                <h2 className="text-xl font-bold text-center mb-4 py-1 bg-blue-100 border border-blue-300 rounded-3xl shadow-sm">
+                <h2 className="py-1 mb-4 text-xl font-bold text-center bg-blue-100 border border-blue-300 shadow-sm rounded-3xl">
                     Register
                 </h2>
 
                 {/* Name Input */}
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-semibold mb-1" htmlFor="name">Name</label>
+                    <label className="block mb-1 font-semibold text-gray-700" htmlFor="name">Name</label>
                     <input
                         type="text"
                         id="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Enter your name"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
                     />
                 </div>
@@ -45,7 +52,7 @@ const Register = () => {
                 {/* Phone Number Input */}
                  <div className="mb-4">
           <label
-            className="block text-gray-700 font-medium mb-1"
+            className="block mb-1 font-medium text-gray-700"
             htmlFor="phoneNumber"
           >
             Phone Number
@@ -58,11 +65,11 @@ const Register = () => {
             placeholder="Enter your phone number"
             pattern="\d{10}"
             maxLength="10"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
           {phoneNumber && phoneNumber.length !== 10 && (
-            <p className="text-red-500 text-sm">
+            <p className="text-sm text-red-500">
               Please enter a valid 10-digit phone number.
             </p>
           )}
@@ -70,28 +77,28 @@ const Register = () => {
 
                 {/* Email Input */}
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-medium mb-1" htmlFor="email">Email</label>
+                    <label className="block mb-1 font-medium text-gray-700" htmlFor="email">Email</label>
                     <input
                         type="email"
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your email"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
                     />
                 </div>
 
                 {/* Password Input */}
                 <div className="mb-5">
-                    <label className="block text-gray-700 font-medium mb-1" htmlFor="password">Password</label>
+                    <label className="block mb-1 font-medium text-gray-700" htmlFor="password">Password</label>
                     <input
                         type="password"
                         id="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Create a password"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
                     />
                 </div>
@@ -99,18 +106,18 @@ const Register = () => {
                 {/* Register Button */}
                 <button
                     type="submit"
-                    className="w-full py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 text-sm"
+                    className="w-full py-2 text-sm font-semibold text-white transition duration-300 ease-in-out transform bg-blue-500 rounded-md hover:bg-blue-600 hover:scale-105"
                 >
                     Register
                 </button>
             </form>
 
             {/* Already have an account link */}
-            <p className="mt-4 text-gray-700 text-sm">
+            <p className="mt-4 text-sm text-gray-700">
                 Already have an account?{' '}
-                <a href="/Login" className="text-blue-500 font-medium hover:underline transition duration-300 transform hover:scale-105">
-                    Log in
-                </a>
+                <button
+                    onClick={LoginClick}
+                    className="text-blue-500 underline cursor-pointer"> Login</button>
             </p>
         </div>
     );
