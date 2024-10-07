@@ -47,15 +47,14 @@ Welcome to repository of Station Guide
 
 This project utilizes React for the frontend and Express for the backend, providing a robust foundation for your web application development.
 
-<!--Line-->
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
-
 ### Prerequisites
 
 To get started, you'll need the following:
 
 - Node.js (version 14 or later): https://nodejs.org/en/
 - npm (Node Package Manager) comes bundled with Node.js
+
+<br>
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
