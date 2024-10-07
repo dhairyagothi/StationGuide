@@ -245,8 +245,16 @@ Thanks goes to these wonderful people  ( [emoji key](https://allcontributors.org
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-## Contact Information
+## 👥 Team
 
-If you have questions, suggestions, or feedback, please reach out via email at dhairyag31@gmail.com. You can also join our discussion forum [here](https://github.com/dhairyagothi/StationGuide/discussions).
+| ![Dhairya Gothi](https://avatars.githubusercontent.com/u/142989448?v=4&s=80)|
+|:--:|
+| **Dhairya Gothi** <br> <sub>Project Admin</sub> | 
+| [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](https://www.linkedin.com/in/dhairya-gothi-65945b288/) | 
+
+If you have questions, suggestions, or feedback, please reach out via email at dhairyag31@gmail.com. You can also join our [discussion forum](https://github.com/dhairyagothi/StationGuide/discussions).
 
 We value open communication and are happy to help!
+
+## ⭐️ Support the Project
+If you find this project helpful, please consider giving it a ⭐ on GitHub! Your support helps to grow the project and reach more contributors.
