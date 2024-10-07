@@ -16,13 +16,18 @@ Welcome to repository of Station Guide
 
 - To check UI Prototype Figma design :- [StationGuideFigma.md](https://github.com/dhairyagothi/StationGuide/blob/f2d4795cf3d3c57ffafb6ce007f47173d7010b1e/StationGuideFigma.md)
 
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 ### This project is now OFFICIALLY accepted for
 
 <div align="center">
   <img src="https://github.com/apu52/METAVERSE/assets/114172928/e79eb6de-81b1-4ffb-b6ed-f018bb977e88" alt="GSSoC 2024 Extd" width="80%">
 </div>
-
 <br>
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## Table of Content
 
@@ -35,9 +40,15 @@ Welcome to repository of Station Guide
 - **[Contributors](#contributors)**
 - **[Contact Information](#contact-information)**
 
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 ## Using Station Guide
 
 This project utilizes React for the frontend and Express for the backend, providing a robust foundation for your web application development.
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ### Prerequisites
 
@@ -45,6 +56,9 @@ To get started, you'll need the following:
 
 - Node.js (version 14 or later): https://nodejs.org/en/
 - npm (Node Package Manager) comes bundled with Node.js
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## Getting Started
 
@@ -99,6 +113,9 @@ Start the backend development server (typically using nodemon server.js or a sim
 npm run start
 ```
 
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 ## Project Structure
 
 ```
@@ -119,6 +136,9 @@ StationGuide/
 ├── using.md  # This file
 └── ...  # Other project configuration files (e.g., .gitignore)
 ```
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## How to Contribute
 
@@ -177,6 +197,9 @@ To ensure a smooth collaboration process, Follow these steps:
 
 Please refer to the detailed [contribution guidelines](CONTRIBUTING.md) for more information.
 
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 ## Code of Conduct
 
 To foster a positive and inclusive community, please adhere to the following guidelines:
@@ -186,6 +209,9 @@ To foster a positive and inclusive community, please adhere to the following gui
 - **Report Issues:** If you witness or experience any unacceptable behavior, please report it to the project maintainers.
 
 Please read the [code of Conduct](CODE_OF_CONDUCT.md) for more clear understanding.
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## How to Fork
 
@@ -209,9 +235,17 @@ Forking allows you to create a personal copy of the repository, where you can ex
   ```bash
   git clone https://github.com/YOUR_USERNAME/Awesome-Github-Profiles.git
   ```
+<br>
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 ## Our Valuable Contributors ❤️✨
 
 [![Contributors](https://contrib.rocks/image?repo=dhairyagothi/StationGuide)](https://github.com/dhairyagothi/StationGuide/graphs/contributors)
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## 👥 Team
 
@@ -223,6 +257,9 @@ Forking allows you to create a personal copy of the repository, where you can ex
 If you have questions, suggestions, or feedback, please reach out via email at dhairyag31@gmail.com. You can also join our [discussion forum](https://github.com/dhairyagothi/StationGuide/discussions).
 
 We value open communication and are happy to help!
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## ⭐️ Support the Project
 If you find this project helpful, please consider giving it a ⭐ on GitHub! Your support helps to grow the project and reach more contributors.
