@@ -19,6 +19,7 @@ Welcome to repository of Station Guide
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
+<!-- Added the GSSoc Accepted image -->
 ### This project is now OFFICIALLY accepted for
 
 <div align="center">
@@ -246,6 +247,7 @@ Forking allows you to create a personal copy of the repository, where you can ex
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
+<!-- Added the Team section -->
 ## 👥 Team
 
 | ![Dhairya Gothi](https://avatars.githubusercontent.com/u/142989448?v=4&s=80)|
@@ -260,5 +262,6 @@ We value open communication and are happy to help!
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
+<!-- Added a Support section for the project README -->
 ## ⭐️ Support the Project
 If you find this project helpful, please consider giving it a ⭐ on GitHub! Your support helps to grow the project and reach more contributors.
