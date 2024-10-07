@@ -16,6 +16,14 @@ Welcome to repository of Station Guide
 
 - To check UI Prototype Figma design :- [StationGuideFigma.md](https://github.com/dhairyagothi/StationGuide/blob/f2d4795cf3d3c57ffafb6ce007f47173d7010b1e/StationGuideFigma.md)
 
+### This project is now OFFICIALLY accepted for
+
+<div align="center">
+  <img src="https://github.com/apu52/METAVERSE/assets/114172928/e79eb6de-81b1-4ffb-b6ed-f018bb977e88" alt="GSSoC 2024 Extd" width="80%">
+</div>
+
+<br>
+
 ## Table of Content
 
 - **[Using Station Guide](#using-station-guide)**
