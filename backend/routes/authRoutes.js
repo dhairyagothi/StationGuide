@@ -2,6 +2,7 @@ import express from 'express';
 import { registerUser, loginUser, logoutUser, verifyUser } from '../controllers/authController.js';
 import { createCloakroomBooking } from '../controllers/cloakroomController.js';
 import { createWheelchairBooking } from '../controllers/WheelchairController.js';
+import { createCoolieBooking } from '../controllers/coolieController.js';
 
 const router = express.Router();
 
@@ -22,5 +23,10 @@ router.post('/bookCloakroom', createCloakroomBooking);
 
 //wheelchair bookings route
 router.post('/bookWheelchair', createWheelchairBooking);
+
+//coolie bookings route
+router.post('/bookCoolie', createCoolieBooking);
+
+
 
 export default router;
