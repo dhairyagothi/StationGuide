@@ -11,7 +11,6 @@ const fadeIn = keyframes`
   }
 `;
 
-
 const fadeOut = keyframes`
   from {
     opacity: 1;
@@ -21,97 +20,21 @@ const fadeOut = keyframes`
   }
 `;
 
-const MenuIconBar = styled.div`
-  width: 30px;
-  height: 3px;
-  background-color: white;
-  margin: 6px 0;
-  transition: transform 0.4s, opacity 0.4s;
-`;
-
-const HamburgerContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 10px;
-  @media (max-width: 768px) {
-    padding: 5px;
+const expandWidth = keyframes`
+  from {
+    width: 0;
+  }
+  to {
+    width: 200px;
   }
 `;
 
-
-const Menu = styled.div`
-  display: ${({ open }) => (open ? 'block' : 'none')};
-  background-color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 30vw;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  animation: ${({ open }) => (open ? fadeIn : fadeOut)} 0.4s ease forwards;
-
-  @media (max-width: 768px) {
-    width: 100vw;
+const shrinkWidth = keyframes`
+  from {
+    width: 200px;
   }
-`;
-
-const MenuItem = styled.a`
-  color: rgb(59 130 246);
-  padding: 22px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  transition: background-color 0.3s, color 0.3s;
-  &:hover {
-    background-color: rgb(59 130 246);
-    color: white;
-  }
-`;
-
-const HamburgerIcon = styled.div`
-  position: relative;
-  width: 30px;
-  height: 24px;
-`;
-
-const Bar1 = styled(MenuIconBar)`
-  transform: ${({ open }) => (open ? 'rotate(-45deg) translate(-5px, 5px)' : 'rotate(0)')};
-`;
-
-const Bar2 = styled(MenuIconBar)`
-  opacity: ${({ open }) => (open ? 0 : 1)};
-`;
-
-const Bar3 = styled(MenuIconBar)`
-  transform: ${({ open }) => (open ? 'rotate(45deg) translate(-5px, -5px)' : 'rotate(0)')};
-`;
-
-const BackButton = styled(FaArrowLeft)`
-  font-size: 24px;
-  cursor: pointer;
-  margin: 16px;
-`;
-
-const SearchIcon = styled(FaSearch)`
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-  margin-right: 10px;
-  transition: color 0.3s;
-  &:hover {
-    color: rgb(37 99 235);
-  }
-`;
-
-const ClearIcon = styled(FaTimes)`
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-  margin-left: 5px;
-  transition: color 0.3s;
-  &:hover {
-    color: rgb(255 0 0);
+  to {
+    width: 0;
   }
 `;
 
@@ -121,45 +44,67 @@ const SearchContainer = styled.div`
   position: fixed;
   top: 10px;
   right: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 25px;
-  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  padding: 5px 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+`;
+
+const SearchIcon = styled(FaSearch)`
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: color 0.3s, transform 0.3s;
+
+  &:hover {
+    color: #1e90ff;
+    transform: scale(1.1);
+  }
+`;
+
+const ClearIcon = styled(FaTimes)`
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: color 0.3s, transform 0.3s;
+
+  &:hover {
+    color: #ff4500;
+    transform: rotate(90deg);
+  }
 `;
 
 const SearchInput = styled.input`
   display: block;
-  padding: 4px;
-  margin-left: 10px;
-  border-radius: 5px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
   width: ${({ show }) => (show ? '200px' : '0px')};
-  transition: width 0.4s ease;
+  transition: width 0.4s ease, opacity 0.4s ease;
+  animation: ${({ show }) => (show ? expandWidth : shrinkWidth)} 0.4s ease;
 
-  background-color: transparent;
-  color: white;
-  outline: none;
-  width: ${({ show }) => (show ? "200px" : "0px")};
-  transition: width 0.4s ease;
+  &:focus {
+    outline: none;
+    background-color: rgba(245, 245, 245, 0.9);
+  }
+
   opacity: ${({ show }) => (show ? 1 : 0)};
-  pointer-events: ${({ show }) => (show ? "auto" : "none")};
+  pointer-events: ${({ show }) => (show ? 'auto' : 'none')};
+
   &::placeholder {
-    color: #ccc;
+    color: #aaa;
   }
 `;
 
 const Hamburger = () => { 
-  const [open, setOpen] = useState(false); 
   const [showSearch, setShowSearch] = useState(false); 
   const [searchTerm, setSearchTerm] = useState(''); 
   const searchInputRef = useRef(null); 
-
-  const toggleMenu = () => {
-    setOpen((prev) => !prev);
-  };
-  
-
-  const handleBack = () => {
-    setOpen(false);
-  };
 
   const toggleSearch = () => {
     setShowSearch((prev) => !prev);
@@ -183,31 +128,12 @@ const Hamburger = () => {
 
   return (
     <div>
-      <HamburgerContainer onClick={toggleMenu} aria-label="Toggle Menu" role="button">
-        <HamburgerIcon>
-          <Bar1 open={open} />
-          <Bar2 open={open} />
-          <Bar3 open={open} />
-        </HamburgerIcon>
-      </HamburgerContainer>
-
-      {open && <BackButton onClick={handleBack} />}
-
-      <Menu open={open}>
-        <MenuItem href="#back" onClick={handleBack} style={{ fontSize: '30px' }}>
-          ←
-        </MenuItem>
-        <MenuItem href="#home">Home</MenuItem>
-        <MenuItem href="#services">Services</MenuItem>
-        <MenuItem href="#contact">Contact</MenuItem>
-      </Menu>
-
       <SearchContainer>
         <SearchIcon onClick={toggleSearch} />
         <SearchInput
           type="text"
           show={showSearch}
-          placeholder="Type to search..."
+          placeholder="Search..."
           ref={searchInputRef}
           value={searchTerm}
           onChange={handleSearchChange}
