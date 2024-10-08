@@ -66,6 +66,7 @@ const RailwayStations = () => {
         'Madurai Junction',
         'Rourkela Junction',
         'Jodhpur Junction',
+        'Shri Mata Vaishno Devi Katra Railway Station',
         // Add more stations as needed
     ];
 
