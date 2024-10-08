@@ -6,6 +6,7 @@ import Booking from './Pages/booking';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import chatbotsvg from './assets/svg/chatbot.svg';
 import { useNavigate, Outlet } from 'react-router-dom';
+import RailwayStations from './Pages/stations';
 import './App.css'
 
 function App() {
@@ -17,7 +18,9 @@ function App() {
         <Route path="/" element={<Herosection />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Register" element={<Register />} />
-        <Route path="/booking" element={<Booking />} />
+        <Route path='/Stations' element={<RailwayStations/>} />
+        <Route path="/Booking" element={<Booking />} />
+
 
         {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
         <Route element={<ProtectedRoute />}>
@@ -27,9 +30,9 @@ function App() {
       </Routes>
     </Router>
 
-    <div className='fixed bottom-0 right-0 z-50 m-4 cursor-pointer'>
+    {/* <div className='fixed bottom-0 right-0 z-50 m-4 cursor-pointer'>
       <img src={chatbotsvg} alt="chatbot" className='w-16 h-16' />
-    </div>
+    </div> */}
 
 </>
   )
