@@ -23,7 +23,9 @@ connectDB();
 
 // Routes
 import authRoutes from './routes/authRoutes.js';
+
 app.use('/auth', authRoutes);
+app.use('/api', authRoutes); 
 
 app.get('/', (req, res) => {
   res.send('Working...');
