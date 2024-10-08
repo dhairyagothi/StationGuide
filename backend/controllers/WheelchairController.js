@@ -1,16 +1,9 @@
 import WheelchairBooking from "../models/WheelChairBooking.js";
+import { io } from "../index.js";
 
+// Controller to handle booking creation
 export const createWheelchairBooking = async (req, res) => {
   const { station, bookingDate, bookingTime, wheelchairType } = req.body;
-
-  if (!station || !bookingDate || !bookingTime) {
-    return res
-      .status(400)
-      .json({
-        message:
-          "Please provide all required fields: station, bookingDate, bookingTime",
-      });
-  }
 
   try {
     const newBooking = new WheelchairBooking({
@@ -22,11 +15,17 @@ export const createWheelchairBooking = async (req, res) => {
 
     const savedBooking = await newBooking.save();
 
-    res.status(201).json(savedBooking);
-  } catch (error) {
-    console.error("Error creating wheelchair booking:", error);
+    // Emit real-time booking confirmation to the client
+    io.emit("wheelchairBookingConfirmation", {
+      message: `Your booking at ${station} for ${bookingDate} has been confirmed.`,
+      booking: savedBooking,
+    });
+
+    // Send back HTTP response as well
     res
-      .status(500)
-      .json({ message: "Server error. Could not create wheelchair booking." });
+      .status(201)
+      .json({ message: "Booking created successfully", booking: savedBooking });
+  } catch (error) {
+    res.status(500).json({ message: "Server error." });
   }
 };

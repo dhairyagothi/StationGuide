@@ -1,3 +1,4 @@
+import { io } from "../index.js";
 import CloakroomBooking from "../models/CloakroomBooking.js";
 
 export const createCloakroomBooking = async (req, res) => {
@@ -20,6 +21,11 @@ export const createCloakroomBooking = async (req, res) => {
     });
 
     const savedBooking = await newBooking.save();
+
+    io.emit("cloakroomBookingConfirmation", {
+      message: `Your booking at ${station} for ${items} has been confirmed.`,
+      booking: savedBooking,
+    });
 
     res.status(201).json(savedBooking);
   } catch (error) {
