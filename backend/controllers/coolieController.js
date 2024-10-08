@@ -1,3 +1,4 @@
+import { io } from "../index.js";
 import CoolieBooking from "../models/CoolieBooking.js";
 
 export const createCoolieBooking = async (req, res) => {
@@ -34,6 +35,11 @@ export const createCoolieBooking = async (req, res) => {
     });
 
     const savedBooking = await coolieBooking.save();
+
+    io.emit("coolieBookingConfirmation", {
+      message: `Your booking at ${station} for coolie has been confirmed.`,
+      booking: savedBooking,
+    });
 
     res.status(201).json({
       message: "Coolie booking created successfully.",
