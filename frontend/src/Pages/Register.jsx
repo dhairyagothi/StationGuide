@@ -31,6 +31,8 @@ const Register = () => {
         setPhoneNumber('');
         setEmail('');
         setPassword('');
+        // Handle registration logic here 
+
     };
 
     // Use effect to clear the confirmation message after 3 seconds
