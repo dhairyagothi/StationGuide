@@ -192,6 +192,7 @@ const RailwayStations = () => {
           />
         </button>
       </div>
+
       {/* Header Section */}
       <div className="flex flex-col items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Railway Stations</h1>
@@ -200,7 +201,9 @@ const RailwayStations = () => {
         </p>
       </div>
 
-      {/* Search Bar */}
+
+      {/* Search Bar and State Filter */}
+
       <div className="flex justify-center mb-6">
         <input
           type="text"
@@ -209,6 +212,19 @@ const RailwayStations = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
         />
+
+        <select
+          value={selectedState}
+          onChange={(e) => setSelectedState(e.target.value)}
+          className="ml-4 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+        >
+          {states.map((state, index) => (
+            <option key={index} value={state}>
+              {state}
+            </option>
+          ))}
+        </select>
+
       </div>
 
       {/* Stations Grid */}
@@ -222,18 +238,24 @@ const RailwayStations = () => {
               >
                 <div className="flex items-center">
                   <FaTrain className="text-blue-500 w-6 h-6 mr-3" />
-                  <span className="text-gray-800 font-medium">{station}</span>
+
+                  <span className="text-gray-800 font-medium">
+                    {station.name}
+                  </span>
                 </div>
                 <button
-                  onClick={() => toggleFavorite(station)}
+                  onClick={() => toggleFavorite(station.name)}
                   className="text-yellow-500 focus:outline-none"
                   aria-label={
-                    favorites.includes(station)
+                    favorites.includes(station.name)
+
                       ? "Remove from favorites"
                       : "Add to favorites"
                   }
                 >
-                  {favorites.includes(station) ? (
+
+                  {favorites.includes(station.name) ? (
+
                     <AiFillStar className="w-5 h-5" />
                   ) : (
                     <AiOutlineStar className="w-5 h-5" />
