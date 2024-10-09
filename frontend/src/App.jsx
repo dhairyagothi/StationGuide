@@ -9,11 +9,11 @@ import RailwayStations from './Pages/stations';
 import NavigationPage from './Pages/navigation';
 import './App.css'
 import BookingPage from './Pages/booking';
-import DMapPage from './Pages/3Dmaps';
+import MapPage from './Pages/3Dmaps';
 import SchedulePage from './Pages/schedule';
 import NotificationPage from './Pages/notification';
 import Contributor from './Pages/contributor';
-
+import Chatbot from './components/chatbot';
 
 function App() {
 
@@ -27,10 +27,11 @@ function App() {
         <Route path='/Stations' element={<RailwayStations/>} />
         <Route path='/Navigation' element={<NavigationPage/>} />
         <Route path='/Booking' element={<BookingPage/>} />
-        <Route path='/3DMap' element={<DMapPage/>} />
+        <Route path='/3DMap' element={<MapPage/>} />
         <Route path='/Schedule' element={<SchedulePage/>} />
         <Route path='/Notification' element={<NotificationPage/>} />
         <Route path='/contributors' element={<Contributor/>} />
+        <Route path='/chatbot' element={<Chatbot/>} />
         
         
 

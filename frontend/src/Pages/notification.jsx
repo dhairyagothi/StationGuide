@@ -2,7 +2,17 @@ import React from 'react'
 
 const NotificationPage = () => {
   return (
-    <div className='h-full w-full text-6xl text-center font-bold justify-between p-44 text-white'>Making in Progress</div>
+    <>
+    <div className='justify-between w-full h-full text-6xl font-bold text-center text-white p-44'>
+      Website is in Progress
+    </div>
+    <div className='mt-8 text-center text-black'>
+      <p>Welcome to the Notification Page!</p>
+        
+        
+    </div>
+  </>
+    
   )
 } 
 
