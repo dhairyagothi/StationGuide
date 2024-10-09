@@ -121,25 +121,22 @@ const SearchContainer = styled.div`
   position: fixed;
   top: 10px;
   right: 10px;
-  background-color: rgba(0, 0, 0, 0.5); 
-  border-radius: 25px; 
-  padding: 5px 10px; 
-  transition: width 0.4s ease; 
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  padding: 5px 10px;
 `;
 
 const SearchInput = styled.input`
   display: block;
-  padding: 8px;
-  margin-left: 10px;
-  border: 2px solid rgb(59 130 246);
-  border-radius: 5px;
-  width: ${({ show }) => (show ? '200px' : '0px')};
-  transition: width 0.4s ease;
+  padding: 5px;
+  width: 200px;
   background-color: transparent;
   color: white;
   outline: none;
+  width: ${({ show }) => (show ? "200px" : "0px")};
+  transition: width 0.4s ease;
   opacity: ${({ show }) => (show ? 1 : 0)};
-  pointer-events: ${({ show }) => (show ? 'auto' : 'none')};
+  pointer-events: ${({ show }) => (show ? "auto" : "none")};
   &::placeholder {
     color: #ccc;
   }

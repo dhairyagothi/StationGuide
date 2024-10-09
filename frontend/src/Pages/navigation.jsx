@@ -1,11 +1,11 @@
 import React from 'react'
 
-const navigation = () => {
+const NavigationPage = () => {
   return (
-    <div>navigation</div>
+    <div className='h-full w-full text-6xl text-center font-bold justify-between p-44 text-white'>Making in Progress</div>
   )
 } 
 
-export default navigation
+export default NavigationPage;
 
 
