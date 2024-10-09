@@ -19,7 +19,7 @@ const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        // Handle registration logic here
+        // Handle registration logic here 
     };
 
     return (
