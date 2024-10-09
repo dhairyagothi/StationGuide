@@ -19,10 +19,14 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // State for password visibility
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    // Handle registration logic here
-  };
+
+ 
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        // Handle registration logic here 
+    };
+
 
   return (
     <>
