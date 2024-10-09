@@ -1,5 +1,3 @@
-// src/components/RailwayStations.jsx
-
 import React, { useState } from "react";
 import { FaTrain } from "react-icons/fa"; // Using FontAwesome train icon
 import { AiFillStar, AiOutlineStar } from "react-icons/ai"; // Star icons for favorites
@@ -199,11 +197,11 @@ const RailwayStations = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
+    <div className="min-h-screen p-4 bg-gray-100">
       {/* Header Section */}
       <div className="flex flex-col items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Railway Stations</h1>
-        <p className="text-gray-600 mt-2">
+        <p className="mt-2 text-gray-600">
           Find and explore railway stations across India
         </p>
       </div>
@@ -215,12 +213,12 @@ const RailwayStations = () => {
           placeholder="Search for a railway station..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+          className="w-full max-w-md px-4 py-2 transition duration-300 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <select
           value={selectedState}
           onChange={(e) => setSelectedState(e.target.value)}
-          className="ml-4 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+          className="px-4 py-2 ml-4 transition duration-300 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           {states.map((state, index) => (
             <option key={index} value={state}>
@@ -232,16 +230,16 @@ const RailwayStations = () => {
 
       {/* Stations Grid */}
       <div className="flex justify-center">
-        <div className="w-full max-w-4xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
           {filteredStations.length > 0 ? (
             filteredStations.map((station, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-lg transition duration-200"
+                className="flex items-center justify-between p-4 transition duration-200 bg-white rounded-lg shadow hover:shadow-lg"
               >
                 <div className="flex items-center">
-                  <FaTrain className="text-blue-500 w-6 h-6 mr-3" />
-                  <span className="text-gray-800 font-medium">
+                  <FaTrain className="w-6 h-6 mr-3 text-blue-500" />
+                  <span className="font-medium text-gray-800">
                     {station.name}
                   </span>
                 </div>
@@ -263,7 +261,7 @@ const RailwayStations = () => {
               </div>
             ))
           ) : (
-            <div className="col-span-full p-4 text-center text-gray-500">
+            <div className="p-4 text-center text-gray-500 col-span-full">
               No stations found.
             </div>
           )}
@@ -273,19 +271,19 @@ const RailwayStations = () => {
       {/* Favorites Section (Optional) */}
       {favorites.length > 0 && (
         <div className="mt-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          <h2 className="mb-4 text-2xl font-semibold text-gray-800">
             Your Favorite Stations
           </h2>
           <div className="flex justify-center">
-            <div className="w-full max-w-4xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
               {favorites.map((station, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-4 bg-yellow-100 rounded-lg shadow hover:shadow-lg transition duration-200"
+                  className="flex items-center justify-between p-4 transition duration-200 bg-yellow-100 rounded-lg shadow hover:shadow-lg"
                 >
                   <div className="flex items-center">
-                    <FaTrain className="text-yellow-500 w-6 h-6 mr-3" />
-                    <span className="text-gray-800 font-medium">{station}</span>
+                    <FaTrain className="w-6 h-6 mr-3 text-yellow-500" />
+                    <span className="font-medium text-gray-800">{station}</span>
                   </div>
                   <button
                     onClick={() => toggleFavorite(station)}
