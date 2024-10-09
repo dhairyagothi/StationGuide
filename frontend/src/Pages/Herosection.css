@@ -3,15 +3,30 @@
 @tailwind utilities;
 
 body {
-    
     padding: 0;
     margin: 0;
     background-image: url('../assets/mixbg.png');
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 100vh;
     width: 100vw; 
-    overflow-x : hidden;
-    position: relative;  
+    overflow-x: hidden;
+    position: relative;
+    overflow-y: hidden;  
+}
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        background-image: url('../assets/mixbg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        width: 100vw; 
+        overflow-x: hidden;
+        position: relative; 
+        overflow-y: unset; 
+    }
 }
