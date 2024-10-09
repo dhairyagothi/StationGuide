@@ -6,7 +6,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import chatbotsvg from './assets/svg/chatbot.svg';
 import { useNavigate, Outlet } from 'react-router-dom';
 import RailwayStations from './Pages/stations';
+import NavigationPage from './Pages/navigation';
 import './App.css'
+import BookingPage from './Pages/booking';
+import MapPage from './Pages/3Dmaps';
+import SchedulePage from './Pages/schedule';
+import NotificationPage from './Pages/notification';
+import Contributor from './Pages/contributor';
+import Chatbot from './components/chatbot';
 
 function App() {
 
@@ -18,6 +25,15 @@ function App() {
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Register" element={<Register />} />
         <Route path='/Stations' element={<RailwayStations/>} />
+        <Route path='/Navigation' element={<NavigationPage/>} />
+        <Route path='/Booking' element={<BookingPage/>} />
+        <Route path='/3DMap' element={<MapPage/>} />
+        <Route path='/Schedule' element={<SchedulePage/>} />
+        <Route path='/Notification' element={<NotificationPage/>} />
+        <Route path='/contributors' element={<Contributor/>} />
+        <Route path='/chatbot' element={<Chatbot/>} />
+        
+        
 
         {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
         <Route element={<ProtectedRoute />}>
