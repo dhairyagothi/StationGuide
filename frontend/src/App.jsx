@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import chatbotsvg from './assets/svg/chatbot.svg';
 import { useNavigate, Outlet } from 'react-router-dom';
 import RailwayStations from './Pages/stations';
+import Booking from './Pages/booking';
 import './App.css'
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Register" element={<Register />} />
         <Route path='/Stations' element={<RailwayStations/>} />
+        <Route path='/Stations' element={<RailwayStations/>} />
+
 
         {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
         <Route element={<ProtectedRoute />}>
