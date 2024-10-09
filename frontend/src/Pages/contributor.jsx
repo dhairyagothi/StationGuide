@@ -1,10 +1,10 @@
 
 import React from 'react'
 
-const contributor = () => {
+const Contributor = () => {
   return (
     <div>contributor</div>
   )
 }
 
-export default contributor
+export default Contributor;
