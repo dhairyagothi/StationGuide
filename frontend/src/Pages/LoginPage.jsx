@@ -38,13 +38,13 @@ const Login = () => {
 
                 {/* Username Input */}
                 <div className="mb-5">
-                    <label className="block mb-2 font-semibold text-gray-700 " htmlFor="username">Username</label>
+                    <label className="block mb-2 font-semibold text-gray-700 " htmlFor="username">Name</label>
                     <input
                         type="text" 
-                        id="username" 
-                        value={username} 
+                        id="name" 
+                        value={name} 
                         onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Enter your username"
+                        placeholder="Enter your name"
                         className="w-full px-4 py-2 transition duration-300 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         required
                     /> 
