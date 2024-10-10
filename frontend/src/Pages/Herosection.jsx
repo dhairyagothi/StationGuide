@@ -14,7 +14,7 @@ import HamburgerMenu from './hamburger';
 import contributor from './contributor';
 import contributorsvg from '../assets/svg/contributor.svg';
 import chatbotsvg from '../assets/svg/chatbot.svg';
-
+import Chatbot from '../components/chatbot';
 const Herosection = () => {
     const navigate = useNavigate();
 
@@ -45,9 +45,7 @@ const Herosection = () => {
     const ContributorCLick = () => {
         navigate('/contributors'); // Navigates to the login page
     }
-    const ChatbotCLick = () => {
-        navigate('/chatbot'); // Navigates to the login page
-    }
+  
 
     return (
         <>
@@ -99,9 +97,7 @@ const Herosection = () => {
             </div>
             <div type="submit" onClick={ContributorCLick} className='fixed right-0 z-50 flex flex-col items-center justify-center py-8 m-4 my-auto rounded-full cursor-pointer bottom-16'><img src={contributorsvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /> <h1 className='font-bold text-black'>Contributors</h1></div>
             
-            <div className='fixed bottom-0 right-0 z-50 m-4 cursor-pointer'>
-                <img src={chatbotsvg} alt="chatbot" onClick={ChatbotCLick} className='w-16 h-16' />
-                <h1 className='font-bold text-black'>Saarthi</h1></div>
+          <Chatbot/>
             
 
         </>
