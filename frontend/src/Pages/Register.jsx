@@ -15,13 +15,37 @@ const Register = () => {
     const [confirmationMessage, setConfirmationMessage] = useState('');
     const [passwordStrength, setPasswordStrength] = useState(''); // State for password strength feedback
 
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
-        setConfirmationMessage("Your account is created successfully. Please login to access the website.");
-        setName('');
-        setPhoneNumber('');
-        setEmail('');
-        setPassword('');
+
+        try {
+            const response = await fetch('https://stationguide.onrender.com/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name,
+                    phoneNumber,
+                    email,
+                    password,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setConfirmationMessage("Your account is created successfully. Please login to access the website.");
+                setName('');
+                setPhoneNumber('');
+                setEmail('');
+                setPassword('');
+            } else {
+                setConfirmationMessage(`Error: ${data.error}`);
+            }
+        } catch (error) {
+            setConfirmationMessage("Registration failed. Please try again.");
+        }
     };
 
     // Use effect to clear the confirmation message after 3 seconds
