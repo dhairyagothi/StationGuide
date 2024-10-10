@@ -101,7 +101,8 @@ const Herosection = () => {
             
             <div className='fixed bottom-0 right-0 z-50 m-4 cursor-pointer'>
                 <img src={chatbotsvg} alt="chatbot" onClick={ChatbotCLick} className='w-16 h-16' />
-            </div>
+                <h1 className='font-bold text-black'>Saarthi</h1></div>
+            
 
         </>
     );
