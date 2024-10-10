@@ -7,3 +7,11 @@ body{
     margin: 0;
     
 }
+.element:hover:before, 
+.element:hover:after {
+    --tw-content: "Hovered!";
+    /* Add your desired hover styles here */
+    color: red;
+    content: var(--tw-content);
+    background-color: yellow;
+}
