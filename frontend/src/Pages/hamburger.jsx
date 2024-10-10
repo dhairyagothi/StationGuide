@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FaArrowLeft, FaSearch, FaTimes } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const fadeIn = keyframes`
   from {
@@ -143,6 +144,31 @@ const SearchInput = styled.input`
 `;
 
 const Hamburger = () => { 
+
+  const navigate = useNavigate();
+
+  const HomeClick = () => {
+    navigate('/');
+  };
+
+  const SettingsClick = () => {
+    navigate('/Settings');
+  };
+
+  const helpClick = () => {
+    navigate('/Help');
+  };
+
+  const aboutClick = () => {
+    navigate('/About');
+  };
+
+  const Contactclick = () => {
+    navigate('/Contact');
+  };
+
+
+
   const [open, setOpen] = useState(false); 
   const [showSearch, setShowSearch] = useState(false); 
   const [searchTerm, setSearchTerm] = useState(''); 
@@ -193,9 +219,11 @@ const Hamburger = () => {
         <MenuItem href="#back" onClick={handleBack} style={{ fontSize: '30px' }}>
           ←
         </MenuItem>
-        <MenuItem href="#home">Home</MenuItem>
-        <MenuItem href="#services">Services</MenuItem>
-        <MenuItem href='/ContactUs'>Contact</MenuItem>
+        <MenuItem className="cursor-pointer " onClick={HomeClick}>Home</MenuItem>
+        <MenuItem className="cursor-pointer " onClick={SettingsClick}>Settings</MenuItem>
+        <MenuItem className="cursor-pointer " onClick={helpClick}>Help</MenuItem>
+        <MenuItem className="cursor-pointer " onClick={aboutClick}>About</MenuItem>
+        <MenuItem className="cursor-pointer " onClick={Contactclick}>Contact</MenuItem>
       </Menu>
 
       <SearchContainer>

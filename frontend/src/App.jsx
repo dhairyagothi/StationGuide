@@ -15,6 +15,9 @@ import NotificationPage from './Pages/notification';
 import Contributor from './Pages/contributor';
 import Chatbot from './components/chatbot';
 import ContactUs from './Pages/ContactUs';
+import Settings from './components/Settings';
+import help from './components/help';
+import about from './components/about';
 
 function App() {
 
@@ -34,6 +37,10 @@ function App() {
         <Route path='/contributors' element={<Contributor/>} />
         <Route path='/chatbot' element={<Chatbot/>} />
         <Route path='/ContactUs' element={<ContactUs/>} />
+        <Route path='/Settings' element={<Settings/>} />
+        <Route path='/help' element={<help/>} />
+        <Route path='/about' element={<about/>} />
+        
         
         
 
