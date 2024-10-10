@@ -9,8 +9,7 @@
     /* Style for the Google Translate element */
     #google_element {
         position: absolute;
-        bottom: 0px;
-        /* Distance from the top */
+        top: 10px; /* Distance from the top */
         /* Position between middle and left corner */
         margin: 40px;
         transform: translateX(-20%); /* Adjust for half the element's width */
@@ -27,13 +26,13 @@
                 left: 0;
                 pointer-events: none;
                 z-index: 99999999;
-                /* Stays on top of all elements */
+                
             }
     
-    /* Chatbot styles */
+    
     .chatbot-container {
         position: relative;
-        bottom: 20px; /* Adjust as needed */
+        bottom: 20px;
         right: 20px;
         z-index: 100;
     }
@@ -57,7 +56,7 @@
     .chatbox {
         display: none;
         position: fixed;
-        bottom: 90px; /* Position above the bottom of the viewport */
+        bottom: 90px; 
         right: 20px;
         width: 300px;
         background-color: #f9f9f9;
@@ -120,17 +119,17 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
-    <div class="chatbot-container"></div>
+    <!-- <div class="chatbot-container"></div>
     <div class="chatbot" id="chatbotIcon">
         <img src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="Chatbot Icon" />
     </div>
     <div class="chatbox" id="chatbox">
         <h3>Saarthi</h3>
-        <div id="chatOutput" class="chat-output"></div> <!-- Output area for responses -->
+        <div id="chatOutput" class="chat-output"></div> 
         <textarea id="chatInput" rows="4" placeholder="Type your message..."></textarea>
         <button id="sendMessage">Send</button>
-    </div>
-
+    </div> -->
+<!-- 
     <script>
         // Variable to track if the welcome message has been displayed
         let welcomeMessageDisplayed = false;
@@ -216,9 +215,9 @@ document.getElementById('sendMessage').addEventListener('click', function () {
         userMessages.forEach((message) => {
             const cleanedMessage = message.trim().toLowerCase().replace(/[?,.!]/g, ''); // Remove punctuation
             if (cleanedMessage in responses) {
-                chatOutput.innerHTML += `<p>${responses[cleanedMessage]}</p>`;
+                chatOutput.innerHTML += <p>${responses[cleanedMessage]}</p>;
             } else if (cleanedMessage) {
-                chatOutput.innerHTML += `<p>I'm sorry, I don't have an answer for that.</p>`;
+                chatOutput.innerHTML += <p>I'm sorry, I don't have an answer for that.</p>;
             }
         });
 
@@ -226,7 +225,7 @@ document.getElementById('sendMessage').addEventListener('click', function () {
     }
 });
 
-    </script>
+    </script> -->
     
     <div id="google_element"></div>
     <script
