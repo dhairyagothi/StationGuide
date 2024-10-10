@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { FaTrain } from "react-icons/fa"; // Using FontAwesome train icon
 import { AiFillStar, AiOutlineStar } from "react-icons/ai"; // Star icons for favorites
+import { useNavigate } from "react-router-dom";
+import backicon from "../assets/svg/backicon.svg";
 
 const RailwayStations = () => {
   // Comprehensive list of railway stations with states
+  const navigate = useNavigate();
+
+  const HomeClick = () => {
+    navigate("/"); // Navigates to the home page
+  };
+
   const stations = [
     { name: "Agartala Railway Station", state: "Tripura" },
     { name: "Agra Cantonment", state: "Uttar Pradesh" },
@@ -197,8 +205,19 @@ const RailwayStations = () => {
   });
 
   return (
+
     <div className="min-h-screen p-4 bg-gray-100">
       {/* Header Section */}
+      <div>
+        <button onClick={HomeClick}>
+          <img
+            src={backicon}
+            alt=""
+            srcset=""
+            className="fixed left-[1vh] h-[9vh] w-auto"
+          />
+        </button>
+      </div>
       <div className="flex flex-col items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Railway Stations</h1>
         <p className="mt-2 text-gray-600">
