@@ -195,7 +195,7 @@ const Hamburger = () => {
         </MenuItem>
         <MenuItem href="#home">Home</MenuItem>
         <MenuItem href="#services">Services</MenuItem>
-        <MenuItem href="#contact">Contact</MenuItem>
+        <MenuItem href='/ContactUs'>Contact</MenuItem>
       </Menu>
 
       <SearchContainer>

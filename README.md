@@ -1,4 +1,7 @@
 # STATION GUIDE : YOUR PLATFORM GUIDE
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -16,6 +19,20 @@ Welcome to repository of Station Guide
 
 - To check UI Prototype Figma design :- [StationGuideFigma.md](https://github.com/dhairyagothi/StationGuide/blob/f2d4795cf3d3c57ffafb6ce007f47173d7010b1e/StationGuideFigma.md)
 
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+<!-- Added the GSSoc Accepted image -->
+### This project is now OFFICIALLY accepted for
+
+<div align="center">
+  <img src="https://github.com/apu52/METAVERSE/assets/114172928/e79eb6de-81b1-4ffb-b6ed-f018bb977e88" alt="GSSoC 2024 Extd" width="80%">
+</div>
+<br>
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 ## Table of Content
 
 - **[Using Station Guide](#using-station-guide)**
@@ -27,6 +44,9 @@ Welcome to repository of Station Guide
 - **[Contributors](#contributors)**
 - **[Contact Information](#contact-information)**
 
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 ## Using Station Guide
 
 This project utilizes React for the frontend and Express for the backend, providing a robust foundation for your web application development.
@@ -37,6 +57,11 @@ To get started, you'll need the following:
 
 - Node.js (version 14 or later): https://nodejs.org/en/
 - npm (Node Package Manager) comes bundled with Node.js
+
+<br>
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## Getting Started
 
@@ -91,6 +116,9 @@ Start the backend development server (typically using nodemon server.js or a sim
 npm run start
 ```
 
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 ## Project Structure
 
 ```
@@ -111,6 +139,9 @@ StationGuide/
 ├── using.md  # This file
 └── ...  # Other project configuration files (e.g., .gitignore)
 ```
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## How to Contribute
 
@@ -169,6 +200,9 @@ To ensure a smooth collaboration process, Follow these steps:
 
 Please refer to the detailed [contribution guidelines](CONTRIBUTING.md) for more information.
 
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 ## Code of Conduct
 
 To foster a positive and inclusive community, please adhere to the following guidelines:
@@ -178,6 +212,9 @@ To foster a positive and inclusive community, please adhere to the following gui
 - **Report Issues:** If you witness or experience any unacceptable behavior, please report it to the project maintainers.
 
 Please read the [code of Conduct](CODE_OF_CONDUCT.md) for more clear understanding.
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 ## How to Fork
 
@@ -201,44 +238,33 @@ Forking allows you to create a personal copy of the repository, where you can ex
   ```bash
   git clone https://github.com/YOUR_USERNAME/Awesome-Github-Profiles.git
   ```
+<br>
 
-## Contributors
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
-Thanks goes to these wonderful people  ( [emoji key](https://allcontributors.org/docs/en/emoji-key) ):
+## Our Valuable Contributors ❤️✨
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/dhairyagothi"><img src="https://avatars.githubusercontent.com/dhairyagothi?s=30" width="30px;" alt="Dhairya Gothi"/><br /><sub><b>Dhairya Gothi</b></sub></a><br /><a href="https://github.com//Dhairya Gothi/StationGuide/commits?author=dhairyagothi" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/tarunkumar2005"><img src="https://avatars.githubusercontent.com/tarunkumar2005?s=30" width="30px;" alt="Tarun Kumar"/><br /><sub><b>Tarun Kumar</b></sub></a><br /><a href="https://github.com//Dhairya Gothi/StationGuide/commits?author=tarunkumar2005" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ShivaniNikam1"><img src="https://avatars.githubusercontent.com/ShivaniNikam1?s=30" width="30px;" alt="Shivani Nikam"/><br /><sub><b>Shivani Nikam</b></sub></a><br /><a href="https://github.com//Dhairya Gothi/StationGuide/commits?author=ShivaniNikam1" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/1-SubhamSingh"><img src="https://avatars.githubusercontent.com/1-SubhamSingh?s=30" width="30px;" alt="Subham Singh"/><br /><sub><b>Subham Singh</b></sub></a><br /><a href="https://github.com//Dhairya Gothi/StationGuide/commits?author=1-SubhamSingh" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Premkolte"><img src="https://avatars.githubusercontent.com/Premkolte?s=30" width="30px;" alt="Prem Kolte"/><br /><sub><b>Prem Kolte</b></sub></a><br /><a href="https://github.com//Dhairya Gothi/StationGuide/commits?author=Premkolte" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/MihirSaiDudekula"><img src="https://avatars.githubusercontent.com/MihirSaiDudekula?s=30" width="30px;" alt="Mihir Sai Dudekula"/><br /><sub><b>Mihir Sai Dudekula</b></sub></a><br /><a href="https://github.com//Dhairya Gothi/StationGuide/commits?author=MihirSaiDudekula" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/RiddhiM170904"><img src="https://avatars.githubusercontent.com/RiddhiM170904?s=30" width="30px;" alt="Riddhi M"/><br /><sub><b>Riddhi M</b></sub></a><br /><a href="https://github.com//Dhairya Gothi/StationGuide/commits?author=RiddhiM170904" title="Code">💻</a></td>
-    </tr>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Mehtarishita"><img src="https://avatars.githubusercontent.com/Mehtarishita?s=30" width="30px;" alt="Rishita Mehta"/><br /><sub><b>Rishita Mehta</b></sub></a><br /><a href="https://github.com//Dhairya Gothi/StationGuide/commits?author=Mehtarishita" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/shreyad2806"><img src="https://avatars.githubusercontent.com/shreyad2806?s=30" width="30px;" alt="Shreya D"/><br /><sub><b>Shreya D</b></sub></a><br /><a href="https://github.com//Dhairya Gothi/StationGuide/commits?author=shreyad2806" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/MrityunjaySingh09"><img src="https://avatars.githubusercontent.com/MrityunjaySingh09?s=30" width="30px;" alt="Mrityunjay Singh"/><br /><sub><b>Mrityunjay Singh</b></sub></a><br /><a href="https://github.com//Dhairya Gothi/StationGuide/commits?author=MrityunjaySingh09" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/itsbhh"><img src="https://avatars.githubusercontent.com/itsbhh?s=30" width="30px;" alt="itsbhh"/><br /><sub><b>itsbhh</b></sub></a><br /><a href="https://github.com//Dhairya Gothi/StationGuide/commits?author=itsbhh" title="Code">💻</a></td>
-    </tr>
-  </tbody>
- 
-</table>
+[![Contributors](https://contrib.rocks/image?repo=dhairyagothi/StationGuide)](https://github.com/dhairyagothi/StationGuide/graphs/contributors)
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- Added the Team section -->
+## 👥 Team
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+| ![Dhairya Gothi](https://avatars.githubusercontent.com/u/142989448?v=4&s=80)|
+|:--:|
+| **Dhairya Gothi** <br> <sub>Project Admin</sub> | 
+| [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](https://www.linkedin.com/in/dhairya-gothi-65945b288/) | 
 
-## Contact Information
-
-If you have questions, suggestions, or feedback, please reach out via email at dhairyag31@gmail.com. You can also join our discussion forum [here](https://github.com/dhairyagothi/StationGuide/discussions).
+If you have questions, suggestions, or feedback, please reach out via email at dhairyag31@gmail.com. You can also join our [discussion forum](https://github.com/dhairyagothi/StationGuide/discussions).
 
 We value open communication and are happy to help!
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+<!-- Added a Support section for the project README -->
+## ⭐️ Support the Project
+If you find this project helpful, please consider giving it a ⭐ on GitHub! Your support helps to grow the project and reach more contributors.

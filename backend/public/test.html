@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Test</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script> 
+</head>
+<body>
+    <h1>WebSocket Test</h1>
+    <button id="connectButton">Connect to WebSocket</button>
+    <div id="status"></div>
+    <script>
+        let socket;
+
+        document.getElementById('connectButton').onclick = function() {
+            socket = io('http://localhost:3000'); // Connect to the WebSocket server
+
+            // Listen for connection event
+            socket.on('connect', () => {
+                document.getElementById('status').innerText = 'Connected: ' + socket.id;
+                console.log('WebSocket connected:', socket.id);
+            });
+
+            // Listen for booking confirmations
+            socket.on('wheelchairBookingConfirmation', (data) => {
+                console.log('Received booking confirmation:', data);
+                alert('Booking Confirmation: ' + data.message);
+            });
+
+            socket.on('cloakroomBookingConfirmation', (data) => {
+                console.log('Received booking confirmation:', data);
+                alert('Booking Confirmation: ' + data.message);
+            });
+
+            socket.on('coolieBookingConfirmation', (data) => {
+                console.log('Received booking confirmation:', data);
+                alert('Booking Confirmation: ' + data.message);
+            });
+
+            // Listen for disconnection
+            socket.on('disconnect', () => {
+                document.getElementById('status').innerText = 'Disconnected';
+                console.log('WebSocket disconnected.');
+            });
+
+            // Handle any errors
+            socket.on('error', (error) => {
+                console.error('Socket error:', error);
+            });
+        };
+    </script>
+</body>
+</html>
