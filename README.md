@@ -242,7 +242,9 @@ Forking allows you to create a personal copy of the repository, where you can ex
 
 ## Our Valuable Contributors ❤️✨
 
-[![Contributors](https://contrib.rocks/image?repo=dhairyagothi/StationGuide)](https://github.com/dhairyagothi/StationGuide/graphs/contributors)
+
+
+
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
