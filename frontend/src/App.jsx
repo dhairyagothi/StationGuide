@@ -12,12 +12,13 @@ import BookingPage from './Pages/booking';
 import MapPage from './Pages/3Dmaps';
 import SchedulePage from './Pages/schedule';
 import NotificationPage from './Pages/notification';
-import Contributor from './Pages/contributor';
 import Chatbot from './components/chatbot';
 import ContactUs from './Pages/ContactUs';
 import Settings from './components/Settings';
-import help from './components/help';
-import about from './components/about';
+import Help from './components/help';
+import About from './components/about';
+import Contributor from './Pages/contributor';
+
 
 function App() {
 
@@ -34,20 +35,15 @@ function App() {
         <Route path='/3DMap' element={<MapPage/>} />
         <Route path='/Schedule' element={<SchedulePage/>} />
         <Route path='/Notification' element={<NotificationPage/>} />
-        <Route path='/contributors' element={<Contributor/>} />
         <Route path='/chatbot' element={<Chatbot/>} />
         <Route path='/ContactUs' element={<ContactUs/>} />
         <Route path='/Settings' element={<Settings/>} />
-        <Route path='/help' element={<help/>} />
-        <Route path='/about' element={<about/>} />
+        <Route path='/help' element={<Help/>} />
+        <Route path='/about' element={<About/>} />
+        <Route path='/contributor' element={<Contributor/>} />
         
         
-        
-
         {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
-        <Route element={<ProtectedRoute />}>
-          <Route path="/logged-in" element={<div className='flex items-end justify-center w-screen h-screen p-10'><h1 className='text-red-500 text-7xl'>Logged in</h1></div>} />
-        </Route>
 
       </Routes>
     </Router>

@@ -11,7 +11,6 @@ import schedulesvg from '../assets/svg/schedule.svg';
 import searchsvg from '../assets/svg/search.svg';
 import { useNavigate } from 'react-router-dom';
 import HamburgerMenu from './hamburger';
-import contributor from './contributor';
 import contributorsvg from '../assets/svg/contributor.svg';
 import chatbotsvg from '../assets/svg/chatbot.svg';
 import Chatbot from '../components/chatbot';
@@ -43,7 +42,7 @@ const Herosection = () => {
         navigate('/Notification'); // Navigates to the login page
     }
     const ContributorCLick = () => {
-        navigate('/contributors'); // Navigates to the login page
+        navigate('/contributor'); // Navigates to the login page
     }
   
 
