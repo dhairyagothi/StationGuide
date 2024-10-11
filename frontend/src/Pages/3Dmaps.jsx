@@ -1,4 +1,4 @@
-// Create .env file in the frontend and add
+// Create .env file in the frontend and add the below line of codes in the file
 // VITE_GOOGLE_MAPS_API_KEY= Add your google api key
 // VITE_MAP_ID= Add your google map id
 
