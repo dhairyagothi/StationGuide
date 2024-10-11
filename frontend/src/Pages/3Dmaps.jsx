@@ -1,3 +1,7 @@
+// Create .env file in the frontend and add
+// VITE_GOOGLE_MAPS_API_KEY= Add your google api key
+// VITE_MAP_ID= Add your google map id
+
 import { useState, useEffect } from "react";
 import {
   GoogleMap,
