@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="./src/assets/stationsaarthi.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Station Saarthi</title>
+    <link rel="stylesheet" href="src/index.css">
     <style>
     /* Style for the Google Translate element */
     #google_element {
@@ -98,6 +99,77 @@
 </style>    
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">StationSaarthi</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('about')">About Us</a></li>
+                <li><a href="#" onclick="showSection('services')">Services</a></li>
+                <li><a href="#" onclick="showSection('contact')">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="about-section" style="display:none">
+            <h1 class="about-heading">About Us</h1>
+            <div class="about-content">
+                <div class="card">
+                    <h2>Introduction</h2>
+                    <p>Welcome to <span class="highlight">StationSaarthi</span>, your comprehensive navigation and assistance platform designed to revolutionize the Indian Railway Station experience. We combine advanced technology with user-centric design to ensure seamless travel for everyone.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Our Vision</h2>
+                    <p>To transform railway travel into a <span class="highlight">hassle-free, inclusive</span>, and intuitive experience for all passengers, ensuring effortless navigation and accessibility across Indian Railway stations.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Our Mission</h2>
+                    <p>Our mission is to make railway navigation easy for every passenger, regardless of their needs. We strive to offer a <span class="highlight">real-time, interactive</span> experience with our mobile app and digital kiosks, enhancing safety and convenience.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Our Unique Value Proposition (UVP)</h2>
+                    <p><strong>StationSaarthi</strong> is a dual solution featuring:</p>
+                    <ul>
+                        <li><strong>Interactive 3D Maps:</strong> AR/VR-enhanced virtual station tours.</li>
+                        <li><strong>Real-time Navigation:</strong> Accurate directions using GPS and indoor positioning.</li>
+                        <li><strong>Voice-Guided Assistance:</strong> AI-powered navigation for accessibility.</li>
+                        <li><strong>Multilingual Interface:</strong> Support for various languages for inclusivity.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Services Section (Initially Hidden) -->
+        <section id="services" class="content-section" style="display: none;">
+            <h1>Our Services</h1>
+            <p>Explore the various services we provide, including real-time train tracking, digital kiosks, and more.</p>
+        </section>
+
+        <!-- Contact Us Section (Initially Hidden) -->
+        <section id="contact" class="content-section" style="display: none;">
+            <h1>Contact Us</h1>
+            <p>If you have any questions, feel free to reach out to us.</p>
+        </section>
+    </main>
+    <script>
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll('.content-section, .about-section').forEach(section => {
+            section.style.display = 'none';
+        });
+        document.body.classList.remove('gradient-background');
+        // Show the selected section
+        if (sectionId === 'about') {
+            document.body.classList.add('gradient-background');
+            document.querySelector('.about-section').style.display = 'block';
+        } else {
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    }
+</script>
+    
     <!-- Circles -->
     <div class="circle"></div>
     <div class="circle"></div>
