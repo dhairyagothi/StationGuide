@@ -18,6 +18,7 @@ import Settings from './components/Settings';
 import Help from './components/help';
 import About from './components/about';
 import Contributor from './Pages/contributor';
+import Booking from './Pages/booking';
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path='/Stations' element={<RailwayStations/>} />
         <Route path='/Navigation' element={<NavigationPage/>} />
-        <Route path='/Booking' element={<BookingPage/>} />
+        <Route path='/Booking' element={<Booking/>} />
         <Route path='/3DMap' element={<MapPage/>} />
         <Route path='/Schedule' element={<SchedulePage/>} />
         <Route path='/Notification' element={<NotificationPage/>} />

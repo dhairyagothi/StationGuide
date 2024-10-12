@@ -26,9 +26,12 @@ app.use(express.urlencoded({ extended: true }));
 connectDB();
 
 import authRoutes from "./routes/authRoutes.js";
+import stationRoutes from "./routes/stationRoutes.js";
 
 app.use("/auth", authRoutes);
 app.use("/api", authRoutes);
+app.use("/station", stationRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("Working...");
