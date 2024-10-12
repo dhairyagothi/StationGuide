@@ -164,7 +164,7 @@ const Hamburger = () => {
   };
 
   const Contactclick = () => {
-    navigate('/Contact');
+    navigate('/ContactUs');
   };
 
 
