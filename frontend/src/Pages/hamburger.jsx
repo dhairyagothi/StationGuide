@@ -12,7 +12,6 @@ const fadeIn = keyframes`
   }
 `;
 
-
 const fadeOut = keyframes`
   from {
     opacity: 1;
@@ -130,11 +129,10 @@ const SearchContainer = styled.div`
 const SearchInput = styled.input`
   display: block;
   padding: 5px;
-  width: 200px;
   background-color: transparent;
   color: white;
   outline: none;
-  width: ${({ show }) => (show ? "200px" : "0px")};
+  width: ${({ isFocused }) => (isFocused ? "200px" : "0px")}; 
   transition: width 0.4s ease;
   opacity: ${({ show }) => (show ? 1 : 0)};
   pointer-events: ${({ show }) => (show ? "auto" : "none")};
@@ -173,6 +171,7 @@ const Hamburger = () => {
   const [showSearch, setShowSearch] = useState(false); 
   const [searchTerm, setSearchTerm] = useState(''); 
   const searchInputRef = useRef(null); 
+  const [isFocused, setIsFocused] = useState(false);
 
   const toggleMenu = () => {
     setOpen((prev) => !prev);
@@ -195,6 +194,17 @@ const Hamburger = () => {
     setSearchTerm('');
     searchInputRef.current.focus();
   };
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+  
+  const handleBlur = (e) => {
+    if (!searchInputRef.current.contains(e.relatedTarget)) {
+      setIsFocused(false);
+    }
+  };
+  
 
   // Focus input when search is toggled on
   useEffect(() => {
@@ -229,12 +239,15 @@ const Hamburger = () => {
       <SearchContainer>
         <SearchIcon onClick={toggleSearch} />
         <SearchInput
+          isFocused={isFocused}
           type="text"
           show={showSearch}
           placeholder="Type to search..."
           ref={searchInputRef}
           value={searchTerm}
           onChange={handleSearchChange}
+          onFocus={handleFocus} 
+          onBlur={handleBlur}
         />
         {showSearch && searchTerm && <ClearIcon onClick={clearSearch} />}
       </SearchContainer>
