@@ -52,12 +52,12 @@ const Herosection = () => {
             <div className='relative z-50 flex items-center justify-between'>
                 <div><HamburgerMenu /></div>
             </div>
-            <h1 className='pl-4 text-2xl font-extrabold text-center text-white '>Namaste !! Yatree </h1>
+            <h1 className='pl-4 text-4xl font-black  text-center text-white '>Namaste !! Yatree </h1>
             <div className="relative flex items-center justify-center bg-center bg-cover herosection">
 
                 <div className='relative z-10 grid justify-items-center'>
                     <img src={logo} alt="" srcset="" style={{ height: "40vh" }} />
-                    <h1 className='text-xl font-extrabold text-white'>Station Saarthi : Your Platform Guide</h1>
+                    <h1 className='text-2xl font-extrabold text-white'>Station Saarthi : Your Platform Guide</h1>
                 </div>
                 {/* <img src={bg} alt="whitishbg" style={{ position: "absolute", bottom: 0 }} />
             <img src={bgmobile} alt="" style={{ position: "absolute", bottom: 0, zIndex: "10" }} className="md:hidden" /> */}
