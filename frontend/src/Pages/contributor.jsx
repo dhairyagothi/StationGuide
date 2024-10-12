@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import backicon from '../assets/svg/backicon.svg';
+import { useNavigate } from 'react-router-dom';
 
 const ContributorCard = ({ login, avatar_url, html_url, contributions, type }) => (
   <motion.div
@@ -57,7 +59,8 @@ export default function Contributor() {
   const [repoStats, setRepoStats] = useState({});
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState('');
-
+  const navigate = useNavigate();
+  const HomeClick = () => navigate('/');
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -88,9 +91,14 @@ export default function Contributor() {
     setEmail('');
   };
 
-  return (
+  return ( 
+  <>
+  <button onClick={HomeClick} className='absolute top-0 left-0 z-[99]'> 
+    <img src={backicon} alt="" className='h-[9vh]' />
+                </button> 
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
+     
       <section className="relative h-[70vh] flex items-center justify-center text-center bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="absolute inset-0 bg-black opacity-50" />
         <div className="relative z-10 max-w-4xl px-4 mx-auto space-y-6">
@@ -236,5 +244,7 @@ export default function Contributor() {
         </div>
       </footer>
     </div>
+
+    </>
   );
 }
