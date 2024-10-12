@@ -12,7 +12,6 @@ const Navbar = () => {
     <>
       {/* Navigation Toggle for All Screens (Mobile and Larger Screens) */}
       <div className="bg-blue-500 flex items-center justify-between p-4">
-        <div className="text-white text-xl font-bold m-2">Yatree</div>
         <button onClick={toggleMenu}>
           {isOpen ? <FaTimes className="text-black text-2xl" /> : <FaBars className="text-white text-2xl" />}
         </button>
