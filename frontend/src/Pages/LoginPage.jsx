@@ -28,7 +28,9 @@ const Login = () => {
     return ( 
         <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-100 to-blue-5000">
             {/* Logo and Title */} 
-            <div><button onClick={HomeClick}><img src={backicon} alt="" srcSet="" className='fixed left-[1vh] h-[9vh] w-auto' /></button></div>
+            <button onClick={HomeClick} className='absolute left-0 top-0'>
+                <img src={backicon} alt="" className='h-[9vh]' />
+            </button>
             <div className="mb-10 text-center">
                 <img src={logo} alt="Station Saarthi Logo" className="w-20 mx-auto h-22" />
                 <h1 className="mt-4 text-4xl font-bold text-gray-800">Station Saarthi</h1>

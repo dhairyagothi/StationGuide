@@ -81,11 +81,9 @@ const Register = () => {
                     </div>
                 )}
                 
-                <div>
-                    <button onClick={HomeClick}>
-                        <img src={backicon} alt="" className='fixed left-[1vh] h-[9vh] w-auto' />
-                    </button>
-                </div>
+                <button onClick={HomeClick} className='absolute left-0 top-0'>
+                    <img src={backicon} alt="" className='h-[9vh]' />
+                </button>
                 <div className="mb-6 text-center">
                     <img src={logo} alt="Station Saarthi Logo" className="w-20 mx-auto mb-2 h-22" />
                     <h1 className="text-2xl font-bold text-gray-800">Station Saarthi</h1>
