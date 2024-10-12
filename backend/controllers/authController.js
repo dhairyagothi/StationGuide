@@ -3,15 +3,13 @@ import { hashPassword, comparePassword, generateToken, verifyToken, addCookie, g
 
 export const registerUser = async (req, res) => {
   try {
-    const { name, email, phoneNumber, password } = req.body;
+    const { name, email, phoneNumber, password, isGoogle } = req.body;
 
     if (!name) {
       return res.status(400).json({ error: 'Name is required' });
     } else if (!email) {
       return res.status(400).json({ error: 'Email is required' });
-    } else if (!phoneNumber) {
-      return res.status(400).json({ error: 'Phone number is required' });
-    } else if (!password) {
+    } else if (isGoogle == false && !password) {
       return res.status(400).json({ error: 'Password is required' });
     }
 
@@ -21,24 +19,42 @@ export const registerUser = async (req, res) => {
       return res.status(400).json({ error: 'User already exists' });
     }
 
-    const hashedPassword = await hashPassword(password);
+    if (isGoogle == true) {
+      const newUser = new User({
+        name,
+        email,
+        phoneNumber: phoneNumber ? phoneNumber : '',
+        password: ''
+      });
 
-    const newUser = new User({
-      name,
-      email,
-      phoneNumber,
-      password: hashedPassword
-    });
+      await newUser.save();
 
-    await newUser.save();
+      const token = await generateToken(newUser._id);
 
-    const token = await generateToken(newUser._id);
+      addCookie(res, 'token', token);
 
-    addCookie(res, 'token', token);
+      return res.status(201).json({ message: 'User registered successfully', userId: newUser._id });
+    } else {
+      const hashedPassword = await hashPassword(password);
 
-    res.status(201).json({ message: 'User registered successfully', userId: newUser._id });
+      const newUser = new User({
+        name,
+        email,
+        phoneNumber: phoneNumber ? phoneNumber : '',
+        password: hashedPassword
+      });
+
+      await newUser.save();
+
+      const token = await generateToken(newUser._id);
+
+      addCookie(res, 'token', token);
+
+      res.status(201).json({ message: 'User registered successfully', userId: newUser._id });
+    }
   } catch (error) {
-    res.status(500).json({ error: error | 'Internal Server Error' });
+    console.error(error);
+    res.status(500).json({ error: error.message || 'Internal Server Error' });
   }
 };
 

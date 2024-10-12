@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import logo from '../assets/stationsaarthi.svg';
 import { useNavigate } from 'react-router-dom';
 import backicon from '../assets/svg/backicon.svg';
+import { GoogleLogin } from '@react-oauth/google';
+import { FaFacebook } from 'react-icons/fa';
+import { jwtDecode } from "jwt-decode";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -26,9 +29,10 @@ const Register = () => {
                 },
                 body: JSON.stringify({
                     name,
-                    phoneNumber,
+                    phoneNumber: phoneNumber ? phoneNumber : '',
                     email,
                     password,
+                    isGoogle: false,
                 }),
             });
 
@@ -41,6 +45,7 @@ const Register = () => {
                 setEmail('');
                 setPassword('');
             } else {
+                console.log(data.error);
                 setConfirmationMessage(`Error: ${data.error}`);
             }
         } catch (error) {
@@ -72,6 +77,51 @@ const Register = () => {
         setPasswordStrength(checkPasswordStrength(password));
     }, [password]);
 
+    // Handle Google success
+    const handleGoogleLoginSuccess = async (credentialResponse) => {
+        const token = credentialResponse.credential;
+        
+        // Decode the token to extract user information
+        const decoded = jwtDecode(token);
+        console.log('Decoded Google Token:', decoded);
+        // Send the response to the backend or process it here.
+
+        try {
+            const response = await fetch('https://stationguide.onrender.com/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: decoded.name,
+                    phoneNumber: phoneNumber ? phoneNumber : '',
+                    email : decoded.email,
+                    password : '',
+                    isGoogle: true,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setConfirmationMessage("Your account is created successfully. Please login to access the website.");
+                setName('');
+                setPhoneNumber('');
+                setEmail('');
+                setPassword('');
+            } else {
+                setConfirmationMessage(`Error: ${data.error}`);
+            }
+        } catch (error) {
+            console.error('Error registering with Google:', error);
+        }
+    };
+
+    // Handle Google failure
+    const handleGoogleLoginFailure = () => {
+        console.log("Google Sign-In failed");
+    };
+
     return (
         <>
             <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gradient-to-b from-blue-100 to-blue-5000 relative">
@@ -90,7 +140,7 @@ const Register = () => {
                     <p className="mt-1 text-sm text-gray-700">Your Trusted Platform Guide</p>
                 </div>
 
-                <form onSubmit={handleRegister} className="w-full max-w-sm p-6 bg-white rounded-lg shadow-md">
+                <form onSubmit={handleRegister} className="w-full max-w-lg p-6 bg-white rounded-lg shadow-md">
                     <h2 className="py-1 mb-4 text-xl font-bold text-center bg-blue-100 border border-blue-300 shadow-sm rounded-3xl">
                         Register
                     </h2>
@@ -164,6 +214,23 @@ const Register = () => {
                     >
                         Register
                     </button>
+
+                    <div className='flex justify-between'>
+                        {/* Google Sign-Up Button */}
+                        <div className="mt-4 w-fit">
+                            <GoogleLogin
+                                onSuccess={handleGoogleLoginSuccess}
+                                onError={handleGoogleLoginFailure}
+                            />
+                        </div>
+
+                        {/* Facebook Sign-Up Button */}
+                        <div className="mt-4 w-fit">
+                            <button className="flex items-center justify-center w-full py-2 px-4 text-sm font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700">
+                                <FaFacebook className="mr-2 text-lg" /> Sign Up with Facebook
+                            </button>
+                        </div>
+                    </div>
                 </form>
 
                 <p className="mt-4 text-sm text-gray-700">
