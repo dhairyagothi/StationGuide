@@ -6,17 +6,42 @@ import { GoogleLogin } from '@react-oauth/google';
 import { FaFacebook } from 'react-icons/fa';
 import { jwtDecode } from "jwt-decode";
 
+// Reusable FormInput component
+const FormInput = ({ label, type, value, onChange, placeholder, pattern, maxLength, required, errorMessage }) => (
+    <div className="mb-4">
+        <label className="block mb-1 font-medium text-gray-700">{label}</label>
+        <input
+            type={type}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            pattern={pattern}
+            maxLength={maxLength}
+            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required={required}
+        />
+        {errorMessage && <p className="text-sm text-red-500">{errorMessage}</p>}
+    </div>
+);
+
 const Register = () => {
     const navigate = useNavigate();
     const LoginClick = () => navigate('/Login');
     const HomeClick = () => navigate('/');
 
-    const [name, setName] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [formData, setFormData] = useState({
+        name: '',
+        phoneNumber: '',
+        email: '',
+        password: ''
+    });
     const [confirmationMessage, setConfirmationMessage] = useState('');
-    const [passwordStrength, setPasswordStrength] = useState(''); // State for password strength feedback
+    const [passwordStrength, setPasswordStrength] = useState('');
+
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setFormData((prevData) => ({ ...prevData, [id]: value }));
+    };
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -24,28 +49,16 @@ const Register = () => {
         try {
             const response = await fetch('https://stationguide.onrender.com/api/register', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name,
-                    phoneNumber: phoneNumber ? phoneNumber : '',
-                    email,
-                    password,
-                    isGoogle: false,
-                }),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...formData, isGoogle: false })
             });
 
             const data = await response.json();
 
             if (response.ok) {
                 setConfirmationMessage("Your account is created successfully. Please login to access the website.");
-                setName('');
-                setPhoneNumber('');
-                setEmail('');
-                setPassword('');
+                setFormData({ name: '', phoneNumber: '', email: '', password: '' });
             } else {
-                console.log(data.error);
                 setConfirmationMessage(`Error: ${data.error}`);
             }
         } catch (error) {
@@ -53,7 +66,6 @@ const Register = () => {
         }
     };
 
-    // Use effect to clear the confirmation message after 3 seconds
     useEffect(() => {
         if (confirmationMessage) {
             const timer = setTimeout(() => setConfirmationMessage(''), 3000);
@@ -61,7 +73,6 @@ const Register = () => {
         }
     }, [confirmationMessage]);
 
-    // Function to check password strength
     const checkPasswordStrength = (password) => {
         if (password.length < 6) {
             return "Weak";
@@ -72,43 +83,32 @@ const Register = () => {
         }
     };
 
-    // Update password strength when password changes
     useEffect(() => {
-        setPasswordStrength(checkPasswordStrength(password));
-    }, [password]);
+        setPasswordStrength(checkPasswordStrength(formData.password));
+    }, [formData.password]);
 
-    // Handle Google success
     const handleGoogleLoginSuccess = async (credentialResponse) => {
         const token = credentialResponse.credential;
-        
-        // Decode the token to extract user information
         const decoded = jwtDecode(token);
-        console.log('Decoded Google Token:', decoded);
-        // Send the response to the backend or process it here.
 
         try {
             const response = await fetch('https://stationguide.onrender.com/api/register', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     name: decoded.name,
-                    phoneNumber: phoneNumber ? phoneNumber : '',
-                    email : decoded.email,
-                    password : '',
-                    isGoogle: true,
-                }),
+                    phoneNumber: formData.phoneNumber,
+                    email: decoded.email,
+                    password: '',
+                    isGoogle: true
+                })
             });
 
             const data = await response.json();
 
             if (response.ok) {
                 setConfirmationMessage("Your account is created successfully. Please login to access the website.");
-                setName('');
-                setPhoneNumber('');
-                setEmail('');
-                setPassword('');
+                setFormData({ name: '', phoneNumber: '', email: '', password: '' });
             } else {
                 setConfirmationMessage(`Error: ${data.error}`);
             }
@@ -117,10 +117,11 @@ const Register = () => {
         }
     };
 
-    // Handle Google failure
     const handleGoogleLoginFailure = () => {
         console.log("Google Sign-In failed");
     };
+
+    const MemoizedFormInput = useMemo(() => FormInput, []);
 
     return (
         <>
@@ -145,68 +146,50 @@ const Register = () => {
                         Register
                     </h2>
 
-                    <div className="mb-4">
-                        <label className="block mb-1 font-semibold text-gray-700" htmlFor="name">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            placeholder="Enter your name"
-                            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required
-                        />
-                    </div>
+                    <MemoizedFormInput
+                        label="Name"
+                        type="text"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Enter your name"
+                        required
+                    />
 
-                    <div className="mb-4">
-                        <label className="block mb-1 font-medium text-gray-700" htmlFor="phoneNumber">Phone Number</label>
-                        <input
-                            type="tel"
-                            id="phoneNumber"
-                            value={phoneNumber}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
-                            placeholder="Enter your phone number"
-                            pattern="\d{10}"
-                            maxLength="10"
-                            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required
-                        />
-                        {phoneNumber && phoneNumber.length !== 10 && (
-                            <p className="text-sm text-red-500">Please enter a valid 10-digit phone number.</p>
-                        )}
-                    </div>
+                    <MemoizedFormInput
+                        label="Phone Number"
+                        type="tel"
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
+                        placeholder="Enter your phone number"
+                        pattern="\d{10}"
+                        maxLength="10"
+                        required
+                        errorMessage={formData.phoneNumber && formData.phoneNumber.length !== 10 ? 'Please enter a valid 10-digit phone number.' : ''}
+                    />
 
-                    <div className="mb-4">
-                        <label className="block mb-1 font-medium text-gray-700" htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Enter your email"
-                            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required
-                        />
-                    </div>
+                    <MemoizedFormInput
+                        label="Email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Enter your email"
+                        required
+                    />
 
-                    <div className="mb-5">
-                        <label className="block mb-1 font-medium text-gray-700" htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Create a password"
-                            className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required
-                        />
-                        <p className={`mt-1 text-sm ${passwordStrength === "Strong" ? 'text-green-500' : passwordStrength === "Moderate" ? 'text-yellow-500' : 'text-red-500'}`}>
-                            {password && `Password strength: ${passwordStrength}`}
-                        </p>
-                        {passwordStrength === "Weak" && (
-                            <p className="text-xs text-gray-500">Try using a longer password with uppercase letters, numbers, and symbols for a stronger password.</p>
-                        )}
-                    </div>
+                    <MemoizedFormInput
+                        label="Password"
+                        type="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        placeholder="Create a password"
+                        required
+                    />
+                    <p className={`mt-1 text-sm ${passwordStrength === "Strong" ? 'text-green-500' : passwordStrength === "Moderate" ? 'text-yellow-500' : 'text-red-500'}`}>
+                        {formData.password && `Password strength: ${passwordStrength}`}
+                    </p>
+                    {passwordStrength === "Weak" && (
+                        <p className="text-xs text-gray-500">Try using a longer password with uppercase letters, numbers, and symbols for a stronger password.</p>
+                    )}
 
                     <button
                         type="submit"
@@ -216,15 +199,12 @@ const Register = () => {
                     </button>
 
                     <div className='flex justify-between'>
-                        {/* Google Sign-Up Button */}
                         <div className="mt-4 w-fit">
                             <GoogleLogin
                                 onSuccess={handleGoogleLoginSuccess}
                                 onError={handleGoogleLoginFailure}
                             />
                         </div>
-
-                        {/* Facebook Sign-Up Button */}
                         <div className="mt-4 w-fit">
                             <button className="flex items-center justify-center w-full py-2 px-4 text-sm font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700">
                                 <FaFacebook className="mr-2 text-lg" /> Sign Up with Facebook
