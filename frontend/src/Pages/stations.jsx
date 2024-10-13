@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { FaTrain } from "react-icons/fa"; // Using FontAwesome train icon
 import { AiFillStar, AiOutlineStar } from "react-icons/ai"; // Star icons for favorites
 import { useNavigate } from "react-router-dom";
 import backicon from "../assets/svg/backicon.svg";
 
 const RailwayStations = () => {
+  useEffect(() => {
+    document.title = 'Station Saarthi | Stations'; 
+  }, []);
   // Comprehensive list of railway stations with states
   const navigate = useNavigate();
 

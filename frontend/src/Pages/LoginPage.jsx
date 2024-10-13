@@ -1,9 +1,12 @@
-import React, { useState } from 'react'; 
+import React, { useState , useEffect } from 'react'; 
 import logo from '../assets/stationsaarthi.svg'; // Import your logo 
 import { useNavigate } from 'react-router-dom';
 import backicon from '../assets/svg/backicon.svg'; // Assuming you have a back icon
 
 const Login = () => {
+    useEffect(() => {
+        document.title = 'Station Saarthi | LoginPage'; 
+      }, []);
     const [username, setUsername] = useState(''); 
     const [password, setPassword] = useState(''); 
     const [loginSuccess, setLoginSuccess] = useState(false); // State for login success message

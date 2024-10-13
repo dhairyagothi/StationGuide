@@ -7,6 +7,9 @@ import { FaFacebook } from 'react-icons/fa';
 import { jwtDecode } from "jwt-decode";
 
 const Register = () => {
+    useEffect(() => {
+        document.title = 'Station Saarthi | Register'; 
+      }, []);
     const navigate = useNavigate();
     const LoginClick = () => navigate('/Login');
     const HomeClick = () => navigate('/');
