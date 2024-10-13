@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { IoCalendarOutline, IoArrowBack } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import DatePicker from 'react-datepicker'; // Import DatePicker
 import 'react-datepicker/dist/react-datepicker.css'; // Import default styles
-import axios from 'axios';
 
 const BookingPage = () => {
   useEffect(() => {
     document.title = 'Station Saarthi | Booking'; 
   }, []);
-  
+
   const [station, setStation] = useState('');  // Holds the typed input
   const [selectedStation, setSelectedStation] = useState(null); // Holds the selected station
-  const [date, setDate] = useState(null); // Initial date state
+  const [date, setDate] = useState(null); // Initial date state for DatePicker
   const [services, setServices] = useState([
     { id: 'cloak', name: 'Cloak Room Booking', availability: 0 },
     { id: 'wheelchair', name: 'Wheelchair Booking', availability: 0 },
@@ -113,34 +113,12 @@ const BookingPage = () => {
           </button>
         </div>
 
-        {/* Date input with calendar */}
-        <div className="mb-6">
-          <label className="block text-gray-700 font-semibold mb-2">Date</label>
-          <div className="relative">
-            <DatePicker
-              selected={date}
-              onChange={(date) => setDate(date)} // Update date state
-              dateFormat="dd/MM/yyyy" // Set your desired date format
-              placeholderText="DD/MM/YY"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-              popperClassName="z-50" // Adjust z-index of the date picker
-              onClickOutside={() => setDate(null)} // Close calendar on outside click
-            />
-            <IoCalendarOutline 
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 cursor-pointer" 
-              size={20} 
-              onClick={() => setDate(new Date())} // Open calendar on icon click
-              onMouseDown={(e) => e.preventDefault()} // Prevent input focus on icon click
-            />
-          </div>
-        </div>
-
+        {/* Station Input */}
         <div className="w-full max-w-md mx-auto bg-white bg-opacity-90 rounded-lg shadow-md p-6 backdrop-blur-sm">
           <h2 className="text-xl font-bold text-center mb-6 py-2 bg-blue-100 border border-blue-300 rounded-3xl shadow-sm">
             Station Services
           </h2>
 
-          {/* Station Input */}
           <div className="mb-5">
             <label className="block text-gray-700 font-semibold mb-2">Station</label>
             <input
@@ -150,7 +128,6 @@ const BookingPage = () => {
               placeholder="Enter Station Name"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
             />
-
             {/* Station suggestions dropdown */}
             {stationSuggestions.length > 0 && (
               <ul className="border border-gray-300 bg-white mt-2 rounded-lg max-h-60 overflow-auto">
@@ -177,11 +154,28 @@ const BookingPage = () => {
             )}
           </div>
 
+          {/* Date input with calendar */}
+          <div className="mb-6">
+            <label className="block text-gray-700 font-semibold mb-2">Date</label>
+            <div className="relative">
+              <DatePicker
+                selected={date}
+                onChange={(date) => setDate(date)} // Update date state
+                dateFormat="dd/MM/yyyy" // Set your desired date format
+                placeholderText="DD/MM/YY"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                popperClassName="z-50" // Adjust z-index of the date picker
+              />
+              <IoCalendarOutline 
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 cursor-pointer" 
+                size={20} 
+              />
+            </div>
+          </div>
+
           {/* Render Services */}
           {loading ? (
             <p>Loading services...</p>
-          ) : error && !stationSuggestions.length ? (
-            <p className="text-red-500">{error}</p>
           ) : (
             <div className="space-y-4">
               {services.map((service) => (
