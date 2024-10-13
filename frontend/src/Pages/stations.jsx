@@ -4,6 +4,8 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai"; // Star icons for fa
 import { useNavigate } from "react-router-dom";
 import backicon from "../assets/svg/backicon.svg";
 import { div, h1 } from "framer-motion/client";
+import allStations from "../dataset/stations.js"
+
 
 const RailwayStations = () => {
   // Comprehensive list of railway stations with zones
@@ -13,7 +15,7 @@ const RailwayStations = () => {
     navigate("/"); // Navigates to the home page
   };
 
-  const [stations, setStations] = useState([]);
+  const [stations, setStations] = useState(allStations);
 
   const zones = [
     ["All", "All"],
