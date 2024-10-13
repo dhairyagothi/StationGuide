@@ -3,6 +3,7 @@ import { registerUser, loginUser, logoutUser, verifyUser } from '../controllers/
 import { createCloakroomBooking } from '../controllers/cloakroomController.js';
 import { createWheelchairBooking } from '../controllers/WheelchairController.js';
 import { createCoolieBooking } from '../controllers/coolieController.js';
+import { sendStations } from '../controllers/stationsController.js';
 
 const router = express.Router();
 
@@ -26,6 +27,9 @@ router.post('/bookWheelchair', createWheelchairBooking);
 
 //coolie bookings route
 router.post('/bookCoolie', createCoolieBooking);
+
+// get all stations route
+router.get("/all-stations",sendStations)
 
 
 
