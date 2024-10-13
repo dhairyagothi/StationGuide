@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoCalendarOutline } from 'react-icons/io5';
 import { IoArrowBack } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
+import DatePicker from 'react-datepicker'; // Import DatePicker
+import 'react-datepicker/dist/react-datepicker.css'; // Import default styles
 
 const BookingPage = () => {
+  useEffect(() => {
+    document.title = 'Station Saarthi | Booking'; 
+  }, []);
+  
   const [station, setStation] = useState('');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(null); // Initial date state
   const navigate = useNavigate();
 
   const services = [
@@ -67,18 +73,25 @@ const BookingPage = () => {
             />
           </div>
 
-          {/* Date input */}
+          {/* Date input with calendar */}
           <div className="mb-6">
             <label className="block text-gray-700 font-semibold mb-2">Date</label>
             <div className="relative">
-              <input
-                type="text"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                placeholder="DD/MM/YY"
+              <DatePicker
+                selected={date}
+                onChange={(date) => setDate(date)} // Update date state
+                dateFormat="dd/MM/yyyy" // Set your desired date format
+                placeholderText="DD/MM/YY"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                popperClassName="z-50" // Adjust z-index of the date picker
+                onClickOutside={() => setDate(null)} // Close calendar on outside click
               />
-              <IoCalendarOutline className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <IoCalendarOutline 
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 cursor-pointer" 
+                size={20} 
+                onClick={() => setDate(new Date())} // Open calendar on icon click
+                onMouseDown={(e) => e.preventDefault()} // Prevent input focus on icon click
+              />
             </div>
           </div>
 
