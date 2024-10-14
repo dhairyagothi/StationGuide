@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import { createServer } from "http";
 import { Server } from "socket.io";
 
+
+
 const app = express();
 const server = createServer(app);
 
@@ -47,7 +49,7 @@ const io = new Server(server, {
 });
 
 if (process.env.NODE_ENV !== 'production') {
-  const io = new Server(server, { /* CORS settings */ });
+
   io.on("connection", (socket) => {
     console.log("A user connected:", socket.id);
     socket.on("disconnect", () => {
