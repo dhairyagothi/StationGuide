@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect } from 'react';
 import { FaMapMarkerAlt, FaExclamationTriangle } from 'react-icons/fa';
 import MapComponent from '../components/MapComponent';
 
 const NavigationPage = () => {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('Platform 3');
-
+  useEffect(() => {
+    document.title = 'Station Saarthi | Navigation'; 
+  }, []);
   return (
     <div className='h-screen w-full bg-gray-200 p-4'>
       {/* Header */}

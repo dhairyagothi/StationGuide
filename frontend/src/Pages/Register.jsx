@@ -8,9 +8,15 @@ import { jwtDecode } from "jwt-decode";
 import { registerValidation } from "../validations/validation";
 
 const Register = () => {
+
+    useEffect(() => {
+        document.title = 'Station Saarthi | Register'; 
+      }, []);
+
   const navigate = useNavigate();
   const LoginClick = () => navigate("/Login");
   const HomeClick = () => navigate("/");
+
 
   const [username, setUserName] = useState(""); // Changed from name to username
   const [phoneNumber, setPhoneNumber] = useState("");
