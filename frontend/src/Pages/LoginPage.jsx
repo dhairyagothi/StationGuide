@@ -13,6 +13,7 @@ const Login = () => {
     const [loginSuccess, setLoginSuccess] = useState(false); // State for login success message
     const [errors,setErrors] = useState({})
     const navigate = useNavigate();
+    const [passwordVisible, setPasswordVisible] = useState(false); // State for password visibility
     
     const RegisterClick = () => {
         navigate('/Register'); // Navigates to the login page
@@ -47,6 +48,10 @@ const Login = () => {
         setUsername(''); // Clear input fields after login
         setPassword('');
     };  
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible); // Toggle password visibility
+    };
 
     return ( 
         <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-100 to-blue-5000">
@@ -93,14 +98,24 @@ const Login = () => {
                 <div className="mb-6"> 
                     <label className="block mb-2 font-semibold text-gray-700" htmlFor="password">Password</label>
                     <input 
-                        type="password"    
+                        type={passwordVisible ? "text" : "password"} // Change the type based on password visibility    
                         id="password"  
                         value={password}  
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Enter your password"
                         className="w-full px-4 py-2 transition duration-300 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                    />
+                        required  style={{ paddingRight:'50px'}}
+                    /> <button 
+                    type="button" 
+                    onClick={togglePasswordVisibility} 
+                    style={{ position:'relative', bottom:'32px', left:'280px'}}
+                >
+                    {passwordVisible ? (
+                        <span className="material-symbols-outlined">visibility_off</span> // Closed eye icon
+                    ) : (
+                        <span className="material-symbols-outlined">visibility</span> // Open eye icon
+                    )}
+                </button>
                     {errors.password && <div className="text-red-800">{errors.password}</div>}
                 </div>
 
