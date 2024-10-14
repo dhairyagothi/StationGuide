@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useState , useEffect} from "react";
+
 import { FaTrain } from "react-icons/fa"; // Using FontAwesome train icon
 import { AiFillStar, AiOutlineStar } from "react-icons/ai"; // Star icons for favorites
 import { useNavigate } from "react-router-dom";
@@ -8,7 +10,14 @@ import allStations from "../dataset/stations.js"
 
 
 const RailwayStations = () => {
+
+  useEffect(() => {
+    document.title = 'Station Saarthi | Stations'; 
+  }, []);
+
+
   // Comprehensive list of railway stations with zones
+
   const navigate = useNavigate();
 
   const HomeClick = () => {
