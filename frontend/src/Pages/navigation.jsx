@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaMapMarkerAlt, FaExclamationTriangle } from 'react-icons/fa';
+import MapComponent from '../components/MapComponent';
 
 const NavigationPage = () => {
   const [from, setFrom] = useState('');
@@ -12,10 +13,7 @@ const NavigationPage = () => {
 
       {/* Map Section */}
       <div className='relative bg-gray-300 h-72 w-full rounded-2xl shadow-lg overflow-hidden mt-6'>
-        {/* Placeholder for the map */}
-        <p className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl text-gray-500'>Map will be here</p>
-        {/* Example of adding a map image */}
-        {/* <img src='/path-to-map.png' alt='Map' className='w-full h-full object-cover' /> */}
+       <MapComponent/>
       </div>
 
       {/* Input Fields */}
