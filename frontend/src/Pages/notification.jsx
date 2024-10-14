@@ -1,10 +1,14 @@
-import React from 'react';
+import React , {useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaBell, FaTrain, FaGlobe, FaTicketAlt } from 'react-icons/fa';
 import { IoMdMegaphone } from 'react-icons/io';
 import backicon from "../assets/svg/backicon.svg";
 
 const NotificationPage = () => {
+  useEffect(() => {
+    document.title = 'Station Saarthi | Notifications'; 
+  }, []);
+
   const navigate = useNavigate();
 
   const HomeClick = () => {
