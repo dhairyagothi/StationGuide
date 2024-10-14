@@ -25,6 +25,8 @@ const Register = () => {
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [passwordStrength, setPasswordStrength] = useState(""); // State for password strength feedback
   const [errors, setErrors] = useState({});
+  const [passwordVisible, setPasswordVisible] = useState(false); // State for password visibility
+
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -159,6 +161,10 @@ const Register = () => {
     console.log("Google Sign-In failed");
   };
 
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible); // Toggle password visibility
+};
+
   return (
     <>
       <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gradient-to-b from-blue-100 to-blue-5000 relative">
@@ -259,14 +265,24 @@ const Register = () => {
               Password
             </label>
             <input
-              type="password"
+              type={passwordVisible ? "text" : "password"} // Change the type based on password visibility    
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Create a password"
               className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
-            />
+            /> <button 
+            type="button" 
+            onClick={togglePasswordVisibility} 
+            style={{ position:'relative', bottom:'30px', left:'430px'}}
+        >
+            {passwordVisible ? (
+                <span className="material-symbols-outlined">visibility_off</span> // Closed eye icon
+            ) : (
+                <span className="material-symbols-outlined">visibility</span> // Open eye icon
+            )}
+        </button>
             <p
               className={`mt-1 text-sm ${
                 passwordStrength === "Strong"
