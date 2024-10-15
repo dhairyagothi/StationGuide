@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+
+import React, { useState , useEffect} from "react";
+
 import { FaTrain } from "react-icons/fa"; // Using FontAwesome train icon
 import { AiFillStar, AiOutlineStar } from "react-icons/ai"; // Star icons for favorites
 import { useNavigate } from "react-router-dom";
 import backicon from "../assets/svg/backicon.svg";
+import { div, h1 } from "framer-motion/client";
+import allStations from "../dataset/stations.js"
+
 
 const RailwayStations = () => {
-  // Comprehensive list of railway stations with states
+
+  useEffect(() => {
+    document.title = 'Station Saarthi | Stations'; 
+  }, []);
+
+
+  // Comprehensive list of railway stations with zones
+
   const navigate = useNavigate();
 
   const HomeClick = () => {
@@ -155,48 +167,38 @@ const RailwayStations = () => {
     // Add more stations as needed
   ];
 
-  const states = [
-    "All",
-    "Andhra Pradesh",
-    "Arunachal Pradesh",
-    "Assam",
-    "Bihar",
-    "Chhattisgarh",
-    "Goa",
-    "Gujarat",
-    "Haryana",
-    "Himachal Pradesh",
-    "Jharkhand",
-    "Karnataka",
-    "Kerala",
-    "Madhya Pradesh",
-    "Maharashtra",
-    "Manipur",
-    "Meghalaya",
-    "Mizoram",
-    "Nagaland",
-    "Odisha",
-    "Punjab",
-    "Rajasthan",
-    "Sikkim",
-    "Tamil Nadu",
-    "Telangana",
-    "Tripura",
-    "Uttar Pradesh",
-    "Uttarakhand",
-    "West Bengal",
-    "Andaman and Nicobar Islands",
-    "Chandigarh",
-    "Dadra and Nagar Haveli and Daman and Diu",
-    "Delhi",
-    "Jammu and Kashmir",
-    "Ladakh",
-    "Lakshadweep",
-    "Puducherry",
+  const [stations, setStations] = useState(allStations);
+
+
+  const zones = [
+    ["All", "All"],
+    ["ECOR", "EAST COAST RAILWAY"],
+    ["ER", "EASTERN RAILWAY"],
+    ["NCR", "NORTH CENTRAL RAILWAY"],
+    ["NER", "NORTH EASTERN RAILWAY"],
+    ["NFR", "NORTH FRONTIER RAILWAY"],
+    ["NR", "NORTHERN RAILWAY"],
+    ["NWR", "NORTH WESTERN RAILWAY"],
+    ["SECR", "SOUTHEAST CENTRAL RAILWAY"],
+    ["SCR", "SOUTH CENTRAL RAILWAY"],
+    ["SER", "SOUTH EASTERN  RAILWAY"],
+    ["SR", "SOUTHERN RAILWAY"],
+    ["SWR", "SOUTH WESTERN RAILWAY"],
+    ["WCR", "WEST CENTRAL RAILWAY"],
+    ["WR", "WESTERN RAILWAY"],
+    ["BR", "BANGLADESH RAILWAY"],
+    ["CPT", "Kolkata Port Trust Rly."],
+    ["DFCR", "DEDICATED FREIGHT CORRIDO"],
+    ["CP", "CHENNAI PORT TRUSTRAILWAY"],
+    ["CR", "CENTRAL RAILWAY"],
+    ["ECR", "EAST CENTRAL RAILWAY"],
+    ["NPLR", "NEPAL RAILWAY"],
+    ["MRK", "METRO RAILWAY KOLKATA"],
   ];
   const [searchTerm, setSearchTerm] = useState("");
   const [favorites, setFavorites] = useState([]);
-  const [selectedState, setSelectedState] = useState("All");
+  const [selectedZone, setSelectedZone] = useState("All");
+  const [loading, setLoading] = useState(false);
 
   // Function to toggle favorite stations
   const toggleFavorite = (station) => {
@@ -213,12 +215,37 @@ const RailwayStations = () => {
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
     const matchesState =
-      selectedState === "All" || station.state === selectedState;
+      selectedZone === "All" || station.zone === selectedZone;
     return matchesSearch && matchesState;
   });
 
-  return (
+  useEffect(() => {
+    setLoading(true);
+    fetch("http://localhost:3000/api/all-stations")
+      .then((e) => {
+        return e.json();
+      })
+      .then((e) => {
+        console.log(e);
+        setStations(e);
+      })
+      .catch((err) => {
+        console.log("Error in fetch : ", err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
+  if (loading) {
+    return (
+      <div className="relative bg-gray-100 h-screen">
+        <div class="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin relative top-[50%] left-[50%]"></div>
+      </div>
+    );
+  }
+
+  return (
     <div className="min-h-screen p-4 bg-gray-100">
       {/* Header Section */}
       <div>
@@ -226,7 +253,7 @@ const RailwayStations = () => {
           <img
             src={backicon}
             alt=""
-            srcset=""
+            srcSet=""
             className="fixed left-[1vh] h-[9vh] w-auto"
           />
         </button>
@@ -248,13 +275,13 @@ const RailwayStations = () => {
           className="w-full max-w-md px-4 py-2 transition duration-300 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <select
-          value={selectedState}
-          onChange={(e) => setSelectedState(e.target.value)}
+          value={selectedZone}
+          onChange={(e) => setSelectedZone(e.target.value)}
           className="px-4 py-2 ml-4 transition duration-300 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          {states.map((state, index) => (
-            <option key={index} value={state}>
-              {state}
+          {zones.map((zone, index) => (
+            <option key={index} value={zone[0]}>
+              {zone[1]}
             </option>
           ))}
         </select>
