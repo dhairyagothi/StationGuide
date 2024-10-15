@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Timetable</title>
+    <link rel="stylesheet" href="schedules.css">
+</head>
+
+<body>
+    <div class="schedules">
+        <p>SCHEDULE</p>
+    </div>
+
+    <div class="container">
+        <div class="pnrcheck">
+            <h2>PNR Status</h2>
+            <div id="pnrInput">
+                <input type="text" id="pnr" name="pnr" placeholder="Enter PNR No.">
+                <button id="submitBtn">Check Status</button>
+            </div>
+        </div>
+        <div class="schedule pnrcheck">
+            <h2>Train Timetable</h2>
+            <input type="text" id="train-number" placeholder="Enter Train Number or Name">
+            <button id="submit" onclick="getTrainTimetable()">Get Timetable</button>
+        </div>
+    </div>
+
+    <div id="output"></div>
+    <div id="timetable"></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
