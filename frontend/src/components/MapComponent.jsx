@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -12,8 +12,20 @@ L.Icon.Default.mergeOptions({
 });
 
 const MapComponent = () => {
-  const [position, setPosition] = useState([51.505, -0.09]); // Default position (London)
-  const [locationAvailable, setLocationAvailable] = useState(false); // To track if location is found
+  // Set default location to India (New Delhi)
+  const [position, setPosition] = useState([28.6139, 77.2090]); // New Delhi coordinates
+  const [locationAvailable, setLocationAvailable] = useState(false); // Track if location is found
+
+  // Custom component to handle flying to the user's location
+  const FlyToLocation = ({ position }) => {
+    const map = useMap();
+    useEffect(() => {
+      if (locationAvailable) {
+        map.flyTo(position, 13); // Fly to the user's current location with zoom level 13
+      }
+    }, [position, locationAvailable, map]);
+    return null;
+  };
 
   useEffect(() => {
     // Check if the Geolocation API is available
@@ -21,8 +33,8 @@ const MapComponent = () => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          setPosition([latitude, longitude]); // Set user's location
-          setLocationAvailable(true); // Update to true if location is found
+          setPosition([latitude, longitude]); // Update to user's location
+          setLocationAvailable(true); // Set locationAvailable to true
         },
         (error) => {
           console.error("Error fetching location:", error);
@@ -41,6 +53,9 @@ const MapComponent = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
 
+      {/* Fly to the user's location when it's available */}
+      <FlyToLocation position={position} />
+
       {/* Marker for current location */}
       {locationAvailable && (
         <Marker position={position}>
@@ -48,9 +63,11 @@ const MapComponent = () => {
         </Marker>
       )}
 
-      {/* Display a message if location is not available */}
+      {/* Message if the location is unavailable */}
       {!locationAvailable && (
-        <Popup position={position}>Location not available, showing default location.</Popup>
+        <Marker position={position}>
+          <Popup>Location not available, showing default location (New Delhi).</Popup>
+        </Marker>
       )}
     </MapContainer>
   );
