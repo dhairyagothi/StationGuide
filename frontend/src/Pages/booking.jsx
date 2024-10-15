@@ -173,18 +173,150 @@ const BookingPage = () => {
   // Handle form submission based on selected service
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (selectedService === "bookCloakroom") {
+    if (selectedService === "cloak") {
       await bookCloakroom();
-    } else if (selectedService === "bookCoolie") {
+    } else if (selectedService === "coolie") {
       await bookCoolie();
-    } else if (selectedService === "bookWheelchair") {
+    } else if (selectedService === "wheelchair") {
       await bookWheelchair();
     }
   };
 
   // Render booking form for selected service
   const renderBookingForm = () => {
-    // Similar booking forms for each service...
+    if (!selectedService) return null;
+
+    if (selectedService === "cloak") {
+      return (
+        <form onSubmit={handleFormSubmit} className="mt-4">
+          <h2 className="text-xl font-bold">Cloak Room Booking</h2>
+          <label>
+            Number of items:
+            <input
+              type="number"
+              value={formData.items || ""}
+              onChange={(e) => setFormData({ ...formData, items: e.target.value })}
+              required
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg"
+            />
+          </label>
+          <label>
+            Start Date:
+            <DatePicker
+              selected={formData.startDate}
+              onChange={(date) => setFormData({ ...formData, startDate: date })}
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg"
+            />
+          </label>
+          <label>
+            End Date:
+            <DatePicker
+              selected={formData.endDate}
+              onChange={(date) => setFormData({ ...formData, endDate: date })}
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg"
+            />
+          </label>
+          <button
+            type="submit"
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-150"
+          >
+            Submit Booking
+          </button>
+        </form>
+      );
+    } else if (selectedService === "coolie") {
+      return (
+        <form onSubmit={handleFormSubmit} className="mt-4">
+          <h2 className="text-xl font-bold">Coolie Booking</h2>
+          <label>
+            Pickup Location:
+            <input
+              type="text"
+              value={formData.pickupLocation || ""}
+              onChange={(e) =>
+                setFormData({ ...formData, pickupLocation: e.target.value })
+              }
+              required
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg"
+            />
+          </label>
+          <label>
+            Departure Location:
+            <input
+              type="text"
+              value={formData.departureLocation || ""}
+              onChange={(e) =>
+                setFormData({ ...formData, departureLocation: e.target.value })
+              }
+              required
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg"
+            />
+          </label>
+          <label>
+            Booking Date:
+            <DatePicker
+              selected={formData.bookingDate}
+              onChange={(date) =>
+                setFormData({ ...formData, bookingDate: date })
+              }
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg"
+            />
+          </label>
+          <label>
+            Booking Time:
+            <input
+              type="time"
+              value={formData.bookingTime || ""}
+              onChange={(e) =>
+                setFormData({ ...formData, bookingTime: e.target.value })
+              }
+              required
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg"
+            />
+          </label>
+          <button
+            type="submit"
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-150"
+          >
+            Submit Booking
+          </button>
+        </form>
+      );
+    } else if (selectedService === "wheelchair") {
+      return (
+        <form onSubmit={handleFormSubmit} className="mt-4">
+          <h2 className="text-xl font-bold">Wheelchair Booking</h2>
+          <label>
+            Booking Date:
+            <DatePicker
+              selected={formData.bookingDate}
+              onChange={(date) =>
+                setFormData({ ...formData, bookingDate: date })
+              }
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg"
+            />
+          </label>
+          <label>
+            Booking Time:
+            <input
+              type="time"
+              value={formData.bookingTime || ""}
+              onChange={(e) =>
+                setFormData({ ...formData, bookingTime: e.target.value })
+              }
+              required
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg"
+            />
+          </label>
+          <button
+            type="submit"
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-150"
+          >
+            Submit Booking
+          </button>
+        </form>
+      );
+    }
   };
 
   return (
@@ -252,7 +384,6 @@ const BookingPage = () => {
           </div>
         ))}
       </div>
-
 
       {renderBookingForm()}
     </div>
