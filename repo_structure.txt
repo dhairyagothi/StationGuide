@@ -1,18 +1,114 @@
-├── backend
-│   ├── config
-│   ├── controllers
-│   ├── dataset
-│   ├── middleware
-│   ├── models
-│   ├── public
-│   ├── routes
-│   └── utils
-├── frontend
-│   ├── public
-│   ├── src
-│   │   ├── Pages
-│   │   ├── assets
-│   │   │   └── svg
-│   │   ├── components
-│   │   ├── dataset
-│   │   └── validations
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── Learn.md
+├── README.md
+├── SECURITY.md
+├── StationGuide.md
+├── StationGuideFigma.md
+├── backend/
+│   ├── config/
+│   │   ├── config.js
+│   │   └── dbConnection.js
+│   ├── controllers/
+│   │   ├── StationController.js
+│   │   ├── WheelchairController.js
+│   │   ├── authController.js
+│   │   ├── cloakroomController.js
+│   │   ├── coolieController.js
+│   │   ├── stationBookingsController.js
+│   │   └── stationsController.js
+│   ├── dataset/
+│   │   └── stations.js
+│   ├── dockerfile
+│   ├── index.js
+│   ├── middleware/
+│   │   └── auth.middleware.js
+│   ├── models/
+│   │   ├── CloakroomBooking.js
+│   │   ├── CoolieBooking.js
+│   │   ├── Stations.js
+│   │   ├── User.js
+│   │   └── WheelchairBooking.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public/
+│   │   └── test.html
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   └── stationRoutes.js
+│   └── utils/
+│       ├── ApiError.js
+│       ├── asyncHandler.js
+│       └── authFunctions.js
+├── docker-compose.yml
+├── frontend/
+│   ├── README.md
+│   ├── dockerfile
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── public/
+│   │   └── vite.svg
+│   ├── src/
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── Pages/
+│   │   │   ├── 3Dmaps.jsx
+│   │   │   ├── ContactUs.jsx
+│   │   │   ├── Herosection.css
+│   │   │   ├── Herosection.jsx
+│   │   │   ├── LoginPage.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── booking.jsx
+│   │   │   ├── contributor.jsx
+│   │   │   ├── hamburger.css
+│   │   │   ├── hamburger.jsx
+│   │   │   ├── navigation.jsx
+│   │   │   ├── notification.jsx
+│   │   │   ├── schedule.jsx
+│   │   │   └── stations.jsx
+│   │   ├── assets/
+│   │   │   ├── bg.png
+│   │   │   ├── bgmobile.png
+│   │   │   ├── hero.png
+│   │   │   ├── mixbg.png
+│   │   │   ├── stationsaarthi.svg
+│   │   │   └── svg/
+│   │   │       ├── 3dmap.svg
+│   │   │       ├── backicon.svg
+│   │   │       ├── bookings.svg
+│   │   │       ├── chatbot.svg
+│   │   │       ├── contributor.svg
+│   │   │       ├── navigation.svg
+│   │   │       ├── notification.svg
+│   │   │       ├── schedule.svg
+│   │   │       ├── search.svg
+│   │   │       └── station.svg
+│   │   ├── components/
+│   │   │   ├── Bookingform.jsx
+│   │   │   ├── MapComponent.jsx
+│   │   │   ├── Settings.jsx
+│   │   │   ├── about.css
+│   │   │   ├── about.jsx
+│   │   │   ├── chatbot.css
+│   │   │   ├── chatbot.jsx
+│   │   │   ├── footer.jsx
+│   │   │   ├── help.jsx
+│   │   │   ├── navbar.jsx
+│   │   │   ├── scrollToTop.css
+│   │   │   └── scrollToTop.jsx
+│   │   ├── dataset/
+│   │   │   └── stations.js
+│   │   ├── index.css
+│   │   ├── main.jsx
+│   │   └── validations/
+│   │       └── validation.js
+│   ├── tailwind.config.js
+│   └── vite.config.js
+├── package-lock.json
+├── package.json
+├── repo_structure.txt
+└── tailwind.config.js
