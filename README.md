@@ -121,24 +121,13 @@ npm run start
 
 ## Project Structure
 
+### Project strucutre
+
+<!-- START_STRUCTURE -->
 ```
-StationGuide/
-├── frontend/
-│   ├── src/  # React application source code
-│   ├── public/  # Static assets for the frontend (e.g., images, fonts)
-│   ├── package.json  # Frontend dependencies
-│   └── ...  # Other frontend-related files (e.g., configuration files)
-├── backend/
-│   ├── server.js  # Express server entry point
-│   ├── models/  # Data model definitions (optional)
-│   ├── routes/  # API endpoints definitions
-│   ├── config/  # Configuration files (e.g., database connection)
-│   ├── package.json  # Backend dependencies
-│   └── ...  # Other backend-related files (e.g., middleware)
-├── .env  # Environment variables for sensitive information (optional)
-├── using.md  # This file
-└── ...  # Other project configuration files (e.g., .gitignore)
 ```
+<!-- END_STRUCTURE -->
+
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
