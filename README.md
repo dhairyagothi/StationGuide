@@ -125,6 +125,24 @@ npm run start
 
 <!-- START_STRUCTURE -->
 ```
+├── backend
+│   ├── config
+│   ├── controllers
+│   ├── dataset
+│   ├── middleware
+│   ├── models
+│   ├── public
+│   ├── routes
+│   └── utils
+├── frontend
+│   ├── public
+│   ├── src
+│   │   ├── Pages
+│   │   ├── assets
+│   │   │   └── svg
+│   │   ├── components
+│   │   ├── dataset
+│   │   └── validations
 ```
 <!-- END_STRUCTURE -->
 
