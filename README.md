@@ -121,8 +121,6 @@ npm run start
 
 ## Project Structure
 
-### Project strucutre
-
 <!-- START_STRUCTURE -->
 ```
 ├── CODE_OF_CONDUCT.md
