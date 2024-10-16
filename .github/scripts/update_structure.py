@@ -21,8 +21,8 @@ def update_structure_file(structure):
     with open('repo_structure.txt', 'w') as f:
         f.write('\n'.join(structure))
 
-def update_StationGuide(structure):
-    with open('StationGuide.md', 'r') as f:  # updated file name
+def update_README(structure):
+    with open('README.md', 'r') as f:  # updated file name
         content = f.read()
 
     start_marker = '<!-- START_STRUCTURE -->'
@@ -38,9 +38,9 @@ def update_StationGuide(structure):
             content[end_index:]
         )
         
-        with open('StationGuide.md', 'w') as f:
+        with open('README.md', 'w') as f:
             f.write(new_content)
-        print("StationGuide.md updated with new structure.")
+        print("README.md updated with new structure.")
     else:
         print("Markers not found in Repo-structure.md. Structure not updated.")
 
@@ -58,7 +58,7 @@ def main():
 
     if current_structure != existing_structure:
         update_structure_file(current_structure)
-        update_StationGuide(current_structure)
+        update_README(current_structure)
         print("Repository structure updated.")
     else:
         print("No changes in repository structure.")
