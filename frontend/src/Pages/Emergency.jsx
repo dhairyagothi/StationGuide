@@ -15,6 +15,7 @@ const HomeClick = () => {
             </button>
     <div className="flex items-center justify-center min-h-screen bg-blue-100">
       <h1 className="text-3xl font-semibold text-blue-900">Emergency Page</h1>
+      
     </div>
     </>
   );
