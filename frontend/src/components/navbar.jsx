@@ -88,6 +88,7 @@ const Navbar = () => {
         {/* Footer */}
         <div className="absolute bottom-0 w-full p-4 text-center text-gray-500 text-sm">
           App version 1.0.0.0
+          
         </div>
       </div>
     </>

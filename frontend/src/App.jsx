@@ -19,9 +19,9 @@ import Help from './components/help';
 import About from './components/about';
 import Contributor from './Pages/contributor';
 import Payment from './Pages/Payment';
-// import HelpAndSupport from './Pages/HelpandSupport';
-// import Emergency from './Pages/Emergency';
-// import AboutUs from './Pages/AboutUs';
+import HelpAndSupport from './Pages/HelpandSupport';
+import Emergency from './Pages/Emergency';
+import AboutUs from './Pages/AboutUs';
 
 
 function App() {
