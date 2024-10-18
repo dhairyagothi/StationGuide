@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes, FaUser, FaMoneyCheckAlt, FaHandsHelping, FaBell, FaCogs, FaInfoCircle, FaCreditCard } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
+import Hamburger from '../Pages/hamburger';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
