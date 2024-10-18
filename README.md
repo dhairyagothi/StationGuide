@@ -182,10 +182,15 @@ npm run start
 │   │   ├── App.jsx
 │   │   ├── Pages/
 │   │   │   ├── 3Dmaps.jsx
+│   │   │   ├── AboutUs.jsx
 │   │   │   ├── ContactUs.jsx
+│   │   │   ├── Emergency.jsx
+│   │   │   ├── ForaFriend.jsx
+│   │   │   ├── HelpandSupport.jsx
 │   │   │   ├── Herosection.css
 │   │   │   ├── Herosection.jsx
 │   │   │   ├── LoginPage.jsx
+│   │   │   ├── Payment.jsx
 │   │   │   ├── Register.jsx
 │   │   │   ├── booking.jsx
 │   │   │   ├── contributor.jsx
