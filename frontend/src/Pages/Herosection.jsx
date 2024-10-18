@@ -52,6 +52,7 @@ const Herosection = () => {
 
             <div className='relative z-50 flex items-center justify-between'>
                 <div><Navbar /></div>
+                <div><HamburgerMenu/></div>
             </div>
             <h1 className='pl-4 text-4xl font-black  text-center text-white '>Namaste !! Yatree </h1>
             <div className="relative flex items-center justify-center bg-center bg-cover herosection">
