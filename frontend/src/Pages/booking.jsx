@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import DatePicker from "react-datepicker"; // Import DatePicker
 import "react-datepicker/dist/react-datepicker.css"; // Import default styles
-import StationSearch from "../Components/StationSearch";
 
 const BookingPage = () => {
   const [station, setStation] = useState("");
@@ -343,10 +342,29 @@ const BookingPage = () => {
         <label className="block text-gray-700 font-medium">
           Search for a Station
         </label>
-        <StationSearch onSelectStation={handleStationSelect} />
+        <input
+          type="text"
+          value={station}
+          onChange={handleStationInputChange}
+          placeholder="Type to search..."
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400 transition duration-200"
+        />
+        {noResults && <p className="text-red-600 mt-2">No results found.</p>}
       </div>
 
-      {station && <p>Selected Station: {station}</p>}
+      {stationSuggestions.length > 0 && (
+        <ul className="bg-white border border-gray-300 shadow-md mt-2 rounded-lg">
+          {stationSuggestions.map((suggestion) => (
+            <li
+              key={suggestion._id}
+              onClick={() => handleStationSelect(suggestion)}
+              className="p-3 cursor-pointer hover:bg-gray-100 transition duration-150"
+            >
+              {suggestion.name}
+            </li>
+          ))}
+        </ul>
+      )}
 
       {loading && <p className="text-blue-600">Loading services...</p>}
 
@@ -368,7 +386,10 @@ const BookingPage = () => {
               <p className="mt-1">Available: {service.availability}</p>
             </div>
             <div className="flex justify-center">
-              <button className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-150">
+              <button
+                onClick={() => handleBookNow(service.id)}
+                className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-150"
+              >
                 Book Now
               </button>
             </div>
