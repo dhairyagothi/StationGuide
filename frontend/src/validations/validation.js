@@ -17,7 +17,7 @@ export const registerValidation = yup.object().shape({
       /^(?:\+91[-\s]?)?[789]\d{9}$/,
       "Phone number must be in a valid format"
     )
-    .required("Phone number is required"),
+    .optional(""),
   password: yup
     .string()
     .min(6, "Password should be at least 6 characters")

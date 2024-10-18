@@ -48,7 +48,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "https://stationguide.onrender.com/api/register",
+        "http://localhost:3000/api/register",
         {
           method: "POST",
           headers: {
