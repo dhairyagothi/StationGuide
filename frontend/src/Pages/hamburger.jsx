@@ -215,26 +215,7 @@ const Hamburger = () => {
 
   return (
     <div>
-      <HamburgerContainer onClick={toggleMenu} aria-label="Toggle Menu" role="button">
-        <HamburgerIcon>
-          <Bar1 open={open} />
-          <Bar2 open={open} />
-          <Bar3 open={open} />
-        </HamburgerIcon>
-      </HamburgerContainer>
-
-      {open && <BackButton onClick={handleBack} />}
-
-      <Menu open={open}>
-        <MenuItem href="#back" onClick={handleBack} style={{ fontSize: '30px' }}>
-          ←
-        </MenuItem>
-        <MenuItem className="cursor-pointer " onClick={HomeClick}>Home</MenuItem>
-        <MenuItem className="cursor-pointer " onClick={SettingsClick}>Settings</MenuItem>
-        <MenuItem className="cursor-pointer " onClick={helpClick}>Help</MenuItem>
-        <MenuItem className="cursor-pointer " onClick={aboutClick}>About</MenuItem>
-        <MenuItem className="cursor-pointer " onClick={Contactclick}>Contact</MenuItem>
-      </Menu>
+   
 
       <SearchContainer>
         <SearchIcon onClick={toggleSearch} />

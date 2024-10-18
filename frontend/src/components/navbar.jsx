@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes, FaUser, FaMoneyCheckAlt, FaHandsHelping, FaBell, FaCogs, FaInfoCircle } from 'react-icons/fa';
+import Hamburger from '../Pages/hamburger';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
