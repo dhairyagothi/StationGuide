@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes, FaUser, FaMoneyCheckAlt, FaHandsHelping, FaBell, FaCogs, FaInfoCircle, FaCreditCard } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaMoneyCheckAlt, FaHandsHelping, FaBell, FaStar, FaCogs, FaInfoCircle, FaCreditCard } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
 import Hamburger from '../Pages/hamburger';
 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState('');
+
   const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleRating = (value) => {
+    setRating(value);
+  };
+
+  const submitRating = () => {
+    alert(`Thank you for rating us ${rating} out of 5! Comment: ${comment}`);
+    setIsModalOpen(false);
+    setRating(0);
+    setComment('');
+  };
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -37,6 +52,11 @@ const Navbar = () => {
     navigate('/about-us');
     setIsOpen(false);
   };
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
 
   return (
     <>
@@ -84,6 +104,10 @@ const Navbar = () => {
               <FaInfoCircle className="mr-3 text-blue-500" />
               <span className="text-lg">About Us</span>
             </li>
+            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={handleOpenModal}>
+              <FaStar className="mr-3 text-blue-500" />
+              <span className="text-lg">Rate Us</span>
+            </li>
           </ul>
         </nav>
 
@@ -93,6 +117,47 @@ const Navbar = () => {
           
         </div>
       </div>
+
+      {/* Rating Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm mx-auto">
+            <h2 className="text-lg font-bold mb-4 text-center text-black">Rate Us</h2>
+            <div className="flex justify-center mb-4">
+              {[1, 2, 3, 4, 5].map((value) => (
+                <span
+                  key={value}
+                  className={`cursor-pointer text-2xl ${rating >= value ? 'text-blue-500' : 'text-gray-300'}`}
+                  onClick={() => handleRating(value)}
+                >
+                  ★
+                </span>
+              ))}
+            </div>
+            <textarea
+              className="w-full border text-black border-gray-300 hover:border-blue-500 rounded p-2 mb-4"
+              rows="4"
+              placeholder="Write your comments here..."
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+            ></textarea>
+            <div className="flex justify-around">
+              <button
+                onClick={submitRating}
+                className="bg-blue-500 text-white font-semibold py-2 px-4 rounded transition-all duration-300 transform hover:bg-blue-600"
+              >
+                Submit
+              </button>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="ml-2 text-gray-600 underline"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
