@@ -8,11 +8,11 @@ const Payment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle payment submission logic here
     console.log('Payment submitted:', { paymentMethod, cardNumber, expiryDate, cvv });
   };
 
   return (
+
     <div className="min-h-screen flex justify-center items-center bg-blue-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-3xl font-semibold text-blue-900 mb-6">Payment Page</h1>
@@ -49,6 +49,7 @@ const Payment = () => {
                   required
                 />
               </div>
+
               <div className="flex mb-4">
                 <div className="w-1/2 mr-2">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -63,6 +64,7 @@ const Payment = () => {
                     required
                   />
                 </div>
+
                 <div className="w-1/2 ml-2">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     CVV
@@ -88,7 +90,6 @@ const Payment = () => {
                 type="text"
                 className="w-full px-3 py-2 border rounded-md"
                 placeholder="Enter your UPI ID"
-                // Add value and onChange handlers here
               />
             </div>
           ) : null}
