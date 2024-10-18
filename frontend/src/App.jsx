@@ -18,6 +18,10 @@ import Help from "./components/help";
 import About from "./components/about";
 import Contributor from "./Pages/contributor";
 import Settings from "./Pages/Settings";
+import Payment from './Pages/Payment';
+import HelpAndSupport from './Pages/HelpandSupport';
+import Emergency from './Pages/Emergency';
+import AboutUs from './Pages/AboutUs';
 
 function App() {
   return (
@@ -39,6 +43,9 @@ function App() {
           <Route path="/help" element={<Help />} />
           <Route path="/about" element={<About />} />
           <Route path="/contributor" element={<Contributor />} />
+          <Route path='/aboutus' element={<AboutUs/>} />
+        <Route path='/emergency' element={<Emergency/>} />  
+        <Route path='/helpandsupport' element={<HelpAndSupport/>} />
 
           {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
         </Routes>
