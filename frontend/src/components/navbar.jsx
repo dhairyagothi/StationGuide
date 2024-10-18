@@ -1,11 +1,39 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes, FaUser, FaMoneyCheckAlt, FaHandsHelping, FaBell, FaCogs, FaInfoCircle } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaMoneyCheckAlt, FaHandsHelping, FaBell, FaCogs, FaInfoCircle, FaCreditCard } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
+  };
+
+  // Handle navigation to the pages
+  const handlePaymentClick = () => {
+    navigate('/payment');
+    setIsOpen(false); // Close the sidebar after navigating
+  };
+
+  const handleHelpAndSupportClick = () => {
+    navigate('/help-and-support');
+    setIsOpen(false);
+  };
+
+  const handleEmergencyClick = () => {
+    navigate('/emergency');
+    setIsOpen(false);
+  };
+
+  const handleSettingsClick = () => {
+    navigate('/settings');
+    setIsOpen(false);
+  };
+
+  const handleAboutUsClick = () => {
+    navigate('/about-us');
+    setIsOpen(false);
   };
 
   return (
@@ -38,29 +66,21 @@ const Navbar = () => {
         {/* Menu Items */}
         <nav className="mt-4">
           <ul className="space-y-4">
-            <li className="flex items-center px-4 py-2 hover:bg-gray-100">
-              <FaMoneyCheckAlt className="mr-3 text-blue-500" />
-              <span className='text-lg'>Payment</span>
+            <li className="flex items-center px-4 py-2 bg-amber-500 text-white cursor-pointer hover:bg-amber-600" onClick={handlePaymentClick}>
+              <FaCreditCard className="mr-3 text-white" />
+              <span className="text-lg">Make a Payment</span>
             </li>
-            <li className="flex items-center px-4 py-2 hover:bg-gray-100">
+            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={handleHelpAndSupportClick}>
               <FaHandsHelping className="mr-3 text-blue-500" />
-              <span className='text-lg'>For a Friend</span>
+              <span className="text-lg">Help and Support</span>
             </li>
-            <li className="flex items-center px-4 py-2 hover:bg-gray-100">
+            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={handleEmergencyClick}>
               <FaBell className="mr-3 text-blue-500" />
-              <span className='text-lg'>Help and Support</span>
+              <span className="text-lg">Emergency</span>
             </li>
-            <li className="flex items-center px-4 py-2 hover:bg-gray-100">
-              <FaBell className="mr-3 text-blue-500" />
-              <span className='text-lg'>Emergency</span>
-            </li>
-            <li className="flex items-center px-4 py-2 hover:bg-gray-100">
-              <FaCogs className="mr-3 text-blue-500" />
-              <span className='text-lg'>Settings</span>
-            </li>
-            <li className="flex items-center px-4 py-2 hover:bg-gray-100">
+            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={handleAboutUsClick}>
               <FaInfoCircle className="mr-3 text-blue-500" />
-              <span className='text-lg'>About Us</span>
+              <span className="text-lg">About Us</span>
             </li>
           </ul>
         </nav>
