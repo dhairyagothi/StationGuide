@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes, FaUser, FaMoneyCheckAlt, FaHandsHelping, FaBell, FaStar, FaCogs, FaInfoCircle, FaCreditCard } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaMoneyCheckAlt,  FaHandsHelping, FaBell, FaStar, FaCogs, FaInfoCircle, FaCreditCard } from 'react-icons/fa';
+import { IoSettings } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
 import Hamburger from '../Pages/hamburger';
 
@@ -49,7 +50,11 @@ const Navbar = () => {
   };
 
   const handleAboutUsClick = () => {
-    navigate('/about-us');
+    navigate('/about');
+    setIsOpen(false);
+  };
+  const handleOpenSetting = () => {
+    navigate('/Settings');
     setIsOpen(false);
   };
 
@@ -61,9 +66,9 @@ const Navbar = () => {
   return (
     <>
       {/* Navigation Toggle for All Screens (Mobile and Larger Screens) */}
-      <div className="bg-blue-500 flex items-center justify-between p-4">
+      <div className="flex items-center justify-between p-4 bg-blue-500">
         <button onClick={toggleMenu}>
-          {isOpen ? <FaTimes className="text-black text-2xl" /> : <FaBars className="text-white text-2xl" />}
+          {isOpen ? <FaTimes className="text-2xl text-black" /> : <FaBars className="text-2xl text-white" />}
         </button>
       </div>
 
@@ -73,12 +78,12 @@ const Navbar = () => {
         {/* Close Button inside Sidebar */}
         <div className="flex justify-end p-4">
           <button onClick={toggleMenu}>
-            <FaTimes className="text-black text-3xl mr-2" />
+            <FaTimes className="mr-2 text-3xl text-black" />
           </button>
         </div>
 
         {/* Sidebar Menu Content */}
-        <div className="bg-blue-500 p-4 flex flex-col items-center text-white">
+        <div className="flex flex-col items-center p-4 text-white bg-blue-500">
           {/* Profile Section */}
           <FaUser className="text-6xl" />
           <p className="mt-2 text-lg font-semibold">Yatree</p>
@@ -88,31 +93,35 @@ const Navbar = () => {
         {/* Menu Items */}
         <nav className="mt-4">
           <ul className="space-y-4">
-            <li className="flex items-center px-4 py-2 bg-amber-500 text-white cursor-pointer hover:bg-amber-600" onClick={handlePaymentClick}>
-              <FaCreditCard className="mr-3 text-white" />
+            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handlePaymentClick}>
+              <FaCreditCard className="mr-3 text-blue-300" />
               <span className="text-lg">Make a Payment</span>
             </li>
-            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={handleHelpAndSupportClick}>
-              <FaHandsHelping className="mr-3 text-blue-500" />
+            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleHelpAndSupportClick}>
+              <FaHandsHelping className="mr-3 text-blue-300" />
               <span className="text-lg">Help and Support</span>
             </li>
-            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={handleEmergencyClick}>
-              <FaBell className="mr-3 text-blue-500" />
+            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleEmergencyClick}>
+              <FaBell className="mr-3 text-blue-300" />
               <span className="text-lg">Emergency</span>
             </li>
-            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={handleAboutUsClick}>
-              <FaInfoCircle className="mr-3 text-blue-500" />
+            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleAboutUsClick}>
+              <FaInfoCircle className="mr-3 text-blue-300" />
               <span className="text-lg">About Us</span>
             </li>
-            <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={handleOpenModal}>
-              <FaStar className="mr-3 text-blue-500" />
+            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleOpenModal}>
+              <FaStar className="mr-3 text-blue-300" />
               <span className="text-lg">Rate Us</span>
+            </li>
+            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleOpenSetting}>
+              <IoSettings className="mr-3 text-blue-300" />
+              <span className="text-lg">Settings</span>
             </li>
           </ul>
         </nav>
 
         {/* Footer */}
-        <div className="absolute bottom-0 w-full p-4 text-center text-gray-500 text-sm">
+        <div className="absolute bottom-0 w-full p-4 text-sm text-center text-gray-500">
           App version 1.0.0.0
           
         </div>
@@ -120,9 +129,9 @@ const Navbar = () => {
 
       {/* Rating Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm mx-auto">
-            <h2 className="text-lg font-bold mb-4 text-center text-black">Rate Us</h2>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="w-full max-w-sm p-8 mx-auto bg-white rounded-lg shadow-lg">
+            <h2 className="mb-4 text-lg font-bold text-center text-black">Rate Us</h2>
             <div className="flex justify-center mb-4">
               {[1, 2, 3, 4, 5].map((value) => (
                 <span
@@ -135,7 +144,7 @@ const Navbar = () => {
               ))}
             </div>
             <textarea
-              className="w-full border text-black border-gray-300 hover:border-blue-500 rounded p-2 mb-4"
+              className="w-full p-2 mb-4 text-black border border-gray-300 rounded hover:border-blue-500"
               rows="4"
               placeholder="Write your comments here..."
               value={comment}
@@ -144,7 +153,7 @@ const Navbar = () => {
             <div className="flex justify-around">
               <button
                 onClick={submitRating}
-                className="bg-blue-500 text-white font-semibold py-2 px-4 rounded transition-all duration-300 transform hover:bg-blue-600"
+                className="px-4 py-2 font-semibold text-white transition-all duration-300 transform bg-blue-500 rounded hover:bg-blue-600"
               >
                 Submit
               </button>
