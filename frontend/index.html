@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Station Saarthi</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/components/popup.css">
     <style>
     /* Style for the Google Translate element */
     #google_element {
@@ -306,5 +307,29 @@ document.getElementById('sendMessage').addEventListener('click', function () {
             // Start the animation
             animateCircles();
         </script>
+
+        <!--pop up load on website HTML part-->
+
+
+        <div id="popup" class="popup">
+            <div class="popup-content">
+    
+                </div>
+                <div class="popup-right">
+                    <p class="h1">Welcome to Station Saarthi!</p>
+                    <p class="h2">Travel without stress ! Sign in now</p>
+                    <!--email part-->
+                    <form id="emailForm">
+                        <input type="email" id="popup-email" placeholder="Enter your email" required>
+                        <button type="submit" class="signup-btn">Sign me up!</button>
+                    </form>
+                     <p class="terms">By signing in, I agree to station saarthi's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <script src="./script/popup.js"></script>
+
+    
 </body>
 </html>
