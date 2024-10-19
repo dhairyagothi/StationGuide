@@ -26,7 +26,7 @@ const BookingPage = () => {
   // Fetch station suggestions
   const fetchStationSuggestions = async (query) => {
     try {
-      const response = await axios.get(`http://localhost:3000/station/`,`https://stationguidebackend.onrender.com`);
+      const response = await axios.get(`http://localhost:3000/station/`, `https://stationguidebackend.onrender.com`);
       if (response.data.length > 0) {
         setStationSuggestions(response.data);
         setNoResults(false);
@@ -45,7 +45,7 @@ const BookingPage = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:3000/station/${stationId}/bookings` , `https://stationguidebackend.onrender.com`
+        `http://localhost:3000/station/${stationId}/bookings`, `https://stationguidebackend.onrender.com`
       );
       const { coolieBookings, wheelchairBookings, cloakroomBookings } =
         response.data;
@@ -121,12 +121,12 @@ const BookingPage = () => {
         price: 100,
       };
 
-      await axios.post(`http://localhost:3000/api/bookCloakroom`,`https://stationguidebackend.onrender.com`, requestBody);
+      await axios.post(`http://localhost:3000/api/bookCloakroom`, `https://stationguidebackend.onrender.com`, requestBody);
       alert("Cloakroom booking successful!");
     } catch (error) {
       alert(
         "Failed to complete the booking: " +
-          (error.response?.data?.message || "Unknown error")
+        (error.response?.data?.message || "Unknown error")
       );
     }
   };
@@ -142,12 +142,12 @@ const BookingPage = () => {
         price: 250,
       };
 
-      await axios.post(`http://localhost:3000/api/bookCoolie`,`https://stationguidebackend.onrender.com`, requestBody);
+      await axios.post(`http://localhost:3000/api/bookCoolie`, `https://stationguidebackend.onrender.com`, requestBody);
       alert("Coolie booking successful!");
     } catch (error) {
       alert(
         "Failed to complete the booking: " +
-          (error.response?.data?.message || "Unknown error")
+        (error.response?.data?.message || "Unknown error")
       );
     }
   };
@@ -161,12 +161,12 @@ const BookingPage = () => {
         price: 200,
       };
 
-      await axios.post(`http://localhost:3000/api/bookWheelchair`,`https://stationguidebackend.onrender.com`, requestBody);
+      await axios.post(`http://localhost:3000/api/bookWheelchair`, `https://stationguidebackend.onrender.com`, requestBody);
       alert("Wheelchair booking successful!");
     } catch (error) {
       alert(
         "Failed to complete the booking: " +
-          (error.response?.data?.message || "Unknown error")
+        (error.response?.data?.message || "Unknown error")
       );
     }
   };
@@ -328,43 +328,48 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="max-w-5xl p-6 mx-auto bg-white rounded-lg shadow-lg">
-      <button
-        onClick={() => navigate(-1)}
-        className="flex items-center mb-6 text-gray-800 transition duration-200 hover:text-blue-700"
-      >
-        <IoArrowBack className="mr-2" />
-        Go Back
-      </button>
-      <h1 className="mb-6 text-3xl font-bold text-gray-800">Booking Page</h1>
+    <div className="max-w-5xl p-6 mx-auto bg-white rounded-lg shadow-lg " style={{marginTop:"3rem", marginBottom:"3rem"}}>
+      
+      <div className="flex flex-col items-center">
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center mb-6 text-gray-800 transition duration-200 hover:text-blue-700"
+        >
+          <IoArrowBack className="mr-2" />
+          Go Back
+        </button>
 
-      <div className="mb-6">
-        <label className="block font-medium text-gray-700">
-          Search for a Station
-        </label>
-        <input
-          type="text"
-          value={station}
-          onChange={handleStationInputChange}
-          placeholder="Type to search..."
-          className="w-full px-4 py-3 transition duration-200 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
-        />
-        {noResults && <p className="mt-2 text-red-600">No results found.</p>}
+        <h1 className="mb-6 text-3xl font-bold text-gray-800">Booking Page</h1>
+
+        <div className="mb-6 w-3/5"> {/* Setting width to 60% */}
+          <label className="block font-medium text-gray-700 text-center">
+            Search for a Station
+          </label>
+          <input
+            type="text"
+            value={station}
+            onChange={handleStationInputChange}
+            placeholder="Type to search..."
+            className="w-full px-4 py-3 transition duration-200 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
+          />
+          {noResults && <p className="mt-2 text-red-600 text-center">No results found.</p>}
+        </div>
+
+        {stationSuggestions.length > 0 && (
+          <ul className="mt-2 bg-white border border-gray-300 rounded-lg shadow-md w-3/5">
+            {stationSuggestions.map((suggestion) => (
+              <li
+                key={suggestion._id}
+                onClick={() => handleStationSelect(suggestion)}
+                className="p-3 transition duration-150 cursor-pointer hover:bg-gray-100"
+              >
+                {suggestion.name}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
-      {stationSuggestions.length > 0 && (
-        <ul className="mt-2 bg-white border border-gray-300 rounded-lg shadow-md">
-          {stationSuggestions.map((suggestion) => (
-            <li
-              key={suggestion._id}
-              onClick={() => handleStationSelect(suggestion)}
-              className="p-3 transition duration-150 cursor-pointer hover:bg-gray-100"
-            >
-              {suggestion.name}
-            </li>
-          ))}
-        </ul>
-      )}
 
       {loading && <p className="text-blue-600">Loading services...</p>}
 
