@@ -26,7 +26,7 @@ const BookingPage = () => {
   // Fetch station suggestions
   const fetchStationSuggestions = async (query) => {
     try {
-      const response = await axios.get(`http://localhost:3000/station/`);
+      const response = await axios.get(`http://localhost:3000/station/`,`https://stationguidebackend.onrender.com`);
       if (response.data.length > 0) {
         setStationSuggestions(response.data);
         setNoResults(false);
@@ -45,7 +45,7 @@ const BookingPage = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:3000/station/${stationId}/bookings`
+        `http://localhost:3000/station/${stationId}/bookings` , `https://stationguidebackend.onrender.com`
       );
       const { coolieBookings, wheelchairBookings, cloakroomBookings } =
         response.data;
@@ -121,7 +121,7 @@ const BookingPage = () => {
         price: 100,
       };
 
-      await axios.post(`http://localhost:3000/api/bookCloakroom`, requestBody);
+      await axios.post(`http://localhost:3000/api/bookCloakroom`,`https://stationguidebackend.onrender.com`, requestBody);
       alert("Cloakroom booking successful!");
     } catch (error) {
       alert(
@@ -142,7 +142,7 @@ const BookingPage = () => {
         price: 250,
       };
 
-      await axios.post(`http://localhost:3000/api/bookCoolie`, requestBody);
+      await axios.post(`http://localhost:3000/api/bookCoolie`,`https://stationguidebackend.onrender.com`, requestBody);
       alert("Coolie booking successful!");
     } catch (error) {
       alert(
@@ -161,7 +161,7 @@ const BookingPage = () => {
         price: 200,
       };
 
-      await axios.post(`http://localhost:3000/api/bookWheelchair`, requestBody);
+      await axios.post(`http://localhost:3000/api/bookWheelchair`,`https://stationguidebackend.onrender.com`, requestBody);
       alert("Wheelchair booking successful!");
     } catch (error) {
       alert(
@@ -203,7 +203,7 @@ const BookingPage = () => {
                 setFormData({ ...formData, items: e.target.value })
               }
               required
-              className="w-full px-4 py-2 mt-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400 transition duration-200"
+              className="w-full px-4 py-2 mt-2 transition duration-200 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400"
             />
           </label>
           <label className="block mt-4">
@@ -211,7 +211,7 @@ const BookingPage = () => {
             <DatePicker
               selected={formData.startDate}
               onChange={(date) => setFormData({ ...formData, startDate: date })}
-              className="w-full px-4 py-2 mt-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400 transition duration-200"
+              className="w-full px-4 py-2 mt-2 transition duration-200 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400"
             />
           </label>
           <label className="block mt-4">
@@ -219,12 +219,12 @@ const BookingPage = () => {
             <DatePicker
               selected={formData.endDate}
               onChange={(date) => setFormData({ ...formData, endDate: date })}
-              className="w-full px-4 py-2 mt-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400 transition duration-200"
+              className="w-full px-4 py-2 mt-2 transition duration-200 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400"
             />
           </label>
           <button
             type="submit"
-            className="mt-6 px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200 shadow-md"
+            className="px-5 py-3 mt-6 text-white transition duration-200 bg-blue-500 rounded-lg shadow-md hover:bg-blue-600"
           >
             Submit Booking
           </button>
@@ -243,7 +243,7 @@ const BookingPage = () => {
                 setFormData({ ...formData, pickupLocation: e.target.value })
               }
               required
-              className="w-full px-4 py-2 mt-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400 transition duration-200"
+              className="w-full px-4 py-2 mt-2 transition duration-200 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400"
             />
           </label>
           <label className="block mt-4">
@@ -255,7 +255,7 @@ const BookingPage = () => {
                 setFormData({ ...formData, departureLocation: e.target.value })
               }
               required
-              className="w-full px-4 py-2 mt-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400 transition duration-200"
+              className="w-full px-4 py-2 mt-2 transition duration-200 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400"
             />
           </label>
           <label className="block mt-4">
@@ -265,7 +265,7 @@ const BookingPage = () => {
               onChange={(date) =>
                 setFormData({ ...formData, bookingDate: date })
               }
-              className="w-full px-4 py-2 mt-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400 transition duration-200"
+              className="w-full px-4 py-2 mt-2 transition duration-200 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400"
             />
           </label>
           <label className="block mt-4">
@@ -277,12 +277,12 @@ const BookingPage = () => {
                 setFormData({ ...formData, bookingTime: e.target.value })
               }
               required
-              className="w-full px-4 py-2 mt-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400 transition duration-200"
+              className="w-full px-4 py-2 mt-2 transition duration-200 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400"
             />
           </label>
           <button
             type="submit"
-            className="mt-6 px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200 shadow-md"
+            className="px-5 py-3 mt-6 text-white transition duration-200 bg-blue-500 rounded-lg shadow-md hover:bg-blue-600"
           >
             Submit Booking
           </button>
@@ -301,7 +301,7 @@ const BookingPage = () => {
               onChange={(date) =>
                 setFormData({ ...formData, bookingDate: date })
               }
-              className="w-full px-4 py-2 mt-2 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400 transition duration-200"
+              className="w-full px-4 py-2 mt-2 transition duration-200 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400"
             />
           </label>
           <label className="block mt-4">
@@ -313,12 +313,12 @@ const BookingPage = () => {
                 setFormData({ ...formData, bookingTime: e.target.value })
               }
               required
-              className="w-full px-4 py-2 mt-2 border border-teal-300 rounded-lg focus:ring-2 focus:ring-teal-400 transition duration-200"
+              className="w-full px-4 py-2 mt-2 transition duration-200 border border-teal-300 rounded-lg focus:ring-2 focus:ring-teal-400"
             />
           </label>
           <button
             type="submit"
-            className="mt-6 px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200 shadow-md"
+            className="px-5 py-3 mt-6 text-white transition duration-200 bg-blue-500 rounded-lg shadow-md hover:bg-blue-600"
           >
             Submit Booking
           </button>
@@ -328,18 +328,18 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div className="max-w-5xl p-6 mx-auto bg-white rounded-lg shadow-lg">
       <button
         onClick={() => navigate(-1)}
-        className="flex items-center mb-6 text-gray-800 hover:text-blue-700 transition duration-200"
+        className="flex items-center mb-6 text-gray-800 transition duration-200 hover:text-blue-700"
       >
         <IoArrowBack className="mr-2" />
         Go Back
       </button>
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">Booking Page</h1>
+      <h1 className="mb-6 text-3xl font-bold text-gray-800">Booking Page</h1>
 
       <div className="mb-6">
-        <label className="block text-gray-700 font-medium">
+        <label className="block font-medium text-gray-700">
           Search for a Station
         </label>
         <input
@@ -347,18 +347,18 @@ const BookingPage = () => {
           value={station}
           onChange={handleStationInputChange}
           placeholder="Type to search..."
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400 transition duration-200"
+          className="w-full px-4 py-3 transition duration-200 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
         />
-        {noResults && <p className="text-red-600 mt-2">No results found.</p>}
+        {noResults && <p className="mt-2 text-red-600">No results found.</p>}
       </div>
 
       {stationSuggestions.length > 0 && (
-        <ul className="bg-white border border-gray-300 shadow-md mt-2 rounded-lg">
+        <ul className="mt-2 bg-white border border-gray-300 rounded-lg shadow-md">
           {stationSuggestions.map((suggestion) => (
             <li
               key={suggestion._id}
               onClick={() => handleStationSelect(suggestion)}
-              className="p-3 cursor-pointer hover:bg-gray-100 transition duration-150"
+              className="p-3 transition duration-150 cursor-pointer hover:bg-gray-100"
             >
               {suggestion.name}
             </li>
@@ -368,27 +368,27 @@ const BookingPage = () => {
 
       {loading && <p className="text-blue-600">Loading services...</p>}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+      <div className="grid grid-cols-1 gap-6 mt-6 md:grid-cols-3">
         {services.map((service) => (
           <div
             key={service.id}
-            className="flex-1 mb-4 mx-2 bg-white border border-gray-300 rounded-lg shadow-sm hover:shadow-md transition duration-150 p-4"
+            className="flex-1 p-4 mx-2 mb-4 transition duration-150 bg-white border border-gray-300 rounded-lg shadow-sm hover:shadow-md"
           >
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold">{service.name}</h3>
             </div>
             <div className="flex">
               {service.availability > 0 ? (
-                <span className="text-green-500 font-bold text-lg">●</span>
+                <span className="text-lg font-bold text-green-500">●</span>
               ) : (
-                <span className="text-red-500 font-bold text-lg">●</span>
+                <span className="text-lg font-bold text-red-500">●</span>
               )}
               <p className="mt-1">Available: {service.availability}</p>
             </div>
             <div className="flex justify-center">
               <button
                 onClick={() => handleBookNow(service.id)}
-                className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-150"
+                className="px-4 py-2 mt-2 text-white transition duration-150 bg-blue-500 rounded-lg hover:bg-blue-600"
               >
                 Book Now
               </button>

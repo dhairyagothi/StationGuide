@@ -48,7 +48,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/register",
+        "http://localhost:3000/api/register", "https://stationguidebackend.onrender.com",
         {
           method: "POST",
           headers: {
@@ -167,14 +167,14 @@ const Register = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gradient-to-b from-blue-100 to-blue-5000 relative">
+      <div className="relative flex flex-col items-center justify-center min-h-screen px-4 bg-gradient-to-b from-blue-100 to-blue-5000">
         {confirmationMessage && (
           <div className="fixed top-0 left-0 w-full p-3 text-center text-white bg-green-600 bg-opacity-80">
             {confirmationMessage}
           </div>
         )}
 
-        <button onClick={HomeClick} className="absolute left-0 top-0">
+        <button onClick={HomeClick} className="absolute top-0 left-0">
           <img src={backicon} alt="" className="h-[9vh]" />
         </button>
         <div className="mb-6 text-center">
@@ -309,10 +309,10 @@ const Register = () => {
             Register
           </button>
 
-          <div className="flex justify-between items-center mt-4">
-            <div className="border-b w-1/4"></div>
+          <div className="flex items-center justify-between mt-4">
+            <div className="w-1/4 border-b"></div>
             <span className="mx-2 text-gray-500">or</span>
-            <div className="border-b w-1/4"></div>
+            <div className="w-1/4 border-b"></div>
           </div>
 
           <div className="mt-4">

@@ -80,7 +80,7 @@ const RailwayStations = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3000/api/all-stations")
+    fetch("http://localhost:3000/api/all-stations" , "https://stationguidebackend.onrender.com")
       .then((e) => {
         return e.json();
       })
@@ -98,7 +98,7 @@ const RailwayStations = () => {
 
   if (loading) {
     return (
-      <div className="relative bg-gray-100 h-screen">
+      <div className="relative h-screen bg-gray-100">
         <div class="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin relative top-[50%] left-[50%]"></div>
       </div>
     );
@@ -187,7 +187,7 @@ const RailwayStations = () => {
   
       {/* Favorites Section - Moved to the Last */}
       <div className="mt-8">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Your Favorite Stations</h2>
+        <h2 className="mb-4 text-2xl font-semibold text-gray-800">Your Favorite Stations</h2>
   
         {favorites.length > 0 ? (
           <div className="grid grid-cols-1 gap-4">
