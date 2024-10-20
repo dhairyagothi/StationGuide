@@ -10,6 +10,7 @@ import { createWheelchairBooking } from "../controllers/WheelchairController.js"
 import { createCoolieBooking } from "../controllers/coolieController.js";
 import { sendStations } from "../controllers/stationsController.js";
 import { verifyJWT } from "../middleware/auth.middleware.js";
+import { submitFeedback } from "../controllers/submitFeedback.js";
 
 const router = express.Router();
 
@@ -24,6 +25,8 @@ router.post("/logout", verifyJWT, logoutUser);
 
 // Verify route
 router.get("/verify", verifyUser);
+
+router.post("/feedback" , verifyJWT, submitFeedback)
 
 //cloakroom bookings route
 router.post("/bookCloakroom", verifyJWT, createCloakroomBooking);

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes, FaUser, FaMoneyCheckAlt,  FaHandsHelping, FaBell, FaStar, FaCogs, FaInfoCircle, FaCreditCard } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaHandsHelping, FaBell, FaStar, FaCreditCard, FaInfoCircle } from 'react-icons/fa';
 import { IoSettings } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
-import Hamburger from '../Pages/hamburger';
-
+import { useNavigate } from 'react-router-dom'; 
+import axios from 'axios';  // Import axios
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,11 +16,43 @@ const Navbar = () => {
     setRating(value);
   };
 
-  const submitRating = () => {
-    alert(`Thank you for rating us ${rating} out of 5! Comment: ${comment}`);
-    setIsModalOpen(false);
-    setRating(0);
-    setComment('');
+  // Function to get the token from cookies or local storage (you can adjust based on where you store the token)
+  const getToken = () => {
+    return localStorage.getItem('accessToken'); // Example: if stored in localStorage
+  };
+
+  const submitRating = async () => {
+    const token = getToken(); // Retrieve token
+
+    // Check if token exists before making the API call
+    if (!token) {
+      alert("Unauthorized. Please log in first.");
+      return;
+    }
+
+    // Prepare the request payload
+    const feedbackData = {
+      rating,
+      comment,
+    };
+
+    try {
+      // Make the API call to submit feedback using axios
+      const response = await axios.post('/api/feedback', feedbackData, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      });
+
+      alert(`Thank you for rating us ${rating} out of 5! Comment: ${comment}`);
+      setIsModalOpen(false);
+      setRating(0);
+      setComment('');
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+      alert('An error occurred while submitting your feedback. Please try again.');
+    }
   };
 
   const toggleMenu = () => {
@@ -53,15 +84,10 @@ const Navbar = () => {
     navigate('/about');
     setIsOpen(false);
   };
-  const handleOpenSetting = () => {
-    navigate('/Settings');
-    setIsOpen(false);
-  };
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
-
 
   return (
     <>
@@ -111,9 +137,9 @@ const Navbar = () => {
             </li>
             <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleOpenModal}>
               <FaStar className="mr-3 text-blue-300" />
-              <span className="text-lg">Rate Us</span>
+              <span className="text-lg"> </span>
             </li>
-            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleOpenSetting}>
+            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleSettingsClick}>
               <IoSettings className="mr-3 text-blue-300" />
               <span className="text-lg">Settings</span>
             </li>

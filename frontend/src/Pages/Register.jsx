@@ -67,6 +67,7 @@ const Register = () => {
       const data = await response.json();
 
       if (response.ok) {
+        localStorage.setItem('accessToken', data.token);
         setConfirmationMessage(
           "Your account is created successfully. Please login to access the website."
         );
