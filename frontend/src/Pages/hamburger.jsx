@@ -94,13 +94,12 @@ const BackButton = styled(FaArrowLeft)`
 `;
 
 const SearchIcon = styled(FaSearch)`
-  font-size: 24px;
+  font-size: 18px;
   color: white;
   cursor: pointer;
-  margin-right: 10px;
   transition: color 0.3s;
   &:hover {
-    color: rgb(37 99 235);
+    color: #091057;
   }
 `;
 
@@ -118,17 +117,20 @@ const ClearIcon = styled(FaTimes)`
 const SearchContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content:center !important;
   position: fixed;
   top: 10px;
-  right: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 25px;
-  padding: 5px 10px;
+  right: 16px;
+   padding-block:6px;
+  padding-inline:10px;
+  background-color: #3B82F6;
+  border-radius: 30px;
+  
 `;
 
 const SearchInput = styled.input`
-  display: block;
-  padding: 5px;
+  
+ 
   background-color: transparent;
   color: white;
   outline: none;
@@ -137,7 +139,7 @@ const SearchInput = styled.input`
   opacity: ${({ show }) => (show ? 1 : 0)};
   pointer-events: ${({ show }) => (show ? "auto" : "none")};
   &::placeholder {
-    color: #ccc;
+    color: #C4E1F6;
   }
 `;
 
@@ -229,6 +231,7 @@ const Hamburger = () => {
           onChange={handleSearchChange}
           onFocus={handleFocus} 
           onBlur={handleBlur}
+       
         />
         {showSearch && searchTerm && <ClearIcon onClick={clearSearch} />}
       </SearchContainer>
