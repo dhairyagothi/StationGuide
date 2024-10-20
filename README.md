@@ -238,6 +238,32 @@ npm run start
 │   │       └── validation.js
 │   ├── tailwind.config.js
 │   └── vite.config.js
+├── notification_system/
+│   ├── backend/
+│   │   ├── config/
+│   │   │   └── db.js
+│   │   ├── controllers/
+│   │   │   └── notificationController.js
+│   │   ├── models/
+│   │   │   ├── Notification.js
+│   │   │   └── User.js
+│   │   ├── package.json
+│   │   ├── routes/
+│   │   │   ├── notificationRoutes.js
+│   │   │   └── userRoutes.js
+│   │   ├── server.js
+│   │   └── services/
+│   │       └── emailServices.js
+│   └── frontend/
+│       ├── package.json
+│       ├── public/
+│       │   └── service-worker.js
+│       └── src/
+│           ├── app.js
+│           ├── components/
+│           │   ├── NotificationCentre.js
+│           │   └── NotificationSettings.js
+│           └── index.js
 ├── package-lock.json
 ├── package.json
 ├── repo_structure.txt
