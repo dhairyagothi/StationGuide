@@ -48,7 +48,7 @@ function App() {
         <Route path='/payment' element={<Payment/>} />
         <Route path='/aboutus' element={<AboutUs/>} />
         <Route path='/emergency' element={<Emergency/>} />  
-        <Route path='/helpandsupport' element={<HelpAndSupport/>} />
+        <Route path='/help-and-support' element={<HelpAndSupport/>} />
 
         {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
 
