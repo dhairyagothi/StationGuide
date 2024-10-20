@@ -8,87 +8,87 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, rgba(255, 245, 233, 0.5), rgba(255, 209, 163, 0.4)); /* Soft warm gradient */
+  padding: 80px 20px; /* Keep spacious padding */
+  background: linear-gradient(135deg, rgba(200, 233, 255, 0.5), rgba(128, 209, 255, 0.4)); /* Softer gradient */
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
-  color: #2c3e50; /* Dark slate color */
+  color: #343a40;
 }
 
 .about-container h1 {
-  font-size: 4rem;
-  color: #c0392b; /* Bold red for heading */
-  margin-bottom: 40px;
+  font-size: 4rem; /* Keep large font size for impact */
+  color: #004085; /* Darker blue */
+  margin-bottom: 40px; /* Keep increased margin for spacing */
   text-align: center;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Enhanced text shadow for depth */
 }
 
 .about-container p {
-  font-size: 1.6rem;
-  line-height: 1.8;
-  color: #2c3e50;
+  font-size: 1.6rem; /* Keep increased font size for readability */
+  line-height: 1.8; /* Keep adjusted line height */
+  color: #343a40;
   max-width: 800px;
   text-align: center;
-  margin-bottom: 40px;
-  padding: 0 20px;
+  margin-bottom: 40px; /* Decreased margin for more compact layout */
+  padding: 0 20px; /* Keep horizontal padding */
 }
 
 .about-section {
-  margin: 20px 0;
-  padding: 30px;
+  margin: 20px 0; /* Decreased margin for tighter spacing */
+  padding: 30px; /* Decreased padding for reduced height */
   border-radius: 15px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 223, 186, 0.8)); /* Vibrant, light gradient */
-  color: #2c3e50;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(200, 220, 255, 0.8)); /* More vibrant section gradient */
+  color: #343a40;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 90%;
-  max-width: 700px;
-  text-align: justify;
-  border: 1px solid rgba(192, 57, 43, 0.5); /* Dark red border */
+  width: 90%; /* Increased width for content */
+  max-width: 700px; /* Increased max-width for larger displays */
+  text-align: justify; /* Justify text */
+  border: 1px solid rgba(0, 123, 255, 0.5); /* Slightly darker border */
 }
 
 .about-section:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px); /* Enhanced hover effect for interactivity */
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 }
 
 .about-section h2 {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  color: #c0392b; /* Darker red for headings */
-  border-bottom: 2px solid rgba(192, 57, 43, 0.6); /* Darker border */
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
+  font-size: 3rem; /* Keep larger font size for section headings */
+  margin-bottom: 15px; /* Adjusted margin for spacing */
+  color: #004085; /* Darker blue */
+  border-bottom: 2px solid rgba(0, 123, 255, 0.6); /* Slightly darker border */
+  padding-bottom: 5px; /* Increased padding for emphasis */
+  transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .about-section h2:hover {
-  color: #e74c3c; /* Lighter red on hover */
+  color: #007bff; /* Change color on hover for better interaction */
 }
 
 .about-section p {
-  font-size: 1.3rem;
-  line-height: 1.6;
-  margin-top: 10px;
-  color: #2c3e50;
-  text-align: justify;
+  font-size: 1.3rem; /* Keep increased font size for section content */
+  line-height: 1.6; /* Increased line height for readability */
+  margin-top: 10px; /* Adjusted margin for spacing */
+  color: #343a40;
+  text-align: justify; /* Justify text for cleaner appearance */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .about-container h1 {
-    font-size: 3.2rem;
+    font-size: 3.2rem; /* Adjusted for smaller screens */
   }
 
   .about-section h2 {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Adjusted for smaller screens */
   }
 
   .about-container p, .about-section p {
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* Adjusted for smaller screens */
   }
 
   .about-section {
-    width: 90%;
-    padding: 20px;
+    width: 90%; /* Full width on smaller screens for better usability */
+    padding: 20px; /* Further reduced padding for mobile devices */
   }
-}
+}      
