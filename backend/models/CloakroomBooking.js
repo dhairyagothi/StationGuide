@@ -1,3 +1,4 @@
+// cloakroomBooking.js
 import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
@@ -5,9 +6,9 @@ const Schema = mongoose.Schema;
 const cloakroomBookingSchema = new Schema(
   {
     station: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: 'Station',
       required: true,
-      trim: true,
     },
     items: {
       type: String,

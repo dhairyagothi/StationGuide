@@ -1,4 +1,4 @@
-import WheelchairBooking from "../models/WheelChairBooking.js";
+import WheelchairBooking from "../models/WheelchairBooking.js";
 import { io } from "../index.js";
 
 // Controller to handle booking creation

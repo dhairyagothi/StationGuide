@@ -1,6 +1,9 @@
 import { io } from "../index.js";
 import CoolieBooking from "../models/CoolieBooking.js";
 
+
+
+
 export const createCoolieBooking = async (req, res) => {
   try {
     const {
