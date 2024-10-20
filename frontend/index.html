@@ -312,15 +312,17 @@ document.getElementById('sendMessage').addEventListener('click', function () {
 
 
         <div id="popup" class="popup">
-            <div class="popup-content">
-    
-                </div>
-                <div class="popup-right">
+        <div class="popup-content">
+        <div class="close-button">X</div>
+        <div class="popup-left">
+            <img src="src/assets/railways.jpg">
+         </div>
+        <div class="popup-right">
                     <p class="h1">Welcome to Station Saarthi!</p>
-                    <p class="h2">Travel without stress ! Sign in now</p>
+                    <p class="h2">Travel without stress   Sign in now</p>
                     <!--email part-->
                     <form id="emailForm">
-                        <input type="email" id="popup-email" placeholder="Enter your email" required>
+                        <input type="email" id="popup-email" placeholder=" Enter Email" required>
                         <button type="submit" class="signup-btn">Sign me up!</button>
                     </form>
                      <p class="terms">By signing in, I agree to station saarthi's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
@@ -328,7 +330,7 @@ document.getElementById('sendMessage').addEventListener('click', function () {
             </div>
         </div>
 
-        <script src="./script/popup.js"></script>
+        <script src="./src/components/popup.js"></script>
 
     
 </body>
