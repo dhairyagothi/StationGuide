@@ -87,29 +87,29 @@ const Herosection = () => {
   <h1 className="text-xs font-bold text-black">Contributors</h1>
 </div>
 
-                <div type="submit" onClick={NavigationCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer'>
-                    <img src={navigationsvg} alt="" srcset="" className='bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2' />
+                <div type="submit" onClick={NavigationCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer transition-all hover:translate-y-2 duration-300'>
+                    <img src={navigationsvg} alt="" srcset="" className='bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg' />
                     <button className="w-24 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50" >
                         <h1 className='font-bold text-white'>Navigation</h1>
                     </button>
                 </div>
-                <div type="submit" onClick={BookingCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer'>
-                    <img src={bookingsvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" />
+                <div type="submit" onClick={BookingCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer transition-all hover:translate-y-2 duration-300'>
+                    <img src={bookingsvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg " />
                     <button type="submit" onClick={BookingCLick} className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50" >
                         <h1 className='font-bold text-white'>Booking</h1>
                     </button>
                 </div>
-                <div type="submit" onClick={StationCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer'>
-                    <img src={stationsvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" />
+                <div type="submit" onClick={StationCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer transition-all hover:translate-y-2 duration-300'>
+                    <img src={stationsvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg" />
                     <button className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50" >
                         <h1 className='font-bold text-white'>Station</h1>
                     </button>
                 </div>
-                <div type="submit" onClick={MapCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer'><img src={mapsvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /> <button type="submit" onClick={MapCLick} className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50" > <h1 className='font-bold text-white'>3D Map</h1></button></div>
+                <div type="submit" onClick={MapCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer transition-all hover:translate-y-2 duration-300 '><img src={mapsvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg" /> <button type="submit" onClick={MapCLick} className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50" > <h1 className='font-bold text-white'>3D Map</h1></button></div>
                 
-                <div type="submit" onClick={ScheduleCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer'><img src={schedulesvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /><button type='submit' onClick={ScheduleCLick} className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50" > <h1 className='font-bold text-white'>Schedule</h1></button></div>
+                <div type="submit" onClick={ScheduleCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer transition-all hover:translate-y-2 duration-300'><img src={schedulesvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg" /><button type='submit' onClick={ScheduleCLick} className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50" > <h1 className='font-bold text-white'>Schedule</h1></button></div>
                 
-                <div type="submit" onClick={NotificationCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer'><img src={noticationsvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2" /> <button type='submit' onClick={NotificationCLick} className="w-24 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50" > <h1 className='font-bold text-white'>Notification</h1></button></div>
+                <div type="submit" onClick={NotificationCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer transition-all hover:translate-y-2 duration-300'><img src={noticationsvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg " /> <button type='submit' onClick={NotificationCLick} className="w-24 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50" > <h1 className='font-bold text-white'>Notification</h1></button></div>
 
             </div>
             
