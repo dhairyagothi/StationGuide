@@ -20,6 +20,18 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
+  },
+  rating: {
+    type: Number,
+    min: 1,
+    max: 5,
+    default: null,  
+  },
+
+  comment: {
+    type: String,
+    trim: true,
+    default: '', 
   }
 }, {
   timestamps: true

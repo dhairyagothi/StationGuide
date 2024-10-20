@@ -94,13 +94,12 @@ const BackButton = styled(FaArrowLeft)`
 `;
 
 const SearchIcon = styled(FaSearch)`
-  font-size: 24px;
+  font-size: 18px;
   color: white;
   cursor: pointer;
-  margin-right: 10px;
   transition: color 0.3s;
   &:hover {
-    color: rgb(37 99 235);
+    color: #091057;
   }
 `;
 
@@ -118,17 +117,20 @@ const ClearIcon = styled(FaTimes)`
 const SearchContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content:center !important;
   position: fixed;
   top: 10px;
-  right: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 25px;
-  padding: 5px 10px;
+  right: 16px;
+   padding-block:6px;
+  padding-inline:10px;
+  background-color: #3B82F6;
+  border-radius: 30px;
+  
 `;
 
 const SearchInput = styled.input`
-  display: block;
-  padding: 5px;
+  
+ 
   background-color: transparent;
   color: white;
   outline: none;
@@ -137,7 +139,7 @@ const SearchInput = styled.input`
   opacity: ${({ show }) => (show ? 1 : 0)};
   pointer-events: ${({ show }) => (show ? "auto" : "none")};
   &::placeholder {
-    color: #ccc;
+    color: #C4E1F6;
   }
 `;
 
@@ -215,26 +217,7 @@ const Hamburger = () => {
 
   return (
     <div>
-      <HamburgerContainer onClick={toggleMenu} aria-label="Toggle Menu" role="button">
-        <HamburgerIcon>
-          <Bar1 open={open} />
-          <Bar2 open={open} />
-          <Bar3 open={open} />
-        </HamburgerIcon>
-      </HamburgerContainer>
-
-      {open && <BackButton onClick={handleBack} />}
-
-      <Menu open={open}>
-        <MenuItem href="#back" onClick={handleBack} style={{ fontSize: '30px' }}>
-          ←
-        </MenuItem>
-        <MenuItem className="cursor-pointer " onClick={HomeClick}>Home</MenuItem>
-        <MenuItem className="cursor-pointer " onClick={SettingsClick}>Settings</MenuItem>
-        <MenuItem className="cursor-pointer " onClick={helpClick}>Help</MenuItem>
-        <MenuItem className="cursor-pointer " onClick={aboutClick}>About</MenuItem>
-        <MenuItem className="cursor-pointer " onClick={Contactclick}>Contact</MenuItem>
-      </Menu>
+   
 
       <SearchContainer>
         <SearchIcon onClick={toggleSearch} />
@@ -248,6 +231,7 @@ const Hamburger = () => {
           onChange={handleSearchChange}
           onFocus={handleFocus} 
           onBlur={handleBlur}
+       
         />
         {showSearch && searchTerm && <ClearIcon onClick={clearSearch} />}
       </SearchContainer>
