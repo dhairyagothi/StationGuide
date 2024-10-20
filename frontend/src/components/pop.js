@@ -1,7 +1,7 @@
 window.onload = function() {
     document.getElementById('popup').style.display = 'flex';
 };
-//load on website pop up
+//load on website pop up added
 
 
 document.querySelector('.close-button').addEventListener('click', function() {
