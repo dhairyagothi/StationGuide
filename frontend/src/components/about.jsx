@@ -1,24 +1,9 @@
 import React from 'react';
 import './about.css';
-import { useNavigate } from 'react-router-dom';
-import backicon from '../assets/svg/backicon.svg';
-
-
-
 
 const About = () => {
-  const navigate = useNavigate();
-
-
-const HomeClick = () => {   
-        navigate('/'); // Navigates to the home page
-    };
-
   return (
     <div className="about-container">
-       <button onClick={HomeClick} className='absolute top-0 left-0'>
-                <img src={backicon} alt="" className='h-[9vh]' />
-            </button>
       <h1>ABOUT US</h1>
       <p>
         Welcome to <span className="highlight">StationSaarthi</span>, your comprehensive navigation and assistance platform designed to revolutionize the Indian Railway Station experience. We combine advanced technology with user-centric design to ensure seamless travel for everyone.

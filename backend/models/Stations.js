@@ -1,4 +1,3 @@
-// station.js
 import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
@@ -41,21 +40,9 @@ const stationSchema = new Schema(
       required: true,
     },
     services: {
-      type: [String], 
+      type: [String], // An array to list services like cloakroom, parking, restrooms, etc.
       required: true,
     },
-    coolies: [{
-      type: Schema.Types.ObjectId,
-      ref: 'CoolieBooking',
-    }],
-    wheelchairs: [{
-      type: Schema.Types.ObjectId,
-      ref: 'WheelchairBooking',
-    }],
-    cloakrooms: [{
-      type: Schema.Types.ObjectId,
-      ref: 'CloakroomBooking',
-    }],
   },
   {
     timestamps: true,

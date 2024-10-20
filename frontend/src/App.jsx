@@ -18,10 +18,6 @@ import Settings from './components/Settings';
 import Help from './components/help';
 import About from './components/about';
 import Contributor from './Pages/contributor';
-import Payment from './Pages/Payment';
-import HelpAndSupport from './Pages/HelpandSupport';
-import Emergency from './Pages/Emergency';
-import AboutUs from './Pages/AboutUs';
 
 
 function App() {
@@ -45,11 +41,8 @@ function App() {
         <Route path='/help' element={<Help/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/contributor' element={<Contributor/>} />
-        <Route path='/payment' element={<Payment/>} />
-        <Route path='/aboutus' element={<AboutUs/>} />
-        <Route path='/emergency' element={<Emergency/>} />  
-        <Route path='/help-and-support' element={<HelpAndSupport/>} />
-
+        
+        
         {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
 
       </Routes>

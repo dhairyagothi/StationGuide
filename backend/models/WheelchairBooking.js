@@ -1,30 +1,30 @@
-// wheelchairBooking.js
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
 const wheelchairBookingSchema = new Schema({
   station: {
-    type: Schema.Types.ObjectId,
-    ref: 'Station',
+    type: String,
     required: true,
+    trim: true
   },
   bookingDate: {
     type: Date,
-    required: true,
+    required: true
   },
   bookingTime: {
     type: String,
-    required: true,
+    required: true
   },
   wheelchairType: {
     type: String,
     enum: ['manual', 'electric', 'standard'],
-    default: 'manual',
+    default: 'manual'
   },
 }, {
-  timestamps: true,
+  timestamps: true
 });
 
-const WheelchairBooking = mongoose.models.WheelchairBooking || mongoose.model('WheelchairBooking', wheelchairBookingSchema);
+const WheelchairBooking = mongoose.model('WheelchairBooking', wheelchairBookingSchema);
+
 export default WheelchairBooking;

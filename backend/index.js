@@ -5,8 +5,6 @@ import cookieParser from "cookie-parser";
 import { createServer } from "http";
 import { Server } from "socket.io";
 
-
-
 const app = express();
 const server = createServer(app);
 
@@ -14,7 +12,7 @@ const port = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://127.0.0.1:5500","https://station-guide.vercel.app/"],
+    origin: ["http://localhost:5173", "http://127.0.0.1:5500"],
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
     credentials: true,
@@ -28,11 +26,9 @@ app.use(express.urlencoded({ extended: true }));
 connectDB();
 
 import authRoutes from "./routes/authRoutes.js";
-import stationRoutes from "./routes/stationRoutes.js";
 
 app.use("/auth", authRoutes);
 app.use("/api", authRoutes);
-app.use("/station", stationRoutes);
 
 app.get("/", (req, res) => {
   res.send("Working...");
@@ -42,21 +38,23 @@ app.get("/", (req, res) => {
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "http://127.0.0.1:5500" , "https://station-guide.vercel.app/"],
+    origin: ["http://localhost:5173", "http://127.0.0.1:5500"],
     methods: ["GET", "POST"],
     credentials: true,
   },
 });
 
-if (process.env.NODE_ENV !== 'production') {
+io.on("connection", (socket) => {
+  console.log("A user connected:", socket.id);
 
-  io.on("connection", (socket) => {
-    console.log("A user connected:", socket.id);
-    socket.on("disconnect", () => {
-      console.log("User disconnected:", socket.id);
-    });
+  socket.on("disconnect", () => {
+    console.log("User disconnected:", socket.id);
   });
-}
+
+  socket.on("error", (err) => {
+    console.error("Socket error:", err);
+  });
+});
 
 server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

@@ -1,210 +1,104 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./src/assets/stationsaarthi.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <script
-    type="text/javascript"
-    src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
-    onerror="handleError(this)"
-></script> -->
     <title>Station Saarthi</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/components/pop.css">
     <style>
-        /* Style for the Google Translate element */
-        #google_element {
-            position: absolute;
-            top: 10px;
-            /* Distance from the top */
-            /* Position between middle and left corner */
-            margin: 40px;
-            transform: translateX(-20%);
-            /* Adjust for half the element's width */
-            /* Ensure it stays on top */
-        }
-
-        /* Circle styles */
-        .circle {
-            height: 24px;
-            width: 24px;
-            border-radius: 24px;
-            background-color: black;
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 99999999;
-
-        }
-
-        @media (max-width : 768px) {
+    /* Style for the Google Translate element */
+    #google_element {
+        position: absolute;
+        top: 10px; /* Distance from the top */
+        /* Position between middle and left corner */
+        margin: 40px;
+        transform: translateX(-20%); /* Adjust for half the element's width */
+       /* Ensure it stays on top */
+    }
+       /* Circle styles */
             .circle {
-                display: none;
+                height: 24px;
+                width: 24px;
+                border-radius: 24px;
+                background-color: black;
+                position: fixed;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                z-index: 99999999;
+                
             }
-        }
-
-
-        .chatbot-container {
-            position: relative;
-            bottom: 20px;
-            right: 20px;
-            z-index: 100;
-        }
-
-        /* Default styles for larger screens */
-        #languageIcon {
-            position: fixed;
-            top: 70px;
-            /* Adjust based on your navbar height */
-            left: 20px;
-            background-color: #3b82f6;
-            color: white;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 999;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        #languageIcon:hover {
-            background-color: #2563eb;
-        }
-
-        /* Google Translate Modal */
-        #google_translate_modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Semi-transparent background */
-            justify-content: center;
-            align-items: center;
-
-            z-index: 1000;
-        }
-
-        /* Modal Content */
-        .modal-content {
-            background-color: #3b82f6;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
-            position: relative;
-            width: 80%;
-            
-            max-width: 500px;
-            padding: 10px 15px;
-            /* Padding for better spacing inside the button */
-            border-radius: 8px;
-            /* Rounded corners */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            /* Soft shadow for a 3D effect */
-            color: #fff;
-            /* Text color */
-            font-family: 'Arial', sans-serif;
-            /* Custom font for better readability */
-            font-size: 14px;
-            /* Adjust font size */
-            cursor: pointer;
-            /* Pointer for clickable look */
-        }
-
-        /* Close Button */
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #f87171;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        /* Google Translate Element Styling */
-        #google_translate_element {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .chatbot {
-            position: fixed;
-            bottom: 0px;
-            right: 0px;
-            z-index: 50;
-            margin: 20px;
-            background-color: #04aa6d;
-            border-radius: 50px;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .chatbox {
-            display: none;
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 300px;
-            background-color: #f9f9f9;
-            border: 2px solid #04aa6d;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .chatbox textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .chatbox button {
-            background-color: #04aa6d;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 10px;
-            cursor: pointer;
-            width: 100%;
-            border-radius: 5px;
-        }
-
-        .chatbox button:hover {
-            background-color: #028a57;
-        }
-
-        .chat-output {
-            margin-top: 10px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-    </style>
+    
+    
+    .chatbot-container {
+        position: relative;
+        bottom: 20px;
+        right: 20px;
+        z-index: 100;
+    }
+    
+    .chatbot {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        z-index: 50;
+        margin: 20px;
+        background-color: #04aa6d;
+        border-radius: 50px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .chatbox {
+        display: none;
+        position: fixed;
+        bottom: 90px; 
+        right: 20px;
+        width: 300px;
+        background-color: #f9f9f9;
+        border: 2px solid #04aa6d;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .chatbox textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    
+    .chatbox button {
+        background-color: #04aa6d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 5px;
+    }
+    
+    .chatbox button:hover {
+        background-color: #028a57;
+    }
+    
+    .chat-output {
+        margin-top: 10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>    
 </head>
-
 <body>
     <!-- Circles -->
     <div class="circle"></div>
@@ -227,9 +121,6 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
-    <div id="languageIcon" title="Change Language">
-        🌐 <!-- This is the icon for language, you can replace this with any icon (SVG, FontAwesome, etc.) -->
-    </div>
     <!-- <div class="chatbot-container"></div>
     <div class="chatbot" id="chatbotIcon">
         <img src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="Chatbot Icon" />
@@ -240,7 +131,7 @@
         <textarea id="chatInput" rows="4" placeholder="Type your message..."></textarea>
         <button id="sendMessage">Send</button>
     </div> -->
-    <!-- 
+<!-- 
     <script>
         // Variable to track if the welcome message has been displayed
         let welcomeMessageDisplayed = false;
@@ -337,123 +228,110 @@ document.getElementById('sendMessage').addEventListener('click', function () {
 });
 
     </script> -->
-
-    <div id="google_translate_modal" class="flex">
-        <div class="modal-content">
-            <!-- Close Button -->
-            <button class="close-btn" id="closeBtn">✖</button>
-
-            <!-- Google Translate Widget -->
-            <div id="google_translate_element"></div>
-        </div>
-    </div>
+    
+    <div id="google_element"></div>
+    <script
+        type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
+        onerror="handleError(this)"
+    ></script>
 
     <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript"
-        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <!-- JavaScript for toggling modal -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const languageIcon = document.getElementById('languageIcon');
-            const modal = document.getElementById('google_translate_modal');
-            const closeBtn = document.getElementById('closeBtn');
-
-            if (languageIcon) {
-                // Show modal when the language icon is clicked
-                languageIcon.addEventListener('click', () => {
-                    modal.style.display = 'flex'; // Show modal
-                });
-            }
-
-            if (closeBtn) {
-                // Hide modal when the close button is clicked
-                closeBtn.addEventListener('click', () => {
-                    modal.style.display = 'none'; // Hide modal
-                });
-            }
-
-            // Hide modal when clicking outside the modal content
-            window.addEventListener('click', (event) => {
-                if (event.target == modal) {
-                    modal.style.display = 'none'; // Hide modal
-                }
-            });
-        });
-    </script>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <script>
-        // Coordinates for the cursor
-        const coords = { x: 0, y: 0 };
-        const circles = document.querySelectorAll(".circle");
-
-        // Colors for the circles
-        const colors = [
-            "#6bb5ff", "#69b1fd", "#63a3f8", "#619bf5", "#5e89ef", "#5d82ec",
-            "#5c6ee3", "#5c68df", "#5c58d5", "#5c52d1", "#5d41c5", "#5d3bc0",
-            "#5e2cb2", "#5e26ac", "#5f159c", "#5f0f95", "#600083", "#60007c",
-            "#600068", "#5f0060", "#5f0048", "#5e003d"
-        ];
-
-        // Assign colors, initial position, and size to each circle
-        circles.forEach(function (circle, index) {
-            circle.x = 0;
-            circle.y = 0;
-            circle.style.backgroundColor = colors[index % colors.length];
-            circle.style.position = 'absolute';
-            circle.style.borderRadius = '50%';
-            circle.style.width = `${5 + (index * 2)}px`;  // Smaller circle sizes
-            circle.style.height = `${5 + (index * 2)}px`;
-            circle.style.opacity = `${(circles.length - index) / circles.length}`;  // Fading effect
-        });
-
-        // Update the coordinates when the mouse moves
-        window.addEventListener("mousemove", function (e) {
-            coords.x = e.clientX;
-            coords.y = e.clientY;
-        });
-
-        // Easing function to make the animation smoother
-        function lerp(start, end, t) {
-            return start * (1 - t) + end * t;
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                    includedLanguages: "en,hi,pa,sa,mr,ur,bn,es,fr,de,it",
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                },
+                "google_element"
+            );
         }
 
-        // Animation function to move the circles with a trailing effect
-        function animateCircles() {
-            let x = coords.x;
-            let y = coords.y;
+        function handleError(error) {
+            console.error("Error loading Google Translate script:", error);
+        }
+    </script>
+     <div id="root"></div>
+     <script type="module" src="/src/main.jsx"></script>
+    <script>
+            // Coordinates for the cursor
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
 
+            // Colors for the circles
+            const colors = [
+                "#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d",
+                "#e36e5c", "#df685c", "#d5585c", "#d1525c", "#c5415d", "#c03b5d",
+                "#b22c5e", "#ac265e", "#9c155f", "#950f5f", "#830060", "#7c0060",
+                "#680060", "#60005f", "#48005f", "#3d005e"
+            ];
+
+            // Assign colors and initial position to each circle
             circles.forEach(function (circle, index) {
-                const nextCircle = circles[index + 1] || circles[0];
-
-                // Apply easing for smoother movements
-                circle.x = lerp(circle.x, x, 0.4);  // Adjusted for quicker reaction
-                circle.y = lerp(circle.y, y, 0.4);
-
-                // Positioning the circle closer to the cursor
-                circle.style.left = circle.x - circle.offsetWidth / 2 + "px";
-                circle.style.top = circle.y - circle.offsetHeight / 2 + "px";
-
-                // Scale down each circle progressively to create depth
-                circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
-                // Update position for the next circle, adjusted for closer proximity
-                x += (nextCircle.x - x) * 0.2;  // Smaller multiplier for tighter following
-                y += (nextCircle.y - y) * 0.2;
+                circle.x = 0;
+                circle.y = 0;
+                circle.style.backgroundColor = colors[index % colors.length];
             });
 
-            // Repeat the animation
-            requestAnimationFrame(animateCircles);
-        }
+            // Update the coordinates when the mouse moves
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+                coords.y = e.clientY;
+            });
+
+            // Animation function to move the circles
+            function animateCircles() {
+                let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                    // Update the position and scale of each circle
+                    circle.style.left = x - 12 + "px";
+                    circle.style.top = y - 12 + "px";
+                    circle.style.scale = (circles.length - index) / circles.length;
+
+                    circle.x = x;
+                    circle.y = y;
+
+                    // Get the next circle in the sequence
+                    const nextCircle = circles[index + 1] || circles[0];
+                    x += (nextCircle.x - x) * 0.3;
+                    y += (nextCircle.y - y) * 0.3;
+                });
+
+                // Repeat the animation
+                requestAnimationFrame(animateCircles);
+            }
 
             // Start the animation
             animateCircles();
         </script>
-</body>
 
+        <!--pop up load on website HTML part-->
+
+
+        <div id="popup" class="popup">
+        <div class="popup-content">
+        <div class="close-button">X</div>
+        <div class="popup-left">
+            <img src="src/assets/railways.jpg">
+         </div>
+        <div class="popup-right">
+                    <p class="h1">Welcome to Station Saarthi!</p>
+                    <p class="h2">Travel without stress   Sign in now</p>
+                    <!--email part-->
+                    <form id="emailForm">
+                        <input type="email" id="popup-email" placeholder=" Enter Email" required>
+                        <button type="submit" class="signup-btn">Sign me up!</button>
+                    </form>
+                     <p class="terms">By signing in, I agree to station saarthi's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <script src="./src/components/popup.js"></script>
+
+    
+</body>
 </html>

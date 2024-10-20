@@ -5,24 +5,5 @@
 body{
     padding: 0;
     margin: 0;
-    
-}
-
-
-::-webkit-scrollbar {
-    width: 12px; 
-    height: 12px; 
-}
-
-::-webkit-scrollbar-track {
-    background: #A3C4E0; 
-    border-radius: 10px; 
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #0056b3; 
-}
-::-webkit-scrollbar-thumb {
-    background: #007BFF; 
-    border-radius: 10px; 
+    font-family: 'Poppins', sans-serif;
 }

@@ -121,156 +121,24 @@ npm run start
 
 ## Project Structure
 
-<!-- START_STRUCTURE -->
 ```
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── LICENSE
-├── Learn.md
-├── README.md
-├── SECURITY.md
-├── StationGuide.md
-├── StationGuideFigma.md
-├── backend/
-│   ├── config/
-│   │   ├── config.js
-│   │   └── dbConnection.js
-│   ├── controllers/
-│   │   ├── StationController.js
-│   │   ├── WheelchairController.js
-│   │   ├── authController.js
-│   │   ├── cloakroomController.js
-│   │   ├── coolieController.js
-│   │   ├── stationBookingsController.js
-│   │   └── stationsController.js
-│   ├── dataset/
-│   │   └── stations.js
-│   ├── dockerfile
-│   ├── index.js
-│   ├── middleware/
-│   │   └── auth.middleware.js
-│   ├── models/
-│   │   ├── CloakroomBooking.js
-│   │   ├── CoolieBooking.js
-│   │   ├── Stations.js
-│   │   ├── User.js
-│   │   └── WheelchairBooking.js
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── public/
-│   │   └── test.html
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   └── stationRoutes.js
-│   └── utils/
-│       ├── ApiError.js
-│       ├── asyncHandler.js
-│       └── authFunctions.js
-├── docker-compose.yml
+StationGuide/
 ├── frontend/
-│   ├── README.md
-│   ├── dockerfile
-│   ├── eslint.config.js
-│   ├── index.html
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── postcss.config.js
-│   ├── public/
-│   │   └── vite.svg
-│   ├── src/
-│   │   ├── App.css
-│   │   ├── App.jsx
-│   │   ├── Pages/
-│   │   │   ├── 3Dmaps.jsx
-│   │   │   ├── AboutUs.jsx
-│   │   │   ├── ContactUs.jsx
-│   │   │   ├── Emergency.jsx
-│   │   │   ├── ForaFriend.jsx
-│   │   │   ├── HelpandSupport.jsx
-│   │   │   ├── Herosection.css
-│   │   │   ├── Herosection.jsx
-│   │   │   ├── LoginPage.jsx
-│   │   │   ├── Payment.jsx
-│   │   │   ├── Register.jsx
-│   │   │   ├── booking.jsx
-│   │   │   ├── contributor.jsx
-│   │   │   ├── hamburger.css
-│   │   │   ├── hamburger.jsx
-│   │   │   ├── navigation.jsx
-│   │   │   ├── notification.jsx
-│   │   │   ├── schedule.jsx
-│   │   │   └── stations.jsx
-│   │   ├── assets/
-│   │   │   ├── bg.png
-│   │   │   ├── bgmobile.png
-│   │   │   ├── hero.png
-│   │   │   ├── mixbg.png
-│   │   │   ├── stationsaarthi.svg
-│   │   │   └── svg/
-│   │   │       ├── 3dmap.svg
-│   │   │       ├── backicon.svg
-│   │   │       ├── bookings.svg
-│   │   │       ├── chatbot.svg
-│   │   │       ├── contributor.svg
-│   │   │       ├── navigation.svg
-│   │   │       ├── notification.svg
-│   │   │       ├── schedule.svg
-│   │   │       ├── search.svg
-│   │   │       └── station.svg
-│   │   ├── components/
-│   │   │   ├── Bookingform.jsx
-│   │   │   ├── MapComponent.jsx
-│   │   │   ├── Settings.jsx
-│   │   │   ├── about.css
-│   │   │   ├── about.jsx
-│   │   │   ├── chatbot.css
-│   │   │   ├── chatbot.jsx
-│   │   │   ├── footer.jsx
-│   │   │   ├── help.jsx
-│   │   │   ├── navbar.jsx
-│   │   │   ├── scrollToTop.css
-│   │   │   └── scrollToTop.jsx
-│   │   ├── dataset/
-│   │   │   └── stations.js
-│   │   ├── index.css
-│   │   ├── main.jsx
-│   │   └── validations/
-│   │       └── validation.js
-│   ├── tailwind.config.js
-│   └── vite.config.js
-├── notification_system/
-│   ├── backend/
-│   │   ├── config/
-│   │   │   └── db.js
-│   │   ├── controllers/
-│   │   │   └── notificationController.js
-│   │   ├── models/
-│   │   │   ├── Notification.js
-│   │   │   └── User.js
-│   │   ├── package.json
-│   │   ├── routes/
-│   │   │   ├── notificationRoutes.js
-│   │   │   └── userRoutes.js
-│   │   ├── server.js
-│   │   └── services/
-│   │       └── emailServices.js
-│   └── frontend/
-│       ├── package.json
-│       ├── public/
-│       │   └── service-worker.js
-│       └── src/
-│           ├── app.js
-│           ├── components/
-│           │   ├── NotificationCentre.js
-│           │   └── NotificationSettings.js
-│           └── index.js
-├── package-lock.json
-├── package.json
-├── repo_structure.txt
-└── tailwind.config.js
+│   ├── src/  # React application source code
+│   ├── public/  # Static assets for the frontend (e.g., images, fonts)
+│   ├── package.json  # Frontend dependencies
+│   └── ...  # Other frontend-related files (e.g., configuration files)
+├── backend/
+│   ├── server.js  # Express server entry point
+│   ├── models/  # Data model definitions (optional)
+│   ├── routes/  # API endpoints definitions
+│   ├── config/  # Configuration files (e.g., database connection)
+│   ├── package.json  # Backend dependencies
+│   └── ...  # Other backend-related files (e.g., middleware)
+├── .env  # Environment variables for sensitive information (optional)
+├── using.md  # This file
+└── ...  # Other project configuration files (e.g., .gitignore)
 ```
-<!-- END_STRUCTURE -->
-
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">

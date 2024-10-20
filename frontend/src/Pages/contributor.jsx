@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import backicon from '../assets/svg/backicon.svg';
+import { useNavigate } from 'react-router-dom';
 
 const ContributorCard = ({ login, avatar_url, html_url, contributions, type }) => (
   <motion.div
@@ -35,8 +37,6 @@ const ContributorCard = ({ login, avatar_url, html_url, contributions, type }) =
   </motion.div>
 );
 
-
-
 const StatCard = ({ label, value, icon }) => (
   <motion.div 
     initial={{ opacity: 0, y: 20 }}
@@ -54,20 +54,17 @@ const StatCard = ({ label, value, icon }) => (
   </motion.div>
 );
 
-const contributor = () => {
+export default function Contributor() {
   const [contributors, setContributors] = useState([]);
   const [repoStats, setRepoStats] = useState({});
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState('');
-
-  useEffect(() => {
-    document.title = 'Station Saarthi | Contributors'; 
-  }, []);
-
+  const navigate = useNavigate();
+  const HomeClick = () => navigate('/');
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const contributorsResponse = await fetch('https://api.github.com/repos/dhairyagothi/StationGuide/contributors?per_page=100');
+        const contributorsResponse = await fetch('https://api.github.com/repos/dhairyagothi/StationGuide/contributors');
         const contributorsData = await contributorsResponse.json();
         setContributors(contributorsData);
 
@@ -94,9 +91,14 @@ const contributor = () => {
     setEmail('');
   };
 
-  return (
+  return ( 
+  <>
+  <button onClick={HomeClick} className='absolute top-0 left-0 z-[99]'> 
+    <img src={backicon} alt="" className='h-[9vh]' />
+                </button> 
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
+     
       <section className="relative h-[70vh] flex items-center justify-center text-center bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="absolute inset-0 bg-black opacity-50" />
         <div className="relative z-10 max-w-4xl px-4 mx-auto space-y-6">
@@ -201,24 +203,23 @@ const contributor = () => {
       {/* Call to Action */}
       <section id="contribute" className="px-4 py-16 text-white bg-blue-600 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="mb-8 text-4xl font-bold">Join Our Contributors</h2>
-          <p className="mb-6 text-lg">
-            Be a part of something great! Whether you're fixing bugs, adding features, or creating new ideas, your contributions matter.
+          <h2 className="mb-6 text-4xl font-bold">Ready to Make an Impact?</h2>
+          <p className="mb-8 text-xl text-blue-100">
+            Join our community and help shape the future of StationGuide.
           </p>
-          <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center space-y-4">
+          <form onSubmit={handleSubmit} className="flex flex-col justify-center gap-4 sm:flex-row">
             <input
               type="email"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className="w-full max-w-md px-4 py-2 text-gray-800 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500"
-              required
+              className="w-full px-6 py-3 text-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300 sm:w-auto"
             />
             <button
               type="submit"
-              className="inline-block px-8 py-4 font-bold text-blue-600 transition duration-300 ease-in-out bg-white rounded-full shadow-lg hover:bg-blue-100"
+              className="px-8 py-3 font-bold text-blue-600 transition duration-300 ease-in-out bg-white rounded-full shadow-lg hover:bg-blue-100"
             >
-              Submit Email
+              Get Started
             </button>
           </form>
         </div>
@@ -243,7 +244,7 @@ const contributor = () => {
         </div>
       </footer>
     </div>
+
+    </>
   );
 }
-
-export default contributor;
