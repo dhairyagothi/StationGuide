@@ -6,6 +6,8 @@ import { GoogleLogin } from "@react-oauth/google";
 import { FaFacebook } from "react-icons/fa";
 import { jwtDecode } from "jwt-decode";
 import { registerValidation } from "../validations/validation";
+import { FaUser , FaPhone } from "react-icons/fa";
+import { MdAttachEmail , MdOutlinePassword} from "react-icons/md";
 
 const Register = () => {
 
@@ -196,15 +198,15 @@ const Register = () => {
           className="w-full max-w-lg p-6 bg-white rounded-lg shadow-md"
         >
           <h2 className="py-1 mb-4 text-xl font-bold text-center bg-blue-100 border border-blue-300 shadow-sm rounded-3xl">
-            Register
+            Register 
           </h2>
 
           <div className="mb-4">
             <label
-              className="block mb-1 font-semibold text-gray-700"
+              className="flex gap-2 mb-1 font-semibold text-gray-700"
               htmlFor="username" // Updated id reference
             >
-              Username
+              Username <FaUser />
             </label>
             <input
               type="text"
@@ -220,10 +222,10 @@ const Register = () => {
 
           <div className="mb-4">
             <label
-              className="block mb-1 font-medium text-gray-700"
+              className="flex gap-2 mb-1 font-medium text-gray-700"
               htmlFor="phoneNumber"
             >
-              Phone Number
+              Phone Number <FaPhone />
             </label>
             <input
               type="tel"
@@ -241,10 +243,10 @@ const Register = () => {
 
           <div className="mb-4">
             <label
-              className="block mb-1 font-medium text-gray-700"
+              className="flex gap-2 mb-1 font-medium text-gray-700"
               htmlFor="email"
             >
-              Email
+              Email <MdAttachEmail className="h-7" />
             </label>
             <input
               type="email"
@@ -260,10 +262,10 @@ const Register = () => {
 
           <div className="mb-5">
             <label
-              className="block mb-1 font-medium text-gray-700"
+              className="flex gap-2 mb-1 font-medium text-gray-700"
               htmlFor="password"
             >
-              Password
+              Password <MdOutlinePassword className="h-7" />
             </label>
             <input
               type={passwordVisible ? "text" : "password"} // Change the type based on password visibility    
