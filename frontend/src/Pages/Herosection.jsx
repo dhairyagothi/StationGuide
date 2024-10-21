@@ -112,7 +112,7 @@ const Herosection = () => {
 
             </div>
             <div  
-  className="fixed flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer  right-5 -bottom-8 md:-bottom-5"
+  className="fixed flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer  right-5 -bottom-8 md:-bottom-7"
 >
 <Chatbot/>
   <h1 className="text-xs font-bold text-black">Saarthi</h1>
