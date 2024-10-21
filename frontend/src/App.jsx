@@ -22,7 +22,7 @@ import Payment from './Pages/Payment';
 import HelpAndSupport from './Pages/HelpandSupport';
 import Emergency from './Pages/Emergency';
 import AboutUs from './Pages/AboutUs';
-import Error from'./Pages/Error';
+import Error from './Pages/Error';
 
 function App() {
 
@@ -49,7 +49,8 @@ function App() {
         <Route path='/aboutus' element={<AboutUs/>} />
         <Route path='/emergency' element={<Emergency/>} />  
         <Route path='/helpandsupport' element={<HelpAndSupport/>} />
-        <Route path='/*' element={<Error/>}/>
+        {/*Added Error Page */}
+        <Route path='*' element={<Error/>} />
         {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
 
       </Routes>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import image from '../assets/StatioSarthi-error-404.png'
