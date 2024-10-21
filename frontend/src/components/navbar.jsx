@@ -99,7 +99,7 @@ const Navbar = () => {
       </div>
 
       {/* Sidebar Navigation (Covers 25% on larger screens, full width on mobile) */}
-      <div className={`fixed inset-y-0 left-0 bg-white shadow-lg ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 w-full lg:w-1/4`}>
+      <div className={`fixed inset-y-0 left-0 bg-white shadow-lg ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 w-[80%] lg:w-1/4`}>
         
         {/* Close Button inside Sidebar */}
         <div className="flex justify-end p-4">
@@ -113,7 +113,7 @@ const Navbar = () => {
           {/* Profile Section */}
           <FaUser className="text-6xl" />
           <p className="mt-2 text-lg font-semibold">Yatree</p>
-          <p className="text-sm">3.9 ★</p>
+          <p className="text-sm">5.0 ★</p>
         </div>
 
         {/* Menu Items */}
@@ -137,7 +137,7 @@ const Navbar = () => {
             </li>
             <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleOpenModal}>
               <FaStar className="mr-3 text-blue-300" />
-              <span className="text-lg"> </span>
+              <span className="text-lg"> Feedback </span>
             </li>
             <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleSettingsClick}>
               <IoSettings className="mr-3 text-blue-300" />
