@@ -10,7 +10,7 @@
     onerror="handleError(this)"
 ></script> -->
 
-    <title>Station Saarthi</title>
+<title>Station Saarthi</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />        <style>
         /* Style for the Google Translate element */
         #google_element {
@@ -518,11 +518,37 @@ document.getElementById('sendMessage').addEventListener('click', function () {
             // Repeat the animation
             requestAnimationFrame(animateCircles);
         }
+            // Start the animation
+            animateCircles();
+        </script>
+
+        <!--pop up html part-->
+        <div id="popup" class="popup" >
+        <div class="popupcontent">
+        <div class="close-button">X</div>
+        <div class="popup-left">
+         <img src="src/assets/railways.png">
+        </div>
+        <div class="popup-right">
+        <p class="h1">Welcome to Station Saarthi</p>
+        <p class="h2"> Travel without stress  Sign in now</p>
+        <!-- email part-->
+         <form id="emailForm">
+         <input type="email" id="popup-email" placeholder="Enter Email" required>
+         <button type="submit" class="signup-btn">Sign me up!</button>
+         </form>
+         <p class="terms">By signing in, I agree to station saarthi's <a herf="#">Terms of Service</a> and <a herf="#">Privacy Policy</a>.</p>
+        </div>
+        </div>
+
+        <script src="./src/components/pop.js"></script>
+
     
         // Start the animation
         animateCircles();
     </script>
     </div>
     
+
 </body>
 </html>
