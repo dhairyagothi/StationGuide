@@ -16,8 +16,8 @@ const HomeClick = () => {
 
   return (
     <div className="about-container">
-       <button onClick={HomeClick} className='absolute top-0 left-0'>
-                <img src={backicon} alt="" className='h-[9vh]' />
+        <button onClick={HomeClick} className='absolute left-0 top-2'>
+                <img src={backicon} alt="" className='h-[5vh]' />
             </button>
       <h1>ABOUT US</h1>
       <p>

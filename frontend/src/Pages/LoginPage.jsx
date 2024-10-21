@@ -56,8 +56,8 @@ const Login = () => {
     return ( 
         <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-100 to-blue-5000">
             {/* Logo and Title */} 
-            <button onClick={HomeClick} className='absolute left-0 top-0'>
-                <img src={backicon} alt="" className='h-[9vh]' />
+            <button onClick={HomeClick} className='absolute left-0 top-2'>
+                <img src={backicon} alt="" className='h-[5vh]' />
             </button>
             <div className="mb-10 text-center">
                 <img src={logo} alt="Station Saarthi Logo" className="w-20 mx-auto h-22" />

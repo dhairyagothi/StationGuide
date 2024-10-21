@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import backicon from '../assets/svg/backicon.svg';
+
+
 
 const Payment = () => {
   const [paymentMethod, setPaymentMethod] = useState('');
@@ -10,10 +14,18 @@ const Payment = () => {
     e.preventDefault();
     console.log('Payment submitted:', { paymentMethod, cardNumber, expiryDate, cvv });
   };
+  const navigate = useNavigate();
 
+
+  const HomeClick = () => {   
+          navigate('/'); // Navigates to the home page
+      };
   return (
 
     <div className="min-h-screen flex justify-center items-center bg-blue-100">
+       <button onClick={HomeClick} className='absolute left-0 top-2'>
+                <img src={backicon} alt="" className='h-[5vh]' />
+            </button>
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-3xl font-semibold text-blue-900 mb-6">Payment Page</h1>
         <form onSubmit={handleSubmit}>
