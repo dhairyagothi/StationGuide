@@ -105,5 +105,4 @@ const Emergency = () => {
     </div>
   );
 };
-
 export default Emergency;

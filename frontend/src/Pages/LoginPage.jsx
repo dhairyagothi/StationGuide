@@ -3,6 +3,8 @@ import logo from '../assets/stationsaarthi.svg'; // Import your logo
 import { useNavigate } from 'react-router-dom';
 import backicon from '../assets/svg/backicon.svg'; // Assuming you have a back icon
 import { loginValidation } from '../validations/validation';
+import { MdOutlinePassword } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
 
 const Login = () => {
     useEffect(() => {
@@ -56,8 +58,8 @@ const Login = () => {
     return ( 
         <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-100 to-blue-5000">
             {/* Logo and Title */} 
-            <button onClick={HomeClick} className='absolute left-0 top-0'>
-                <img src={backicon} alt="" className='h-[9vh]' />
+            <button onClick={HomeClick} className='absolute left-0 top-2'>
+                <img src={backicon} alt="" className='h-[5vh]' />
             </button>
             <div className="mb-10 text-center">
                 <img src={logo} alt="Station Saarthi Logo" className="w-20 mx-auto h-22" />
@@ -81,7 +83,7 @@ const Login = () => {
 
                 {/* Username Input */}
                 <div className="mb-5">
-                    <label className="block mb-2 font-semibold text-gray-700" htmlFor="username">Username</label>
+                    <label className="flex gap-2 mb-2 font-semibold text-gray-700" htmlFor="username">Username <FaUser /></label>
                     <input
                         type="text" 
                         id="username" 
@@ -96,7 +98,7 @@ const Login = () => {
 
                 {/* Password Input */} 
                 <div className="mb-6"> 
-                    <label className="block mb-2 font-semibold text-gray-700" htmlFor="password">Password</label>
+                    <label className="flex gap-2 mb-2 font-semibold text-gray-700" htmlFor="password">Password <MdOutlinePassword className='h-5' /></label>
                     <input 
                         type={passwordVisible ? "text" : "password"}    
                         id="password"  

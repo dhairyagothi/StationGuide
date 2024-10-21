@@ -2,7 +2,6 @@ import React from 'react';
 import './Herosection.css';
 import logo from '../assets/stationsaarthi.svg';
 import navigationsvg from '../assets/svg/navigation.svg';
-// import navigation from './navigation';
 import bookingsvg from '../assets/svg/bookings.svg';
 import stationsvg from '../assets/svg/station.svg';
 import noticationsvg from '../assets/svg/notification.svg';
@@ -59,7 +58,7 @@ const Herosection = () => {
 
                 <div className='relative z-10 grid justify-items-center'>
                     <img src={logo} alt="" srcset="" style={{ height: "40vh" }} />
-                    <h1 className='text-2xl font-extrabold text-white'>Station Saarthi : Your Platform Guide</h1>
+                    <h1 className='text-2xl font-extrabold text-white text-center'>Station Saarthi : Your Platform Guide</h1>
                 </div>
                 {/* <img src={bg} alt="whitishbg" style={{ position: "absolute", bottom: 0 }} />
             <img src={bgmobile} alt="" style={{ position: "absolute", bottom: 0, zIndex: "10" }} className="md:hidden" /> */}
@@ -70,7 +69,7 @@ const Herosection = () => {
                 <button type="submit" onClick={RegisterClick} className="w-20 py-2 ml-8 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">Register</button>
             </div>
 
-            <div className='grid grid-cols-3 gap-4 pb-20 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center '>
+            <div className='grid grid-cols-3 gap-2 pb-10 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center '>
             <div 
   type="submit" 
   onClick={ContributorCLick} 
@@ -112,10 +111,12 @@ const Herosection = () => {
                 <div type="submit" onClick={NotificationCLick} className='flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer transition-all hover:translate-y-2 duration-300'><img src={noticationsvg} alt="" srcset="" className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg " /> <button type='submit' onClick={NotificationCLick} className="w-24 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50" > <h1 className='font-bold text-white'>Notification</h1></button></div>
 
             </div>
-            
-          <Chatbot/>
-            
-
+            <div  
+  className="fixed flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer  right-5 -bottom-8 md:-bottom-7"
+>
+<Chatbot/>
+  <h1 className="text-xs font-bold text-black">Saarthi</h1>
+</div>
         </>
     );
 };

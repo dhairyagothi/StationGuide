@@ -108,9 +108,9 @@ const RailwayStations = () => {
     <div className="min-h-screen p-4 bg-gray-100">
       {/* Header Section */}
       <div>
-        <button onClick={HomeClick}>
-          <img src={backicon} alt="" className="fixed left-[1vh] h-[9vh] w-auto" />
-        </button>
+      <button onClick={HomeClick} className='absolute left-0 top-2'>
+                <img src={backicon} alt="" className='h-[5vh]' />
+            </button>
       </div>
   
       <div className="flex flex-col items-center mb-8">
