@@ -95,7 +95,7 @@ const BackButton = styled(FaArrowLeft)`
 
 const SearchIcon = styled(FaSearch)`
   font-size: 18px;
-  color: white;
+  color: rgb(6 25 47);
   cursor: pointer;
   transition: color 0.3s;
   &:hover {
@@ -105,7 +105,7 @@ const SearchIcon = styled(FaSearch)`
 
 const ClearIcon = styled(FaTimes)`
   font-size: 16px;
-  color: white;
+  color: rgb(6 25 47);
   cursor: pointer;
   margin-left: 5px;
   transition: color 0.3s;
@@ -123,7 +123,7 @@ const SearchContainer = styled.div`
   right: 16px;
    padding-block:6px;
   padding-inline:10px;
-  background-color: #3B82F6;
+  background-color: rgb(191 219 254);
   border-radius: 30px;
   
 `;
@@ -132,14 +132,14 @@ const SearchInput = styled.input`
   
  
   background-color: transparent;
-  color: white;
+  color: rgb(6 25 47);
   outline: none;
   width: ${({ isFocused }) => (isFocused ? "200px" : "0px")}; 
   transition: width 0.4s ease;
   opacity: ${({ show }) => (show ? 1 : 0)};
   pointer-events: ${({ show }) => (show ? "auto" : "none")};
   &::placeholder {
-    color: #C4E1F6;
+    color: rgb(6 25 47);
   }
 `;
 
