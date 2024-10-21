@@ -5,7 +5,7 @@ const DMapPage = () => {
     document.title = 'Station Saarthi | 3D Map'; 
   }, []);
   return (
-    <div className='h-full w-full text-6xl text-center font-bold justify-between p-44 text-white'>Making in Progress</div>
+    <div className='h-full w-full text-6xl text-center font-bold justify-between p-44 text-white'>3D Maps <br/>Making in Progress</div>
   )
 } 
 
