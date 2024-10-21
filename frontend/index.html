@@ -10,7 +10,7 @@
     onerror="handleError(this)"
 ></script> -->
 
-    <title>Station Saarthi</title>
+<title>Station Saarthi</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />        <style>
         /* Style for the Google Translate element */
         #google_element {
@@ -256,7 +256,120 @@
     50% { 
         opacity: 1;
     }
+
+    
 }
+#popup {
+  position: fixed;
+  bottom: 20px; /* Position 20px from the bottom */
+  right: 20px;  /* Position 20px from the right */
+  height: auto; /* Adjust height based on content */
+  width: 400px; /* Set width for the popup box */
+  background-color: rgb(252 249 249 / 80%); /* Semi-transparent background */
+  justify-content: center;
+  display: flex;
+  z-index: 1000;
+  align-items: center;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 10px #4d90fea3; /* Box shadow */
+}
+
+.popup-content {
+  position: relative;
+  width: 100%; /* Full width of the container */
+  background-color: rgb(240, 238, 238);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.popup-left img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  padding: 24px;
+    border-radius: 59px;
+}
+
+
+.popup-right {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-right .h1 {
+  font-size: 24px; /* Adjust size for better fit */
+  margin-bottom: 10px;
+  color: #131010;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.popup-right .h2 {
+  font-size: 18px;
+  color: #261d1d;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+#emailForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#popup-email {
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.signup-btn {
+  width: 80%;
+  padding: 10px;
+  background-color: #0b42e9;
+  color: aliceblue;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.terms {
+  color: #0e0a0a;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.terms a {
+  color: #1278d8;
+  text-decoration: none;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: #000000;
+  z-index: 1001;
+}
+
+
 </style>    
 </head>
 <body class="load">
@@ -456,76 +569,116 @@ document.getElementById('sendMessage').addEventListener('click', function () {
      <div id="root"></div>
      <script type="module" src="/src/main.jsx"></script>
      <script>
+        // Coordinates for the cursor
         const coords = { x: 0, y: 0 };
-const circles = document.querySelectorAll(".circle");
+        const circles = document.querySelectorAll(".circle");
+    
+        // Colors for the circles
+        const colors = [
+            "#6bb5ff", "#69b1fd", "#63a3f8", "#619bf5", "#5e89ef", "#5d82ec",
+            "#5c6ee3", "#5c68df", "#5c58d5", "#5c52d1", "#5d41c5", "#5d3bc0",
+            "#5e2cb2", "#5e26ac", "#5f159c", "#5f0f95", "#600083", "#60007c",
+            "#600068", "#5f0060", "#5f0048", "#5e003d"
+        ];
+    
+        // Assign colors, initial position, and size to each circle
+        circles.forEach(function (circle, index) {
+            circle.x = 0;
+            circle.y = 0;
+            circle.style.backgroundColor = colors[index % colors.length];
+            circle.style.position = 'absolute';
+            circle.style.borderRadius = '50%';
+            circle.style.width = `${5 + (index * 2)}px`;  // Smaller circle sizes
+            circle.style.height = `${5 + (index * 2)}px`;
+            circle.style.opacity = `${(circles.length - index) / circles.length}`;  // Fading effect
+        });
+    
+        // Update the coordinates when the mouse moves
+        window.addEventListener("mousemove", function (e) {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+        });
+    
+        // Easing function to make the animation smoother
+        function lerp(start, end, t) {
+            return start * (1 - t) + end * t;
+        }
+    
+        // Animation function to move the circles with a trailing effect
+        function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
+    
+            circles.forEach(function (circle, index) {
+                const nextCircle = circles[index + 1] || circles[0];
+                
+                // Apply easing for smoother movements
+                circle.x = lerp(circle.x, x, 0.4);  // Adjusted for quicker reaction
+                circle.y = lerp(circle.y, y, 0.4);
+    
+                // Positioning the circle closer to the cursor
+                circle.style.left = circle.x - circle.offsetWidth / 2 + "px";
+                circle.style.top = circle.y - circle.offsetHeight / 2 + "px";
+                
+                // Scale down each circle progressively to create depth
+                circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+    
+                // Update position for the next circle, adjusted for closer proximity
+                x += (nextCircle.x - x) * 0.2;  // Smaller multiplier for tighter following
+                y += (nextCircle.y - y) * 0.2;
+            });
+    
+            // Repeat the animation
+            requestAnimationFrame(animateCircles);
+        }
+            // Start the animation
+            animateCircles();
+        </script>
 
-// Colors for the circles
-const colors = [
-    "#6bb5ff", "#69b1fd", "#63a3f8", "#619bf5", "#5e89ef", "#5d82ec",
-    "#5c6ee3", "#5c68df", "#5c58d5", "#5c52d1", "#5d41c5", "#5d3bc0",
-    "#5e2cb2", "#5e26ac", "#5f159c", "#5f0f95", "#600083", "#60007c",
-    "#600068", "#5f0060", "#5f0048", "#5e003d"
-];
+        <!--pop up html part-->
+        <div id="popup" class="popup" >
+        <div class="popupcontent">
+        <div class="close-button">X</div>
+        <div class="popup-left">
+         <img src="src/assets/railways.png">
+        </div>
+        <div class="popup-right">
+        <p class="h1">Welcome to Station Saarthi</p>
+        <p class="h2"> Travel without stress  Sign in now</p>
+        <!-- email part-->
+         <form id="emailForm">
+         <input type="email" id="popup-email" placeholder="Enter Email" required>
+         <button type="submit" class="signup-btn">Sign me up!</button>
+         </form>
+         <p class="terms">By signing in, I agree to station saarthi's <a herf="#">Terms of Service</a> and <a herf="#">Privacy Policy</a>.</p>
+        </div>
+        </div>
 
-// Assign colors, initial position, and size to each circle
-circles.forEach(function (circle, index) {
-    circle.x = 0;
-    circle.y = 0;
-    circle.style.backgroundColor = colors[index % colors.length];
-    circle.style.position = 'absolute';
-    circle.style.borderRadius = '50%';
-    circle.style.width = `${5 + (index * 2)}px`;  // Smaller circle sizes
-    circle.style.height = `${5 + (index * 2)}px`;
-    circle.style.opacity = `${(circles.length - index) / circles.length}`;  // Fading effect
-});
-
-// Update the coordinates when the mouse moves
-window.addEventListener("mousemove", function (e) {
-    coords.x = e.clientX;
-    coords.y = e.clientY;
-});
-
-// Easing function to make the animation smoother
-function lerp(start, end, t) {
-    return start * (1 - t) + end * t;
-}
-
-// Animation function to move the circles with a trailing effect
-function animateCircles() {
-    let x = coords.x;
-    let y = coords.y;
-
-    const scrollX = window.scrollX;  // Get scroll position
-    const scrollY = window.scrollY;  // Get scroll position
-
-    circles.forEach(function (circle, index) {
-        const nextCircle = circles[index + 1] || circles[0];
+        <script>window.onload = function() {
+            document.getElementById('popup').style.display = 'flex';
+        };
+        //load on website pop up added
         
-        // Apply easing for smoother movements
-        circle.x = lerp(circle.x, x, 0.4);  // Adjusted for quicker reaction
-        circle.y = lerp(circle.y, y, 0.4);
-
-        // Positioning the circle closer to the cursor, considering scroll position
-        circle.style.left = (circle.x - circle.offsetWidth / 2 + scrollX) + "px";
-        circle.style.top = (circle.y - circle.offsetHeight / 2 + scrollY) + "px";
         
-        // Scale down each circle progressively to create depth
-        circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+        document.querySelector('.close-button').addEventListener('click', function() {
+            document.getElementById('popup').style.display = 'none';
+        });
+        
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            const email = document.getElementById('email').value;
+            if (email) {
+                alert(`Welcome ! To Station Sarthi , May you have a wonderful Journey ${email}`);
+                document.getElementById('popup').style.display = 'none';
+            }
+            
+        });</script>
 
-        // Update position for the next circle, adjusted for closer proximity
-        x += (nextCircle.x - x) * 0.2;  // Smaller multiplier for tighter following
-        y += (nextCircle.y - y) * 0.2;
-    });
-
-    // Repeat the animation
-    requestAnimationFrame(animateCircles);
-}
-
-// Start the animation
-animateCircles();
-
+    
     </script>
     </div>
     
+
 </body>
 </html>
