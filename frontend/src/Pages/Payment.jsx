@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import backicon from '../assets/svg/backicon.svg';
 
 const Payment = () => {
   const [paymentMethod, setPaymentMethod] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
-
+  
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -25,16 +26,11 @@ const Payment = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-blue-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md relative">
-        <button
-          onClick={handleBack}
-          className="absolute top-4 right-4 text-blue-500 hover:text-blue-700 transition duration-300"
-        >
-          Back
-        </button>
-        <h1 className="text-3xl font-semibold text-blue-900 mb-6">
-          Payment Page
-        </h1>
+      <button onClick={handleBack} className='absolute left-0 top-2'>
+        <img src={backicon} alt="Back" className='h-[5vh]' />
+      </button>
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 className="text-3xl font-semibold text-blue-900 mb-6">Payment Page</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
