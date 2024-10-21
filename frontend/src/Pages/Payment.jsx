@@ -1,21 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
-  const [paymentMethod, setPaymentMethod] = useState('');
-  const [cardNumber, setCardNumber] = useState('');
-  const [expiryDate, setExpiryDate] = useState('');
-  const [cvv, setCvv] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [cvv, setCvv] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Payment submitted:', { paymentMethod, cardNumber, expiryDate, cvv });
+    console.log("Payment submitted:", {
+      paymentMethod,
+      cardNumber,
+      expiryDate,
+      cvv,
+    });
+  };
+
+  const handleBack = () => {
+    navigate("/");
   };
 
   return (
-
     <div className="min-h-screen flex justify-center items-center bg-blue-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-3xl font-semibold text-blue-900 mb-6">Payment Page</h1>
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md relative">
+        <button
+          onClick={handleBack}
+          className="absolute top-4 right-4 text-blue-500 hover:text-blue-700 transition duration-300"
+        >
+          Back
+        </button>
+        <h1 className="text-3xl font-semibold text-blue-900 mb-6">
+          Payment Page
+        </h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -34,8 +53,8 @@ const Payment = () => {
               <option value="google_pay">Google Pay</option>
             </select>
           </div>
-          
-          {paymentMethod === 'credit_card' || paymentMethod === 'debit_card' ? (
+
+          {paymentMethod === "credit_card" || paymentMethod === "debit_card" ? (
             <>
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -81,7 +100,7 @@ const Payment = () => {
             </>
           ) : null}
 
-          {paymentMethod === 'apple_pay' || paymentMethod === 'google_pay' ? (
+          {paymentMethod === "apple_pay" || paymentMethod === "google_pay" ? (
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2">
                 UPI ID
@@ -93,7 +112,7 @@ const Payment = () => {
               />
             </div>
           ) : null}
-          
+
           <button
             type="submit"
             className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
