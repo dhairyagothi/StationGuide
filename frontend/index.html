@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./src/assets/stationsaarthi.svg" />
@@ -10,10 +9,9 @@
     src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
     onerror="handleError(this)"
 ></script> -->
+
     <title>Station Saarthi</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />        <style>
         /* Style for the Google Translate element */
         #google_element {
             position: absolute;
@@ -203,10 +201,71 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-    </style>
-</head>
+    #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* This ensures the canvas is behind other content */
+        }
 
-<body>
+        .content {
+            position: relative;
+            z-index: 1;
+            /* This ensures the content is in front of the canvas */
+            padding: 20px;
+        }
+
+        #bgCanvas {
+            filter: blur(5px);
+            /* Adjust the value to control the blur strength */
+        }
+        #loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgb(191 219 254) url('./src/assets/stationsaarthi.svg') no-repeat center center;
+  z-index: 100;
+}
+.content{
+    padding: 0px;
+}
+#loader h3{
+    text-align: center;
+    font-size: xx-large;
+    top: 65%;
+    position: relative;
+    color: black;
+    font-weight: 700;
+    
+    
+}
+
+#loader  {
+    animation: fadeInOutAnimation ease 2.5s infinite;
+}
+
+@keyframes fadeInOutAnimation {
+    0%, 100% { 
+        opacity: 0;
+    }
+    50% { 
+        opacity: 1;
+    }
+}
+</style>    
+</head>
+<body class="load">
+    <div id="loader"><h3 >Station Saarthi - Your Platform Guide </h3></div>
+
+    <canvas id="bgCanvas"> </canvas>
+    <div class="content">
+       
+    
     <!-- Circles -->
     <div class="circle"></div>
     <div class="circle"></div>
@@ -241,7 +300,7 @@
         <textarea id="chatInput" rows="4" placeholder="Type your message..."></textarea>
         <button id="sendMessage">Send</button>
     </div> -->
-    <!-- 
+<!-- 
     <script>
         // Variable to track if the welcome message has been displayed
         let welcomeMessageDisplayed = false;
@@ -339,60 +398,68 @@ document.getElementById('sendMessage').addEventListener('click', function () {
 
     </script> -->
 
-    <div id="google_translate_modal" class="flex">
-        <div class="modal-content">
-            <!-- Close Button -->
-            <button class="close-btn" id="closeBtn">✖</button>
+    <script>
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+            loader.style.display = "none";
+        })
+    </script>
+   
+ 
+   <div id="google_translate_modal" class="flex">
+    <div class="modal-content">
+        <!-- Close Button -->
+        <button class="close-btn" id="closeBtn">✖</button>
 
-            <!-- Google Translate Widget -->
-            <div id="google_translate_element"></div>
-        </div>
+        <!-- Google Translate Widget -->
+        <div id="google_translate_element"></div>
     </div>
+</div>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript"
-        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- JavaScript for toggling modal -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const languageIcon = document.getElementById('languageIcon');
-            const modal = document.getElementById('google_translate_modal');
-            const closeBtn = document.getElementById('closeBtn');
+<!-- JavaScript for toggling modal -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const languageIcon = document.getElementById('languageIcon');
+        const modal = document.getElementById('google_translate_modal');
+        const closeBtn = document.getElementById('closeBtn');
 
-            if (languageIcon) {
-                // Show modal when the language icon is clicked
-                languageIcon.addEventListener('click', () => {
-                    modal.style.display = 'flex'; // Show modal
-                });
-            }
-
-            if (closeBtn) {
-                // Hide modal when the close button is clicked
-                closeBtn.addEventListener('click', () => {
-                    modal.style.display = 'none'; // Hide modal
-                });
-            }
-
-            // Hide modal when clicking outside the modal content
-            window.addEventListener('click', (event) => {
-                if (event.target == modal) {
-                    modal.style.display = 'none'; // Hide modal
-                }
+        if (languageIcon) {
+            // Show modal when the language icon is clicked
+            languageIcon.addEventListener('click', () => {
+                modal.style.display = 'flex'; // Show modal
             });
+        }
+
+        if (closeBtn) {
+            // Hide modal when the close button is clicked
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none'; // Hide modal
+            });
+        }
+
+        // Hide modal when clicking outside the modal content
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none'; // Hide modal
+            }
         });
-    </script>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <script>
+    });
+</script>
+     <div id="root"></div>
+     <script type="module" src="/src/main.jsx"></script>
+     <script>
         // Coordinates for the cursor
         const coords = { x: 0, y: 0 };
         const circles = document.querySelectorAll(".circle");
-
+    
         // Colors for the circles
         const colors = [
             "#6bb5ff", "#69b1fd", "#63a3f8", "#619bf5", "#5e89ef", "#5d82ec",
@@ -400,7 +467,7 @@ document.getElementById('sendMessage').addEventListener('click', function () {
             "#5e2cb2", "#5e26ac", "#5f159c", "#5f0f95", "#600083", "#60007c",
             "#600068", "#5f0060", "#5f0048", "#5e003d"
         ];
-
+    
         // Assign colors, initial position, and size to each circle
         circles.forEach(function (circle, index) {
             circle.x = 0;
@@ -412,51 +479,50 @@ document.getElementById('sendMessage').addEventListener('click', function () {
             circle.style.height = `${5 + (index * 2)}px`;
             circle.style.opacity = `${(circles.length - index) / circles.length}`;  // Fading effect
         });
-
+    
         // Update the coordinates when the mouse moves
         window.addEventListener("mousemove", function (e) {
             coords.x = e.clientX;
             coords.y = e.clientY;
         });
-
+    
         // Easing function to make the animation smoother
         function lerp(start, end, t) {
             return start * (1 - t) + end * t;
         }
-
+    
         // Animation function to move the circles with a trailing effect
         function animateCircles() {
             let x = coords.x;
             let y = coords.y;
-
+    
             circles.forEach(function (circle, index) {
                 const nextCircle = circles[index + 1] || circles[0];
-
+                
                 // Apply easing for smoother movements
                 circle.x = lerp(circle.x, x, 0.4);  // Adjusted for quicker reaction
                 circle.y = lerp(circle.y, y, 0.4);
-
+    
                 // Positioning the circle closer to the cursor
                 circle.style.left = circle.x - circle.offsetWidth / 2 + "px";
                 circle.style.top = circle.y - circle.offsetHeight / 2 + "px";
-
+                
                 // Scale down each circle progressively to create depth
                 circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
+    
                 // Update position for the next circle, adjusted for closer proximity
                 x += (nextCircle.x - x) * 0.2;  // Smaller multiplier for tighter following
                 y += (nextCircle.y - y) * 0.2;
             });
-
+    
             // Repeat the animation
             requestAnimationFrame(animateCircles);
         }
-
+    
         // Start the animation
         animateCircles();
     </script>
-
-
+    </div>
+    
 </body>
-
 </html>
