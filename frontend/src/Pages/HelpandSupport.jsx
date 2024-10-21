@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import backicon from '../assets/svg/backicon.svg';
+
+
 
 const SearchIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -120,9 +124,17 @@ const HelpAndSupport = () => {
       setExpandedQuestion(index);
     }
   };
+  const navigate = useNavigate();
 
+
+  const HomeClick = () => {   
+          navigate('/'); // Navigates to the home page
+      };
   return (
     <div className="min-h-screen bg-gray-100 p-8">
+       <button onClick={HomeClick} className='absolute left-0 top-2'>
+                <img src={backicon} alt="" className='h-[5vh]' />
+            </button>
       <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Help and Support</h1>
       
       <div className="max-w-6xl mx-auto">

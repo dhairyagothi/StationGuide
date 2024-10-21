@@ -175,9 +175,9 @@ const Register = () => {
           </div>
         )}
 
-        <button onClick={HomeClick} className="absolute top-0 left-0">
-          <img src={backicon} alt="" className="h-[9vh]" />
-        </button>
+<button onClick={HomeClick} className='absolute left-0 top-2'>
+                <img src={backicon} alt="" className='h-[5vh]' />
+            </button>
         <div className="mb-6 text-center">
           <img
             src={logo}
