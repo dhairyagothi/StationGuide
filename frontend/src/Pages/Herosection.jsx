@@ -14,6 +14,7 @@ import contributorsvg from '../assets/svg/contributor.svg';
 import chatbotsvg from '../assets/svg/chatbot.svg';
 import Chatbot from '../components/chatbot';
 import Navbar from '../components/navbar';
+import Language from '../components/language';
 const Herosection = () => {
     const navigate = useNavigate();
 
@@ -53,6 +54,7 @@ const Herosection = () => {
                 <div><Navbar /></div>
                 <div><HamburgerMenu/></div>
             </div>
+            <Language/>
             <h1 className='pl-4 text-4xl font-black text-center text-white '>Namaste !! Yatree </h1>
             <div className="relative flex items-center justify-center bg-center bg-cover herosection">
 
