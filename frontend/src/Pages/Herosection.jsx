@@ -27,6 +27,9 @@ const Herosection = () => {
     const StationCLick = () => {
         navigate('/Stations'); // Navigates to the login page
     };
+    const UserCLick = () => {
+        navigate('/user'); // Navigates to the login page
+    }
     const NavigationCLick = () => {
         navigate('/Navigation'); // Navigates to the login page
     };
@@ -67,8 +70,7 @@ const Herosection = () => {
             </div>
             <br></br>
             <div className='flex items-center justify-center'>
-                <button type="submit" onClick={LoginClick} className="w-20 py-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">Login</button>
-                <button type="submit" onClick={RegisterClick} className="w-20 py-2 ml-8 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">Register</button>
+            <button type="submit" onClick={UserCLick} className="w-20 py-2 ml-8 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">User</button>
             </div>
 
             <div className='grid grid-cols-3 gap-2 pb-10 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center '>
