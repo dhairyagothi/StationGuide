@@ -29,6 +29,7 @@ const About = () => {
           className="h-12" />
       </button>
 
+      {/* Main Heading */}
       <h1 
         className="text-5xl font-bold text-blue-900 mb-12 text-center shadow-md">
         ABOUT US
@@ -156,7 +157,7 @@ const About = () => {
       </div>
     </div>
   );
-}
+};
 
 // Exporting the About component for use in other parts of the app
 export default About;
