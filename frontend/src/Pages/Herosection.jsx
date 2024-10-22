@@ -15,6 +15,8 @@ import chatbotsvg from '../assets/svg/chatbot.svg';
 import Chatbot from '../components/chatbot';
 import Navbar from '../components/navbar';
 import Language from '../components/language';
+import { FaUserAlt } from "react-icons/fa";
+
 const Herosection = () => {
     const navigate = useNavigate();
 
@@ -53,9 +55,13 @@ const Herosection = () => {
     return (
         <>
 
-            <div className='relative z-50 flex items-center justify-between'>
+            <div className='relative z-50 flex items-center justify-between gap-[88vw]'>
                 <div><Navbar /></div>
+                  <div className='flex items-center justify-center'>
+            <button type="submit" onClick={UserCLick} className=""><FaUserAlt className='bg-blue-200 border-2 text-blue-600 border-blue-200 rounded-full w-[55px] h-[55px] p-2 shadow-lg' /></button>
+            </div>
                 <div><HamburgerMenu/></div>
+               
             </div>
             <Language/>
             <h1 className='pl-4 text-4xl font-black text-center text-white '>Namaste !! Yatree </h1>
@@ -69,9 +75,7 @@ const Herosection = () => {
             <img src={bgmobile} alt="" style={{ position: "absolute", bottom: 0, zIndex: "10" }} className="md:hidden" /> */}
             </div>
             <br></br>
-            <div className='flex items-center justify-center'>
-            <button type="submit" onClick={UserCLick} className="w-20 py-2 ml-8 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">User</button>
-            </div>
+           
 
             <div className='grid grid-cols-3 gap-2 pb-10 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center '>
             <div 
