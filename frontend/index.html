@@ -512,12 +512,7 @@ document.getElementById('sendMessage').addEventListener('click', function () {
 
     </script> -->
 
-    <script>
-        window.addEventListener("load", () => {
-            const loader = document.getElementById("loader");
-            loader.style.display = "none";
-        })
-    </script>
+   
    
  
    <div id="google_translate_modal" class="flex">
@@ -600,7 +595,9 @@ document.getElementById('sendMessage').addEventListener('click', function () {
             }
         });
     });
+    
 </script>
+
      <div id="root"></div>
      <script type="module" src="/src/main.jsx"></script>
      <script>
@@ -671,60 +668,61 @@ document.getElementById('sendMessage').addEventListener('click', function () {
         </script>
 
         <!--pop up html part-->
+        
         <div id="popup" class="popup" >
-        <div class="popupcontent">
-        <div class="close-button">X</div>
-        <div class="popup-left">
-         <img src="src/assets/railways.png">
-        </div>
-        <div class="popup-right">
-        <p class="h1">Welcome to Station Saarthi</p>
-        <p class="h2"> Travel without stress  Sign in now</p>
-        <!-- email part-->
-         <form id="emailForm">
-         <input type="email" id="popup-email" placeholder="Enter Email" required>
-         <button type="submit" class="signup-btn">Sign me up!</button>
-         </form>
-         <p class="terms">By signing in, I agree to station saarthi's <a herf="#">Terms of Service</a> and <a herf="#">Privacy Policy</a>.</p>
-        </div>
-        </div>
+            <div class="popupcontent">
+            <div class="close-button">X</div>
+            <div class="popup-left">
+             <img src="src/assets/railways.png">
+            </div>
+            <div class="popup-right">
+            <p class="h1">Welcome to Station Saarthi</p>
+            <p class="h2"> Travel without stress  Sign in now</p>
+            <!-- email part-->
+             <form id="emailForm">
+             <input type="email" id="popup-email" placeholder="Enter Email" required>
+             <button type="submit" class="signup-btn">Sign me up!</button>
+             </form>
+             <p class="terms">By signing in, I agree to station saarthi's <a herf="#">Terms of Service</a> and <a herf="#">Privacy Policy</a>.</p>
+            </div>
+            </div>
+        
+          <script>
+    // Close button functionality for the popup
+    document.querySelector('.close-button').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+    });
 
-        <script>window.onload = function() {
-            document.getElementById('popup').style.display = 'flex';
-        };
-        //load on website pop up added
+    // Email form submission handling
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+        event.preventDefault();
         
-        
-        document.querySelector('.close-button').addEventListener('click', function() {
+        const email = document.getElementById('email').value;
+        if (email) {
+            alert(`Welcome! To Station Saarthi, may you have a wonderful journey, ${email}`);
             document.getElementById('popup').style.display = 'none';
-        });
-        
-        document.getElementById('emailForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-        
-            const email = document.getElementById('email').value;
-            if (email) {
-                alert(`Welcome ! To Station Sarthi , May you have a wonderful Journey ${email}`);
-                document.getElementById('popup').style.display = 'none';
-            }
-            
-        });</script>
+        }
+    });
 
-    
-    </script>
+    // Loader functionality to hide the loader after the window has loaded
+    window.addEventListener("load", () => {
+        const loader = document.getElementById("loader");
+        loader.style.display = "none";
+    });
+</script>
 
-    <script>
-        window.embeddedChatbotConfig = {
-            chatbotId: "YOUR_CHATBOT_ID", // Replace with your actual chatbot ID
-            domain: "www.chatbase.co"
-        };
-    </script>
-    
-    <script src="https://www.chatbase.co/embed.min.js" defer></script>
-    <script src="./src/chabot.js" type="module" defer></script>
-    
+<script>
+    window.embeddedChatbotConfig = {
+        chatbotId: "YOUR_CHATBOT_ID", // Replace with your actual chatbot ID
+        domain: "www.chatbase.co"
+    };
+</script>
+
+<script src="https://www.chatbase.co/embed.min.js" defer></script>
+<script src="./src/chatbot.js" type="module" defer></script>
 
     </div>
+
     
 
 </body>
