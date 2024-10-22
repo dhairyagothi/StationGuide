@@ -47,7 +47,7 @@ const Language = () => {
 
                         {/* Language Selection */}
                         <h3>Select Language</h3>
-                        <select value={languageCode} onChange={handleLanguageChange} className='black'>
+                        <select value={languageCode} onChange={handleLanguageChange} className='text-black'>
                             <option value="en">English</option>
                             <option value="es">Spanish</option>
                             <option value="fr">French</option>
