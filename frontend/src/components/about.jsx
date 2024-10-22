@@ -45,6 +45,27 @@ const About = () => {
         With cutting-edge technology and user-friendly design, we aim to provide smooth and efficient 
         travel assistance for all passengers.
       </p>
+
+      {/* Our Mission Section */}
+      <div 
+        className="w-full max-w-3xl p-8 mb-8 bg-white shadow-lg rounded-lg hover:shadow-2xl 
+        transition-transform transform hover:-translate-y-2 border border-blue-300">
+        <h2 
+          className="text-3xl font-semibold text-blue-800 mb-4 border-b-2 
+          border-blue-400 pb-2">
+          Our Mission
+        </h2>
+        <p 
+          className="text-lg leading-loose">
+          At 
+          <span className="font-bold text-blue-600">
+            StationSaarthi
+          </span>, 
+          our mission is to simplify the railway station experience by integrating advanced technology 
+          and providing real-time, actionable information to every traveler. 
+          We are committed to enhancing travel convenience for all.
+        </p>
+      </div>
     </div>
   );
 };
