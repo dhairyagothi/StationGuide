@@ -25,3 +25,7 @@ dist-ssr
 
 # Lock files
 package-lock.json
+
+# ChatBot
+src/config.js
+
