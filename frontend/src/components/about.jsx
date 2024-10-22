@@ -130,6 +130,24 @@ const About = () => {
           comfort, and convenience at every step.
         </p>
       </div>
+
+      {/* Our Team Section */}
+      <div 
+        className="w-full max-w-3xl p-8 mb-8 bg-white shadow-lg rounded-lg hover:shadow-2xl 
+        transition-transform transform hover:-translate-y-2 border border-blue-300">
+        <h2 
+          className="text-3xl font-semibold text-blue-800 mb-4 border-b-2 
+          border-blue-400 pb-2">
+          Meet the Team
+        </h2>
+        <p 
+          className="text-lg leading-loose">
+          Our diverse team of professionals is driven by a passion for innovation. 
+          With expertise spanning technology, transportation, and user experience design, 
+          we are dedicated to making railway stations smarter, more efficient, and more 
+          enjoyable for every passenger.
+        </p>
+      </div>
     </div>
   );
 };
