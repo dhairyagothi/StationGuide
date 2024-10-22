@@ -30,9 +30,10 @@
             width: 24px;
             border-radius: 24px;
             background-color: black;
-            position: fixed;
+            position: relative;
             top: 0;
             left: 0;
+            
             pointer-events: none;
             z-index: 99999999;
 
@@ -539,6 +540,40 @@ document.getElementById('sendMessage').addEventListener('click', function () {
 
 <!-- JavaScript for toggling modal -->
 <script>
+    const circle = document.querySelector('.circle');
+
+    // Hide the cursor after a timeout or when it leaves the screen
+    let hideTimeout;
+
+    // Update cursor position
+    document.addEventListener('mousemove', (e) => {
+        circle.style.top = `${e.clientY - circle.offsetHeight / 2}px`;
+        circle.style.left = `${e.clientX - circle.offsetWidth / 2}px`;
+
+        // Show the cursor when it's moving
+        circle.style.opacity = 1;
+
+        // Clear any previous hide timeout
+        clearTimeout(hideTimeout);
+
+        // Set a timeout to hide the cursor after inactivity
+        hideTimeout = setTimeout(() => {
+            circle.style.opacity = 0;
+        }, 1000); // 1 second delay before hiding
+    });
+
+    // Hide cursor when scrolling
+    document.addEventListener('scroll', () => {
+        circle.style.opacity = 0;
+    });
+
+    // Re-show cursor when mouse moves after scrolling
+    document.addEventListener('mousemove', () => {
+        circle.style.opacity = 1;
+    });
+</script>
+
+<script>
     document.addEventListener("DOMContentLoaded", function () {
         const languageIcon = document.getElementById('languageIcon');
         const modal = document.getElementById('google_translate_modal');
@@ -617,8 +652,8 @@ document.getElementById('sendMessage').addEventListener('click', function () {
                 circle.y = lerp(circle.y, y, 0.4);
     
                 // Positioning the circle closer to the cursor
-                circle.style.left = circle.x - circle.offsetWidth / 2 + "px";
-                circle.style.top = circle.y - circle.offsetHeight / 2 + "px";
+                circle.style.left = circle.x - circle.offsetWidth / 4 + "px";
+                circle.style.top = circle.y - circle.offsetHeight / 4 + "px";
                 
                 // Scale down each circle progressively to create depth
                 circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
