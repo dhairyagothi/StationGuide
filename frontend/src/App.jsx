@@ -58,7 +58,7 @@ function App() {
         {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
 
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
     </Router>
     </div>
 

@@ -166,6 +166,9 @@ const Hamburger = () => {
   const Contactclick = () => {
     navigate('/ContactUs');
   };
+  const privacyClick = () => {
+    navigate('/PrivacyPolicy');  // Navigate to Privacy and Policy page
+  };
 
 
 
@@ -177,7 +180,7 @@ const Hamburger = () => {
 
   const toggleMenu = () => {
     setOpen((prev) => !prev);
-  };
+  };.3
   
 
   const handleBack = () => {
