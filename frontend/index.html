@@ -59,7 +59,9 @@
             top: 70px;
             /* Adjust based on your navbar height */
             left: 20px;
-            background-color: #3b82f6;
+            --tw-bg-opacity: 1;
+            background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+
             color: white;
             border-radius: 50%;
             width: 50px;
@@ -96,7 +98,7 @@
 
         /* Modal Content */
         .modal-content {
-            background-color: #3b82f6;
+            background-color: #4d90fe;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
@@ -121,11 +123,11 @@
         }
 
         /* Close Button */
-        .close-btn {
+        /* .close-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #f87171;
+            background-color: #ff0909;
             color: white;
             border: none;
             border-radius: 50%;
@@ -136,13 +138,13 @@
             align-items: center;
             cursor: pointer;
             z-index: 1001;
-        }
+        } */
 
-        /* Google Translate Element Styling */
+        /* Google Translate Element Styling
         #google_translate_element {
             margin-top: 20px;
             text-align: center;
-        }
+        } */
 
         .chatbot {
             position: fixed;
@@ -401,9 +403,9 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
-    <div id="languageIcon" title="Change Language">
-        🌐 <!-- This is the icon for language, you can replace this with any icon (SVG, FontAwesome, etc.) -->
-    </div>
+    <!-- <div id="languageIcon" title="Change Language">
+        🌐 
+    </div> -->
     <!-- <div class="chatbot-container"></div>
     <div class="chatbot" id="chatbotIcon">
         <img src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="Chatbot Icon" />
@@ -515,16 +517,15 @@ document.getElementById('sendMessage').addEventListener('click', function () {
    
    
  
-   <div id="google_translate_modal" class="flex">
+   <!-- <div id="google_translate_modal" class="flex">
     <div class="modal-content">
-        <!-- Close Button -->
+       
         <button class="close-btn" id="closeBtn">✖</button>
 
-        <!-- Google Translate Widget -->
         <div id="google_translate_element"></div>
     </div>
-</div>
-
+</div> -->
+<!-- 
 <script type="text/javascript">
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
@@ -533,7 +534,7 @@ document.getElementById('sendMessage').addEventListener('click', function () {
 <script type="text/javascript"
     src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!-- JavaScript for toggling modal -->
+
 <script>
     const circle = document.querySelector('.circle');
 
@@ -596,7 +597,7 @@ document.getElementById('sendMessage').addEventListener('click', function () {
         });
     });
     
-</script>
+</script> -->
 
      <div id="root"></div>
      <script type="module" src="/src/main.jsx"></script>
