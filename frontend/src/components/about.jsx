@@ -84,6 +84,33 @@ const About = () => {
         </p>
       </div>
 
+      {/* What We Offer Section */}
+      <div 
+        className="w-full max-w-3xl p-8 mb-8 bg-white shadow-lg rounded-lg hover:shadow-2xl 
+        transition-transform transform hover:-translate-y-2 border border-blue-300">
+        <h2 
+          className="text-3xl font-semibold text-blue-800 mb-4 border-b-2 
+          border-blue-400 pb-2">
+          What We Offer
+        </h2>
+        <p 
+          className="text-lg leading-loose">
+          With 
+          <span className="font-bold text-blue-600">
+            StationSaarthi
+          </span>, 
+          you get access to:
+          <ul 
+            className="list-disc list-inside mt-4">
+            <li>Real-time train updates and notifications</li>
+            <li>Interactive station maps for easy navigation</li>
+            <li>Personalized travel recommendations</li>
+            <li>Multi-language support to cater to diverse passengers</li>
+            <li>Accessible services for differently-abled travelers</li>
+          </ul>
+        </p>
+      </div>
+
       
     </div>
   );
