@@ -12,6 +12,7 @@ const About = () => {
     // Navigates to the home page when back button is clicked
     navigate('/'); 
   };
+  
 
   // Return JSX structure
   return (
