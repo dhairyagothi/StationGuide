@@ -66,6 +66,25 @@ const About = () => {
           We are committed to enhancing travel convenience for all.
         </p>
       </div>
+
+      {/* Our Vision Section */}
+      <div 
+        className="w-full max-w-3xl p-8 mb-8 bg-white shadow-lg rounded-lg hover:shadow-2xl 
+        transition-transform transform hover:-translate-y-2 border border-blue-300">
+        <h2 
+          className="text-3xl font-semibold text-blue-800 mb-4 border-b-2 
+          border-blue-400 pb-2">
+          Our Vision
+        </h2>
+        <p 
+          className="text-lg leading-loose">
+          Our vision is a future where every journey is hassle-free. 
+          We strive to create a travel ecosystem that connects passengers, railways, and services 
+          through seamless digital integration.
+        </p>
+      </div>
+
+      
     </div>
   );
 };
