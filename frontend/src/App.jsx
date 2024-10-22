@@ -23,11 +23,14 @@ import HelpAndSupport from './Pages/HelpandSupport';
 import Emergency from './Pages/Emergency';
 import AboutUs from './Pages/AboutUs';
 import Error from './Pages/Error';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
+import Footer from './components/Footer';
 
 function App() {
 
   return (
     <>
+    <div style={{ display: 'flex', flexDirection: 'column', }}>
     <Router>
       <Routes>
         <Route path="/" element={<Herosection />} />
@@ -50,11 +53,14 @@ function App() {
         <Route path='/emergency' element={<Emergency/>} />  
         <Route path='/help-and-support' element={<HelpAndSupport/>} />
         <Route path='/help-and-support' element={<HelpAndSupport/>} />
+        <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
         <Route path='*' element={<Error/>} />
         {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
 
       </Routes>
+      <Footer/>
     </Router>
+    </div>
 
     {/* <div className='fixed bottom-0 right-0 z-50 m-4 cursor-pointer'>
       <img src={chatbotsvg} alt="chatbot" className='w-16 h-16' />
