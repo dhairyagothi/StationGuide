@@ -111,7 +111,25 @@ const About = () => {
         </p>
       </div>
 
-      
+      {/* Why Choose Us Section */}
+      <div 
+        className="w-full max-w-3xl p-8 mb-8 bg-white shadow-lg rounded-lg hover:shadow-2xl 
+        transition-transform transform hover:-translate-y-2 border border-blue-300">
+        <h2 
+          className="text-3xl font-semibold text-blue-800 mb-4 border-b-2 
+          border-blue-400 pb-2">
+          Why Choose Us?
+        </h2>
+        <p 
+          className="text-lg leading-loose">
+          <span className="font-bold text-blue-600">
+            StationSaarthi
+          </span> 
+          is more than a service; it's a commitment to revolutionizing your railway station experience. 
+          We believe in technology's power to enhance every aspect of your journey, ensuring safety, 
+          comfort, and convenience at every step.
+        </p>
+      </div>
     </div>
   );
 };
