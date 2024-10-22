@@ -1,56 +1,36 @@
-import React from 'react';
-import './about.css';
-import { useNavigate } from 'react-router-dom';
-import backicon from '../assets/svg/backicon.svg';
+import React from 'react'; // Importing React
+import { useNavigate } from 'react-router-dom'; // Importing navigation function
+import backicon from '../assets/svg/backicon.svg'; // Importing back icon asset
 
-
-
-
+// About component
 const About = () => {
+  // UseNavigate hook for navigation
   const navigate = useNavigate();
 
+  // Function to handle home button click
+  const HomeClick = () => {   
+    // Navigates to the home page when back button is clicked
+    navigate('/'); 
+  };
 
-const HomeClick = () => {   
-        navigate('/'); // Navigates to the home page
-    };
-
+  // Return JSX structure
   return (
-    <div className="about-container">
-        <button onClick={HomeClick} className='absolute left-0 top-2'>
-                <img src={backicon} alt="" className='h-[5vh]' />
-            </button>
-      <h1>ABOUT US</h1>
-      <p>
-        Welcome to <span className="highlight">StationSaarthi</span>, your comprehensive navigation and assistance platform designed to revolutionize the Indian Railway Station experience. We combine advanced technology with user-centric design to ensure seamless travel for everyone.
-      </p>
-      <div className="about-section">
-        <h2>Our Mission</h2>
-        <p>
-          To provide the best user experience through cutting-edge technology and innovative design. 
-          We aim to deliver high-quality services that meet the needs of our customers.
-        </p>
-      </div>
-      <div className="about-section">
-        <h2>Our Vision</h2>
-        <p>
-          We envision a world where technology makes lives easier, bridging the gap between users and 
-          solutions through seamless experiences and intuitive design.
-        </p>
-      </div>
-      <div className="about-section">
-        <h2>What We Offer</h2>
-        <p>
-          From live train updates to navigation within railway stations, <span className="highlight">StationSaarthi</span> aims to be your ultimate travel companion. Our platform offers features like personalized recommendations, multi-language support, and much more.
-        </p>
-      </div>
-      <div className="about-section">
-        <h2>Why Choose Us?</h2>
-        <p>
-          We believe in the power of technology to transform everyday experiences. With <span className="highlight">StationSaarthi</span>, you can say goodbye to the stress of traveling and embrace a new way of exploring India’s vast railway network.
-        </p>
-      </div>
+    <div 
+      className="flex flex-col items-center p-8 min-h-screen bg-gradient-to-br 
+      from-blue-100 via-blue-200 to-blue-300 text-gray-800">
+      
+      {/* Back button to navigate to home */}
+      <button 
+        onClick={HomeClick} 
+        className="absolute left-4 top-4">
+        <img 
+          src={backicon} 
+          alt="Back" 
+          className="h-12" />
+      </button>
     </div>
   );
 };
 
+// Exporting the About component for use in other parts of the app
 export default About;
