@@ -148,9 +148,15 @@ const About = () => {
           enjoyable for every passenger.
         </p>
       </div>
+
+      {/* Footer */}
+      <div 
+        className="text-center mt-12 text-sm text-gray-600">
+        <p>© 2024 StationSaarthi | All rights reserved</p>
+      </div>
     </div>
   );
-};
+}
 
 // Exporting the About component for use in other parts of the app
 export default About;
