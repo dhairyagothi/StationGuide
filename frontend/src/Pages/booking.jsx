@@ -186,6 +186,11 @@ const BookingPage = () => {
   // Render booking form for selected service
 
   const renderBookingForm = () => {
+
+// Calender validation code start
+    const [minDate, setMinDate] = useState(new Date().toISOString().split('T')[0]);
+// Calender validation code end
+    
     if (!selectedService) return null;
 
     if (selectedService === "cloak") {
@@ -211,6 +216,7 @@ const BookingPage = () => {
             <DatePicker
               selected={formData.startDate}
               onChange={(date) => setFormData({ ...formData, startDate: date })}
+              minDate={minDate} // Setting minimum date to today
               className="w-full px-4 py-2 mt-2 transition duration-200 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400"
             />
           </label>
@@ -219,6 +225,7 @@ const BookingPage = () => {
             <DatePicker
               selected={formData.endDate}
               onChange={(date) => setFormData({ ...formData, endDate: date })}
+              minDate={minDate} // Setting minimum date to today
               className="w-full px-4 py-2 mt-2 transition duration-200 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-400"
             />
           </label>
