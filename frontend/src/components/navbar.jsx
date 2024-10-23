@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes, FaUser, FaHandsHelping, FaBell, FaStar, FaCreditCard, FaInfoCircle } from 'react-icons/fa';
 import { IoSettings } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';  // Import axios
 
 const Navbar = () => {
@@ -92,15 +92,16 @@ const Navbar = () => {
   return (
     <>
       {/* Navigation Toggle for All Screens (Mobile and Larger Screens) */}
-      <div className="flex items-center justify-between p-4 bg-blue-500">
+      <div className="fixed top-0 left-0 w-full flex items-center justify-between p-4 bg-blue-500 z-10">
         <button onClick={toggleMenu}>
           {isOpen ? <FaTimes className="text-2xl text-black" /> : <FaBars className="text-2xl text-white" />}
         </button>
       </div>
 
+
       {/* Sidebar Navigation (Covers 25% on larger screens, full width on mobile) */}
       <div className={`fixed inset-y-0 left-0 bg-white shadow-lg ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 w-[80%] lg:w-1/4`}>
-        
+
         {/* Close Button inside Sidebar */}
         <div className="flex justify-end p-4">
           <button onClick={toggleMenu}>
@@ -149,7 +150,7 @@ const Navbar = () => {
         {/* Footer */}
         <div className="absolute bottom-0 w-full p-4 text-sm text-center text-gray-500">
           App version 1.0.0.0
-          
+
         </div>
       </div>
 
