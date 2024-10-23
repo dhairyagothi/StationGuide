@@ -30,9 +30,10 @@
             width: 24px;
             border-radius: 24px;
             background-color: black;
-            position: fixed;
+            position: relative;
             top: 0;
             left: 0;
+            
             pointer-events: none;
             z-index: 99999999;
 
@@ -58,7 +59,9 @@
             top: 70px;
             /* Adjust based on your navbar height */
             left: 20px;
-            background-color: #3b82f6;
+            --tw-bg-opacity: 1;
+            background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+
             color: white;
             border-radius: 50%;
             width: 50px;
@@ -95,7 +98,7 @@
 
         /* Modal Content */
         .modal-content {
-            background-color: #3b82f6;
+            background-color: #4d90fe;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
@@ -120,11 +123,11 @@
         }
 
         /* Close Button */
-        .close-btn {
+        /* .close-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #f87171;
+            background-color: #ff0909;
             color: white;
             border: none;
             border-radius: 50%;
@@ -135,13 +138,13 @@
             align-items: center;
             cursor: pointer;
             z-index: 1001;
-        }
+        } */
 
-        /* Google Translate Element Styling */
+        /* Google Translate Element Styling
         #google_translate_element {
             margin-top: 20px;
             text-align: center;
-        }
+        } */
 
         .chatbot {
             position: fixed;
@@ -259,115 +262,7 @@
 
     
 }
-#popup {
-  position: fixed;
-  bottom: 20px; /* Position 20px from the bottom */
-  right: 20px;  /* Position 20px from the right */
-  height: auto; /* Adjust height based on content */
-  width: 400px; /* Set width for the popup box */
-  background-color: rgb(252 249 249 / 80%); /* Semi-transparent background */
-  justify-content: center;
-  display: flex;
-  z-index: 1000;
-  align-items: center;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0px 4px 10px #4d90fea3; /* Box shadow */
-}
 
-.popup-content {
-  position: relative;
-  width: 100%; /* Full width of the container */
-  background-color: rgb(240, 238, 238);
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-}
-
-.popup-left img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  padding: 24px;
-    border-radius: 59px;
-}
-
-
-.popup-right {
-  padding: 20px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-right .h1 {
-  font-size: 24px; /* Adjust size for better fit */
-  margin-bottom: 10px;
-  color: #131010;
-  text-align: center;
-  font-weight: bolder;
-}
-
-.popup-right .h2 {
-  font-size: 18px;
-  color: #261d1d;
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-#emailForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-#popup-email {
-  padding: 10px;
-  width: 80%;
-  border: 1px solid #bbbbbb;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  font-size: 16px;
-}
-
-.signup-btn {
-  width: 80%;
-  padding: 10px;
-  background-color: #0b42e9;
-  color: aliceblue;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bolder;
-}
-
-.terms {
-  color: #0e0a0a;
-  text-align: center;
-  font-size: 12px;
-  margin-top: 10px;
-}
-
-.terms a {
-  color: #1278d8;
-  text-decoration: none;
-}
-
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  font-weight: bolder;
-  cursor: pointer;
-  color: #000000;
-  z-index: 1001;
-}
 
 
 </style>    
@@ -400,9 +295,9 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
-    <div id="languageIcon" title="Change Language">
-        🌐 <!-- This is the icon for language, you can replace this with any icon (SVG, FontAwesome, etc.) -->
-    </div>
+    <!-- <div id="languageIcon" title="Change Language">
+        🌐 
+    </div> -->
     <!-- <div class="chatbot-container"></div>
     <div class="chatbot" id="chatbotIcon">
         <img src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="Chatbot Icon" />
@@ -511,24 +406,18 @@ document.getElementById('sendMessage').addEventListener('click', function () {
 
     </script> -->
 
-    <script>
-        window.addEventListener("load", () => {
-            const loader = document.getElementById("loader");
-            loader.style.display = "none";
-        })
-    </script>
+   
    
  
-   <div id="google_translate_modal" class="flex">
+   <!-- <div id="google_translate_modal" class="flex">
     <div class="modal-content">
-        <!-- Close Button -->
+       
         <button class="close-btn" id="closeBtn">✖</button>
 
-        <!-- Google Translate Widget -->
         <div id="google_translate_element"></div>
     </div>
-</div>
-
+</div> -->
+<!-- 
 <script type="text/javascript">
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
@@ -537,7 +426,41 @@ document.getElementById('sendMessage').addEventListener('click', function () {
 <script type="text/javascript"
     src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!-- JavaScript for toggling modal -->
+
+<script>
+    const circle = document.querySelector('.circle');
+
+    // Hide the cursor after a timeout or when it leaves the screen
+    let hideTimeout;
+
+    // Update cursor position
+    document.addEventListener('mousemove', (e) => {
+        circle.style.top = `${e.clientY - circle.offsetHeight / 2}px`;
+        circle.style.left = `${e.clientX - circle.offsetWidth / 2}px`;
+
+        // Show the cursor when it's moving
+        circle.style.opacity = 1;
+
+        // Clear any previous hide timeout
+        clearTimeout(hideTimeout);
+
+        // Set a timeout to hide the cursor after inactivity
+        hideTimeout = setTimeout(() => {
+            circle.style.opacity = 0;
+        }, 1000); // 1 second delay before hiding
+    });
+
+    // Hide cursor when scrolling
+    document.addEventListener('scroll', () => {
+        circle.style.opacity = 0;
+    });
+
+    // Re-show cursor when mouse moves after scrolling
+    document.addEventListener('mousemove', () => {
+        circle.style.opacity = 1;
+    });
+</script>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const languageIcon = document.getElementById('languageIcon');
@@ -565,7 +488,9 @@ document.getElementById('sendMessage').addEventListener('click', function () {
             }
         });
     });
-</script>
+    
+</script> -->
+
      <div id="root"></div>
      <script type="module" src="/src/main.jsx"></script>
      <script>
@@ -617,8 +542,8 @@ document.getElementById('sendMessage').addEventListener('click', function () {
                 circle.y = lerp(circle.y, y, 0.4);
     
                 // Positioning the circle closer to the cursor
-                circle.style.left = circle.x - circle.offsetWidth / 2 + "px";
-                circle.style.top = circle.y - circle.offsetHeight / 2 + "px";
+                circle.style.left = circle.x - circle.offsetWidth / 4 + "px";
+                circle.style.top = circle.y - circle.offsetHeight / 4 + "px";
                 
                 // Scale down each circle progressively to create depth
                 circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
@@ -636,48 +561,16 @@ document.getElementById('sendMessage').addEventListener('click', function () {
         </script>
 
         <!--pop up html part-->
-        <div id="popup" class="popup" >
-        <div class="popupcontent">
-        <div class="close-button">X</div>
-        <div class="popup-left">
-         <img src="src/assets/railways.png">
-        </div>
-        <div class="popup-right">
-        <p class="h1">Welcome to Station Saarthi</p>
-        <p class="h2"> Travel without stress  Sign in now</p>
-        <!-- email part-->
-         <form id="emailForm">
-         <input type="email" id="popup-email" placeholder="Enter Email" required>
-         <button type="submit" class="signup-btn">Sign me up!</button>
-         </form>
-         <p class="terms">By signing in, I agree to station saarthi's <a herf="#">Terms of Service</a> and <a herf="#">Privacy Policy</a>.</p>
-        </div>
-        </div>
 
-        <script>window.onload = function() {
-            document.getElementById('popup').style.display = 'flex';
-        };
-        //load on website pop up added
         
-        
-        document.querySelector('.close-button').addEventListener('click', function() {
-            document.getElementById('popup').style.display = 'none';
-        });
-        
-        document.getElementById('emailForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-        
-            const email = document.getElementById('email').value;
-            if (email) {
-                alert(`Welcome ! To Station Sarthi , May you have a wonderful Journey ${email}`);
-                document.getElementById('popup').style.display = 'none';
-            }
-            
-        });</script>
-
-    
-    </script>
+<script>
+    window.addEventListener("load", () => {
+        const loader = document.getElementById("loader");
+        loader.style.display = "none";
+    })
+</script>
     </div>
+
     
 
 </body>
