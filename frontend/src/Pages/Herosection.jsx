@@ -54,7 +54,7 @@ const Herosection = () => {
     return (
         <>
             <div className='relative z-50 flex items-center justify-between'>
-                <div><Navbar /></div>
+                {/* <div><Navbar /></div> */}
                 <div><HamburgerMenu /></div> {/* From HamburgerMenu branch */}
                 <div className='flex items-center justify-center'>
                     <button type="submit" onClick={UserCLick} className="">

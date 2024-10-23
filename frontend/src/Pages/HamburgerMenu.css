@@ -1,25 +1,25 @@
 .hamburger-icon {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 20px;
-  height: 30px;
-  position: fixed;
-  left: 20px;
-  top: 20px;
-  z-index: 1000;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 20px;
+    height: 30px;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 1000;
 }
 
 .hamburger-icon .bar {
-  height: 3px;
-  background-color: white;
-  width: 20px;
-  margin: 3px 0;
+    height: 3px;
+    background-color: white;
+    width: 20px;
+    margin: 3px 0;
 }
-  
+
 .menu-container {
-    width: 250px; 
+    width: 300px; /* Increased width from 250px to 300px */
     height: 100vh;
     background-color: white;
     position: fixed;
@@ -28,88 +28,88 @@
     z-index: 999;
     display: flex;
     flex-direction: column;
-  }
-  
-  .menu-header {
-    background-color: #468ef9;
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
-  height: 200px; 
-  position: relative;
-  }
- 
-  
-  .menu-items li a {
-    display: flex;
-    align-items: center; 
-    color: black; 
-    width: 100%; 
-  
-  
-  }
+}
 
-  .menu-items li a svg {
-    margin-right: 10px;
-  }
-  .profile-icon {
+.menu-header {
+    background-color: #0078D7;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    position: relative;
+}
+
+.profile-icon {
     border-radius: 50%;
     margin-bottom: 10px;
-    margin-top: 20px;
-    margin-left: 5px;
-    width: 50px;
-    height: 50px;
-    
-  }
-  
-  .profile-info h3 {
+    margin-top: 10px;
+    width: 60px;
+    height: 60px;
+}
 
-    margin-top: auto;
-    margin-left: 0px;
-    padding: 5px;
-    text-align: center;
-  }
-  
-  .profile-info p {
-    margin-top: auto;
+.profile-info h3 {
+    margin-top: 5px;
     padding: 0px;
     text-align: center;
-  }
-  
-  
-  .menu-items {
+    font-size: 18px;
+}
+
+.profile-info p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.menu-items {
     list-style-type: none;
     padding: 0;
-    margin: 20px 0;
-  }
-  
-  .menu-items li {
+    margin: 0;
+}
+
+.menu-items li {
     padding: 15px 20px;
     font-size: 18px;
     display: flex;
     align-items: center;
-  }
-  
-  .menu-items li span {
+    margin-top: 10px;
+}
+
+.menu-items li span {
     margin-right: 10px;
-  }
- 
-  .menu-footer {
+}
+
+.menu-items li a {
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    width: 100%;
+}
+
+.menu-items li a svg, /* Selects the icons (SVG) */
+.menu-items li a i {
+    margin-right: 20px;
+    color: #0078D7; /* Changes icon color to blue */
+}
+
+.menu-footer {
     margin-top: auto;
     padding: 20px;
     text-align: center;
-  }
-  
-  .privacy-link {
-    color: #468ef9;
+}
+
+.privacy-link {
+    color: #0078D7;
     text-decoration: none;
-  }
-  
-  .app-version {
+}
+
+.app-version {
     font-size: 12px;
     color: #888;
-  }
-  
+    margin-top: 10px;
+    text-align: center;
+}
