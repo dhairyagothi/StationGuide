@@ -115,15 +115,28 @@ const SchedulePage = () => {
               />
             </div>
 
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Coach Details</label>
-              <input
-                type="text"
-                value={coachDetails}
-                onChange={(e) => setCoachDetails(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-              />
-            </div>
+         <div>
+  <label className="block text-gray-700 font-semibold mb-2">Coach Details</label>
+  <select
+    value={coachDetails}
+    onChange={(e) => setCoachDetails(e.target.value)}
+    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+    required
+  >
+    <option value="">Select a coach</option>
+    <option value="GN">GN - Unreserved</option>
+    <option value="SL">SL - Sleeper</option>
+    <option value="3A">3A - AC 3-Tier</option>
+    <option value="2A">2A - AC 2-Tier</option>
+    <option value="1A">1A - First class AC</option>
+    <option value="CC">CC - AC Chair Car</option>
+    <option value="EC">EC - Executive Chair Car</option>
+    <option value="EA">EA - Executive Anubhuti</option>
+    <option value="2S">2S - Second Sitting</option>
+    <option value="FC">FC - First Class</option>
+  </select>
+</div>
+
 
             {/* <div>
               <label className="block text-gray-700 font-semibold mb-2">Date</label>
