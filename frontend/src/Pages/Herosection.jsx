@@ -9,11 +9,11 @@ import mapsvg from '../assets/svg/3dmap.svg';
 import schedulesvg from '../assets/svg/schedule.svg';
 import searchsvg from '../assets/svg/search.svg';
 import { useNavigate } from 'react-router-dom';
-import HamburgerMenu from './hamburger';
 import contributorsvg from '../assets/svg/contributor.svg';
 import chatbotsvg from '../assets/svg/chatbot.svg';
 import Chatbot from '../components/chatbot';
 import Navbar from '../components/navbar';
+import HamburgerMenu from './HamburgerMenu';
 const Herosection = () => {
     const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ const Herosection = () => {
         <>
 
             <div className='relative z-50 flex items-center justify-between'>
-                <div><Navbar /></div>
+                {/* <div><Navbar /></div> */}
                 <div><HamburgerMenu/></div>
             </div>
             <h1 className='pl-4 text-4xl font-black text-center text-white '>Namaste !! Yatree </h1>
