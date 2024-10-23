@@ -152,6 +152,7 @@ const SchedulePage = () => {
                   />
                 </div>
               </div>
+
             )}
 
             {/* Button to search */}
@@ -161,6 +162,78 @@ const SchedulePage = () => {
             >
               Search Train
             </button>
+
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-semibold mb-2">Next Station</label>
+              <input
+                type="text"
+                value={nextStation}
+                onChange={(e) => setNextStation(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-semibold mb-2">Services</label>
+              <select
+                value={services}
+                onChange={(e) => setServices(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+              >
+                <option value="-SELECT-">-SELECT-</option>
+                {/* @Select-- Add more options for SELECT */}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-semibold mb-2">Platform Details</label>
+              <input
+                type="text"
+                value={platformDetails}
+                onChange={(e) => setPlatformDetails(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+              />
+            </div>
+
+         <div>
+  <label className="block text-gray-700 font-semibold mb-2">Coach Details</label>
+  <select
+    value={coachDetails}
+    onChange={(e) => setCoachDetails(e.target.value)}
+    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+    required
+  >
+    <option value="">Select a coach</option>
+    <option value="GN">GN - Unreserved</option>
+    <option value="SL">SL - Sleeper</option>
+    <option value="3A">3A - AC 3-Tier</option>
+    <option value="2A">2A - AC 2-Tier</option>
+    <option value="1A">1A - First class AC</option>
+    <option value="CC">CC - AC Chair Car</option>
+    <option value="EC">EC - Executive Chair Car</option>
+    <option value="EA">EA - Executive Anubhuti</option>
+    <option value="2S">2S - Second Sitting</option>
+    <option value="FC">FC - First Class</option>
+  </select>
+</div>
+
+
+            {/* <div>
+              <label className="block text-gray-700 font-semibold mb-2">Date</label>
+              <div className="relative">
+                {/* <DatePicker
+                  selected={date}
+                  onChange={(date) => setDate(date)}
+                  dateFormat="dd/MM/yyyy"
+                  placeholderText="DD/MM/YY"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                  popperClassName="z-50"
+                /> }
+              </div>
+            </div> */}
+
           </div>
         </div>
       </div>
