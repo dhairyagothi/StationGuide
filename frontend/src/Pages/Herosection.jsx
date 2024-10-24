@@ -16,6 +16,7 @@ import Chatbot from '../components/chatbot';
 import Navbar from '../components/navbar';
 import Language from '../components/language';
 import { FaUserAlt } from "react-icons/fa";
+import Popup from '../components/popup';
 
 const Herosection = () => {
     const navigate = useNavigate();
@@ -122,6 +123,7 @@ const Herosection = () => {
             <div  
   className="fixed flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer  right-5 -bottom-8 md:-bottom-7"
 >
+    <Popup />
 <Chatbot/>
   <h1 className="text-xs font-bold text-black">Saarthi</h1>
 </div>

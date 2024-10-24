@@ -50,8 +50,8 @@ const SchedulePage = () => {
         }}
       />
 
-      <div className="relative w-full px-4 py-8 z-10">
-        <div className="w-full max-w-md mx-auto flex items-center mb-6">
+      <div className="relative w-full  px-4 py-8 z-10 flex items-center justify-center  flex-col">
+        <div className="w-full max-w-md mx-auto flex items-center mb-6 ">
           <button
             onClick={() => navigate(-1)}
             className="flex items-center text-white hover:text-blue-200 transition-colors"
@@ -61,7 +61,7 @@ const SchedulePage = () => {
           </button>
         </div>
 
-        <div className="w-full max-w-md mx-auto bg-white bg-opacity-90 rounded-lg shadow-md p-6 backdrop-blur-sm">
+        <div className="w-9/12  bg-white bg-opacity-90 rounded-lg shadow-md p-6 backdrop-blur-sm">
           <h2 className="text-xl font-bold text-center mb-6 py-2 bg-blue-100 border border-blue-300 rounded-3xl shadow-sm">
             Train Schedule
           </h2>
