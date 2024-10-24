@@ -14,7 +14,6 @@ const SchedulePage = () => {
   const [trainDetails, setTrainDetails] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  
   const navigate = useNavigate();
 
   // Function to search train by either number or name
@@ -32,9 +31,9 @@ const SchedulePage = () => {
       if (!response.ok) {
         throw new Error('Train not found');
       }
-      
+
       const data = await response.json();
-      setTrainDetails(data);  // Assuming the API returns a train object
+      setTrainDetails(data); // Assuming the API returns a train object
     } catch (error) {
       setError(error.message || 'An error occurred while fetching the train details');
     } finally {
@@ -44,7 +43,7 @@ const SchedulePage = () => {
 
   return (
     <div className="relative flex flex-col items-center min-h-screen">
-      <div 
+      <div
         className="absolute inset-0 bg-transparent"
         style={{
           backgroundImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7))',
@@ -70,7 +69,9 @@ const SchedulePage = () => {
           <div className="space-y-4">
             {/* Search input */}
             <div className="mb-4">
-              <label className="block text-gray-700 font-semibold mb-2">Search by Train Number or Name</label>
+              <label className="block text-gray-700 font-semibold mb-2">
+                Search by Train Number or Name
+              </label>
               <div className="relative">
                 <input
                   type="text"
@@ -79,8 +80,8 @@ const SchedulePage = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
                 />
-                <IoSearchOutline 
-                  className="absolute right-3 top-2.5 text-gray-400 cursor-pointer" 
+                <IoSearchOutline
+                  className="absolute right-3 top-2.5 text-gray-400 cursor-pointer"
                   size={20}
                   onClick={searchTrain}
                 />
@@ -116,7 +117,7 @@ const SchedulePage = () => {
                   <label className="block text-gray-700 font-semibold mb-2">Next Station</label>
                   <input
                     type="text"
-                    value={trainDetails.nextStation.name}
+                    value={trainDetails.nextStation?.name || 'N/A'}
                     readOnly
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                   />
@@ -126,7 +127,7 @@ const SchedulePage = () => {
                   <label className="block text-gray-700 font-semibold mb-2">Services</label>
                   <input
                     type="text"
-                    value={trainDetails.services.join(', ')}
+                    value={trainDetails.services?.join(', ') || 'N/A'}
                     readOnly
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                   />
@@ -136,7 +137,7 @@ const SchedulePage = () => {
                   <label className="block text-gray-700 font-semibold mb-2">Platform Details</label>
                   <input
                     type="text"
-                    value={trainDetails.platformDetails.platformNumber}
+                    value={trainDetails.platformDetails?.platformNumber || 'N/A'}
                     readOnly
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                   />
@@ -146,94 +147,25 @@ const SchedulePage = () => {
                   <label className="block text-gray-700 font-semibold mb-2">Coach Details</label>
                   <input
                     type="text"
-                    value={trainDetails.coachDetails.map(coach => `${coach.coachNumber} (${coach.coachType})`).join(', ')}
+                    value={
+                      trainDetails.coachDetails
+                        ?.map(coach => `${coach.coachNumber} (${coach.coachType})`)
+                        .join(', ') || 'N/A'
+                    }
                     readOnly
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                   />
                 </div>
               </div>
-
             )}
 
             {/* Button to search */}
-            <button 
+            <button
               className="w-full py-2 mt-6 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105"
               onClick={searchTrain}
             >
               Search Train
             </button>
-
-            </div>
-
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Next Station</label>
-              <input
-                type="text"
-                value={nextStation}
-                onChange={(e) => setNextStation(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-              />
-            </div>
-
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Services</label>
-              <select
-                value={services}
-                onChange={(e) => setServices(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-              >
-                <option value="-SELECT-">-SELECT-</option>
-                {/* @Select-- Add more options for SELECT */}
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Platform Details</label>
-              <input
-                type="text"
-                value={platformDetails}
-                onChange={(e) => setPlatformDetails(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-              />
-            </div>
-
-         <div>
-  <label className="block text-gray-700 font-semibold mb-2">Coach Details</label>
-  <select
-    value={coachDetails}
-    onChange={(e) => setCoachDetails(e.target.value)}
-    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-    required
-  >
-    <option value="">Select a coach</option>
-    <option value="GN">GN - Unreserved</option>
-    <option value="SL">SL - Sleeper</option>
-    <option value="3A">3A - AC 3-Tier</option>
-    <option value="2A">2A - AC 2-Tier</option>
-    <option value="1A">1A - First class AC</option>
-    <option value="CC">CC - AC Chair Car</option>
-    <option value="EC">EC - Executive Chair Car</option>
-    <option value="EA">EA - Executive Anubhuti</option>
-    <option value="2S">2S - Second Sitting</option>
-    <option value="FC">FC - First Class</option>
-  </select>
-</div>
-
-
-            {/* <div>
-              <label className="block text-gray-700 font-semibold mb-2">Date</label>
-              <div className="relative">
-                {/* <DatePicker
-                  selected={date}
-                  onChange={(date) => setDate(date)}
-                  dateFormat="dd/MM/yyyy"
-                  placeholderText="DD/MM/YY"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-                  popperClassName="z-50"
-                /> }
-              </div>
-            </div> */}
-
           </div>
         </div>
       </div>
