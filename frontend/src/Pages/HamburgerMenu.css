@@ -19,7 +19,7 @@
 }
 
 .menu-container {
-    width: 300px; /* Increased width from 250px to 300px */
+    width: 25%; 
     height: 100vh;
     background-color: white;
     position: fixed;
