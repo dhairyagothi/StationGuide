@@ -80,6 +80,7 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+
   const handleAboutUsClick = () => {
     navigate('/about');
     setIsOpen(false);
@@ -148,6 +149,16 @@ const Navbar = () => {
 
         {/* Footer */}
         <div className="absolute bottom-0 w-full p-4 text-sm text-center text-gray-500">
+        <a 
+    href="/privacy-policy" 
+    onClick={() => { 
+      navigate('/privacy-policy'); 
+      setIsOpen(false);
+    }}
+    className="block mb-2 text-blue-500 hover:underline"
+  >
+    Privacy and Policy
+  </a>
           App version 1.0.0.0
           
         </div>
