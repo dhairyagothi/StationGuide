@@ -32,6 +32,14 @@ const userSchema = new Schema({
     type: String,
     trim: true,
     default: '', 
+  },
+  otp: {
+    type: String, // The OTP code
+    required: false,
+  },
+  otpExpiry: {
+    type: Date,   // The OTP expiry timestamp
+    required: false,
   }
 }, {
   timestamps: true

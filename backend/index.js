@@ -34,6 +34,8 @@ app.use("/auth", authRoutes);
 app.use("/api", authRoutes);
 app.use("/station", stationRoutes);
 
+
+
 app.get("/", (req, res) => {
   res.send("Working...");
 });
