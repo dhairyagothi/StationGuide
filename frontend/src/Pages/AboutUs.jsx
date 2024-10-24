@@ -39,7 +39,7 @@ const About = () => {
       {/* Introduction Section */}
       <p 
         className="text-xl leading-relaxed text-center max-w-2xl mb-12 px-4">
-        Welcome to 
+        Welcome to{' '} 
         <span className="font-bold text-blue-600"> 
           StationSaarthi
         </span>, 
@@ -59,7 +59,7 @@ const About = () => {
         </h2>
         <p 
           className="text-lg leading-loose">
-          At 
+          At{' '} 
           <span className="font-bold text-blue-600">
             StationSaarthi
           </span>, 
@@ -97,7 +97,7 @@ const About = () => {
         </h2>
         <p 
           className="text-lg leading-loose">
-          With 
+          With{' '} 
           <span className="font-bold text-blue-600">
             StationSaarthi
           </span>, 
@@ -125,7 +125,7 @@ const About = () => {
         <p 
           className="text-lg leading-loose">
           <span className="font-bold text-blue-600">
-            StationSaarthi
+            StationSaarthi{' '}
           </span> 
           is more than a service; it's a commitment to revolutionizing your railway station experience. 
           We believe in technology's power to enhance every aspect of your journey, ensuring safety, 
