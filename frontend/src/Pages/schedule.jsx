@@ -1,27 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { IoArrowBack, IoSearchOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
-//import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+
+// Placeholder API URL (replace with the actual API endpoint)
+const API_URL = 'http://localhost:3000/train';
 
 const SchedulePage = () => {
   useEffect(() => {
     document.title = 'Station Saarthi | Schedule';
   }, []);
 
-  const [trainNumber, setTrainNumber] = useState('22436');
-  const [trainName, setTrainName] = useState('Vande Bharat');
-  const [nextStation, setNextStation] = useState('Indore Jn.');
-  const [services, setServices] = useState('-SELECT-');
-  const [platformDetails, setPlatformDetails] = useState('Platform 3');
-  const [coachDetails, setCoachDetails] = useState('A4');
-  //const [date, setDate] = useState(null);
-
+  const [searchQuery, setSearchQuery] = useState('');
+  const [trainDetails, setTrainDetails] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  // Function to search train by either number or name
+  const searchTrain = async () => {
+    if (!searchQuery) {
+      setError('Please enter a train number or name to search');
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`${API_URL}/${searchQuery}`);
+      if (!response.ok) {
+        throw new Error('Train not found');
+      }
+
+      const data = await response.json();
+      setTrainDetails(data); // Assuming the API returns a train object
+    } catch (error) {
+      setError(error.message || 'An error occurred while fetching the train details');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="relative flex flex-col items-center min-h-screen">
-      <div 
+      <div
         className="absolute inset-0 bg-transparent"
         style={{
           backgroundImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7))',
@@ -45,123 +67,106 @@ const SchedulePage = () => {
           </h2>
 
           <div className="space-y-4">
-          <div className="flex flex-wrap w-full md:gap-10">
-  {/* Search Input */}
-  <div className="w-full md:w-3/12">
-    <label className="block text-gray-700 font-semibold mb-2">Search</label>
-    <div className="relative">
-      <input
-        type="text"
-        placeholder="Search..."
-        className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-      />
-      <IoSearchOutline className="absolute right-3 top-2.5 text-gray-400" size={20} />
-    </div>
-  </div>
-
-  {/* Train Number Input */}
-  <div className="w-full md:w-1/3">
-    <label className="block text-gray-700 font-semibold mb-2">Train Number</label>
-    <div className="relative">
-      <input
-        type="text"
-        value={trainNumber}
-        onChange={(e) => setTrainNumber(e.target.value)}
-        className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-      />
-      <IoSearchOutline className="absolute right-3 top-2.5 text-gray-400" size={20} />
-    </div>
-  </div>
-
-  {/* Train Name Input */}
-  <div className="w-full md:w-1/3">
-    <label className="block text-gray-700 font-semibold mb-2">Train Name</label>
-    <div className="relative">
-      <input
-        type="text"
-        value={trainName}
-        onChange={(e) => setTrainName(e.target.value)}
-        className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-      />
-      <IoSearchOutline className="absolute right-3 top-2.5 text-gray-400" size={20} />
-    </div>
-  </div>
-</div>
-
-
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Next Station</label>
-              <input
-                type="text"
-                value={nextStation}
-                onChange={(e) => setNextStation(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-              />
-            </div>
-
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Services</label>
-              <select
-                value={services}
-                onChange={(e) => setServices(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-              >
-                <option value="-SELECT-">-SELECT-</option>
-                {/* @Select-- Add more options for SELECT */}
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-gray-700 font-semibold mb-2">Platform Details</label>
-              <input
-                type="text"
-                value={platformDetails}
-                onChange={(e) => setPlatformDetails(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-              />
-            </div>
-
-         <div>
-  <label className="block text-gray-700 font-semibold mb-2">Coach Details</label>
-  <select
-    value={coachDetails}
-    onChange={(e) => setCoachDetails(e.target.value)}
-    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-    required
-  >
-    <option value="">Select a coach</option>
-    <option value="GN">GN - Unreserved</option>
-    <option value="SL">SL - Sleeper</option>
-    <option value="3A">3A - AC 3-Tier</option>
-    <option value="2A">2A - AC 2-Tier</option>
-    <option value="1A">1A - First class AC</option>
-    <option value="CC">CC - AC Chair Car</option>
-    <option value="EC">EC - Executive Chair Car</option>
-    <option value="EA">EA - Executive Anubhuti</option>
-    <option value="2S">2S - Second Sitting</option>
-    <option value="FC">FC - First Class</option>
-  </select>
-</div>
-
-
-            {/* <div>
-              <label className="block text-gray-700 font-semibold mb-2">Date</label>
+            {/* Search input */}
+            <div className="mb-4">
+              <label className="block text-gray-700 font-semibold mb-2">
+                Search by Train Number or Name
+              </label>
               <div className="relative">
-                {/* <DatePicker
-                  selected={date}
-                  onChange={(date) => setDate(date)}
-                  dateFormat="dd/MM/yyyy"
-                  placeholderText="DD/MM/YY"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-                  popperClassName="z-50"
-                /> }
+                <input
+                  type="text"
+                  placeholder="Enter train number or name..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                />
+                <IoSearchOutline
+                  className="absolute right-3 top-2.5 text-gray-400 cursor-pointer"
+                  size={20}
+                  onClick={searchTrain}
+                />
               </div>
-            </div> */}
-          </div>
+              {error && <p className="text-red-500 mt-2">{error}</p>}
+            </div>
 
-          <button className="w-full py-2 mt-6 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105">
-            Get Directions
-          </button>
+            {/* Display train details */}
+            {loading && <p>Loading...</p>}
+            {trainDetails && (
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Train Number</label>
+                  <input
+                    type="text"
+                    value={trainDetails.trainNumber}
+                    readOnly
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Train Name</label>
+                  <input
+                    type="text"
+                    value={trainDetails.trainName}
+                    readOnly
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Next Station</label>
+                  <input
+                    type="text"
+                    value={trainDetails.nextStation?.name || 'N/A'}
+                    readOnly
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Services</label>
+                  <input
+                    type="text"
+                    value={trainDetails.services?.join(', ') || 'N/A'}
+                    readOnly
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Platform Details</label>
+                  <input
+                    type="text"
+                    value={trainDetails.platformDetails?.platformNumber || 'N/A'}
+                    readOnly
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 font-semibold mb-2">Coach Details</label>
+                  <input
+                    type="text"
+                    value={
+                      trainDetails.coachDetails
+                        ?.map(coach => `${coach.coachNumber} (${coach.coachType})`)
+                        .join(', ') || 'N/A'
+                    }
+                    readOnly
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Button to search */}
+            <button
+              className="w-full py-2 mt-6 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105"
+              onClick={searchTrain}
+            >
+              Search Train
+            </button>
+          </div>
         </div>
       </div>
     </div>
