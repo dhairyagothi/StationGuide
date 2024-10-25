@@ -30,12 +30,13 @@ connectDB();
 import authRoutes from "./routes/authRoutes.js";
 import stationRoutes from "./routes/stationRoutes.js";
 import trainRoutes from "./routes/trainRoutes.js";
+import contactUs from "./routes/contactUsRouter.js";
 
 app.use("/auth", authRoutes);
 app.use("/api", authRoutes);
 app.use("/station", stationRoutes);
 app.use("/train", trainRoutes);
-
+app.use("/contact", contactUs);
 
 
 app.get("/", (req, res) => {
