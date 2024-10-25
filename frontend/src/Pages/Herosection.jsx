@@ -12,10 +12,11 @@ import { useNavigate } from 'react-router-dom';
 import chatbotsvg from '../assets/svg/chatbot.svg';
 import Chatbot from '../components/chatbot';
 import Navbar from '../components/navbar';
-import HamburgerMenu from './HamburgerMenu'; // From HamburgerMenu branch
+import HamburgerMenu from './HamburgerMenu';
 import Language from '../components/language'; // From main branch
 import { FaUserAlt } from "react-icons/fa"; // From main branch
 import Popup from '../components/popup'; // From main branch
+import Hamburger from './hamburger';
 
 const Herosection = () => {
     const navigate = useNavigate();
@@ -54,13 +55,13 @@ const Herosection = () => {
     return (
         <>
             <div className='relative z-50 flex items-center justify-between'>
-                {/* <div><Navbar /></div> */}
                 <div><HamburgerMenu /></div> {/* From HamburgerMenu branch */}
                 <div className='flex items-center justify-center'>
-                    <button type="submit" onClick={UserCLick} className="">
+                    <button type="submit" onClick={UserCLick} className="ml-[1300px]">
                         <FaUserAlt className='bg-blue-200 border-2 text-blue-600 border-blue-200 rounded-full w-[55px] h-[55px] p-2 shadow-lg' />
                     </button>
                 </div>
+                <div><Hamburger></Hamburger></div>
             </div>
 
             <Language /> {/* From main branch */}
