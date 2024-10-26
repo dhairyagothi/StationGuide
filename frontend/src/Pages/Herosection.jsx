@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './Herosection.css';
 import logo from '../assets/stationsaarthi.svg';
@@ -27,6 +28,7 @@ const Herosection = () => {
     const RegisterClick = () => {
         navigate('/Register'); // Navigates to the login page
     };
+<<<<<<< HEAD
     const StationCLick = () => {
         navigate('/Stations'); // Navigates to the login page
     };
@@ -55,6 +57,41 @@ const Herosection = () => {
 
     return (
         <>
+=======
+    
+    const ComplainClick = () => {
+        navigate('/ComplainBox'); // Navigates to the login page
+    };
+
+
+
+    return (
+        <>
+        
+        <div className='relative z-50 flex items-center justify-between'>
+        <div><HamburgerMenu /></div>
+        </div>
+        <h1 className='pl-4 text-2xl font-extrabold text-center text-white '>Namaste !! Yatree </h1>
+        <div className="relative flex items-center justify-center bg-center bg-cover herosection">
+           
+            <div className='relative z-10 grid justify-items-center'>
+                <img src={logo} alt="" srcset="" style={{height:"40vh" }}/>
+                <h1 className='text-xl font-extrabold text-white'>Station Saarthi : Your Platform Guide</h1>
+            </div>
+            {/* <img src={bg} alt="whitishbg" style={{ position: "absolute", bottom: 0 }} />
+            <img src={bgmobile} alt="" style={{ position: "absolute", bottom: 0, zIndex: "10" }} className="md:hidden" /> */}
+        </div> 
+        <br></br>
+        <div className='flex items-center justify-center'>
+            <button type="submit" onClick={LoginClick} className="w-20 py-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">Login</button>
+            <button type="submit" onClick={RegisterClick} className="w-20 py-2 ml-8 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">Register</button>
+            
+             &nbsp;&nbsp;&nbsp; &nbsp; 
+
+            <button type="submit" onClick={ComplainClick} className=" w-20 py-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">Complain</button>
+        </div>
+        
+>>>>>>> 23b3a9e (add a complainBox)
 
             <div className='relative z-50 flex items-center justify-between gap-[88vw]'>
                 <div><Navbar /></div>

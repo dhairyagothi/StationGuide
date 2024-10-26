@@ -9,6 +9,7 @@ body{
 }
 
 
+<<<<<<< HEAD
 ::-webkit-scrollbar {
     width: 5px; 
     height: 12px; 
@@ -26,3 +27,5 @@ body{
     background: #3591f3; 
     border-radius: 12px; 
 }
+=======
+>>>>>>> 23b3a9e (add a complainBox)

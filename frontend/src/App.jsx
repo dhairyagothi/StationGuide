@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect } from "react";
 import Herosection from "./Pages/Herosection";
 import LoginPage from "./Pages/LoginPage";
@@ -26,10 +27,30 @@ import AboutUs from "./Pages/AboutUs";
 import Error from "./Pages/Error";
 import PrivacyPolicy from "./Pages/PrivacyPolicy"; // Added back from one version
 import User from "./Pages/User"; // Added from the other version
+=======
+
+import React, { useEffect } from 'react' 
+import ComplainBox from './Pages/ComplainBox';
+import Herosection from './Pages/Herosection';
+import LoginPage from './Pages/LoginPage';
+import Register from './Pages/Register';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+
+
+
+
+
+import chatbotsvg from './assets/svg/chatbot.svg';
+import { useNavigate, Outlet } from 'react-router-dom';
+import './App.css'
+>>>>>>> 23b3a9e (add a complainBox)
 
 function App() {
   return (
     <>
+<<<<<<< HEAD
       <Router>
         <Routes>
           <Route path="/" element={<Herosection />} />
@@ -57,6 +78,22 @@ function App() {
           <Route path="*" element={<Error />} />
         </Routes>
       </Router>
+=======
+    <Router>
+      <Routes>
+        <Route path="/" element={<Herosection />} />
+        <Route path="/Login" element={<LoginPage />} />
+
+        
+
+
+        <Route path="/Register" element={<Register />} />
+
+        
+
+
+        <Route path="/ComplainBox" element={<ComplainBox />} />
+>>>>>>> 23b3a9e (add a complainBox)
 
       {/* Optional chatbot icon at the bottom right */}
       {/* <div className='fixed bottom-0 right-0 z-50 m-4 cursor-pointer'>
@@ -85,11 +122,23 @@ export function ProtectedRoute() {
       console.log("Token Verification error:", data.error);
 
       if (data.error || res.status === 400 || res.status === 500) {
+<<<<<<< HEAD
         navigate("/Login");
       }
     } catch (error) {
       console.error("Error verifying token:", error);
       navigate("/Login");
+=======
+        navigate('/Login');
+      }
+
+      if (res.status === 400 || res.status === 500) {
+        navigate('/Login');
+      }
+    } catch (error) {
+      console.error('Error verifying token:', error);
+      navigate('/Login');
+>>>>>>> 23b3a9e (add a complainBox)
     }
   };
 
