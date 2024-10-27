@@ -17,7 +17,6 @@ import Chatbot from "./components/chatbot";
 import ContactUs from "./Pages/ContactUs";
 import Settings from "./components/Settings";
 import Help from "./components/help";
-import About from "./components/about";
 import Contributor from "./Pages/contributor";
 import Payment from "./Pages/Payment";
 import HelpAndSupport from "./Pages/HelpandSupport";
@@ -46,7 +45,7 @@ function App() {
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/Settings" element={<Settings />} />
           <Route path="/help" element={<Help />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/contributor" element={<Contributor />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/aboutus" element={<AboutUs />} />
