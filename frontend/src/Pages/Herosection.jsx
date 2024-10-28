@@ -64,7 +64,7 @@ const Herosection = () => {
             <HamburgerMenu />
           </div>
           <button type="submit" onClick={UserCLick} className="">
-            <FaUserAlt className="bg-blue-200 border-2 text-blue-600 border-blue-200 rounded-full w-[55px] h-[55px] p-2 shadow-lg" />
+            <FaUserAlt className="bg-blue-200 border-2 text-blue-600 border-blue-200 rounded-full w-[55px] h-[55px] p-2 shadow-lg mr-2" />
           </button>
         </div>
       </div>
