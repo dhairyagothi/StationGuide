@@ -75,7 +75,7 @@ const Herosection = () => {
       <div className="relative flex items-center justify-center bg-center bg-cover herosection">
         <div className="relative z-10 grid justify-items-center">
           <img src={logo} alt="" srcset="" style={{ height: "40vh" }} />
-          <h1 className="text-2xl font-extrabold text-white text-center">
+          <h1 className="text-2xl font-extrabold text-white text-center bg-black bg-opacity-50 px-4 py-2 rounded-lg">
             Station Saarthi : Your Platform Guide
           </h1>
         </div>
