@@ -16,6 +16,7 @@ import NotificationPage from "./Pages/notification";
 import Chatbot from "./components/chatbot";
 import ContactUs from "./Pages/ContactUs";
 import Settings from "./components/Settings";
+import GoogleTranslate from "./Pages/GoogleTranslate";
 import Help from "./components/help";
 import Contributor from "./Pages/contributor";
 import Payment from "./Pages/Payment";
@@ -44,6 +45,7 @@ function App() {
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/Settings" element={<Settings />} />
+          <Route path="/GoogleTranslate" element={<GoogleTranslate />} />
           <Route path="/help" element={<Help />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contributor" element={<Contributor />} />
@@ -51,7 +53,8 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/help-and-support" element={<HelpAndSupport />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} /> {/* Restored PrivacyPolicy */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />{" "}
+          {/* Restored PrivacyPolicy */}
           <Route path="/user" element={<User />} /> {/* Added User */}
           <Route path="*" element={<Error />} />
         </Routes>
