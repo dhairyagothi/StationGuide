@@ -23,8 +23,9 @@ import HelpAndSupport from "./Pages/HelpandSupport";
 import Emergency from "./Pages/Emergency";
 import AboutUs from "./Pages/AboutUs";
 import Error from "./Pages/Error";
-import PrivacyPolicy from "./Pages/PrivacyPolicy"; // Added back from one version
-import User from "./Pages/User"; // Added from the other version
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import User from "./Pages/User";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -51,8 +52,8 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/help-and-support" element={<HelpAndSupport />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} /> {/* Restored PrivacyPolicy */}
-          <Route path="/user" element={<User />} /> {/* Added User */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/user" element={<User />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Router>
@@ -72,12 +73,12 @@ export function ProtectedRoute() {
 
   const verifyToken = async () => {
     try {
-      const res = await fetch("http://localhost:3000/auth/verify", {
-        method: "GET",
+      const res = await fetch('http://localhost:3000/auth/verify', {
+        method: 'GET',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-        credentials: "include",
+        credentials: 'include',
       });
 
       const data = await res.json();
@@ -87,8 +88,8 @@ export function ProtectedRoute() {
         navigate("/Login");
       }
     } catch (error) {
-      console.error("Error verifying token:", error);
-      navigate("/Login");
+      console.error('Error verifying token:', error);
+      navigate('/Login');
     }
   };
 
