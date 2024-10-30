@@ -1,4 +1,5 @@
 import express from "express";
+import rateLimit from "express-rate-limit";
 import {
   registerUser,
   loginUser,
@@ -14,30 +15,37 @@ import { submitFeedback } from "../controllers/submitFeedback.js";
 
 const router = express.Router();
 
+const loginLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000, // 55 minutes
+  max: 5, // Limit each IP to 5 requests per windowMs
+  message: "Too many login attempts from this IP, please try again later.",
+});
+
 // Register route
 router.post("/register", registerUser);
 
-// Login route
-router.post("/login", loginUser);
+// Login route with rate limiter
+router.post("/login", loginLimiter, loginUser);
 
 // Logout route
 router.post("/logout", verifyJWT, logoutUser);
 
 // Verify route
 router.get("/verify", verifyUser);
+ 
+// Feedback route
+router.post("/feedback", verifyJWT, submitFeedback);
 
-router.post("/feedback" , verifyJWT, submitFeedback)
-
-//cloakroom bookings route
+// Cloakroom bookings route
 router.post("/bookCloakroom", verifyJWT, createCloakroomBooking);
 
-//wheelchair bookings route
+// Wheelchair bookings route
 router.post("/bookWheelchair", verifyJWT, createWheelchairBooking);
 
-//coolie bookings route
+// Coolie bookings route
 router.post("/bookCoolie", verifyJWT, createCoolieBooking);
 
-// get all stations route
+// Get all stations route
 router.get("/all-stations", verifyJWT, sendStations);
 
 export default router;
