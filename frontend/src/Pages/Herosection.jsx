@@ -77,13 +77,15 @@ const Herosection = () => {
         <GoogleTranslate />
       </div>
 
-      <h1 className="pl-4 text-4xl font-black text-center text-white ">
-        Namaste !! Yatree{" "}
-      </h1>
+      <div className="w-full flex justify-center">
+        <h1 className="inline-block text-4xl font-black text-white bg-blue-500 bg-opacity-50 px-4 py-2 rounded-lg">
+          Namaste !! Yatree
+        </h1>
+      </div>
       <div className="relative flex items-center justify-center bg-center bg-cover herosection">
         <div className="relative z-10 grid justify-items-center">
           <img src={logo} alt="" srcset="" style={{ height: "40vh" }} />
-          <h1 className="text-2xl font-extrabold text-white text-center bg-black bg-opacity-50 px-4 py-2 rounded-lg">
+          <h1 className="text-2xl font-extrabold text-white text-center bg-blue-500 bg-opacity-50 px-4 py-2 rounded-lg">
             Station Saarthi : Your Platform Guide
           </h1>
         </div>
