@@ -232,7 +232,7 @@ const contributor = () => {
             <p className="text-gray-400">Building a better future for public transportation.</p>
           </div>
           <nav className="flex flex-wrap justify-center gap-6">
-            <a href="#" className="text-gray-300 transition-colors hover:text-white">Home</a>
+            <a href="/" className="text-gray-300 transition-colors hover:text-white">Home</a>
             <a href="#" className="text-gray-300 transition-colors hover:text-white">Documentation</a>
             <a href="https://github.com/dhairyagothi/StationGuide" target="_blank" rel="noopener noreferrer" className="text-gray-300 transition-colors hover:text-white">GitHub</a>
             <a href="#" className="text-gray-300 transition-colors hover:text-white">Contact</a>

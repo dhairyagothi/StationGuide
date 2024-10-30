@@ -16,8 +16,8 @@ import NotificationPage from "./Pages/notification";
 import Chatbot from "./components/chatbot";
 import ContactUs from "./Pages/ContactUs";
 import Settings from "./components/Settings";
+import GoogleTranslate from "./Pages/GoogleTranslate";
 import Help from "./components/help";
-import About from "./components/about";
 import Contributor from "./Pages/contributor";
 import Payment from "./Pages/Payment";
 import HelpAndSupport from "./Pages/HelpandSupport";
@@ -45,14 +45,16 @@ function App() {
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/Settings" element={<Settings />} />
+          <Route path="/GoogleTranslate" element={<GoogleTranslate />} />
           <Route path="/help" element={<Help />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/contributor" element={<Contributor />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/help-and-support" element={<HelpAndSupport />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} /> {/* Restored PrivacyPolicy */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />{" "}
+          {/* Restored PrivacyPolicy */}
           <Route path="/user" element={<User />} /> {/* Added User */}
           <Route path="*" element={<Error />} />
         </Routes>
