@@ -17,6 +17,7 @@ import Navbar from "../components/navbar";
 import Language from "../components/language";
 import { FaUserAlt } from "react-icons/fa";
 import Popup from "../components/popup";
+import GoogleTranslate from "./GoogleTranslate";
 
 const Herosection = () => {
   const navigate = useNavigate();
@@ -63,12 +64,19 @@ const Herosection = () => {
           <div>
             <HamburgerMenu />
           </div>
+
           <button type="submit" onClick={UserCLick} className="">
             <FaUserAlt className="bg-blue-200 border-2 text-blue-600 border-blue-200 rounded-full w-[55px] h-[55px] p-2 shadow-lg mr-2" />
           </button>
         </div>
       </div>
-      <Language />
+      <div
+        className="translate relative z-50 flex items-center"
+        style={{ marginLeft: "70px", top: "-100px" }}
+      >
+        <GoogleTranslate />
+      </div>
+
       <h1 className="pl-4 text-4xl font-black text-center text-white ">
         Namaste !! Yatree{" "}
       </h1>
