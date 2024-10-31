@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { FaArrowLeft, FaSearch, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { FaQuestionCircle } from "react-icons/fa";
+
 
 const fadeIn = keyframes`
   from {
@@ -155,6 +157,10 @@ const Hamburger = () => {
   const helpClick = () => {
     navigate("/Help");
   };
+  const FaqClick = () => {
+    navigate("/FAQ");
+  };
+
 
   const aboutClick = () => {
     navigate("/About");

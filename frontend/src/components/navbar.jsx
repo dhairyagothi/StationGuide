@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes, FaUser, FaHandsHelping, FaBell, FaStar, FaCreditCard, FaInfoCircle } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaHandsHelping, FaBell, FaStar, FaCreditCard, FaInfoCircle, FaQuestionCircle } from 'react-icons/fa';
 import { IoSettings } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';  // Import axios
@@ -205,7 +205,7 @@ const Navbar = () => {
               <span className="text-lg">Settings</span>
             </li>
             <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleFaqClick}>
-              <FaHandsHelping className="mr-3 text-blue-300" />
+              <FaQuestionCircle className="mr-3 text-blue-300" />
               <span className="text-lg">FAQ</span>
             </li>
           </ul>
