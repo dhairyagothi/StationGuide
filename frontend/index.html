@@ -263,6 +263,15 @@
     
 }
 
+footer {
+  position: fixed;
+  bottom: 0; 
+  width: 100%; 
+  text-align: center; 
+  padding: 2px; 
+  background-color:#BFDBFE; 
+  font-size: 14px; 
+}
 
 
 </style>    
@@ -583,7 +592,15 @@ defer>
 </script>
     </div>
 
-    
+    <footer>
+        <p>© <span id="year"></span> Station Saarthi. All rights reserved. 
+        </p>
+      </footer>
+      
+      <script>
+        document.getElementById("year").innerText = new Date().getFullYear();
+      </script>
+      
 
 </body>
 </html>
