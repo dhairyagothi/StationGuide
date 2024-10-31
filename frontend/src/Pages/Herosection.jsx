@@ -1,5 +1,6 @@
 import React from "react";
 import "./Herosection.css";
+import ThemeToggle from "../components/ThemeToggle"
 import logo from "../assets/stationsaarthi.svg";
 import navigationsvg from "../assets/svg/navigation.svg";
 import bookingsvg from "../assets/svg/bookings.svg";
@@ -56,8 +57,9 @@ const Herosection = () => {
   return (
     <>
       <div className="relative z-50 flex items-center justify-between gap-[88vw]">
-        <div>
+        <div className="flex flex-row gap-x-2">
           <Navbar />
+          <ThemeToggle />
         </div>
 
         <div className="flex items-center justify-center">
