@@ -85,6 +85,11 @@ const Navbar = () => {
     navigate('/about');
     setIsOpen(false);
   };
+   
+  const handleFaqClick = () => {
+    navigate('/FAQ');
+    setIsOpen(false);
+  }; 
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -198,6 +203,10 @@ const Navbar = () => {
             <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleSettingsClick}>
               <IoSettings className="mr-3 text-blue-300" />
               <span className="text-lg">Settings</span>
+            </li>
+            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleFaqClick}>
+              <FaHandsHelping className="mr-3 text-blue-300" />
+              <span className="text-lg">FAQ</span>
             </li>
           </ul>
         </nav>

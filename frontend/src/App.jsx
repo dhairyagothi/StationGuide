@@ -26,6 +26,7 @@ import AboutUs from "./Pages/AboutUs";
 import Error from "./Pages/Error";
 import PrivacyPolicy from "./Pages/PrivacyPolicy"; // Added back from one version
 import User from "./Pages/User"; // Added from the other version
+import Faq from './Pages/Faq';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/help-and-support" element={<HelpAndSupport />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />{" "}
+          <Route path="/FAQ" element={<Faq />} />
           {/* Restored PrivacyPolicy */}
           <Route path="/user" element={<User />} /> {/* Added User */}
           <Route path="*" element={<Error />} />
