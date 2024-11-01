@@ -5,12 +5,8 @@
 body {
     padding: 0;
     margin: 0;
-<<<<<<< HEAD
     background-image: url('../assets/mixbg.png');
     background-repeat: no-repeat;
-=======
-    background-image: url('../assets/mixbg.png'); 
->>>>>>> 23b3a9e (add a complainBox)
     background-size: cover;
     background-position: center;
     height: 100vh;

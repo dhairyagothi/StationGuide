@@ -49,7 +49,7 @@ const ComplainBox = () => {
 
                 {/* Phone Number Input */}
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-medium mb-1" htmlFor="phoneNumber">Phone Number</label>
+                    <label className="block text-gray-700 font-medium mb-1" htmlFor="phoneNumber">Phone Number </label>
                     <input
                         type="tel"
                         id="phoneNumber"

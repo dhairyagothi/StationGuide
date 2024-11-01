@@ -4,28 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./src/assets/stationsaarthi.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Station Saarthi</title>
-    <style>
-      /* Style for the Google Translate element */
-      #google_element {
-        position: absolute;
-        top: 10px; /* Distance from the top */
-        left: 25%; /* Position between middle and left corner */
-        transform: translateX(-50%); /* Adjust for half the element's width */
-        z-index: 1000; /* Ensure it stays on top */
-      }
-    </style>
-  </head>
-  <body>
-
-    
-    <div id="google_element"></div>
-    <!-- Load Google Translate script over HTTPS and handle errors -->
-    <script
-      type="text/javascript"
-      src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
-      onerror="handleError(this)"
-    ></script>
+    <!-- <script
+    type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"
+    onerror="handleError(this)"
+></script> -->
 
 <title>Station Saarthi</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />        <style>
@@ -41,6 +24,244 @@
             /* Ensure it stays on top */
         }
 
+        /* Circle styles */
+        .circle {
+            height: 24px;
+            width: 24px;
+            border-radius: 24px;
+            background-color: black;
+            position: relative;
+            top: 0;
+            left: 0;
+            
+            pointer-events: none;
+            z-index: 99999999;
+
+        }
+
+        @media (max-width : 768px) {
+            .circle {
+                display: none;
+            }
+        }
+
+
+        .chatbot-container {
+            position: relative;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        /* Default styles for larger screens */
+        #languageIcon {
+            position: fixed;
+            top: 70px;
+            /* Adjust based on your navbar height */
+            left: 20px;
+            --tw-bg-opacity: 1;
+            background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #languageIcon:hover {
+            background-color: #2563eb;
+        }
+
+        /* Google Translate Modal */
+        #google_translate_modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+
+            z-index: 1000;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #4d90fe;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            width: 80%;
+            
+            max-width: 500px;
+            padding: 10px 15px;
+            /* Padding for better spacing inside the button */
+            border-radius: 8px;
+            /* Rounded corners */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            /* Soft shadow for a 3D effect */
+            color: #fff;
+            /* Text color */
+            font-family: 'Arial', sans-serif;
+            /* Custom font for better readability */
+            font-size: 14px;
+            /* Adjust font size */
+            cursor: pointer;
+            /* Pointer for clickable look */
+        }
+
+        /* Close Button */
+        /* .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff0909;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1001;
+        } */
+
+        /* Google Translate Element Styling
+        #google_translate_element {
+            margin-top: 20px;
+            text-align: center;
+        } */
+
+        .chatbot {
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            z-index: 50;
+            margin: 20px;
+            background-color: #04aa6d;
+            border-radius: 50px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .chatbox {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            background-color: #f9f9f9;
+            border: 2px solid #04aa6d;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatbox textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .chatbox button {
+            background-color: #04aa6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .chatbox button:hover {
+            background-color: #028a57;
+        }
+
+        .chat-output {
+            margin-top: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* This ensures the canvas is behind other content */
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            /* This ensures the content is in front of the canvas */
+            padding: 20px;
+        }
+
+        #bgCanvas {
+            filter: blur(5px);
+            /* Adjust the value to control the blur strength */
+        }
+        #loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgb(191 219 254) url('./src/assets/stationsaarthi.svg') no-repeat center center;
+  z-index: 100;
+}
+.content{
+    padding: 0px;
+}
+#loader h3{
+    text-align: center;
+    font-size: xx-large;
+    top: 65%;
+    position: relative;
+    color: black;
+    font-weight: 700;
+    
+    
+}
+
+#loader  {
+    animation: fadeInOutAnimation ease 2.5s infinite;
+}
+
+@keyframes fadeInOutAnimation {
+    0%, 100% { 
+        opacity: 0;
+    }
+    50% { 
+        opacity: 1;
+    }
+
+    
+}
 
 
 
@@ -50,7 +271,117 @@
 <body class="load">
     <div id="loader"><h3 >Station Saarthi - Your Platform Guide </h3></div>
 
-      
+    <canvas id="bgCanvas"> </canvas>
+    <div class="content">
+       
+    
+    <!-- Circles -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <!-- <div id="languageIcon" title="Change Language">
+        🌐 
+    </div> -->
+    <!-- <div class="chatbot-container"></div>
+    <div class="chatbot" id="chatbotIcon">
+        <img src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="Chatbot Icon" />
+    </div>
+    <div class="chatbox" id="chatbox">
+        <h3>Saarthi</h3>
+        <div id="chatOutput" class="chat-output"></div> 
+        <textarea id="chatInput" rows="4" placeholder="Type your message..."></textarea>
+        <button id="sendMessage">Send</button>
+    </div> -->
+<!-- 
+    <script>
+        // Variable to track if the welcome message has been displayed
+        let welcomeMessageDisplayed = false;
+    
+        // Function to display the welcome message when chatbot opens
+        function displayWelcomeMessage() {
+            const chatOutput = document.getElementById('chatOutput');
+            chatOutput.innerHTML += '<p>Hi I am saarthi your Platform Guide How can I help you today?</p>';
+        }
+    
+        // Toggle the chatbot window
+        document.getElementById('chatbotIcon').addEventListener('click', function () {
+            const chatbox = document.getElementById('chatbox');
+            chatbox.style.display = chatbox.style.display === 'block' ? 'none' : 'block';
+    
+            // If chatbox is opened and the welcome message has not been displayed, display it
+            if (chatbox.style.display === 'block' && !welcomeMessageDisplayed) {
+                displayWelcomeMessage();
+                welcomeMessageDisplayed = true; // Set the flag to true after displaying the message
+            }
+        });
+    
+        // Predefined questions and answers
+       // Predefined questions and answers
+const responses = {
+    "can you help me navigate to platform 5": "You can easily navigate to Platform 5 using Navigation in the menu. Anything else I can help you with?",
+    "yes where can i find luggage storage facilities": "You can check the availability of cloakrooms in booking and book the same.",
+    "hello": "Hi there! How can I help you today?",
+    "hii": "Hello",
+    "good morning": "Good Morning! How can I help you today?",
+    "good evening": "Good Evening! How can I assist you?",
+    "what is your name?": "I am Station Saarthi, your virtual assistant.",
+    "how can I contact support?": "You can reach support at support@stationsaarthi.com.",
+    "what services do you offer?": "We offer various services related to travel and transportation.",
+    "help": "Please ask me a question, and I will do my best to assist you!",
+    "what are your operating hours?": "We are open from 9 AM to 9 PM, 7 days a week.",
+    "how do I create an account?": "You can create an account by clicking on the 'Sign Up' button on our website.",
+    "how do I reset my password?": "To reset your password, click on 'Forgot Password' on the login page.",
+    "what payment methods do you accept?": "We accept credit cards, debit cards, and PayPal.",
+    "can I cancel my order?": "Yes, you can cancel your order within 24 hours of placing it.",
+    "how can I track my order?": "You can track your order using the tracking link sent to your email.",
+    "do you offer refunds?": "Yes, we offer refunds under certain conditions. Please check our refund policy.",
+    "what is your refund policy?": "Our refund policy states that you can request a refund within 30 days of purchase.",
+    "do you have a mobile app?": "Yes, we have a mobile app available for both Android and iOS.",
+    "how can I download your app?": "You can download our app from the Google Play Store or Apple App Store.",
+    "where are you located?": "We are located in [Your Location]. You can visit us at our office during business hours.",
+    "how can I provide feedback?": "You can provide feedback by filling out the feedback form on our website.",
+    "do you have a loyalty program?": "Yes, we have a loyalty program that rewards you for your continued business.",
+    "how can I join the loyalty program?": "You can join the loyalty program by signing up on our website.",
+    "what is your privacy policy?": "Our privacy policy outlines how we collect, use, and protect your information. You can read it on our website.",
+    "can I change my account details?": "Yes, you can change your account details in the account settings section.",
+    "how do I log out?": "You can log out by clicking the 'Log Out' button in your account settings.",
+    "what should I do if I encounter a problem?": "If you encounter a problem, please contact our support team for assistance.",
+    "do you offer group discounts?": "Yes, we offer group discounts for larger bookings. Please contact support for more information.",
+    "how can I make a complaint?": "You can make a complaint by contacting our customer service department.",
+    "what is your cancellation policy?": "Our cancellation policy allows you to cancel your booking with at least 24 hours' notice.",
+    "are pets allowed?": "Yes, pets are allowed in certain services. Please check the details when booking.",
+    "do you provide travel insurance?": "Yes, we offer travel insurance as part of our services.",
+    "what is included in the service?": "The details of what is included in the service will be specified during the booking process.",
+    "can I modify my booking?": "Yes, you can modify your booking by contacting our customer service.",
+    "what happens if my flight is delayed?": "If your flight is delayed, please contact our support team for assistance.",
+    "how do I report lost items?": "You can report lost items by contacting our customer service.",
+    "can I change my pick-up location?": "Yes, you can change your pick-up location by contacting support.",
+    "do you provide child seats?": "Yes, we provide child seats upon request. Please specify when booking.",
+    "how can I view my booking history?": "You can view your booking history in your account settings.",
+    "what do I do if I missed my appointment?": "If you missed your appointment, please contact our support team to reschedule.",
+    "can I request a specific driver?": "Yes, you can request a specific driver when making a booking.",
+    "what should I do if I am running late?": "If you are running late, please contact us to inform about your situation.",
+    "do you offer last-minute bookings?": "Yes, we accept last-minute bookings depending on availability.",
+    "what is the best way to reach you?": "The best way to reach us is through our customer support email or phone number.",
+    "are there any hidden fees?": "No, we believe in transparency and do not have hidden fees. All costs will be clearly outlined.",
+};
 
 // Function to handle user input and match responses
 document.getElementById('sendMessage').addEventListener('click', function () {
