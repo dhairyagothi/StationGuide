@@ -1,3 +1,4 @@
+// coolieBooking.js
 import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
@@ -5,9 +6,9 @@ const Schema = mongoose.Schema;
 const coolieBookingSchema = new Schema(
   {
     station: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: 'Station',
       required: true,
-      trim: true,
     },
     pickupLocation: {
       type: String,
@@ -39,5 +40,4 @@ const coolieBookingSchema = new Schema(
 );
 
 const CoolieBooking = mongoose.model("CoolieBooking", coolieBookingSchema);
-
 export default CoolieBooking;

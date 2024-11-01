@@ -16,12 +16,30 @@ const userSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-    required: true,
     unique: true,
   },
   password: {
     type: String,
-    required: true
+  },
+  rating: {
+    type: Number,
+    min: 1,
+    max: 5,
+    default: null,  
+  },
+
+  comment: {
+    type: String,
+    trim: true,
+    default: '', 
+  },
+  otp: {
+    type: String, // The OTP code
+    required: false,
+  },
+  otpExpiry: {
+    type: Date,   // The OTP expiry timestamp
+    required: false,
   }
 }, {
   timestamps: true

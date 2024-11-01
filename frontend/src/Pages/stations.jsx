@@ -1,189 +1,62 @@
-import React, { useState } from "react";
+
+import React, { useState , useEffect} from "react";
+
 import { FaTrain } from "react-icons/fa"; // Using FontAwesome train icon
-import { AiFillStar, AiOutlineStar } from "react-icons/ai"; // Star icons for favorites
+import { AiFillCaretDown, AiFillCaretUp, AiFillStar, AiOutlineStar } from "react-icons/ai"; // Star icons for favorites
 import { useNavigate } from "react-router-dom";
 import backicon from "../assets/svg/backicon.svg";
+import { div, h1 } from "framer-motion/client";
+import allStations from "../dataset/stations.js"
+
 
 const RailwayStations = () => {
-  // Comprehensive list of railway stations with states
+
+  useEffect(() => {
+    document.title = 'Station Saarthi | Stations'; 
+  }, []);
+
+
+  // Comprehensive list of railway stations with zones
+
   const navigate = useNavigate();
 
   const HomeClick = () => {
     navigate("/"); // Navigates to the home page
   };
 
-  const stations = [
-    { name: "Agartala Railway Station", state: "Tripura" },
-    { name: "Agra Cantonment", state: "Uttar Pradesh" },
-    { name: "Ahmedabad Junction", state: "Gujarat" },
-    { name: "Ahmednagar", state: "Maharashtra" },
-    { name: "Aizawl", state: "Mizoram" },
-    { name: "Ajmer Junction", state: "Rajasthan" },
-    { name: "Akola Junction", state: "Maharashtra" },
-    { name: "Alappuzha", state: "Kerala" },
-    { name: "Aligarh Junction", state: "Uttar Pradesh" },
-    { name: "Allahabad Junction (Prayagraj)", state: "Uttar Pradesh" },
-    { name: "Almora", state: "Uttarakhand" },
-    { name: "Ambala Cantonment", state: "Haryana" },
-    { name: "Ambarnath", state: "Maharashtra" },
-    { name: "Amritsar Junction", state: "Punjab" },
-    { name: "Anand Junction", state: "Gujarat" },
-    { name: "Anand Vihar Terminal", state: "Delhi" },
-    { name: "Anantnag", state: "Jammu and Kashmir" },
-    { name: "Angul", state: "Odisha" },
-    { name: "Ankleshwar Junction", state: "Gujarat" },
-    { name: "Arakkonam Junction", state: "Tamil Nadu" },
-    { name: "Bangalore City Railway Station", state: "Karnataka" },
-    { name: "Bareilly Junction", state: "Uttar Pradesh" },
-    { name: "Bhopal Junction", state: "Madhya Pradesh" },
-    { name: "Bhubaneswar Railway Station", state: "Odisha" },
-    { name: "Bhilai Nagar", state: "Chhattisgarh" },
-    { name: "Bikaner Junction", state: "Rajasthan" },
-    { name: "Bilaspur Junction", state: "Chhattisgarh" },
-    { name: "Bokaro Steel City", state: "Jharkhand" },
-    { name: "Bangalore Cantt", state: "Karnataka" },
-    { name: "Bangalore East", state: "Karnataka" },
-    { name: "Bangalore South", state: "Karnataka" },
-    { name: "Bangalore West", state: "Karnataka" },
-    { name: "Balurghat Junction", state: "West Bengal" },
-    { name: "Bhubaneswar Station", state: "Odisha" },
-    { name: "Bhuj Junction", state: "Gujarat" },
-    { name: "Bikaner City", state: "Rajasthan" },
-    { name: "Bokaro Town", state: "Jharkhand" },
-    { name: "Chandigarh Junction", state: "Chandigarh" },
-    { name: "Chennai Central", state: "Tamil Nadu" },
-    { name: "Chennai Egmore", state: "Tamil Nadu" },
-    { name: "Chennai Park", state: "Tamil Nadu" },
-    { name: "Chennai Port", state: "Tamil Nadu" },
-    { name: "Chennai Tambaram", state: "Tamil Nadu" },
-    { name: "Chitradurga", state: "Karnataka" },
-    { name: "Chittaranjan", state: "West Bengal" },
-    { name: "Coimbatore Junction", state: "Tamil Nadu" },
-    { name: "Cochin Ernakulam Junction", state: "Kerala" },
-    { name: "Cooch Behar Junction", state: "West Bengal" },
-    { name: "Coonoor", state: "Tamil Nadu" },
-    { name: "Dabhoi Junction", state: "Gujarat" },
-    { name: "Darbhanga Junction", state: "Bihar" },
-    { name: "Darjiling", state: "West Bengal" },
-    { name: "Darjeeling", state: "West Bengal" },
-    { name: "Dharwad Junction", state: "Karnataka" },
-    { name: "Dharmavaram", state: "Andhra Pradesh" },
-    { name: "Delhi Junction", state: "Delhi" },
-    { name: "Delhi Cantt", state: "Delhi" },
-    { name: "Delhi Sarai Rohilla", state: "Delhi" },
-    { name: "Delhi Anand Vihar", state: "Delhi" },
-    { name: "Delhi Rajdhani", state: "Delhi" },
-    { name: "Dhanbad Junction", state: "Jharkhand" },
-    { name: "Dhanera Junction", state: "Gujarat" },
-    { name: "Dibrugarh Junction", state: "Assam" },
-    { name: "Dibrugarh Town", state: "Assam" },
-    { name: "Dibrugarh Station", state: "Assam" },
-    { name: "Dharamshala Junction", state: "Himachal Pradesh" },
-    { name: "Dharamshala Railway Station", state: "Himachal Pradesh" },
-    { name: "Ernakulam Junction", state: "Kerala" },
-    { name: "Gwalior Junction", state: "Madhya Pradesh" },
-    { name: "Gurgaon Junction", state: "Haryana" },
-    { name: "Guwahati Junction", state: "Assam" },
-    { name: "Gaya Junction", state: "Bihar" },
-    { name: "Howrah Junction", state: "West Bengal" },
-    { name: "Hubli Junction", state: "Karnataka" },
-    { name: "Hyderabad Deccan", state: "Telangana" },
-    { name: "Hazaribagh Junction", state: "Jharkhand" },
-    { name: "Indore Junction", state: "Madhya Pradesh" },
-    { name: "Jabalpur Junction", state: "Madhya Pradesh" },
-    { name: "Jaipur Junction", state: "Rajasthan" },
-    { name: "Jalandhar City", state: "Punjab" },
-    { name: "Jammu Tawi", state: "Jammu and Kashmir" },
-    { name: "Jodhpur Junction", state: "Rajasthan" },
-    { name: "Kanpur Central", state: "Uttar Pradesh" },
-    { name: "Kalyan Junction", state: "Maharashtra" },
-    { name: "Kolkata Chitpur (Howrah)", state: "West Bengal" },
-    { name: "Kharagpur Junction", state: "West Bengal" },
-    { name: "Kota Junction", state: "Rajasthan" },
-    { name: "Lucknow Charbagh", state: "Uttar Pradesh" },
-    { name: "Ludhiana Junction", state: "Punjab" },
-    { name: "Madurai Junction", state: "Tamil Nadu" },
-    { name: "Mangalore Junction", state: "Karnataka" },
-    { name: "Mumbai Central", state: "Maharashtra" },
-    {
-      name: "Mumbai CST (Chhatrapati Shivaji Maharaj Terminus)",
-      state: "Maharashtra",
-    },
-    { name: "Mysore Junction", state: "Karnataka" },
-    { name: "Nagpur Junction", state: "Maharashtra" },
-    { name: "Nanded Junction", state: "Maharashtra" },
-    { name: "New Delhi Railway Station", state: "Delhi" },
-    { name: "Patna Junction", state: "Bihar" },
-    { name: "Pune Junction", state: "Maharashtra" },
-    { name: "Patiala Junction", state: "Punjab" },
-    { name: "Panvel Junction", state: "Maharashtra" },
-    { name: "Quilon Junction", state: "Kerala" },
-    { name: "Ranchi Junction", state: "Jharkhand" },
-    { name: "Rajkot Junction", state: "Gujarat" },
-    { name: "Rourkela Junction", state: "Odisha" },
-    { name: "Secunderabad Junction", state: "Telangana" },
-    { name: "Siliguri Junction", state: "West Bengal" },
-    { name: "Sonebhadra", state: "Uttar Pradesh" },
-    { name: "Surat Junction", state: "Gujarat" },
-    { name: "Thiruvananthapuram Central", state: "Kerala" },
-    { name: "Trivandrum Central", state: "Kerala" },
-    { name: "Tirupati Railway Station", state: "Andhra Pradesh" },
-    { name: "Udaipur City", state: "Rajasthan" },
-    { name: "Ujjain Junction", state: "Madhya Pradesh" },
-    { name: "Vadodara Junction", state: "Gujarat" },
-    { name: "Varanasi Junction", state: "Uttar Pradesh" },
-    { name: "Vellore Cantt", state: "Tamil Nadu" },
-    { name: "Vijayawada Junction", state: "Andhra Pradesh" },
-    { name: "Visakhapatnam Junction", state: "Andhra Pradesh" },
-    { name: "West Bengal Howrah", state: "West Bengal" },
-    { name: "Yeshvantpur Junction", state: "Karnataka" },
-    { name: "Yelahanka Junction", state: "Karnataka" },
-    { name: "Ziyadpur Junction", state: "Unknown" }, // Replace "Unknown" with the correct state if known
-    // Add more stations as needed
-  ];
+  const [stations, setStations] = useState(allStations);
 
-  const states = [
-    "All",
-    "Andhra Pradesh",
-    "Arunachal Pradesh",
-    "Assam",
-    "Bihar",
-    "Chhattisgarh",
-    "Goa",
-    "Gujarat",
-    "Haryana",
-    "Himachal Pradesh",
-    "Jharkhand",
-    "Karnataka",
-    "Kerala",
-    "Madhya Pradesh",
-    "Maharashtra",
-    "Manipur",
-    "Meghalaya",
-    "Mizoram",
-    "Nagaland",
-    "Odisha",
-    "Punjab",
-    "Rajasthan",
-    "Sikkim",
-    "Tamil Nadu",
-    "Telangana",
-    "Tripura",
-    "Uttar Pradesh",
-    "Uttarakhand",
-    "West Bengal",
-    "Andaman and Nicobar Islands",
-    "Chandigarh",
-    "Dadra and Nagar Haveli and Daman and Diu",
-    "Delhi",
-    "Jammu and Kashmir",
-    "Ladakh",
-    "Lakshadweep",
-    "Puducherry",
+
+  const zones = [
+    ["All", "All"],
+    ["ECOR", "EAST COAST RAILWAY"],
+    ["ER", "EASTERN RAILWAY"],
+    ["NCR", "NORTH CENTRAL RAILWAY"],
+    ["NER", "NORTH EASTERN RAILWAY"],
+    ["NFR", "NORTH FRONTIER RAILWAY"],
+    ["NR", "NORTHERN RAILWAY"],
+    ["NWR", "NORTH WESTERN RAILWAY"],
+    ["SECR", "SOUTHEAST CENTRAL RAILWAY"],
+    ["SCR", "SOUTH CENTRAL RAILWAY"],
+    ["SER", "SOUTH EASTERN  RAILWAY"],
+    ["SR", "SOUTHERN RAILWAY"],
+    ["SWR", "SOUTH WESTERN RAILWAY"],
+    ["WCR", "WEST CENTRAL RAILWAY"],
+    ["WR", "WESTERN RAILWAY"],
+    ["BR", "BANGLADESH RAILWAY"],
+    ["CPT", "Kolkata Port Trust Rly."],
+    ["DFCR", "DEDICATED FREIGHT CORRIDO"],
+    ["CP", "CHENNAI PORT TRUSTRAILWAY"],
+    ["CR", "CENTRAL RAILWAY"],
+    ["ECR", "EAST CENTRAL RAILWAY"],
+    ["NPLR", "NEPAL RAILWAY"],
+    ["MRK", "METRO RAILWAY KOLKATA"],
   ];
   const [searchTerm, setSearchTerm] = useState("");
   const [favorites, setFavorites] = useState([]);
-  const [selectedState, setSelectedState] = useState("All");
+  const [selectedZone, setSelectedZone] = useState("All");
+  const [loading, setLoading] = useState(false);
+  const [showFavorites, setShowFavorites] = useState(false); 
 
   // Function to toggle favorite stations
   const toggleFavorite = (station) => {
@@ -191,6 +64,7 @@ const RailwayStations = () => {
       setFavorites(favorites.filter((fav) => fav !== station));
     } else {
       setFavorites([...favorites, station]);
+      console.log(favorites);
     }
   };
 
@@ -200,125 +74,149 @@ const RailwayStations = () => {
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
     const matchesState =
-      selectedState === "All" || station.state === selectedState;
+      selectedZone === "All" || station.zone === selectedZone;
     return matchesSearch && matchesState;
   });
 
-  return (
+  useEffect(() => {
+    setLoading(true);
+    fetch("http://localhost:3000/api/all-stations" , "https://stationguidebackend.onrender.com")
+      .then((e) => {
+        return e.json();
+      })
+      .then((e) => {
+        console.log(e);
+        setStations(e);
+      })
+      .catch((err) => {
+        console.log("Error in fetch : ", err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
+  if (loading) {
+    return (
+      <div className="relative h-screen bg-gray-100">
+        <div class="w-10 h-10 border-4 border-t-blue-500 border-gray-300 rounded-full animate-spin relative top-[50%] left-[50%]"></div>
+      </div>
+    );
+  }
+
+  return (
     <div className="min-h-screen p-4 bg-gray-100">
       {/* Header Section */}
       <div>
-        <button onClick={HomeClick}>
-          <img
-            src={backicon}
-            alt=""
-            srcset=""
-            className="fixed left-[1vh] h-[9vh] w-auto"
-          />
-        </button>
+      <button onClick={HomeClick} className='absolute left-0 top-2'>
+                <img src={backicon} alt="" className='h-[5vh]' />
+            </button>
       </div>
+  
       <div className="flex flex-col items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Railway Stations</h1>
         <p className="mt-2 text-gray-600">
           Find and explore railway stations across India
         </p>
       </div>
-
-      {/* Search Bar and State Filter */}
-      <div className="flex justify-center mb-6">
-        <input
-          type="text"
-          placeholder="Search for a railway station..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full max-w-md px-4 py-2 transition duration-300 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <select
-          value={selectedState}
-          onChange={(e) => setSelectedState(e.target.value)}
-          className="px-4 py-2 ml-4 transition duration-300 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          {states.map((state, index) => (
-            <option key={index} value={state}>
-              {state}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* Stations Grid */}
-      <div className="flex justify-center">
-        <div className="grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {filteredStations.length > 0 ? (
-            filteredStations.map((station, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between p-4 transition duration-200 bg-white rounded-lg shadow hover:shadow-lg"
-              >
-                <div className="flex items-center">
-                  <FaTrain className="w-6 h-6 mr-3 text-blue-500" />
-                  <span className="font-medium text-gray-800">
-                    {station.name}
-                  </span>
-                </div>
-                <button
-                  onClick={() => toggleFavorite(station.name)}
-                  className="text-yellow-500 focus:outline-none"
-                  aria-label={
-                    favorites.includes(station.name)
-                      ? "Remove from favorites"
-                      : "Add to favorites"
-                  }
-                >
-                  {favorites.includes(station.name) ? (
-                    <AiFillStar className="w-5 h-5" />
-                  ) : (
-                    <AiOutlineStar className="w-5 h-5" />
-                  )}
-                </button>
-              </div>
-            ))
-          ) : (
-            <div className="p-4 text-center text-gray-500 col-span-full">
-              No stations found.
-            </div>
-          )}
+  
+      {/* Main Content: Stations Grid */}
+      <div>
+        {/* Search Bar and State Filter */}
+        <div className="flex justify-center mb-6">
+          <input
+            type="text"
+            placeholder="Search for a railway station..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full max-w-md px-4 py-2 transition duration-300 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <select
+            value={selectedZone}
+            onChange={(e) => setSelectedZone(e.target.value)}
+            className="px-4 py-2 ml-4 transition duration-300 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            {zones.map((zone, index) => (
+              <option key={index} value={zone[0]}>
+                {zone[1]}
+              </option>
+            ))}
+          </select>
         </div>
-      </div>
-
-      {/* Favorites Section (Optional) */}
-      {favorites.length > 0 && (
-        <div className="mt-8">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-800">
-            Your Favorite Stations
-          </h2>
-          <div className="flex justify-center">
-            <div className="grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-              {favorites.map((station, index) => (
+  
+        {/* Stations Grid */}
+        <div className="flex justify-center">
+          <div className="grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {filteredStations.length > 0 ? (
+              filteredStations.map((station, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-4 transition duration-200 bg-yellow-100 rounded-lg shadow hover:shadow-lg"
+                  className="flex items-center justify-between p-4 transition duration-200 bg-white rounded-lg shadow hover:shadow-lg"
                 >
                   <div className="flex items-center">
-                    <FaTrain className="w-6 h-6 mr-3 text-yellow-500" />
-                    <span className="font-medium text-gray-800">{station}</span>
+                    <FaTrain className="w-6 h-6 mr-3 text-blue-500" />
+                    <span className="font-medium text-gray-800">
+                      {station.name}
+                    </span>
                   </div>
                   <button
-                    onClick={() => toggleFavorite(station)}
-                    className="text-red-500 focus:outline-none"
-                    aria-label="Remove from favorites"
+                    onClick={() => toggleFavorite(station.name)}
+                    className="text-yellow-500 focus:outline-none"
+                    aria-label={
+                      favorites.includes(station.name)
+                        ? "Remove from favorites"
+                        : "Add to favorites"
+                    }
                   >
-                    <AiFillStar className="w-5 h-5" />
+                    {favorites.includes(station.name) ? (
+                      <AiFillStar className="w-5 h-5" />
+                    ) : (
+                      <AiOutlineStar className="w-5 h-5" />
+                    )}
                   </button>
                 </div>
-              ))}
-            </div>
+              ))
+            ) : (
+              <div className="p-4 text-center text-gray-500 col-span-full">
+                No stations found.
+              </div>
+            )}
           </div>
         </div>
-      )}
+      </div>
+  
+      {/* Favorites Section - Moved to the Last */}
+      <div className="mt-8">
+        <h2 className="mb-4 text-2xl font-semibold text-gray-800">Your Favorite Stations</h2>
+  
+        {favorites.length > 0 ? (
+          <div className="grid grid-cols-1 gap-4">
+            {favorites.map((station, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-between p-4 transition duration-200 bg-yellow-100 rounded-lg shadow hover:shadow-lg"
+              >
+                <div className="flex items-center">
+                  <FaTrain className="w-6 h-6 mr-3 text-yellow-500" />
+                  <span className="font-medium text-gray-800">{station}</span>
+                </div>
+                <button
+                  onClick={() => toggleFavorite(station)}
+                  className="text-red-500 focus:outline-none"
+                  aria-label="Remove from favorites"
+                >
+                  <AiFillStar className="w-5 h-5" />
+                </button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-gray-600">No favorite stations selected.</p>
+        )}
+      </div>
     </div>
   );
+  
 };
 
 export default RailwayStations;

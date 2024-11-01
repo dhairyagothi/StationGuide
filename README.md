@@ -1,3 +1,43 @@
+<div align="center">
+
+# 🎨 STATION GUIDE 🖌️
+
+<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+Station+Guide!"/>
+</div>
+
+<div align = "center">
+<br>
+
+<table align="center">
+    <thead align="center">
+        <tr border: 1px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+            <td><b>🛠️ Languages</b></td>
+            <td><b>👥 Contributors</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/dhairyagothi/StationGuide?style=flat&logo=github"/></td>
+            <td><img alt="Forks" src="https://img.shields.io/github/forks/dhairyagothi/StationGuide?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/dhairyagothi/StationGuide?style=flat&logo=github"/></td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/dhairyagothi/StationGuide?style=flat&logo=github"/></td>
+           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/dhairyagothi/StationGuide?style=flat&color=critical&logo=github"/></td>
+           <td><img alt="GitHub language count" src="https://img.shields.io/github/languages/count/dhairyagothi/StationGuide?style=flat&color=green&logo=github"></td>
+         <td><img alt="GitHub Contributors count" src="https://img.shields.io/github/contributors/dhairyagothi/StationGuide?style=flat&color=blue&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<br>
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900"> 
+
 # STATION GUIDE : YOUR PLATFORM GUIDE
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -25,10 +65,14 @@ Welcome to repository of Station Guide
 <!-- Added the GSSoc Accepted image -->
 ### This project is now OFFICIALLY accepted for
 
-<div align="center">
-  <img src="https://github.com/apu52/METAVERSE/assets/114172928/e79eb6de-81b1-4ffb-b6ed-f018bb977e88" alt="GSSoC 2024 Extd" width="80%">
-</div>
-<br>
+## 📋 Participating Programs
+
+| Name                  | Logo                                                      | Purpose                                                                                                      |
+|-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)             | The coding period is from October 1st to October 30th, during which contributors make contributions and earn points on the platform. |
+| Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png) | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
+
+---
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
@@ -121,24 +165,156 @@ npm run start
 
 ## Project Structure
 
+<!-- START_STRUCTURE -->
 ```
-StationGuide/
-├── frontend/
-│   ├── src/  # React application source code
-│   ├── public/  # Static assets for the frontend (e.g., images, fonts)
-│   ├── package.json  # Frontend dependencies
-│   └── ...  # Other frontend-related files (e.g., configuration files)
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── Learn.md
+├── README.md
+├── SECURITY.md
+├── StationGuide.md
+├── StationGuideFigma.md
 ├── backend/
-│   ├── server.js  # Express server entry point
-│   ├── models/  # Data model definitions (optional)
-│   ├── routes/  # API endpoints definitions
-│   ├── config/  # Configuration files (e.g., database connection)
-│   ├── package.json  # Backend dependencies
-│   └── ...  # Other backend-related files (e.g., middleware)
-├── .env  # Environment variables for sensitive information (optional)
-├── using.md  # This file
-└── ...  # Other project configuration files (e.g., .gitignore)
+│   ├── config/
+│   │   ├── config.js
+│   │   └── dbConnection.js
+│   ├── controllers/
+│   │   ├── StationController.js
+│   │   ├── WheelchairController.js
+│   │   ├── authController.js
+│   │   ├── cloakroomController.js
+│   │   ├── coolieController.js
+│   │   ├── stationBookingsController.js
+│   │   └── stationsController.js
+│   ├── dataset/
+│   │   └── stations.js
+│   ├── dockerfile
+│   ├── index.js
+│   ├── middleware/
+│   │   └── auth.middleware.js
+│   ├── models/
+│   │   ├── CloakroomBooking.js
+│   │   ├── CoolieBooking.js
+│   │   ├── Stations.js
+│   │   ├── User.js
+│   │   └── WheelchairBooking.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public/
+│   │   └── test.html
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   └── stationRoutes.js
+│   └── utils/
+│       ├── ApiError.js
+│       ├── asyncHandler.js
+│       └── authFunctions.js
+├── docker-compose.yml
+├── frontend/
+│   ├── README.md
+│   ├── dockerfile
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── public/
+│   │   └── vite.svg
+│   ├── src/
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── Pages/
+│   │   │   ├── 3Dmaps.jsx
+│   │   │   ├── AboutUs.jsx
+│   │   │   ├── ContactUs.jsx
+│   │   │   ├── Emergency.jsx
+│   │   │   ├── ForaFriend.jsx
+│   │   │   ├── HelpandSupport.jsx
+│   │   │   ├── Herosection.css
+│   │   │   ├── Herosection.jsx
+│   │   │   ├── LoginPage.jsx
+│   │   │   ├── Payment.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── booking.jsx
+│   │   │   ├── contributor.jsx
+│   │   │   ├── hamburger.css
+│   │   │   ├── hamburger.jsx
+│   │   │   ├── navigation.jsx
+│   │   │   ├── notification.jsx
+│   │   │   ├── schedule.jsx
+│   │   │   └── stations.jsx
+│   │   ├── assets/
+│   │   │   ├── bg.png
+│   │   │   ├── bgmobile.png
+│   │   │   ├── hero.png
+│   │   │   ├── mixbg.png
+│   │   │   ├── stationsaarthi.svg
+│   │   │   └── svg/
+│   │   │       ├── 3dmap.svg
+│   │   │       ├── backicon.svg
+│   │   │       ├── bookings.svg
+│   │   │       ├── chatbot.svg
+│   │   │       ├── contributor.svg
+│   │   │       ├── navigation.svg
+│   │   │       ├── notification.svg
+│   │   │       ├── schedule.svg
+│   │   │       ├── search.svg
+│   │   │       └── station.svg
+│   │   ├── components/
+│   │   │   ├── Bookingform.jsx
+│   │   │   ├── MapComponent.jsx
+│   │   │   ├── Settings.jsx
+│   │   │   ├── about.css
+│   │   │   ├── about.jsx
+│   │   │   ├── chatbot.css
+│   │   │   ├── chatbot.jsx
+│   │   │   ├── footer.jsx
+│   │   │   ├── help.jsx
+│   │   │   ├── navbar.jsx
+│   │   │   ├── scrollToTop.css
+│   │   │   └── scrollToTop.jsx
+│   │   ├── dataset/
+│   │   │   └── stations.js
+│   │   ├── index.css
+│   │   ├── main.jsx
+│   │   └── validations/
+│   │       └── validation.js
+│   ├── tailwind.config.js
+│   └── vite.config.js
+├── notification_system/
+│   ├── backend/
+│   │   ├── config/
+│   │   │   └── db.js
+│   │   ├── controllers/
+│   │   │   └── notificationController.js
+│   │   ├── models/
+│   │   │   ├── Notification.js
+│   │   │   └── User.js
+│   │   ├── package.json
+│   │   ├── routes/
+│   │   │   ├── notificationRoutes.js
+│   │   │   └── userRoutes.js
+│   │   ├── server.js
+│   │   └── services/
+│   │       └── emailServices.js
+│   └── frontend/
+│       ├── package.json
+│       ├── public/
+│       │   └── service-worker.js
+│       └── src/
+│           ├── app.js
+│           ├── components/
+│           │   ├── NotificationCentre.js
+│           │   └── NotificationSettings.js
+│           └── index.js
+├── package-lock.json
+├── package.json
+├── repo_structure.txt
+└── tailwind.config.js
 ```
+<!-- END_STRUCTURE -->
+
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
@@ -249,6 +425,24 @@ Forking allows you to create a personal copy of the repository, where you can ex
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+## Stargazers ❤️
+
+<div align='left'>
+
+[![Stargazers repo roster for @dhairyagothi/StationGuide](https://reporoster.com/stars/dhairyagothi/StationGuide)](https://github.com/dhairyagothi/StationGuide/stargazers)
+
+</div>
+
+## Forkers ❤️
+
+[![Forkers repo roster for @dhairyagothi/StationGuide](https://reporoster.com/forks/dhairyagothi/StationGuide)](https://github.com/dhairyagothi/StationGuide/network/members)
+
+
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 
 <!-- Added the Team section -->
 ## 👥 Team

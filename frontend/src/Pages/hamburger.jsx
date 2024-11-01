@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { FaArrowLeft, FaSearch, FaTimes } from 'react-icons/fa';
+import React, { useState, useEffect, useRef } from "react";
+import styled, { keyframes } from "styled-components";
+import { FaArrowLeft, FaSearch, FaTimes } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const fadeIn = keyframes`
   from {
@@ -10,7 +11,6 @@ const fadeIn = keyframes`
     opacity: 1;
   }
 `;
-
 
 const fadeOut = keyframes`
   from {
@@ -39,9 +39,8 @@ const HamburgerContainer = styled.div`
   }
 `;
 
-
 const Menu = styled.div`
-  display: ${({ open }) => (open ? 'block' : 'none')};
+  display: ${({ open }) => (open ? "block" : "none")};
   background-color: white;
   position: absolute;
   top: 0;
@@ -76,7 +75,8 @@ const HamburgerIcon = styled.div`
 `;
 
 const Bar1 = styled(MenuIconBar)`
-  transform: ${({ open }) => (open ? 'rotate(-45deg) translate(-5px, 5px)' : 'rotate(0)')};
+  transform: ${({ open }) =>
+    open ? "rotate(-45deg) translate(-5px, 5px)" : "rotate(0)"};
 `;
 
 const Bar2 = styled(MenuIconBar)`
@@ -84,7 +84,8 @@ const Bar2 = styled(MenuIconBar)`
 `;
 
 const Bar3 = styled(MenuIconBar)`
-  transform: ${({ open }) => (open ? 'rotate(45deg) translate(-5px, -5px)' : 'rotate(0)')};
+  transform: ${({ open }) =>
+    open ? "rotate(45deg) translate(-5px, -5px)" : "rotate(0)"};
 `;
 
 const BackButton = styled(FaArrowLeft)`
@@ -94,19 +95,18 @@ const BackButton = styled(FaArrowLeft)`
 `;
 
 const SearchIcon = styled(FaSearch)`
-  font-size: 24px;
-  color: white;
+  font-size: 18px;
+  color: rgb(6 25 47);
   cursor: pointer;
-  margin-right: 10px;
   transition: color 0.3s;
   &:hover {
-    color: rgb(37 99 235);
+    color: #091057;
   }
 `;
 
 const ClearIcon = styled(FaTimes)`
   font-size: 16px;
-  color: white;
+  color: rgb(6 25 47);
   cursor: pointer;
   margin-left: 5px;
   transition: color 0.3s;
@@ -118,40 +118,65 @@ const ClearIcon = styled(FaTimes)`
 const SearchContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center !important;
   position: fixed;
   top: 10px;
-  right: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 25px;
-  padding: 5px 10px;
+  right: 70px;
+  padding-block: 6px;
+  padding-inline: 10px;
+  background-color: rgb(191 219 254);
+  border-radius: 30px;
 `;
 
 const SearchInput = styled.input`
-  display: block;
-  padding: 5px;
-  width: 200px;
   background-color: transparent;
-  color: white;
+  color: rgb(6 25 47);
   outline: none;
-  width: ${({ show }) => (show ? "200px" : "0px")};
+  width: ${({ isFocused }) => (isFocused ? "200px" : "0px")};
   transition: width 0.4s ease;
   opacity: ${({ show }) => (show ? 1 : 0)};
   pointer-events: ${({ show }) => (show ? "auto" : "none")};
   &::placeholder {
-    color: #ccc;
+    color: rgb(6 25 47);
   }
 `;
 
-const Hamburger = () => { 
-  const [open, setOpen] = useState(false); 
-  const [showSearch, setShowSearch] = useState(false); 
-  const [searchTerm, setSearchTerm] = useState(''); 
-  const searchInputRef = useRef(null); 
+const Hamburger = () => {
+  const navigate = useNavigate();
+
+  const HomeClick = () => {
+    navigate("/");
+  };
+
+  const SettingsClick = () => {
+    navigate("/Settings");
+  };
+
+  const helpClick = () => {
+    navigate("/Help");
+  };
+
+  const aboutClick = () => {
+    navigate("/About");
+  };
+
+  const Contactclick = () => {
+    navigate("/ContactUs");
+  };
+  const privacyClick = () => {
+    navigate("/PrivacyPolicy"); // Navigate to Privacy and Policy page
+  };
+
+  const [open, setOpen] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const searchInputRef = useRef(null);
+  const [isFocused, setIsFocused] = useState(false);
 
   const toggleMenu = () => {
     setOpen((prev) => !prev);
   };
-  
+  0.3;
 
   const handleBack = () => {
     setOpen(false);
@@ -166,8 +191,18 @@ const Hamburger = () => {
   };
 
   const clearSearch = () => {
-    setSearchTerm('');
+    setSearchTerm("");
     searchInputRef.current.focus();
+  };
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = (e) => {
+    if (!searchInputRef.current.contains(e.relatedTarget)) {
+      setIsFocused(false);
+    }
   };
 
   // Focus input when search is toggled on
@@ -179,34 +214,18 @@ const Hamburger = () => {
 
   return (
     <div>
-      <HamburgerContainer onClick={toggleMenu} aria-label="Toggle Menu" role="button">
-        <HamburgerIcon>
-          <Bar1 open={open} />
-          <Bar2 open={open} />
-          <Bar3 open={open} />
-        </HamburgerIcon>
-      </HamburgerContainer>
-
-      {open && <BackButton onClick={handleBack} />}
-
-      <Menu open={open}>
-        <MenuItem href="#back" onClick={handleBack} style={{ fontSize: '30px' }}>
-          ←
-        </MenuItem>
-        <MenuItem href="#home">Home</MenuItem>
-        <MenuItem href="#services">Services</MenuItem>
-        <MenuItem href='/ContactUs'>Contact</MenuItem>
-      </Menu>
-
       <SearchContainer>
         <SearchIcon onClick={toggleSearch} />
         <SearchInput
+          isFocused={isFocused}
           type="text"
           show={showSearch}
           placeholder="Type to search..."
           ref={searchInputRef}
           value={searchTerm}
           onChange={handleSearchChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
         {showSearch && searchTerm && <ClearIcon onClick={clearSearch} />}
       </SearchContainer>
