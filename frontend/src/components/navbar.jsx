@@ -204,6 +204,7 @@ const Navbar = () => {
 
         {/* Footer */}
         <div className="absolute bottom-0 w-full p-4 text-sm text-center text-gray-500">
+        <p>© {new Date().getFullYear()} Station Saarthi.All rights reserved.</p>
           <a
             href="/privacy-policy"
             onClick={() => {
