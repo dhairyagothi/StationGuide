@@ -9,20 +9,3 @@ body{
 }
 
 
-::-webkit-scrollbar {
-    width: 5px; 
-    height: 12px; 
-}
-
-::-webkit-scrollbar-track {
-    background: #A3C4E0; 
-    border-radius: 10px; 
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #3591f3; 
-}
-::-webkit-scrollbar-thumb {
-    background: #3591f3; 
-    border-radius: 12px; 
-}

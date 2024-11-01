@@ -90,11 +90,15 @@ export function ProtectedRoute() {
       console.log("Token Verification error:", data.error);
 
       if (data.error || res.status === 400 || res.status === 500) {
-        navigate("/Login");
+        navigate('/Login');
+      }
+
+      if (res.status === 400 || res.status === 500) {
+        navigate('/Login');
       }
     } catch (error) {
-      console.error("Error verifying token:", error);
-      navigate("/Login");
+      console.error('Error verifying token:', error);
+      navigate('/Login');
     }
   };
 
