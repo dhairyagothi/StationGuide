@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import backicon from '../assets/svg/backicon.svg'; 
-import './faq.css';
+import './Faq.css';
 
 const Faq = () => {
   const navigate = useNavigate(); // Initialize the useNavigate hook
