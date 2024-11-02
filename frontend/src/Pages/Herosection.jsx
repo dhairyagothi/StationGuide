@@ -38,16 +38,20 @@ const Herosection = () => {
 
   return (
     <>
-      {/* Sticky Navbar */}
-      <div className="sticky top-0 z-50 bg-sky-800 bg-opacity-75 shadow-md flex items-center justify-between px-4 py-2">
-        <Navbar />
-        <button
-          onClick={UserCLick}
-          className="flex items-center justify-center"
-        >
-          <FaUserAlt className="bg-blue-200 border-2 text-blue-600 border-blue-200 rounded-full w-[55px] h-[55px] p-2 shadow-lg" />
-        </button>
-        <HamburgerMenu />
+      <div className="relative z-50 flex items-center justify-between gap-[88vw]">
+        <div>
+          <Navbar />
+        </div>
+
+        <div className="flex items-center justify-center">
+          <div>
+            <HamburgerMenu />
+          </div>
+
+          <button type="submit" onClick={UserCLick} className="">
+            <FaUserAlt className="bg-blue-200 border-2 text-blue-600 border-blue-200 rounded-full w-[55px] h-[55px] p-2 shadow-lg mr-2" />
+          </button>
+        </div>
       </div>
 
       <Language />
@@ -193,15 +197,11 @@ const Herosection = () => {
           </button>
         </div>
       </div>
-
-      {/* Fixed Chatbot Icon */}
       <div className="fixed flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer right-5 -bottom-8 md:-bottom-7">
         <Popup />
         <Chatbot />
         <h1 className="text-xs font-bold text-black">Saarthi</h1>
       </div>
-
-      {/* Back to Top Button */}
       {showTopButton && (
         <button
           onClick={scrollToTop}
