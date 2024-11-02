@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes, FaUser, FaHandsHelping, FaBell, FaStar, FaCreditCard, FaInfoCircle } from 'react-icons/fa';
 import { IoSettings } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';  // Import axios
 
 const Navbar = () => {
@@ -85,6 +85,10 @@ const Navbar = () => {
     navigate('/about');
     setIsOpen(false);
   };
+  const handleOpenComplain =() =>{
+    navigate('/complain');
+    setIsOpen(false);
+  }
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -97,11 +101,66 @@ const Navbar = () => {
         <button onClick={toggleMenu}>
           {isOpen ? <FaTimes className="text-2xl text-black" /> : <FaBars className="text-2xl text-white" />}
         </button>
+
+        {/* Google Translate widget with dynamic z-index */}
+        <div
+          id="google_element"
+          className="google-translate-container"
+          style={{
+            position: 'fixed',
+            top: '-40px',          // Adjust top positioning as needed
+            left: '60px',        // Adjust right positioning as needed
+            zIndex: isOpen ? -1 : 10,  // Lower z-index when sidebar is open
+          }}
+        >
+          <style jsx>
+            {`
+        .goog-te-combo {
+          display: inline-block;
+          background-color: white;
+          border: 3px solid blue;
+          border-radius: 0.5rem;
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+          transition: all 0.3s ease;
+          outline: none;
+          color: black;
+          font-weight: 500;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+        .goog-te-combo:hover {
+          box-shadow: 0 6px 8px rgba(0, 0, 0, 0.8);
+        }
+        .goog-logo-link, .goog-te-gadget > span > a {
+          display: none !important;
+        }
+        .goog-te-gadget .goog-te-combo {
+          color: blue;
+        }
+        .goog-te-gadget-simple .goog-te-menu-value span:first-child {
+          display: none;
+        }
+        .goog-te-gadget-simple .goog-te-menu-value:before {
+          content: "Translate";
+          color: #c01c1c;
+        }
+        .goog-te-banner-frame, .goog-te-menu-frame {
+          display: none !important;
+        }
+        .skiptranslate > iframe {
+          height: 0 !important;
+          border-style: none;
+          box-shadow: none;
+        }
+      `}
+          </style>
+        </div>
       </div>
 
+
       {/* Sidebar Navigation (Covers 25% on larger screens, full width on mobile) */}
-      <div className={`fixed inset-y-0 left-0 bg-white shadow-lg ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 w-[80%] lg:w-1/4`}>
-        
+      <div className={`fixed inset-y-0 left-0 bg-white shadow-lg ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 w-[70%] lg:w-1/4`}>
+
         {/* Close Button inside Sidebar */}
         <div className="flex justify-end p-4">
           <button onClick={toggleMenu}>
@@ -140,6 +199,11 @@ const Navbar = () => {
               <FaStar className="mr-3 text-blue-300" />
               <span className="text-lg"> Feedback </span>
             </li>
+
+            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleOpenComplain}>
+              <FaStar className="mr-3 text-blue-300" />
+              <span className="text-lg"> Complain </span>
+            </li>
             <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleSettingsClick}>
               <IoSettings className="mr-3 text-blue-300" />
               <span className="text-lg">Settings</span>
@@ -149,18 +213,19 @@ const Navbar = () => {
 
         {/* Footer */}
         <div className="absolute bottom-0 w-full p-4 text-sm text-center text-gray-500">
-        <a 
-    href="/privacy-policy" 
-    onClick={() => { 
-      navigate('/privacy-policy'); 
-      setIsOpen(false);
-    }}
-    className="block mb-2 text-blue-500 hover:underline"
-  >
-    Privacy and Policy
-  </a>
+        <p>© {new Date().getFullYear()} Station Saarthi.All rights reserved.</p>
+          <a
+            href="/privacy-policy"
+            onClick={() => {
+              navigate('/privacy-policy');
+              setIsOpen(false);
+            }}
+            className="block mb-2 text-blue-500 hover:underline"
+          >
+            Privacy and Policy
+          </a>
           App version 1.0.0.0
-          
+
         </div>
       </div>
 

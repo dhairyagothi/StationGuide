@@ -16,6 +16,7 @@ import NotificationPage from "./Pages/notification";
 import Chatbot from "./components/chatbot";
 import ContactUs from "./Pages/ContactUs";
 import Settings from "./components/Settings";
+import GoogleTranslate from "./Pages/GoogleTranslate";
 import Help from "./components/help";
 import Contributor from "./Pages/contributor";
 import Payment from "./Pages/Payment";
@@ -25,6 +26,7 @@ import AboutUs from "./Pages/AboutUs";
 import Error from "./Pages/Error";
 import PrivacyPolicy from "./Pages/PrivacyPolicy"; // Added back from one version
 import User from "./Pages/User"; // Added from the other version
+import ComplainBox from "./Pages/ComplainBox";
 
 function App() {
   return (
@@ -44,6 +46,7 @@ function App() {
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/Settings" element={<Settings />} />
+          <Route path="/GoogleTranslate" element={<GoogleTranslate />} />
           <Route path="/help" element={<Help />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contributor" element={<Contributor />} />
@@ -51,7 +54,10 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/help-and-support" element={<HelpAndSupport />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} /> {/* Restored PrivacyPolicy */}
+
+          <Route path="/complain" element={<ComplainBox/>} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />{" "}
+          {/* Restored PrivacyPolicy */}
           <Route path="/user" element={<User />} /> {/* Added User */}
           <Route path="*" element={<Error />} />
         </Routes>
@@ -84,11 +90,15 @@ export function ProtectedRoute() {
       console.log("Token Verification error:", data.error);
 
       if (data.error || res.status === 400 || res.status === 500) {
-        navigate("/Login");
+        navigate('/Login');
+      }
+
+      if (res.status === 400 || res.status === 500) {
+        navigate('/Login');
       }
     } catch (error) {
-      console.error("Error verifying token:", error);
-      navigate("/Login");
+      console.error('Error verifying token:', error);
+      navigate('/Login');
     }
   };
 

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { FaArrowLeft, FaSearch, FaTimes } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import styled, { keyframes } from "styled-components";
+import { FaArrowLeft, FaSearch, FaTimes } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const fadeIn = keyframes`
   from {
@@ -39,9 +39,8 @@ const HamburgerContainer = styled.div`
   }
 `;
 
-
 const Menu = styled.div`
-  display: ${({ open }) => (open ? 'block' : 'none')};
+  display: ${({ open }) => (open ? "block" : "none")};
   background-color: white;
   position: absolute;
   top: 0;
@@ -76,7 +75,8 @@ const HamburgerIcon = styled.div`
 `;
 
 const Bar1 = styled(MenuIconBar)`
-  transform: ${({ open }) => (open ? 'rotate(-45deg) translate(-5px, 5px)' : 'rotate(0)')};
+  transform: ${({ open }) =>
+    open ? "rotate(-45deg) translate(-5px, 5px)" : "rotate(0)"};
 `;
 
 const Bar2 = styled(MenuIconBar)`
@@ -84,7 +84,8 @@ const Bar2 = styled(MenuIconBar)`
 `;
 
 const Bar3 = styled(MenuIconBar)`
-  transform: ${({ open }) => (open ? 'rotate(45deg) translate(-5px, -5px)' : 'rotate(0)')};
+  transform: ${({ open }) =>
+    open ? "rotate(45deg) translate(-5px, -5px)" : "rotate(0)"};
 `;
 
 const BackButton = styled(FaArrowLeft)`
@@ -117,24 +118,21 @@ const ClearIcon = styled(FaTimes)`
 const SearchContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content:center !important;
+  justify-content: center !important;
   position: fixed;
   top: 10px;
-  right: 16px;
-   padding-block:6px;
-  padding-inline:10px;
+  right: 70px;
+  padding-block: 6px;
+  padding-inline: 10px;
   background-color: rgb(191 219 254);
   border-radius: 30px;
-  
 `;
 
 const SearchInput = styled.input`
-  
- 
   background-color: transparent;
   color: rgb(6 25 47);
   outline: none;
-  width: ${({ isFocused }) => (isFocused ? "200px" : "0px")}; 
+  width: ${({ isFocused }) => (isFocused ? "200px" : "0px")};
   transition: width 0.4s ease;
   opacity: ${({ show }) => (show ? 1 : 0)};
   pointer-events: ${({ show }) => (show ? "auto" : "none")};
@@ -143,45 +141,42 @@ const SearchInput = styled.input`
   }
 `;
 
-const Hamburger = () => { 
-
+const Hamburger = () => {
   const navigate = useNavigate();
 
   const HomeClick = () => {
-    navigate('/');
+    navigate("/");
   };
 
   const SettingsClick = () => {
-    navigate('/Settings');
+    navigate("/Settings");
   };
 
   const helpClick = () => {
-    navigate('/Help');
+    navigate("/Help");
   };
 
   const aboutClick = () => {
-    navigate('/About');
+    navigate("/About");
   };
 
   const Contactclick = () => {
-    navigate('/ContactUs');
+    navigate("/ContactUs");
   };
   const privacyClick = () => {
-    navigate('/PrivacyPolicy');  // Navigate to Privacy and Policy page
+    navigate("/PrivacyPolicy"); // Navigate to Privacy and Policy page
   };
 
-
-
-  const [open, setOpen] = useState(false); 
-  const [showSearch, setShowSearch] = useState(false); 
-  const [searchTerm, setSearchTerm] = useState(''); 
-  const searchInputRef = useRef(null); 
+  const [open, setOpen] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const searchInputRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
 
   const toggleMenu = () => {
     setOpen((prev) => !prev);
-  };.3
-  
+  };
+  0.3;
 
   const handleBack = () => {
     setOpen(false);
@@ -196,20 +191,19 @@ const Hamburger = () => {
   };
 
   const clearSearch = () => {
-    setSearchTerm('');
+    setSearchTerm("");
     searchInputRef.current.focus();
   };
 
   const handleFocus = () => {
     setIsFocused(true);
   };
-  
+
   const handleBlur = (e) => {
     if (!searchInputRef.current.contains(e.relatedTarget)) {
       setIsFocused(false);
     }
   };
-  
 
   // Focus input when search is toggled on
   useEffect(() => {
@@ -220,8 +214,6 @@ const Hamburger = () => {
 
   return (
     <div>
-   
-
       <SearchContainer>
         <SearchIcon onClick={toggleSearch} />
         <SearchInput
@@ -232,9 +224,8 @@ const Hamburger = () => {
           ref={searchInputRef}
           value={searchTerm}
           onChange={handleSearchChange}
-          onFocus={handleFocus} 
+          onFocus={handleFocus}
           onBlur={handleBlur}
-       
         />
         {showSearch && searchTerm && <ClearIcon onClick={clearSearch} />}
       </SearchContainer>
