@@ -85,11 +85,16 @@ const Navbar = () => {
     navigate('/about');
     setIsOpen(false);
   };
-   
-  const handleFaqClick = () => {
-    navigate('/FAQ');
-    setIsOpen(false);
-  }; 
+const handleFaqClick = () => {
+  navigate('/FAQ');
+  setIsOpen(false);
+}; 
+
+const handleOpenComplain = () => {
+  navigate('/complain');
+  setIsOpen(false);
+};
+
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -200,6 +205,11 @@ const Navbar = () => {
               <FaStar className="mr-3 text-blue-300" />
               <span className="text-lg"> Feedback </span>
             </li>
+
+            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleOpenComplain}>
+              <FaStar className="mr-3 text-blue-300" />
+              <span className="text-lg"> Complain </span>
+            </li>
             <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleSettingsClick}>
               <IoSettings className="mr-3 text-blue-300" />
               <span className="text-lg">Settings</span>
@@ -213,6 +223,7 @@ const Navbar = () => {
 
         {/* Footer */}
         <div className="absolute bottom-0 w-full p-4 text-sm text-center text-gray-500">
+        <p>© {new Date().getFullYear()} Station Saarthi.All rights reserved.</p>
           <a
             href="/privacy-policy"
             onClick={() => {

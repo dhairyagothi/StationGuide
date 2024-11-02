@@ -86,7 +86,7 @@ Welcome to repository of Station Guide
 - **[Code of Conduct](#code-of-conduct)**
 - **[How to Fork](#how-to-fork)**
 - **[Contributors](#contributors)**
-- **[Contact Information](#contact-information)**
+- **[Contact Information](#-team)**
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
@@ -447,10 +447,11 @@ Forking allows you to create a personal copy of the repository, where you can ex
 <!-- Added the Team section -->
 ## 👥 Team
 
-| ![Dhairya Gothi](https://avatars.githubusercontent.com/u/142989448?v=4&s=80)|
-|:--:|
-| **Dhairya Gothi** <br> <sub>Project Admin</sub> | 
-| [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](https://www.linkedin.com/in/dhairya-gothi-65945b288/) | 
+| ![Dhairya Gothi](https://avatars.githubusercontent.com/u/142989448?v=4&s=80) | ![Rishita](https://avatars.githubusercontent.com/u/167749636?v=4&s=80) | ![Shreya](https://media.licdn.com/dms/image/v2/D4D03AQFG5YVopdYt7g/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1727992516667?e=1735776000&v=beta&t=UxOs0ZcgEiGTENny_brMh7mZ5ObiAF7KMlJVvJyJLlM) | ![Riddhi](https://avatars.githubusercontent.com/u/180189764?v=4&s=80) | ![Mrityunjay](https://avatars.githubusercontent.com/u/137044290?v=4&s=80) | ![Prem](https://media.licdn.com/dms/image/v2/D4D03AQEfHKeIrJS3FA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1727376973786?e=1735776000&v=beta&t=7FuOV4TXYLCx7mknNwzq0QJJk97iiQz3YZ4orvRbg0k) |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| **Dhairya Gothi** <br> <sub>Project Admin</sub> | **Rishita** <br> <sub>Co-lead</sub> | **Shreya** <br> <sub>Researcher</sub> | **Riddhi** <br> <sub>Designer</sub> | **Mrityunjay** <br> <sub>Developer</sub> | **Prem** <br> <sub>Developer</sub> |
+| [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](https://www.linkedin.com/in/dhairya-gothi-65945b288/) | [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](#) | [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](#) | [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](#) | [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](#) | [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](#) |
+
 
 If you have questions, suggestions, or feedback, please reach out via email at dhairyag31@gmail.com. You can also join our [discussion forum](https://github.com/dhairyagothi/StationGuide/discussions).
 
