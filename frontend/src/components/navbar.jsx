@@ -85,6 +85,10 @@ const Navbar = () => {
     navigate('/about');
     setIsOpen(false);
   };
+  const handleOpenComplain =() =>{
+    navigate('/complain');
+    setIsOpen(false);
+  }
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -194,6 +198,11 @@ const Navbar = () => {
             <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleOpenModal}>
               <FaStar className="mr-3 text-blue-300" />
               <span className="text-lg"> Feedback </span>
+            </li>
+
+            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleOpenComplain}>
+              <FaStar className="mr-3 text-blue-300" />
+              <span className="text-lg"> Complain </span>
             </li>
             <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleSettingsClick}>
               <IoSettings className="mr-3 text-blue-300" />
