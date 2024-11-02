@@ -26,6 +26,7 @@ import AboutUs from "./Pages/AboutUs";
 import Error from "./Pages/Error";
 import PrivacyPolicy from "./Pages/PrivacyPolicy"; // Added back from one version
 import User from "./Pages/User"; // Added from the other version
+import ComplainBox from "./Pages/ComplainBox";
 
 function App() {
   return (
@@ -53,6 +54,8 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/help-and-support" element={<HelpAndSupport />} />
+
+          <Route path="/complain" element={<ComplainBox/>} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />{" "}
           {/* Restored PrivacyPolicy */}
           <Route path="/user" element={<User />} /> {/* Added User */}
@@ -87,11 +90,15 @@ export function ProtectedRoute() {
       console.log("Token Verification error:", data.error);
 
       if (data.error || res.status === 400 || res.status === 500) {
-        navigate("/Login");
+        navigate('/Login');
+      }
+
+      if (res.status === 400 || res.status === 500) {
+        navigate('/Login');
       }
     } catch (error) {
-      console.error("Error verifying token:", error);
-      navigate("/Login");
+      console.error('Error verifying token:', error);
+      navigate('/Login');
     }
   };
 
