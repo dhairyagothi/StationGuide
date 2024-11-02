@@ -27,11 +27,13 @@ import Error from "./Pages/Error";
 import PrivacyPolicy from "./Pages/PrivacyPolicy"; // Added back from one version
 import User from "./Pages/User"; // Added from the other version
 import ComplainBox from "./Pages/ComplainBox";
+import Metadata from "./metadata";
 
 function App() {
   return (
     <>
       <Router>
+        <Metadata />
         <Routes>
           <Route path="/" element={<Herosection />} />
           <Route path="/Login" element={<LoginPage />} />
