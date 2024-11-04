@@ -57,7 +57,7 @@ const Herosection = () => {
   return (
     <>
       <div className="relative z-50 flex items-center justify-between gap-[88vw]">
-        <div className="flex flex-row gap-x-2">
+        <div className="flex flex-col gap-x-2">
           <Navbar />
           <ThemeToggle />
         </div>
@@ -68,7 +68,7 @@ const Herosection = () => {
           </div>
 
           <button type="submit" onClick={UserCLick} className="">
-            <FaUserAlt className="bg-blue-200 border-2 text-blue-600 border-blue-200 rounded-full w-[55px] h-[55px] p-2 shadow-lg mr-2" />
+            <FaUserAlt className="bg-blue-200  dark:bg-black border-2 text-blue-600 dark:text-white border-blue-200 rounded-full w-[55px] h-[55px] p-2 shadow-lg mr-2" />
           </button>
         </div>
       </div>
@@ -79,7 +79,7 @@ const Herosection = () => {
         <GoogleTranslate />
       </div>
 
-      <h1 className="pl-4 text-4xl font-black text-center text-white ">
+      <h1 className="pl-4 text-4xl font-black text-center text-white">
         Namaste !! Yatree{" "}
       </h1>
       <div className="relative flex items-center justify-center bg-center bg-cover herosection">
@@ -94,7 +94,7 @@ const Herosection = () => {
       </div>
       <br></br>
 
-      <div className="grid grid-cols-3 gap-2 pb-10 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center ">
+      <div className="dark:bg-black grid grid-cols-3 gap-2 pb-10 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center ">
         <div
           type="submit"
           onClick={ContributorCLick}
@@ -104,11 +104,11 @@ const Herosection = () => {
             src={contributorsvg}
             alt=""
             className="
-      bg-blue-200 border-2 border-blue-100 rounded-full 
+      bg-blue-200 border-2 border-blue-100 rounded-full  dark:bg-black
       w-[64px] h-[64px] p-2
     "
           />
-          <h1 className="text-xs font-bold text-black">Contributors</h1>
+          <h1 className="text-xs font-bold text-black dark:text-white">Contributors</h1>
         </div>
 
         <div
@@ -120,10 +120,10 @@ const Herosection = () => {
             src={navigationsvg}
             alt=""
             srcset=""
-            className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg"
+            className="dark:bg-black bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg"
           />
-          <button className="w-24 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">
-            <h1 className="font-bold text-white">Navigation</h1>
+          <button className="w-24 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 dark:bg-white rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">
+            <h1 className="font-bold text-white dark:text-black">Navigation</h1>
           </button>
         </div>
         <div
@@ -135,14 +135,14 @@ const Herosection = () => {
             src={bookingsvg}
             alt=""
             srcset=""
-            className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg "
+            className="bg-blue-200 border-2 dark:bg-black border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg "
           />
           <button
             type="submit"
             onClick={BookingCLick}
-            className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
+            className="w-20 py-1 mt-2 font-semibold dark:bg-white text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
           >
-            <h1 className="font-bold text-white">Booking</h1>
+            <h1 className="font-bold text-white dark:text-black">Booking</h1>
           </button>
         </div>
         <div
@@ -154,10 +154,10 @@ const Herosection = () => {
             src={stationsvg}
             alt=""
             srcset=""
-            className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg"
+            className="bg-blue-200 dark:bg-black border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg"
           />
-          <button className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">
-            <h1 className="font-bold text-white">Station</h1>
+          <button className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 dark:bg-white rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">
+            <h1 className="font-bold text-white dark:text-black">Station</h1>
           </button>
         </div>
         <div
@@ -169,15 +169,15 @@ const Herosection = () => {
             src={mapsvg}
             alt=""
             srcset=""
-            className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg"
+            className="bg-blue-200 dark:bg-black border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg"
           />{" "}
           <button
             type="submit"
             onClick={MapCLick}
-            className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
+            className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 dark:bg-white rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
           >
             {" "}
-            <h1 className="font-bold text-white">3D Map</h1>
+            <h1 className="font-bold text-white dark:text-black">3D Map</h1>
           </button>
         </div>
 
@@ -190,15 +190,15 @@ const Herosection = () => {
             src={schedulesvg}
             alt=""
             srcset=""
-            className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg"
+            className="bg-blue-200 dark:bg-black border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg"
           />
           <button
             type="submit"
             onClick={ScheduleCLick}
-            className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
+            className="w-20 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 dark:bg-white rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
           >
             {" "}
-            <h1 className="font-bold text-white">Schedule</h1>
+            <h1 className="font-bold text-white dark:text-black">Schedule</h1>
           </button>
         </div>
 
@@ -211,22 +211,22 @@ const Herosection = () => {
             src={noticationsvg}
             alt=""
             srcset=""
-            className="bg-blue-200 border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg "
+            className="bg-blue-200 dark:bg-black border-2 border-blue-200 rounded-full w-[64px] h-[64px] p-2 shadow-lg "
           />{" "}
           <button
             type="submit"
             onClick={NotificationCLick}
-            className="w-24 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
+            className="w-24 py-1 mt-2 font-semibold text-white transition-all duration-300 ease-in-out bg-blue-500 dark:bg-white rounded-lg shadow-md cursor-pointer hover:bg-blue-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
           >
             {" "}
-            <h1 className="font-bold text-white">Notification</h1>
+            <h1 className="font-bold text-white dark:text-black">Notification</h1>
           </button>
         </div>
       </div>
-      <div className="fixed flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer  right-5 -bottom-8 md:-bottom-7">
+      <div className="fixed dark:bg-black flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer  right-5 -bottom-8 md:-bottom-7">
         <Popup />
         <Chatbot />
-        <h1 className="text-xs font-bold text-black">Saarthi</h1>
+        <h1 className="text-xs font-bold text-black dark:text-white">Saarthi</h1>
       </div>
     </>
   );

@@ -93,7 +93,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navigation Toggle for All Screens (Mobile and Larger Screens) */}
-      <div className="flex items-center justify-between p-4 bg-blue-500">
+      <div className="flex items-center justify-between p-4 bg-blue-500 dark:bg-black">
         <button onClick={toggleMenu}>
           {isOpen ? <FaTimes className="text-2xl text-black" /> : <FaBars className="text-2xl text-white" />}
         </button>
