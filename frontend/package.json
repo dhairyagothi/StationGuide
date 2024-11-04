@@ -34,6 +34,7 @@
     "socket.io-client": "^4.8.0",
     "station-saarthi": "file:",
     "styled-components": "^6.1.13",
+    "sweetalert2": "^11.14.5",
     "yup": "^1.4.0"
   },
   "devDependencies": {
