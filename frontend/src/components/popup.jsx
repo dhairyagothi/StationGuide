@@ -28,10 +28,10 @@ const Popup = () => {
 
   return (
     isVisible && (
-      <div className="fixed bottom-5 right-5 flex items-center justify-center bg-[rgba(252,249,249,0.8)] z-[100000] rounded-lg shadow-lg w-[400px] p-5">
-        <div className="relative flex flex-col w-full bg-[#f0eeee] rounded-lg overflow-hidden">
+      <div className="fixed bottom-5 right-5 flex items-center justify-center bg-[rgba(252,249,249,0.8)] dark:bg-black z-[100000] rounded-lg shadow-lg w-[400px] p-5">
+        <div className="relative flex flex-col w-full bg-[#f0eeee] dark:bg-gray-600 rounded-lg overflow-hidden">
           <button
-            className="absolute top-3 right-3 text-black font-bold text-2xl z-[1001]"
+            className="absolute top-3 right-3 text-black dark:text-white font-bold text-2xl z-[1001]"
             onClick={handleClose}
           >
             X
@@ -40,13 +40,13 @@ const Popup = () => {
             <img src={railwaysImage} alt="Railways" className="w-full h-full object-cover rounded-1/2" />
           </div>
           <div className="w-full p-4 flex flex-col items-center justify-center">
-            <h1 className="text-2xl font-bold text-center text-[#131010] mb-2">Welcome to Station Saarthi</h1>
-            <h2 className="text-lg font-semibold text-center text-[#261d1d] mb-4">Travel without stress. Sign in now!</h2>
+            <h1 className="text-2xl font-bold text-center text-[#131010] dark:text-white mb-2">Welcome to Station Saarthi</h1>
+            <h2 className="text-lg font-semibold text-center text-[#261d1d] dark:text-white mb-4">Travel without stress. Sign in now!</h2>
             <form onSubmit={handleSubmit} className="w-full flex flex-col items-center">
               <input
                 type="email"
                 id="popup-email"
-                className="p-2 w-4/5 border border-gray-400 rounded-md mb-4 text-base"
+                className="p-2 w-4/5 border dark:bg-gray-400 dark:placeholder:text-white border-gray-400 rounded-md mb-4 text-base"
                 placeholder="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -54,12 +54,12 @@ const Popup = () => {
               />
               <button
                 type="submit"
-                className="w-4/5 p-2 bg-blue-600 text-white rounded-md text-base font-bold cursor-pointer"
+                className="w-4/5 p-2 bg-blue-600 dark:bg-gray-900 text-white rounded-md text-base font-bold cursor-pointer"
               >
                 Sign me up!
               </button>
             </form>
-            <p className="text-xs text-center text-[#0e0a0a] mt-4">
+            <p className="text-xs text-center text-[#0e0a0a] dark:text-white mt-4">
               By signing in, I agree to Station Saarthi's{' '}
               <a href="#" className="text-blue-500">Terms of Service</a> and{' '}
               <a href="#" className="text-blue-500">Privacy Policy</a>.
