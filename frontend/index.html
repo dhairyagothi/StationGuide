@@ -30,18 +30,23 @@
             width: 24px;
             border-radius: 24px;
             background-color: black;
-            position: relative;
             top: 0;
             left: 0;
-            
-            pointer-events: none;
+            position: absolute;
+            /* pointer-events: none; */
             z-index: 99999999;
-
+            visibility: hidden; 
+            opacity: 0;        
+            transition: opacity 0.3s ease;
         }
+        .hidden {
+            display: none;
+        }
+
 
         @media (max-width : 768px) {
             .circle {
-                display: none;
+                display: none !important;
             }
         }
 
@@ -494,11 +499,13 @@ document.getElementById('sendMessage').addEventListener('click', function () {
 
      <div id="root"></div>
      <script type="module" src="/src/main.jsx"></script>
-     <script>
+
+    
+    <script>
         // Coordinates for the cursor
         const coords = { x: 0, y: 0 };
         const circles = document.querySelectorAll(".circle");
-    
+
         // Colors for the circles
         const colors = [
             "#6bb5ff", "#69b1fd", "#63a3f8", "#619bf5", "#5e89ef", "#5d82ec",
@@ -506,7 +513,7 @@ document.getElementById('sendMessage').addEventListener('click', function () {
             "#5e2cb2", "#5e26ac", "#5f159c", "#5f0f95", "#600083", "#60007c",
             "#600068", "#5f0060", "#5f0048", "#5e003d"
         ];
-    
+
         // Assign colors, initial position, and size to each circle
         circles.forEach(function (circle, index) {
             circle.x = 0;
@@ -514,51 +521,105 @@ document.getElementById('sendMessage').addEventListener('click', function () {
             circle.style.backgroundColor = colors[index % colors.length];
             circle.style.position = 'absolute';
             circle.style.borderRadius = '50%';
-            circle.style.width = `${5 + (index * 2)}px`;  // Smaller circle sizes
+            circle.style.width = `${5 + (index * 2)}px`;
             circle.style.height = `${5 + (index * 2)}px`;
-            circle.style.opacity = `${(circles.length - index) / circles.length}`;  // Fading effect
+            circle.style.opacity = `${(circles.length - index) / circles.length}`;          // Fading effect
+            circle.style.visibility = 'hidden';
         });
-    
-        // Update the coordinates when the mouse moves
-        window.addEventListener("mousemove", function (e) {
-            coords.x = e.clientX;
-            coords.y = e.clientY;
-        });
-    
+
+        let animationId = null;
+        let isMouseOnScreen = false;
+
         // Easing function to make the animation smoother
         function lerp(start, end, t) {
             return start * (1 - t) + end * t;
         }
-    
+
         // Animation function to move the circles with a trailing effect
         function animateCircles() {
+            if (!isMouseOnScreen) {
+                return; 
+            }
+        
             let x = coords.x;
             let y = coords.y;
-    
+        
             circles.forEach(function (circle, index) {
                 const nextCircle = circles[index + 1] || circles[0];
-                
+
                 // Apply easing for smoother movements
                 circle.x = lerp(circle.x, x, 0.4);  // Adjusted for quicker reaction
                 circle.y = lerp(circle.y, y, 0.4);
-    
+
                 // Positioning the circle closer to the cursor
                 circle.style.left = circle.x - circle.offsetWidth / 4 + "px";
                 circle.style.top = circle.y - circle.offsetHeight / 4 + "px";
                 
                 // Scale down each circle progressively to create depth
                 circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-    
+
                 // Update position for the next circle, adjusted for closer proximity
                 x += (nextCircle.x - x) * 0.2;  // Smaller multiplier for tighter following
                 y += (nextCircle.y - y) * 0.2;
             });
-    
+        
             // Repeat the animation
-            requestAnimationFrame(animateCircles);
+            animationId = requestAnimationFrame(animateCircles);
         }
             // Start the animation
-            animateCircles();
+
+            function startAnimation() {
+                if (!animationId) {
+                    isMouseOnScreen = true;
+                    circles.forEach(circle => circle.style.visibility = 'visible');
+                    console.log("Mouse entered, circles visible");
+                    animateCircles();
+                }
+            }
+
+            function stopAnimation() {
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+                isMouseOnScreen = false;
+                circles.forEach(circle => circle.style.visibility = 'hidden');
+            }
+
+            document.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+                coords.y = e.clientY;
+                if (!isMouseOnScreen) {
+                    startAnimation();
+                }
+            });
+
+            document.addEventListener("mouseenter", function () {
+                console.log("Mouse entered the window");
+                startAnimation();
+            });
+
+            document.addEventListener("mouseleave", function () {
+                console.log("Mouse left the window");
+                stopAnimation();
+            
+                setTimeout(() => {
+                    if (!isMouseOnScreen) {
+                        circles.forEach(circle => circle.style.visibility = 'hidden');
+                    }
+                }, 100); 
+            });
+
+            document.addEventListener("unload", stopAnimation);
+
+            document.addEventListener("visibilitychange", function() {
+                if (document.hidden) {
+                    stopAnimation();
+                }
+            });
+
+
+
         </script>
 
         <!--pop up html part-->
