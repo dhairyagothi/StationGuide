@@ -29,6 +29,7 @@ import User from "./Pages/User"; // Added from the other version
 import ComplainBox from "./Pages/ComplainBox";
 import Metadata from "./metadata";
 import SettingsPage from "./Pages/Settings";
+import Faq from './Pages/Faq';
 
 function App() {
   return (
@@ -58,7 +59,7 @@ function App() {
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/help-and-support" element={<HelpAndSupport />} />
           <Route path="/settings" element={<SettingsPage />} />
-
+          <Route path="/Faq" element={<Faq />} />
           <Route path="/complain" element={<ComplainBox/>} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />{" "}
           {/* Restored PrivacyPolicy */}
