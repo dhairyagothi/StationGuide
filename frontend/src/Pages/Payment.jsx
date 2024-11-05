@@ -2,41 +2,45 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backicon from '../assets/svg/backicon.svg';
 
-
-
 const Payment = () => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
+  const [upiId, setUpiId] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Payment submitted:', { paymentMethod, cardNumber, expiryDate, cvv });
+    alert('Payment submitted successfully!');
   };
-  const navigate = useNavigate();
 
+  const handlePaymentMethodChange = (e) => {
+    setPaymentMethod(e.target.value);
+    setCardNumber('');
+    setExpiryDate('');
+    setCvv('');
+    setUpiId('');
+  };
 
-  const HomeClick = () => {   
-          navigate('/'); // Navigates to the home page
-      };
+  const handleHomeClick = () => navigate('/');
+
   return (
-
-    <div className="min-h-screen flex justify-center items-center bg-blue-100">
-       <button onClick={HomeClick} className='absolute left-0 top-2'>
-                <img src={backicon} alt="" className='h-[5vh]' />
-            </button>
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-3xl font-semibold text-blue-900 mb-6">Payment Page</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Select Payment Method
+    <div className="min-h-screen flex justify-center items-center bg-gray-50">
+      <button onClick={handleHomeClick} className="absolute left-0 top-4 ml-4">
+        <img src={backicon} alt="Back" className="h-6 w-6" />
+      </button>
+      <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md transition-all duration-300 hover:shadow-xl">
+        <h1 className="text-3xl font-semibold text-blue-800 mb-8 text-center">Payment Page</h1>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-gray-700 font-medium mb-2">
+              Select Payment Method <span className="text-red-500">*</span>
             </label>
             <select
-              className="w-full px-3 py-2 border rounded-md"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200"
               value={paymentMethod}
-              onChange={(e) => setPaymentMethod(e.target.value)}
+              onChange={handlePaymentMethodChange}
               required
             >
               <option value="">Choose a payment method</option>
@@ -46,69 +50,77 @@ const Payment = () => {
               <option value="google_pay">Google Pay</option>
             </select>
           </div>
-          
-          {paymentMethod === 'credit_card' || paymentMethod === 'debit_card' ? (
+
+          {(paymentMethod === 'credit_card' || paymentMethod === 'debit_card') && (
             <>
-              <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Card Number
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Card Number <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
-                  className="w-full px-3 py-2 border rounded-md"
+                  placeholder="1234 5678 9012 3456"
+                  maxLength="16"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200"
                   value={cardNumber}
-                  onChange={(e) => setCardNumber(e.target.value)}
+                  onChange={(e) => setCardNumber(e.target.value.replace(/\D/g, ''))}
                   required
                 />
               </div>
 
-              <div className="flex mb-4">
-                <div className="w-1/2 mr-2">
-                  <label className="block text-gray-700 text-sm font-bold mb-2">
-                    Expiry Date
+              <div className="flex space-x-4">
+                <div className="flex-1">
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Expiry Date <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
-                    className="w-full px-3 py-2 border rounded-md"
                     placeholder="MM/YY"
+                    maxLength="5"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200"
                     value={expiryDate}
-                    onChange={(e) => setExpiryDate(e.target.value)}
+                    onChange={(e) => setExpiryDate(e.target.value.replace(/[^0-9/]/g, '').substring(0, 5))}
                     required
                   />
                 </div>
 
-                <div className="w-1/2 ml-2">
-                  <label className="block text-gray-700 text-sm font-bold mb-2">
-                    CVV
+                <div className="flex-1">
+                  <label className="block text-gray-700 font-medium mb-2">
+                    CVV <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
-                    className="w-full px-3 py-2 border rounded-md"
+                    placeholder="123"
+                    maxLength="3"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200"
                     value={cvv}
-                    onChange={(e) => setCvv(e.target.value)}
+                    onChange={(e) => setCvv(e.target.value.replace(/\D/g, '').substring(0, 3))}
                     required
                   />
                 </div>
               </div>
             </>
-          ) : null}
+          )}
 
-          {paymentMethod === 'apple_pay' || paymentMethod === 'google_pay' ? (
-            <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">
-                UPI ID
+          {(paymentMethod === 'apple_pay' || paymentMethod === 'google_pay') && (
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">
+                UPI ID <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
-                className="w-full px-3 py-2 border rounded-md"
-                placeholder="Enter your UPI ID"
+                placeholder="yourname@bank"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200"
+                value={upiId}
+                onChange={(e) => setUpiId(e.target.value)}
+                required
               />
             </div>
-          ) : null}
-          
+          )}
+
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+            className="w-full bg-blue-500 text-white font-bold py-3 rounded-md hover:bg-blue-600 transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300"
           >
             Pay Now
           </button>
