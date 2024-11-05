@@ -171,13 +171,17 @@ const Login = () => {
 
         {/* Google Login Button */}
         <button
-          type="button"
-          onClick={handleGoogleLogin}
-          className="flex items-center justify-center w-full py-3 mt-4 font-semibold text-white transition duration-300 ease-in-out transform bg-red-500 rounded-lg hover:bg-red-600 hover:scale-105"
-        >
-          <FaGoogle className="mr-2" /> {/* Google icon */}
-          Sign in with Google
-        </button>
+        type="button"
+        onClick="window.location.href='https://accounts.google.com'" // This triggers Google authentication
+        className="flex items-center justify-center w-full py-3 mt-4 font-semibold text-white transition duration-300 ease-in-out transform bg-red-500 rounded-lg hover:bg-red-600 hover:scale-105"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+          alt="Google Icon"
+          style={{ width: "20px", height: "20px", marginRight: "10px" }}
+        />
+        Sign in with Google
+      </button>
       </form>
 
       {/* Forgot Password Link */}
