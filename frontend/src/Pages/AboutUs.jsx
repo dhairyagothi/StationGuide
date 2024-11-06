@@ -2,6 +2,7 @@ import React from 'react'; // Importing React
 import { useNavigate } from 'react-router-dom'; // Importing navigation function
 import backicon from '../assets/svg/backicon.svg'; // Importing back icon asset
 import TeamSection from '../components/TeamSection';
+import Stats from '../components/Stats';
 // About component
 const AboutUs = () => {
   // UseNavigate hook for navigation
@@ -112,6 +113,10 @@ const AboutUs = () => {
 </div>
 
 
+<div className="bg-white p-4 rounded-lg shadow-md max-w-5xl mx-auto mb-12">
+<h2 className="text-center text-3xl font-bold text-blue-600 mb-4">Our Stats</h2>
+<Stats/>
+</div>
       {/* Meet the Team Section */}
       <section className="text-center mb-12 max-w-5xl mx-auto">
         
