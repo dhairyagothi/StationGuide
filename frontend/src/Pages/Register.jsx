@@ -2,40 +2,35 @@ import React, { useState, useEffect } from "react";
 import logo from "../assets/stationsaarthi.svg";
 import { useNavigate } from "react-router-dom";
 import backicon from "../assets/svg/backicon.svg";
-import { GoogleLogin } from "@react-oauth/google";
-import { FaFacebook } from "react-icons/fa";
-import { jwtDecode } from "jwt-decode";
+import { FaFacebook, FaUser, FaPhone } from "react-icons/fa";
+import { MdAttachEmail, MdOutlinePassword } from "react-icons/md";
 import { registerValidation } from "../validations/validation";
-import { FaUser , FaPhone } from "react-icons/fa";
-import { MdAttachEmail , MdOutlinePassword} from "react-icons/md";
+import jwtDecode from "jwt-decode";
 
 const Register = () => {
-
-    useEffect(() => {
-        document.title = 'Station Saarthi | Register'; 
-      }, []);
+  useEffect(() => {
+    document.title = 'Station Saarthi | Register'; 
+  }, []);
 
   const navigate = useNavigate();
   const LoginClick = () => navigate("/Login");
   const HomeClick = () => navigate("/");
 
-
-  const [username, setUserName] = useState(""); // Changed from name to username
+  const [username, setUserName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmationMessage, setConfirmationMessage] = useState("");
-  const [passwordStrength, setPasswordStrength] = useState(""); // State for password strength feedback
+  const [passwordStrength, setPasswordStrength] = useState("");
   const [errors, setErrors] = useState({});
-  const [passwordVisible, setPasswordVisible] = useState(false); // State for password visibility
-
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
     try {
       await registerValidation.validate(
-        { username, password, phoneNumber, email }, // Updated validation call
+        { username, password, phoneNumber, email },
         { abortEarly: false }
       );
       setErrors({});
@@ -50,14 +45,14 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/register", "https://stationguidebackend.onrender.com",
+        "https://stationguidebackend.onrender.com/api/register",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            name: username, // Updated from name to username
+            name: username,
             phoneNumber: phoneNumber ? phoneNumber : "",
             email,
             password,
@@ -73,7 +68,7 @@ const Register = () => {
         setConfirmationMessage(
           "Your account is created successfully. Please login to access the website."
         );
-        setUserName(""); // Reset username
+        setUserName("");
         setPhoneNumber("");
         setEmail("");
         setPassword("");
@@ -86,7 +81,6 @@ const Register = () => {
     }
   };
 
-  // Use effect to clear the confirmation message after 3 seconds
   useEffect(() => {
     if (confirmationMessage) {
       const timer = setTimeout(() => setConfirmationMessage(""), 3000);
@@ -94,7 +88,6 @@ const Register = () => {
     }
   }, [confirmationMessage]);
 
-  // Function to check password strength
   const checkPasswordStrength = (password) => {
     if (password.length < 6) {
       return "Weak";
@@ -110,76 +103,27 @@ const Register = () => {
     }
   };
 
-  // Update password strength when password changes
   useEffect(() => {
     setPasswordStrength(checkPasswordStrength(password));
   }, [password]);
 
-  // Handle Google success
-  const handleGoogleLoginSuccess = async (credentialResponse) => {
-    const token = credentialResponse.credential;
-
-    // Decode the token to extract user information
-    const decoded = jwtDecode(token);
-    console.log("Decoded Google Token:", decoded);
-
-    try {
-      const response = await fetch(
-        "https://stationguide.onrender.com/api/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: decoded.name,
-            phoneNumber: phoneNumber ? phoneNumber : "",
-            email: decoded.email,
-            password: "",
-            isGoogle: true,
-          }),
-        }
-      );
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setConfirmationMessage(
-          "Your account is created successfully. Please login to access the website."
-        );
-        setUserName(""); // Reset username
-        setPhoneNumber("");
-        setEmail("");
-        setPassword("");
-      } else {
-        setConfirmationMessage(`Error: ${data.error}`);
-      }
-    } catch (error) {
-      console.error("Error registering with Google:", error);
-    }
-  };
-
-  // Handle Google failure
-  const handleGoogleLoginFailure = () => {
-    console.log("Google Sign-In failed");
-  };
-
   const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible); // Toggle password visibility
-};
+    setPasswordVisible(!passwordVisible);
+  };
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-center min-h-screen px-4 bg-gradient-to-b from-blue-100 to-blue-5000">
+      <div className="relative flex flex-col items-center justify-center min-h-screen px-4 bg-gradient-to-b from-blue-100 to-blue-500">
         {confirmationMessage && (
           <div className="fixed top-0 left-0 w-full p-3 text-center text-white bg-green-600 bg-opacity-80">
             {confirmationMessage}
           </div>
         )}
 
-<button onClick={HomeClick} className='absolute left-0 top-2'>
-                <img src={backicon} alt="" className='h-[5vh]' />
-            </button>
+        <button onClick={HomeClick} className="absolute left-0 top-2">
+          <img src={backicon} alt="Back" className="h-[5vh]" />
+        </button>
+
         <div className="mb-6 text-center">
           <img
             src={logo}
@@ -202,17 +146,14 @@ const Register = () => {
           </h2>
 
           <div className="mb-4">
-            <label
-              className="flex gap-2 mb-1 font-semibold text-gray-700"
-              htmlFor="username" // Updated id reference
-            >
+            <label className="flex gap-2 mb-1 font-semibold text-gray-700" htmlFor="username">
               Username <FaUser />
             </label>
             <input
               type="text"
-              id="username" // Updated id reference
+              id="username"
               value={username}
-              onChange={(e) => setUserName(e.target.value)} // Updated setter
+              onChange={(e) => setUserName(e.target.value)}
               placeholder="Enter your username"
               className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
@@ -221,10 +162,7 @@ const Register = () => {
           </div>
 
           <div className="mb-4">
-            <label
-              className="flex gap-2 mb-1 font-medium text-gray-700"
-              htmlFor="phoneNumber"
-            >
+            <label className="flex gap-2 mb-1 font-medium text-gray-700" htmlFor="phoneNumber">
               Phone Number <FaPhone />
             </label>
             <input
@@ -242,10 +180,7 @@ const Register = () => {
           </div>
 
           <div className="mb-4">
-            <label
-              className="flex gap-2 mb-1 font-medium text-gray-700"
-              htmlFor="email"
-            >
+            <label className="flex gap-2 mb-1 font-medium text-gray-700" htmlFor="email">
               Email <MdAttachEmail className="h-7" />
             </label>
             <input
@@ -261,54 +196,32 @@ const Register = () => {
           </div>
 
           <div className="mb-5">
-            <label
-              className="flex gap-2 mb-1 font-medium text-gray-700"
-              htmlFor="password"
-            >
+            <label className="flex gap-2 mb-1 font-medium text-gray-700" htmlFor="password">
               Password <MdOutlinePassword className="h-7" />
             </label>
             <input
-              type={passwordVisible ? "text" : "password"} // Change the type based on password visibility    
+              type={passwordVisible ? "text" : "password"}
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Create a password"
               className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
-            /> <button 
-            type="button" 
-            onClick={togglePasswordVisibility} 
-            style={{ position:'relative', bottom:'30px', left:'430px'}}
-        >
-            {passwordVisible ? (
-                <span className="material-symbols-outlined">visibility_off</span> // Closed eye icon
-            ) : (
-                <span className="material-symbols-outlined">visibility</span> // Open eye icon
-            )}
-        </button>
-            <p
-              className={`mt-1 text-sm ${
-                passwordStrength === "Strong"
-                  ? "text-green-500"
-                  : passwordStrength === "Moderate"
-                  ? "text-yellow-500"
-                  : "text-red-500"
-              }`}
+            />
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              style={{ position: 'relative', bottom: '30px', left: '430px' }}
             >
+              {passwordVisible ? "👁️" : "👁️‍🗨️"}
+            </button>
+            <p className={`mt-1 text-sm ${passwordStrength === "Strong" ? "text-green-500" : passwordStrength === "Moderate" ? "text-yellow-500" : "text-red-500"}`}>
               {password && `Password strength: ${passwordStrength}`}
             </p>
-            {passwordStrength === "Weak" && (
-              <p className="text-xs text-gray-500">
-                Try using a mix of upper/lowercase letters, numbers, and symbols.
-              </p>
-            )}
             {errors.password && <div className="text-red-800">{errors.password}</div>}
           </div>
 
-          <button
-            type="submit"
-            className="w-full px-4 py-2 mt-4 text-white bg-blue-600 rounded-md hover:bg-blue-700"
-          >
+          <button type="submit" className="w-full px-4 py-2 mt-4 text-white bg-blue-600 rounded-md hover:bg-blue-700">
             Register
           </button>
 
@@ -319,21 +232,31 @@ const Register = () => {
           </div>
 
           <div className="mt-4">
-            <GoogleLogin
-              onSuccess={handleGoogleLoginSuccess}
-              onError={handleGoogleLoginFailure}
-            />
-          </div>
-
-          <div className="mt-4 text-sm text-center text-gray-600">
-            Already have an account?{" "}
             <button
               type="button"
-              onClick={LoginClick}
-              className="text-blue-600 hover:underline"
+              onClick={() => (window.location.href = 'https://accounts.google.com')}
+              className="flex items-center justify-center w-full py-3 font-semibold text-white transition duration-300 ease-in-out transform bg-red-500 rounded-lg hover:bg-red-600 hover:scale-105"
             >
-              Login here
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                alt="Google Icon"
+                style={{ width: "20px", height: "20px", marginRight: "10px" }}
+              />
+              Sign in with Google
             </button>
+          </div>
+          
+          <div className="mt-4 text-center">
+            <p className="text-sm text-gray-600">
+              Already have an account?{" "}
+              <button
+                type="button"
+                onClick={LoginClick}
+                className="font-semibold text-blue-600 underline"
+              >
+                Log In
+              </button>
+            </p>
           </div>
         </form>
       </div>
