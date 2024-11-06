@@ -27,11 +27,14 @@ import Error from "./Pages/Error";
 import PrivacyPolicy from "./Pages/PrivacyPolicy"; // Added back from one version
 import User from "./Pages/User"; // Added from the other version
 import ComplainBox from "./Pages/ComplainBox";
+import Metadata from "./metadata";
+import SettingsPage from "./Pages/Settings";
 
 function App() {
   return (
     <>
       <Router>
+        <Metadata />
         <Routes>
           <Route path="/" element={<Herosection />} />
           <Route path="/Login" element={<LoginPage />} />
@@ -45,7 +48,7 @@ function App() {
           <Route path="/Notification" element={<NotificationPage />} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/ContactUs" element={<ContactUs />} />
-          <Route path="/Settings" element={<Settings />} />
+    
           <Route path="/GoogleTranslate" element={<GoogleTranslate />} />
           <Route path="/help" element={<Help />} />
           <Route path="/about" element={<AboutUs />} />
@@ -54,6 +57,7 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/help-and-support" element={<HelpAndSupport />} />
+          <Route path="/settings" element={<SettingsPage />} />
 
           <Route path="/complain" element={<ComplainBox/>} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />{" "}

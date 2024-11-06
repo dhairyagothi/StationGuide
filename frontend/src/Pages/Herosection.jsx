@@ -20,7 +20,6 @@ const Herosection = () => {
   const navigate = useNavigate();
   const [showTopButton, setShowTopButton] = useState(false);
 
-  // Navigation functions
   const LoginClick = () => navigate("/Login");
   const RegisterClick = () => navigate("/Register");
   const StationCLick = () => navigate("/Stations");
@@ -68,7 +67,6 @@ const Herosection = () => {
         Namaste !! Yatree
       </h1>
 
-      {/* Hero Section */}
       <div className="relative flex items-center justify-center bg-center bg-cover herosection">
         <div className="relative z-10 grid justify-items-center">
           <img
@@ -92,7 +90,6 @@ const Herosection = () => {
 
       <br />
 
-      {/* Action Buttons */}
       <div className="grid grid-cols-3 gap-2 pb-10 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center ">
         <div
           type="submit"
@@ -198,14 +195,12 @@ const Herosection = () => {
         </div>
       </div>
 
-      {/* Fixed Chatbot Icon */}
       <div className="fixed flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer right-5 -bottom-8 md:-bottom-7">
         <Popup />
         <Chatbot />
         <h1 className="text-xs font-bold text-black">Saarthi</h1>
       </div>
 
-      {/* Back to Top Button */}
       {showTopButton && (
         <button
           onClick={scrollToTop}

@@ -45,14 +45,19 @@ const SchedulePage = () => {
   return (
     <div className="relative flex flex-col items-center min-h-screen">
       <div className="relative w-full px-4 py-8 flex items-center justify-center flex-col">
-        <div className="w-full max-w-md mx-auto flex items-center mb-6">
-          <button onClick={() => navigate(-1)} className="text-white">
-            <IoArrowBack size={24} />
-            <span className="text-lg font-medium ml-2">Back</span>
+
+        <div className="w-9/12 bg-white rounded-lg shadow-md p-6">
+
+          <div className="w-full max-w-md mx-left flex  items-center mb-6">
+           <button
+           onClick={() => navigate(-1)}
+           className="flex items-center text-gray-800 transition-all duration-300 hover:text-white hover:bg-gray-800 border-2 border-gray-500 rounded-md px-2 py-1 shadow-sm text-sm"
+          >
+           <IoArrowBack className="mr-1" />
+           Go Back
           </button>
         </div>
 
-        <div className="w-9/12 bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-bold text-center mb-6">Train Schedule</h2>
 
           <div className="mb-4">

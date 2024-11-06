@@ -214,8 +214,8 @@ const Hamburger = () => {
 
   return (
     <div>
-      <SearchContainer>
-        <SearchIcon onClick={toggleSearch} />
+      <SearchContainer className="dark:bg-black">
+        <SearchIcon onClick={toggleSearch} className="dark:text-white"/>
         <SearchInput
           isFocused={isFocused}
           type="text"
@@ -226,6 +226,7 @@ const Hamburger = () => {
           onChange={handleSearchChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          className="dark:bg-black dark:text-white dark:placeholder:text-gray-300"
         />
         {showSearch && searchTerm && <ClearIcon onClick={clearSearch} />}
       </SearchContainer>
