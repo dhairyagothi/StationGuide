@@ -463,3 +463,9 @@ We value open communication and are happy to help!
 <!-- Added a Support section for the project README -->
 ## ⭐️ Support the Project
 If you find this project helpful, please consider giving it a ⭐ on GitHub! Your support helps to grow the project and reach more contributors.
+
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>
