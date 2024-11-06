@@ -5,7 +5,7 @@ import backicon from "../assets/svg/backicon.svg";
 import { FaFacebook, FaUser, FaPhone } from "react-icons/fa";
 import { MdAttachEmail, MdOutlinePassword } from "react-icons/md";
 import { registerValidation } from "../validations/validation";
-import jwtDecode from "jwt-decode";
+
 
 const Register = () => {
   useEffect(() => {
