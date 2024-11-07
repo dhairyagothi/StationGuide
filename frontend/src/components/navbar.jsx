@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes, FaUser, FaHandsHelping, FaBell, FaStar, FaCreditCard, FaInfoCircle } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaHandsHelping, FaBell, FaStar, FaCreditCard, FaInfoCircle, FaQuestionCircle } from 'react-icons/fa';
 import { IoSettings } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';  // Import axios
@@ -89,6 +89,10 @@ const Navbar = () => {
     navigate('/complain');
     setIsOpen(false);
   }
+  const handleFaqClick = () => {
+    navigate('/Faq');
+    setIsOpen(false);
+  };
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -158,76 +162,81 @@ const Navbar = () => {
       </div>
 
 
-      {/* Sidebar Navigation (Covers 25% on larger screens, full width on mobile) */}
-      <div className={`fixed inset-y-0 left-0 bg-white shadow-lg ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 w-[70%] lg:w-1/4`}>
+{/* Sidebar Navigation */}
+<div className={`fixed inset-y-0 left-0 bg-white shadow-lg ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 w-[70%] lg:w-1/4 flex flex-col`}>
 
-        {/* Close Button inside Sidebar */}
-        <div className="flex justify-end p-4">
-          <button onClick={toggleMenu}>
-            <FaTimes className="mr-2 text-3xl text-black" />
-          </button>
-        </div>
+  {/* Close Button */}
+  <div className="flex justify-end p-4">
+    <button onClick={toggleMenu}>
+      <FaTimes className="text-3xl text-black" />
+    </button>
+  </div>
 
-        {/* Sidebar Menu Content */}
-        <div className="flex flex-col items-center p-4 text-white bg-blue-500">
-          {/* Profile Section */}
-          <FaUser className="text-6xl" />
-          <p className="mt-2 text-lg font-semibold">Yatree</p>
-          <p className="text-sm">5.0 ★</p>
-        </div>
+  {/* Profile Section */}
+  <div className="flex flex-col items-center p-6 text-white bg-blue-500">
+    <FaUser className="text-6xl mb-2" />
+    <p className="text-lg font-semibold">Yatree</p>
+    <p className="text-sm">5.0 ★</p>
+  </div>
 
-        {/* Menu Items */}
-        <nav className="mt-4">
-          <ul className="space-y-4">
-            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handlePaymentClick}>
-              <FaCreditCard className="mr-3 text-blue-300" />
-              <span className="text-lg">Make a Payment</span>
-            </li>
-            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleHelpAndSupportClick}>
-              <FaHandsHelping className="mr-3 text-blue-300" />
-              <span className="text-lg">Help and Support</span>
-            </li>
-            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleEmergencyClick}>
-              <FaBell className="mr-3 text-blue-300" />
-              <span className="text-lg">Emergency</span>
-            </li>
-            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleAboutUsClick}>
-              <FaInfoCircle className="mr-3 text-blue-300" />
-              <span className="text-lg">About Us</span>
-            </li>
-            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleOpenModal}>
-              <FaStar className="mr-3 text-blue-300" />
-              <span className="text-lg"> Feedback </span>
-            </li>
+  {/* Sidebar Content with Scrollable Area */}
+  <div className="flex-grow overflow-y-auto">
+    <nav className="mt-6">
+      <ul className="space-y-4 px-6">
+        {/* Menu items */}
+        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handlePaymentClick}>
+          <FaCreditCard className="mr-3 text-blue-300" />
+          <span className="text-lg">Make a Payment</span>
+        </li>
+        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleHelpAndSupportClick}>
+          <FaHandsHelping className="mr-3 text-blue-300" />
+          <span className="text-lg">Help and Support</span>
+        </li>
+        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleEmergencyClick}>
+          <FaBell className="mr-3 text-blue-300" />
+          <span className="text-lg">Emergency</span>
+        </li>
+        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleAboutUsClick}>
+          <FaInfoCircle className="mr-3 text-blue-300" />
+          <span className="text-lg">About Us</span>
+        </li>
+        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleOpenModal}>
+          <FaStar className="mr-3 text-blue-300" />
+          <span className="text-lg">Feedback</span>
+        </li>
+        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleOpenComplain}>
+          <FaStar className="mr-3 text-blue-300" />
+          <span className="text-lg">Complain</span>
+        </li>
+        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleSettingsClick}>
+          <IoSettings className="mr-3 text-blue-300" />
+          <span className="text-lg">Settings</span>
+        </li>
+        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleFaqClick}>
+          <FaQuestionCircle className="mr-3 text-blue-300" />
+          <span className="text-lg">FAQ</span>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
-            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleOpenComplain}>
-              <FaStar className="mr-3 text-blue-300" />
-              <span className="text-lg"> Complain </span>
-            </li>
-            <li className="flex items-center px-4 py-2 text-black cursor-pointer hover:text-white hover:bg-blue-600" onClick={handleSettingsClick}>
-              <IoSettings className="mr-3 text-blue-300" />
-              <span className="text-lg">Settings</span>
-            </li>
-          </ul>
-        </nav>
+  {/* Footer */}
+  <div className="p-4 text-sm text-center text-gray-500 bg-white">
+    <p>© {new Date().getFullYear()} Station Saarthi. All rights reserved.</p>
+    <a
+      href="/privacy-policy"
+      onClick={() => {
+        navigate('/privacy-policy');
+        setIsOpen(false);
+      }}
+      className="block mt-2 text-blue-500 hover:underline"
+    >
+      Privacy and Policy
+    </a>
+    <span>App version 1.0.0.0</span>
+  </div>
+</div>
 
-        {/* Footer */}
-        <div className="absolute bottom-0 w-full p-4 text-sm text-center text-gray-500">
-        <p>© {new Date().getFullYear()} Station Saarthi.All rights reserved.</p>
-          <a
-            href="/privacy-policy"
-            onClick={() => {
-              navigate('/privacy-policy');
-              setIsOpen(false);
-            }}
-            className="block mb-2 text-blue-500 hover:underline"
-          >
-            Privacy and Policy
-          </a>
-          App version 1.0.0.0
-
-        </div>
-      </div>
 
       {/* Rating Modal */}
       {isModalOpen && (

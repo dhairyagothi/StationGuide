@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { FaArrowLeft, FaSearch, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { FaQuestionCircle } from "react-icons/fa";
 
 const fadeIn = keyframes`
   from {
@@ -165,6 +166,9 @@ const Hamburger = () => {
   };
   const privacyClick = () => {
     navigate("/PrivacyPolicy"); // Navigate to Privacy and Policy page
+  };
+  const FaqClick = () => {
+    navigate("/Faq");
   };
 
   const [open, setOpen] = useState(false);
