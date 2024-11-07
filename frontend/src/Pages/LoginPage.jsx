@@ -130,10 +130,7 @@ const Login = () => {
 
         {/* Password Input */}
         <div className="mb-6">
-          <label
-            className="flex gap-2 mb-2 font-semibold text-gray-700"
-            htmlFor="password"
-          >
+          <label className="flex gap-2 mb-2 font-semibold text-gray-700" htmlFor="password">
             Password <MdOutlinePassword className="h-5" />
           </label>
           <input
@@ -159,7 +156,18 @@ const Login = () => {
           {errors.password && (
             <div className="text-red-800">{errors.password}</div>
           )}
+
+          {/* Adjusted Forgot Password Link */}
+          <div className="flex justify-end mt-1" style={{ marginTop: "-25px" }}>
+            <button
+              onClick={handlePasswordRecoveryClick}
+              className="text-blue-500 underline focus:outline-none"
+            >
+              Forgot Password?
+            </button>
+          </div>
         </div>
+
 
         {/* Login Button */}
         <button
@@ -171,28 +179,20 @@ const Login = () => {
 
         {/* Google Login Button */}
         <button
-        type="button"
-        onClick="window.location.href='https://accounts.google.com'" // This triggers Google authentication
-        className="flex items-center justify-center w-full py-3 mt-4 font-semibold text-white transition duration-300 ease-in-out transform bg-red-500 rounded-lg hover:bg-red-600 hover:scale-105"
-      >
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
-          alt="Google Icon"
-          style={{ width: "20px", height: "20px", marginRight: "10px" }}
-        />
-        Sign in with Google
-      </button>
+          type="button"
+          onClick="window.location.href='https://accounts.google.com'" // This triggers Google authentication
+          className="flex items-center justify-center w-full py-3 mt-4 font-semibold text-white transition duration-300 ease-in-out transform bg-red-500 rounded-lg hover:bg-red-600 hover:scale-105"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+            alt="Google Icon"
+            style={{ width: "20px", height: "20px", marginRight: "10px" }}
+          />
+          Sign in with Google
+        </button>
       </form>
 
-      {/* Forgot Password Link */}
-      <p className="mt-4 text-gray-600">
-        <button
-          onClick={handlePasswordRecoveryClick}
-          className="text-blue-500 underline focus:outline-none"
-        >
-          Forgot Password?
-        </button>
-      </p>
+
 
       {/* Don't have an account link */}
       <p className="mt-6 text-gray-600">
