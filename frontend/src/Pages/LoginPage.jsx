@@ -190,20 +190,20 @@ const Login = () => {
           />
           Sign in with Google
         </button>
+        {/* Don't have an account link */}
+        <div className="flex justify-center">
+          <p className="mt-6 text-gray-600">
+            Don't have an account?{" "}
+            <button
+              onClick={RegisterClick}
+              className="text-blue-500 underline focus:outline-none"
+            >
+              Register
+            </button>
+          </p>
+        </div>
+
       </form>
-
-
-
-      {/* Don't have an account link */}
-      <p className="mt-6 text-gray-600">
-        Don't have an account?{" "}
-        <button
-          onClick={RegisterClick}
-          className="text-blue-500 underline focus:outline-none"
-        >
-          Register
-        </button>
-      </p>
     </div>
   );
 };
