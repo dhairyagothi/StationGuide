@@ -5,6 +5,7 @@ import {
   loginUser,
   logoutUser,
   verifyUser,
+  verifyOtp,
 } from "../controllers/authController.js";
 import { createCloakroomBooking } from "../controllers/cloakroomController.js";
 import { createWheelchairBooking } from "../controllers/WheelchairController.js";
@@ -23,6 +24,8 @@ const loginLimiter = rateLimit({
 
 // Register route
 router.post("/register", registerUser);
+
+router.post("/verify-otp", verifyOtp);
 
 // Login route with rate limiter
 router.post("/login", loginLimiter, loginUser);
