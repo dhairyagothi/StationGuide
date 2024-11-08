@@ -1,3 +1,43 @@
+<div align="center">
+
+# 🎨 STATION GUIDE 🖌️
+
+<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+Station+Guide!"/>
+</div>
+
+<div align = "center">
+<br>
+
+<table align="center">
+    <thead align="center">
+        <tr border: 1px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+            <td><b>🛠️ Languages</b></td>
+            <td><b>👥 Contributors</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/dhairyagothi/StationGuide?style=flat&logo=github"/></td>
+            <td><img alt="Forks" src="https://img.shields.io/github/forks/dhairyagothi/StationGuide?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/dhairyagothi/StationGuide?style=flat&logo=github"/></td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/dhairyagothi/StationGuide?style=flat&logo=github"/></td>
+           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/dhairyagothi/StationGuide?style=flat&color=critical&logo=github"/></td>
+           <td><img alt="GitHub language count" src="https://img.shields.io/github/languages/count/dhairyagothi/StationGuide?style=flat&color=green&logo=github"></td>
+         <td><img alt="GitHub Contributors count" src="https://img.shields.io/github/contributors/dhairyagothi/StationGuide?style=flat&color=blue&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<br>
+
+<!--Line-->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900"> 
+
 # STATION GUIDE : YOUR PLATFORM GUIDE
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -25,10 +65,14 @@ Welcome to repository of Station Guide
 <!-- Added the GSSoc Accepted image -->
 ### This project is now OFFICIALLY accepted for
 
-<div align="center">
-  <img src="https://github.com/apu52/METAVERSE/assets/114172928/e79eb6de-81b1-4ffb-b6ed-f018bb977e88" alt="GSSoC 2024 Extd" width="80%">
-</div>
-<br>
+## 📋 Participating Programs
+
+| Name                  | Logo                                                      | Purpose                                                                                                      |
+|-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)             | The coding period is from October 1st to October 30th, during which contributors make contributions and earn points on the platform. |
+| Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png) | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
+
+---
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
@@ -42,7 +86,7 @@ Welcome to repository of Station Guide
 - **[Code of Conduct](#code-of-conduct)**
 - **[How to Fork](#how-to-fork)**
 - **[Contributors](#contributors)**
-- **[Contact Information](#contact-information)**
+- **[Contact Information](#-team)**
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
@@ -403,10 +447,11 @@ Forking allows you to create a personal copy of the repository, where you can ex
 <!-- Added the Team section -->
 ## 👥 Team
 
-| ![Dhairya Gothi](https://avatars.githubusercontent.com/u/142989448?v=4&s=80)|
-|:--:|
-| **Dhairya Gothi** <br> <sub>Project Admin</sub> | 
-| [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](https://www.linkedin.com/in/dhairya-gothi-65945b288/) | 
+| ![Dhairya Gothi](https://avatars.githubusercontent.com/u/142989448?v=4&s=80) | ![Rishita](https://avatars.githubusercontent.com/u/167749636?v=4&s=80) | ![Shreya](https://media.licdn.com/dms/image/v2/D4D03AQFG5YVopdYt7g/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1727992516667?e=1735776000&v=beta&t=UxOs0ZcgEiGTENny_brMh7mZ5ObiAF7KMlJVvJyJLlM) | ![Riddhi](https://avatars.githubusercontent.com/u/180189764?v=4&s=80) | ![Mrityunjay](https://avatars.githubusercontent.com/u/137044290?v=4&s=80) | ![Prem](https://media.licdn.com/dms/image/v2/D4D03AQEfHKeIrJS3FA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1727376973786?e=1735776000&v=beta&t=7FuOV4TXYLCx7mknNwzq0QJJk97iiQz3YZ4orvRbg0k) |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| **Dhairya Gothi** <br> <sub>Project Admin</sub> | **Rishita** <br> <sub>Co-lead</sub> | **Shreya** <br> <sub>Researcher</sub> | **Riddhi** <br> <sub>Designer</sub> | **Mrityunjay** <br> <sub>Developer</sub> | **Prem** <br> <sub>Developer</sub> |
+| [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](https://www.linkedin.com/in/dhairya-gothi-65945b288/) | [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](#) | [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](#) | [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](#) | [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](#) | [![LinkedIn](https://img.icons8.com/fluency/32/000000/linkedin.png)](#) |
+
 
 If you have questions, suggestions, or feedback, please reach out via email at dhairyag31@gmail.com. You can also join our [discussion forum](https://github.com/dhairyagothi/StationGuide/discussions).
 
@@ -418,3 +463,9 @@ We value open communication and are happy to help!
 <!-- Added a Support section for the project README -->
 ## ⭐️ Support the Project
 If you find this project helpful, please consider giving it a ⭐ on GitHub! Your support helps to grow the project and reach more contributors.
+
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>

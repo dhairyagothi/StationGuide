@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import backicon from '../assets/svg/backicon.svg';
+import { useNavigate } from 'react-router-dom';
 
 const ContributorCard = ({ login, avatar_url, html_url, contributions, type }) => (
   <motion.div
@@ -59,6 +61,8 @@ const contributor = () => {
   const [repoStats, setRepoStats] = useState({});
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState('');
+  const navigate = useNavigate();
+  const HomeClick = () => navigate('/');
 
   useEffect(() => {
     document.title = 'Station Saarthi | Contributors'; 
@@ -97,6 +101,9 @@ const contributor = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
+      <button onClick={HomeClick} className='absolute top-0 left-0 z-[99]'> 
+    <img src={backicon} alt="" className='h-[9vh]' />
+                </button> 
       <section className="relative h-[70vh] flex items-center justify-center text-center bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="absolute inset-0 bg-black opacity-50" />
         <div className="relative z-10 max-w-4xl px-4 mx-auto space-y-6">
@@ -232,7 +239,7 @@ const contributor = () => {
             <p className="text-gray-400">Building a better future for public transportation.</p>
           </div>
           <nav className="flex flex-wrap justify-center gap-6">
-            <a href="#" className="text-gray-300 transition-colors hover:text-white">Home</a>
+            <a href="/" className="text-gray-300 transition-colors hover:text-white">Home</a>
             <a href="#" className="text-gray-300 transition-colors hover:text-white">Documentation</a>
             <a href="https://github.com/dhairyagothi/StationGuide" target="_blank" rel="noopener noreferrer" className="text-gray-300 transition-colors hover:text-white">GitHub</a>
             <a href="#" className="text-gray-300 transition-colors hover:text-white">Contact</a>

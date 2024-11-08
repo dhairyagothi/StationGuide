@@ -32,6 +32,18 @@ const userSchema = new Schema({
     type: String,
     trim: true,
     default: '', 
+  },
+  otp: {
+    type: String, // The OTP code
+    required: false,
+  },
+  otpExpiry: {
+    type: Date,   // The OTP expiry timestamp
+    required: false,
+  },
+  isVerified: {
+    type: Boolean,
+    default: false,  // This field will be set to true once the email is verified
   }
 }, {
   timestamps: true

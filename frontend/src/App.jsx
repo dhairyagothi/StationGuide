@@ -16,51 +16,62 @@ import NotificationPage from "./Pages/notification";
 import Chatbot from "./components/chatbot";
 import ContactUs from "./Pages/ContactUs";
 import Settings from "./components/Settings";
+import GoogleTranslate from "./Pages/GoogleTranslate";
 import Help from "./components/help";
-import About from "./components/about";
 import Contributor from "./Pages/contributor";
 import Payment from "./Pages/Payment";
 import HelpAndSupport from "./Pages/HelpandSupport";
 import Emergency from "./Pages/Emergency";
 import AboutUs from "./Pages/AboutUs";
 import Error from "./Pages/Error";
-import User from "./Pages/User";
+import PrivacyPolicy from "./Pages/PrivacyPolicy"; // Added back from one version
+import User from "./Pages/User"; // Added from the other version
+import ComplainBox from "./Pages/ComplainBox";
+import Metadata from "./metadata";
+import SettingsPage from "./Pages/Settings";
+import Faq from './Pages/Faq';
 
 function App() {
   return (
     <>
       <Router>
+        <Metadata />
         <Routes>
-          <Route path='/' element={<Herosection />} />
-          <Route path='/Login' element={<LoginPage />} />
-          <Route path='/Register' element={<Register />} />
-          <Route path='/password-recovery' element={<PasswordRecovery />} />
-          <Route path='/Stations' element={<RailwayStations />} />
-          <Route path='/Navigation' element={<NavigationPage />} />
-          <Route path='/Booking' element={<BookingPage />} />
-          <Route path='/3DMap' element={<MapPage />} />
-          <Route path='/Schedule' element={<SchedulePage />} />
-          <Route path='/Notification' element={<NotificationPage />} />
-          <Route path='/chatbot' element={<Chatbot />} />
-          <Route path='/ContactUs' element={<ContactUs />} />
-          <Route path='/Settings' element={<Settings />} />
-          <Route path='/help' element={<Help />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contributor' element={<Contributor />} />
-          <Route path='/payment' element={<Payment />} />
-          <Route path='/aboutus' element={<AboutUs />} />
-          <Route path='/emergency' element={<Emergency />} />
-          <Route path='/help-and-support' element={<HelpAndSupport />} />
-          <Route path='/help-and-support' element={<HelpAndSupport />} />
-          <Route path='*' element={<Error />} />
-          <Route path='/user' element={<User />} />
-          {/* This route is just for testing protected routes it can be removed later when there is a route other than login or signup */}
+          <Route path="/" element={<Herosection />} />
+          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/password-recovery" element={<PasswordRecovery />} />
+          <Route path="/Stations" element={<RailwayStations />} />
+          <Route path="/Navigation" element={<NavigationPage />} />
+          <Route path="/Booking" element={<BookingPage />} />
+          <Route path="/3DMap" element={<MapPage />} />
+          <Route path="/Schedule" element={<SchedulePage />} />
+          <Route path="/Notification" element={<NotificationPage />} />
+          <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/ContactUs" element={<ContactUs />} />
+    
+          <Route path="/GoogleTranslate" element={<GoogleTranslate />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contributor" element={<Contributor />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/emergency" element={<Emergency />} />
+          <Route path="/help-and-support" element={<HelpAndSupport />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/Faq" element={<Faq />} />
+          <Route path="/complain" element={<ComplainBox/>} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />{" "}
+          {/* Restored PrivacyPolicy */}
+          <Route path="/user" element={<User />} /> {/* Added User */}
+          <Route path="*" element={<Error />} />
         </Routes>
       </Router>
 
+      {/* Optional chatbot icon at the bottom right */}
       {/* <div className='fixed bottom-0 right-0 z-50 m-4 cursor-pointer'>
-      <img src={chatbotsvg} alt="chatbot" className='w-16 h-16' />
-    </div> */}
+        <img src={chatbotsvg} alt="chatbot" className='w-16 h-16' />
+      </div> */}
     </>
   );
 }
@@ -70,7 +81,6 @@ export default App;
 export function ProtectedRoute() {
   const navigate = useNavigate();
 
-  // Async function to verify the token
   const verifyToken = async () => {
     try {
       const res = await fetch("http://localhost:3000/auth/verify", {
@@ -82,18 +92,18 @@ export function ProtectedRoute() {
       });
 
       const data = await res.json();
-      console.log("Token Verification error:", data.error); // For debugging
+      console.log("Token Verification error:", data.error);
 
       if (data.error || res.status === 400 || res.status === 500) {
-        navigate("/Login");
+        navigate('/Login');
       }
 
       if (res.status === 400 || res.status === 500) {
-        navigate("/Login");
+        navigate('/Login');
       }
     } catch (error) {
-      console.error("Error verifying token:", error);
-      navigate("/Login");
+      console.error('Error verifying token:', error);
+      navigate('/Login');
     }
   };
 
@@ -101,6 +111,5 @@ export function ProtectedRoute() {
     verifyToken();
   }, [navigate]);
 
-  // If everything is fine, render the protected content
   return <Outlet />;
 }
