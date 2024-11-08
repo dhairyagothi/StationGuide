@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./src/assets/stationsaarthi.svg" />
@@ -10,18 +11,15 @@
     onerror="handleError(this)"
 ></script> -->
 
-<title>Station Saarthi</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />        <style>
-        /* Style for the Google Translate element */
+    <title>Station Saarthi</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
         #google_element {
             position: absolute;
             top: 10px;
-            /* Distance from the top */
-            /* Position between middle and left corner */
             margin: 40px;
             transform: translateX(-20%);
-            /* Adjust for half the element's width */
-            /* Ensure it stays on top */
         }
 
         /* Circle styles */
@@ -33,12 +31,13 @@
             top: 0;
             left: 0;
             position: absolute;
-            /* pointer-events: none; */
+            pointer-events: none;
             z-index: 99999999;
-            visibility: hidden; 
-            opacity: 0;        
+            visibility: hidden;
+            opacity: 0;
             transition: opacity 0.3s ease;
         }
+
         .hidden {
             display: none;
         }
@@ -87,14 +86,12 @@
         /* Google Translate Modal */
         #google_translate_modal {
             display: none;
-            /* Hidden by default */
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
-            /* Semi-transparent background */
             justify-content: center;
             align-items: center;
 
@@ -109,25 +106,18 @@
             box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
             position: relative;
             width: 80%;
-            
             max-width: 500px;
             padding: 10px 15px;
-            /* Padding for better spacing inside the button */
             border-radius: 8px;
-            /* Rounded corners */
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            /* Soft shadow for a 3D effect */
             color: #fff;
-            /* Text color */
             font-family: 'Arial', sans-serif;
-            /* Custom font for better readability */
             font-size: 14px;
-            /* Adjust font size */
             cursor: pointer;
-            /* Pointer for clickable look */
         }
 
         /* Close Button */
+
         /* .close-btn {
             position: absolute;
             top: 10px;
@@ -146,6 +136,7 @@
         } */
 
         /* Google Translate Element Styling
+
         #google_translate_element {
             margin-top: 20px;
             text-align: center;
@@ -209,102 +200,108 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-    #bgCanvas {
+
+        /* This ensures the canvas is behind other content */
+        #bgCanvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            /* This ensures the canvas is behind other content */
         }
 
         .content {
             position: relative;
             z-index: 1;
+
             /* This ensures the content is in front of the canvas */
             padding: 20px;
         }
 
         #bgCanvas {
             filter: blur(5px);
-            /* Adjust the value to control the blur strength */
         }
+
         #loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background: rgb(191 219 254) url('./src/assets/stationsaarthi.svg') no-repeat center center;
-  z-index: 100;
-}
-.content{
-    padding: 0px;
-}
-#loader h3{
-    text-align: center;
-    font-size: xx-large;
-    top: 65%;
-    position: relative;
-    color: black;
-    font-weight: 700;
-    
-    
-}
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            background: rgb(191 219 254) url('./src/assets/stationsaarthi.svg') no-repeat center center;
+            z-index: 100;
+        }
 
-#loader  {
-    animation: fadeInOutAnimation ease 2.5s infinite;
-}
+        .content {
+            padding: 0px;
+        }
 
-@keyframes fadeInOutAnimation {
-    0%, 100% { 
-        opacity: 0;
-    }
-    50% { 
-        opacity: 1;
-    }
-
-    
-}
+        #loader h3 {
+            text-align: center;
+            font-size: xx-large;
+            top: 65%;
+            position: relative;
+            color: black;
+            font-weight: 700;
 
 
+        }
+
+        #loader {
+            animation: fadeInOutAnimation ease 2.5s infinite;
+        }
+
+        @keyframes fadeInOutAnimation {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
 
 
-</style>    
+        }
+    </style>
 </head>
+
 <body class="load">
-    <div id="loader"><h3 >Station Saarthi - Your Platform Guide </h3></div>
+    <div id="loader">
+        <h3>Station Saarthi - Your Platform Guide </h3>
+    </div>
 
     <canvas id="bgCanvas"> </canvas>
     <div class="content">
-       
-    
-    <!-- Circles -->
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <!-- <div id="languageIcon" title="Change Language">
-        🌐 
-    </div> -->
-    <!-- <div class="chatbot-container"></div>
+
+
+        <!-- Circles -->
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <!-- <div id="languageIcon" title="Change Language">
+            🌐
+        </div> -->
+        <!-- <div class="chatbot-container"></div>
     <div class="chatbot" id="chatbotIcon">
         <img src="https://cdn-icons-png.flaticon.com/512/8943/8943377.png" alt="Chatbot Icon" />
     </div>
@@ -314,7 +311,7 @@
         <textarea id="chatInput" rows="4" placeholder="Type your message..."></textarea>
         <button id="sendMessage">Send</button>
     </div> -->
-<!-- 
+        <!-- 
     <script>
         // Variable to track if the welcome message has been displayed
         let welcomeMessageDisplayed = false;
@@ -412,10 +409,10 @@ document.getElementById('sendMessage').addEventListener('click', function () {
 
     </script> -->
 
-   
-   
- 
-   <!-- <div id="google_translate_modal" class="flex">
+
+
+
+        <!-- <div id="google_translate_modal" class="flex">
     <div class="modal-content">
        
         <button class="close-btn" id="closeBtn">✖</button>
@@ -423,7 +420,7 @@ document.getElementById('sendMessage').addEventListener('click', function () {
         <div id="google_translate_element"></div>
     </div>
 </div> -->
-<!-- 
+        <!-- 
 <script type="text/javascript">
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
@@ -497,75 +494,75 @@ document.getElementById('sendMessage').addEventListener('click', function () {
     
 </script> -->
 
-     <div id="root"></div>
-     <script type="module" src="/src/main.jsx"></script>
+        <div id="root"></div>
+        <script type="module" src="/src/main.jsx"></script>
 
-    
-    <script>
-        // Coordinates for the cursor
-        const coords = { x: 0, y: 0 };
-        const circles = document.querySelectorAll(".circle");
 
-        // Colors for the circles
-        const colors = [
-            "#6bb5ff", "#69b1fd", "#63a3f8", "#619bf5", "#5e89ef", "#5d82ec",
-            "#5c6ee3", "#5c68df", "#5c58d5", "#5c52d1", "#5d41c5", "#5d3bc0",
-            "#5e2cb2", "#5e26ac", "#5f159c", "#5f0f95", "#600083", "#60007c",
-            "#600068", "#5f0060", "#5f0048", "#5e003d"
-        ];
+        <script>
+            // Coordinates for the cursor
+            const coords = { x: 0, y: 0 };
+            const circles = document.querySelectorAll(".circle");
 
-        // Assign colors, initial position, and size to each circle
-        circles.forEach(function (circle, index) {
-            circle.x = 0;
-            circle.y = 0;
-            circle.style.backgroundColor = colors[index % colors.length];
-            circle.style.position = 'absolute';
-            circle.style.borderRadius = '50%';
-            circle.style.width = `${5 + (index * 2)}px`;
-            circle.style.height = `${5 + (index * 2)}px`;
-            circle.style.opacity = `${(circles.length - index) / circles.length}`;          // Fading effect
-            circle.style.visibility = 'hidden';
-        });
+            // Colors for the circles
+            const colors = [
+                "#6bb5ff", "#69b1fd", "#63a3f8", "#619bf5", "#5e89ef", "#5d82ec",
+                "#5c6ee3", "#5c68df", "#5c58d5", "#5c52d1", "#5d41c5", "#5d3bc0",
+                "#5e2cb2", "#5e26ac", "#5f159c", "#5f0f95", "#600083", "#60007c",
+                "#600068", "#5f0060", "#5f0048", "#5e003d"
+            ];
 
-        let animationId = null;
-        let isMouseOnScreen = false;
-
-        // Easing function to make the animation smoother
-        function lerp(start, end, t) {
-            return start * (1 - t) + end * t;
-        }
-
-        // Animation function to move the circles with a trailing effect
-        function animateCircles() {
-            if (!isMouseOnScreen) {
-                return; 
-            }
-        
-            let x = coords.x;
-            let y = coords.y;
-        
+            // Assign colors, initial position, and size to each circle
             circles.forEach(function (circle, index) {
-                const nextCircle = circles[index + 1] || circles[0];
-
-                // Apply easing for smoother movements
-                circle.x = lerp(circle.x, x, 0.4);  // Adjusted for quicker reaction
-                circle.y = lerp(circle.y, y, 0.4);
-
-                // Positioning the circle closer to the cursor
-                circle.style.left = circle.x - circle.offsetWidth / 4 + "px";
-                circle.style.top = circle.y - circle.offsetHeight / 4 + "px";
-                
-                // Scale down each circle progressively to create depth
-                circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
-
-                // Update position for the next circle, adjusted for closer proximity
-                x += (nextCircle.x - x) * 0.2;  // Smaller multiplier for tighter following
-                y += (nextCircle.y - y) * 0.2;
+                circle.x = 0;
+                circle.y = 0;
+                circle.style.backgroundColor = colors[index % colors.length];
+                circle.style.position = 'absolute';
+                circle.style.borderRadius = '50%';
+                circle.style.width = `${5 + (index * 2)}px`;
+                circle.style.height = `${5 + (index * 2)}px`;
+                circle.style.opacity = `${(circles.length - index) / circles.length}`;          // Fading effect
+                circle.style.visibility = 'hidden';
             });
-        
-            // Repeat the animation
-            animationId = requestAnimationFrame(animateCircles);
-        }
+
+            let animationId = null;
+            let isMouseOnScreen = false;
+
+            // Easing function to make the animation smoother
+            function lerp(start, end, t) {
+                return start * (1 - t) + end * t;
+            }
+
+            // Animation function to move the circles with a trailing effect
+            function animateCircles() {
+                if (!isMouseOnScreen) {
+                    return;
+                }
+
+                let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                    const nextCircle = circles[index + 1] || circles[0];
+
+                    // Apply easing for smoother movements
+                    circle.x = lerp(circle.x, x, 0.4);  // Adjusted for quicker reaction
+                    circle.y = lerp(circle.y, y, 0.4);
+
+                    // Positioning the circle closer to the cursor
+                    circle.style.left = circle.x - circle.offsetWidth / 4 + "px";
+                    circle.style.top = circle.y - circle.offsetHeight / 4 + "px";
+
+                    // Scale down each circle progressively to create depth
+                    circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+                    // Update position for the next circle, adjusted for closer proximity
+                    x += (nextCircle.x - x) * 0.2;  // Smaller multiplier for tighter following
+                    y += (nextCircle.y - y) * 0.2;
+                });
+
+                // Repeat the animation
+                animationId = requestAnimationFrame(animateCircles);
+            }
             // Start the animation
 
             function startAnimation() {
@@ -602,17 +599,17 @@ document.getElementById('sendMessage').addEventListener('click', function () {
             document.addEventListener("mouseleave", function () {
                 console.log("Mouse left the window");
                 stopAnimation();
-            
+
                 setTimeout(() => {
                     if (!isMouseOnScreen) {
                         circles.forEach(circle => circle.style.visibility = 'hidden');
                     }
-                }, 100); 
+                }, 100);
             });
 
             document.addEventListener("unload", stopAnimation);
 
-            document.addEventListener("visibilitychange", function() {
+            document.addEventListener("visibilitychange", function () {
                 if (document.hidden) {
                     stopAnimation();
                 }
@@ -624,32 +621,30 @@ document.getElementById('sendMessage').addEventListener('click', function () {
 
         <!--pop up html part-->
 
-        
-<script>
-    window.addEventListener("load", () => {
-        const loader = document.getElementById("loader");
-        loader.style.display = "none";
-    })
-</script>
-<script>
-window.embeddedChatbotConfig = {
-chatbotId: "QAwKOas58trQuGOp1S2cK",
-domain: "www.chatbase.co"
-}
-</script>
-<script
-src="https://www.chatbase.co/embed.min.js"
-chatbotId="QAwKOas58trQuGOp1S2cK"
-domain="www.chatbase.co"
-defer>
-</script>
+
+        <script>
+            window.addEventListener("load", () => {
+                const loader = document.getElementById("loader");
+                loader.style.display = "none";
+            })
+        </script>
+        <script>
+            window.embeddedChatbotConfig = {
+                chatbotId: "QAwKOas58trQuGOp1S2cK",
+                domain: "www.chatbase.co"
+            }
+        </script>
+        <script src="https://www.chatbase.co/embed.min.js" chatbotId="QAwKOas58trQuGOp1S2cK" domain="www.chatbase.co"
+            defer>
+            </script>
     </div>
 
-      
-      <script>
+
+    <script>
         document.getElementById("year").innerText = new Date().getFullYear();
-      </script>
-      
+    </script>
+
 
 </body>
+
 </html>

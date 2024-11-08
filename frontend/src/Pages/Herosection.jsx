@@ -53,6 +53,9 @@ const Herosection = () => {
   const ContributorCLick = () => {
     navigate("/contributor"); // Navigates to the login page
   };
+  const ContactClick = () => {
+    navigate("/contactus");
+  };
 
   return (
     <>
@@ -93,8 +96,21 @@ const Herosection = () => {
             <img src={bgmobile} alt="" style={{ position: "absolute", bottom: 0, zIndex: "10" }} className="md:hidden" /> */}
       </div>
       <br></br>
-
+          
       <div className="dark:bg-black grid grid-cols-3 gap-2 pb-10 mt-32 md:flex md:flex-row md:justify-evenly justify-items-center ">
+      <div
+          type="submit"
+          onClick={ContactClick}
+          className="fixed flex flex-col items-center justify-center py-8 my-auto rounded-full cursor-pointer  left-3 -bottom-16 md:bottom-24"
+        >
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADEUlEQVR4nO2Zy08TURTG+4cNUawPFhJi0PhYEB+RNBo3LnztRHnUBiiUgtRKKxIXVROqlWopveKD4EJjVQK2/0fnPcecRpM+h3unM3MHw+LbNc395Zx7zne/8ZGyAf+DfLwPsA9S9mhF0kUdQlkFAkkZTk5L4B+pwPFxEe6mFciXPN5aayUD4p80uBSXoWuoAkIbnZuVIPNT9x5IoWzAdF6F3gmx7eGFBp0Ii/DaBMZ1kMVNDU7PSNQAQo2w5d5ucwZZ3THg9nMFuu6xAwg1uvBIrrYkF5Cnmxr0henbSNhFN1KK+yDBrAIH7tsDIPwVDobYB9UdkNy2AVcXZVsBhNpJNic5D4LTxeqFFijlHxWdBXnxTYe+Sfvug9BGZ6IOViSxocGRMech/KNidYA4ArLwWYNDI84CCEMVuBiXYbnYvBhtAZlfV+HgsLMAh8fEqhdrd4aOQaIF1fbxKjRoMCGb2pOOQR6us0P0hMSqzxpc2H009zwQYaZQvy9sB3n8UWNuJ5z9r37odb7rbLT1mA4kZXjzy7wKHYMkNzToZoTACuR/N/8X+qaJd2p173SPVOBURIK593RV6Agk9VVnHrG44VsZPTvlY/kxlpp12V1/pjgOQVhA0Dux2o47L9uPS24g15Zkz0IQWpDgisLcTm5CEBoQ9DQsu+LKE+cvNmEFwecpPvppIc7HpJYjljvIzRR9S+EgyO3wgSBmILh1aYOCY0ERlr/Tb2HXQApltlE7lWffxK6ATOVVNvuRkL0HslYyoHec/ZWHDytPgUQLbNWoTQELJQ+BDMxbTz8mc6o3QNJF3TQVZ002uIGEsmxWpFH4RvEESCDZWTLYH/FIRfojnaWDs8Qjd8Q/ah0CzSIvCNIIYmV/oI4GRcgwBAWOgwxnrF122sjGNZC1kgEDMWnP2RPSaiGubOnVLU3VUmPmHyi5ghBMS7bovm+EV/m3FDEDQeEj6bJJrImpOO/DExqQf3fmVkppsi2YjKdrok8vyEfzI/zwiBkthhDYcktf+Fp2YhVkL8jH+wD7IOX6ivwBG1++6j5JMzMAAAAASUVORK5CYII=" alt="phone-disconnected"
+            className="
+      bg-blue-200 border-2 border-blue-100 rounded-full  dark:bg-black
+      w-[64px] h-[64px] p-2
+    "
+          />
+          <h1 className="text-xs font-bold text-black dark:text-white">Contact Us</h1>
+        </div>
         <div
           type="submit"
           onClick={ContributorCLick}
