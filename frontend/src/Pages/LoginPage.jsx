@@ -7,6 +7,8 @@ import { MdOutlinePassword } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { auth, provider, signInWithPopup } from "./Firebase"; // Import Firebase authentication methods
 import { FaGoogle } from "react-icons/fa"; // Import Google icon
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Login = () => {
   useEffect(() => {
@@ -19,6 +21,7 @@ const Login = () => {
   const [errors, setErrors] = useState({});
   const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
+  const [loader, SetLoader] = useState(false);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -34,26 +37,27 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+    SetLoader(true);
     try {
       await loginValidation.validate(
         { username, password },
         { abortEarly: false }
       );
       setErrors({});
+
+      // Handle login logic here
+      setLoginSuccess(true);
+      setUsername("");
+      setPassword("");
     } catch (error) {
       const newErrors = {};
       error.inner.forEach((err) => {
         newErrors[err.path] = err.message;
       });
       setErrors(newErrors);
-      return;
+    } finally {
+      SetLoader(false);
     }
-
-    // Handle login logic here
-    setLoginSuccess(true);
-    setUsername("");
-    setPassword("");
   };
 
   const handlePasswordRecoveryClick = () => {
@@ -73,6 +77,12 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-100 to-blue-500">
+      <Backdrop
+        sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}
+        open={loader}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <button onClick={HomeClick} className="absolute left-0 top-2">
         <img src={backicon} alt="" className="h-[5vh]" />
       </button>
@@ -171,17 +181,17 @@ const Login = () => {
 
         {/* Google Login Button */}
         <button
-        type="button"
-        onClick="window.location.href='https://accounts.google.com'" // This triggers Google authentication
-        className="flex items-center justify-center w-full py-3 mt-4 font-semibold text-white transition duration-300 ease-in-out transform bg-red-500 rounded-lg hover:bg-red-600 hover:scale-105"
-      >
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
-          alt="Google Icon"
-          style={{ width: "20px", height: "20px", marginRight: "10px" }}
-        />
-        Sign in with Google
-      </button>
+          type="button"
+          onClick="window.location.href='https://accounts.google.com'" // This triggers Google authentication
+          className="flex items-center justify-center w-full py-3 mt-4 font-semibold text-white transition duration-300 ease-in-out transform bg-red-500 rounded-lg hover:bg-red-600 hover:scale-105"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+            alt="Google Icon"
+            style={{ width: "20px", height: "20px", marginRight: "10px" }}
+          />
+          Sign in with Google
+        </button>
       </form>
 
       {/* Forgot Password Link */}
