@@ -3,6 +3,15 @@ import crypto from 'crypto'; // For generating OTP
 import nodemailer from 'nodemailer';
 import { hashPassword, comparePassword, generateToken, verifyToken, addCookie, getCookies, removeCookie } from '../utils/authFunctions.js';
 
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail', 
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
 export const registerUser = async (req, res) => {
   try {
     const { name, email, phoneNumber, password, isGoogle } = req.body;
@@ -78,13 +87,6 @@ export const registerUser = async (req, res) => {
 
 const sendOtpEmail = async (userEmail, otp) => {
   try {
-    const transporter = nodemailer.createTransport({
-      service: 'gmail', // Or use another email provider
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
@@ -162,6 +164,77 @@ export const loginUser = async (req, res) => {
     res.status(200).json({ message: 'User logged in successfully', userId: user._id, token: token });
   } catch (error) {
     res.status(500).json({ error: error | 'Internal Server Error' });
+  }
+};
+
+async function sendResetOtpEmail(email, otp) {
+  await transporter.sendMail({
+    from: 'Station Sarthi <noreply@gmail.com>',
+    to: email,
+    subject: 'Password Reset OTP - Station Sarti',
+    text: `Your OTP for password reset is ${otp}. It will expire in 1 hour.`
+  });
+}
+
+// Route 1: Request Password Reset (Sends OTP)
+export const requestPasswordReset = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ error: 'Email is required' });
+    }
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ error: 'User with this email does not exist' });
+    }
+
+    const otp = crypto.randomInt(100000, 999999).toString(); // Generate OTP
+    user.otp = otp;
+    user.otpExpiry = Date.now() + 3600000; // OTP expires in 1 hour
+    await user.save();
+
+    await sendResetOtpEmail(email, otp);
+
+    res.status(200).json({ message: 'OTP sent to email for password reset' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message || 'Internal Server Error' });
+  }
+};
+
+// Route 2: Verify OTP and Reset Password
+export const resetPassword = async (req, res) => {
+  try {
+    const { email, otp, newPassword } = req.body;
+
+    if (!email || !otp || !newPassword) {
+      return res.status(400).json({ error: 'Email, OTP, and new password are required' });
+    }
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ error: 'User does not exist' });
+    }
+
+    // Check if OTP is valid
+    if (user.otp !== otp || user.otpExpiry < Date.now()) {
+      return res.status(400).json({ error: 'Invalid or expired OTP' });
+    }
+
+    // Hash the new password and reset OTP fields
+    user.password = await hashPassword(newPassword);
+    user.otp = null;
+    user.otpExpiry = null;
+    await user.save();
+
+    res.status(200).json({ message: 'Password has been reset successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message || 'Internal Server Error' });
   }
 };
 

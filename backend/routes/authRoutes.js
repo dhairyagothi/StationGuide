@@ -6,6 +6,8 @@ import {
   logoutUser,
   verifyUser,
   verifyOtp,
+  requestPasswordReset,
+  resetPassword,
 } from "../controllers/authController.js";
 import { createCloakroomBooking } from "../controllers/cloakroomController.js";
 import { createWheelchairBooking } from "../controllers/WheelchairController.js";
@@ -29,6 +31,12 @@ router.post("/verify-otp", verifyOtp);
 
 // Login route with rate limiter
 router.post("/login", loginLimiter, loginUser);
+
+// Route to request OTP for password reset
+router.post('/request-password-reset', requestPasswordReset);
+
+// Route to reset password after OTP verification
+router.post('/reset-password', resetPassword);
 
 // Logout route
 router.post("/logout", verifyJWT, logoutUser);
