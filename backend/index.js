@@ -4,6 +4,10 @@ import connectDB from "./config/dbConnection.js";
 import cookieParser from "cookie-parser";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import passport from 'passport';
+import session from 'express-session';
+import googleAuth from "./googleAuth.js";
+
 
 
 
@@ -24,6 +28,16 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: 'your-secret-key', // Use a secure secret key in production
+  resave: false,
+  saveUninitialized: true,
+}));
+
+// Initialize Passport.js
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 connectDB();
 
@@ -46,6 +60,7 @@ app.use("/api", ticketRoutes);
 app.use("/station", stationRoutes);
 app.use("/train", trainRoutes);
 app.use("/contact", contactUs);
+app.use(googleAuth)
 
 
 app.get("/", (req, res) => {

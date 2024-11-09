@@ -7,6 +7,7 @@ import { MdAttachEmail, MdOutlinePassword } from "react-icons/md";
 import { registerValidation } from "../validations/validation";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import { GoogleLogin } from '@react-oauth/google'; 
 
 const Register = () => {
   useEffect(() => {
@@ -86,7 +87,17 @@ const Register = () => {
       SetLoader(false);
     }
   };
-
+  const handleGoogleLogin = async (response) => {
+    SetLoader(true);
+    try {
+      // Redirect user to Google OAuth authentication
+      window.location.href = "http://localhost:3000/auth/google"; // This will trigger Google login process
+    } catch (error) {
+      setConfirmationMessage("Google login failed. Please try again.");
+    }
+    SetLoader(false);
+  };
+  
   useEffect(() => {
     if (confirmationMessage) {
       const timer = setTimeout(() => setConfirmationMessage(""), 3000);
@@ -276,9 +287,7 @@ const Register = () => {
           <div className="mt-4">
             <button
               type="button"
-              onClick={() =>
-                (window.location.href = "https://accounts.google.com")
-              }
+              onClick={handleGoogleLogin}
               className="flex items-center justify-center w-full py-3 font-semibold text-white transition duration-300 ease-in-out transform bg-red-500 rounded-lg hover:bg-red-600 hover:scale-105"
             >
               <img
