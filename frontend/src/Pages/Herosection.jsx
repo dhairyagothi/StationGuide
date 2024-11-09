@@ -1,6 +1,6 @@
 import React from "react";
 import "./Herosection.css";
-import ThemeToggle from "../components/ThemeToggle"
+// import ThemeToggle from "../components/ThemeToggle"
 import logo from "../assets/stationsaarthi.svg";
 import navigationsvg from "../assets/svg/navigation.svg";
 import bookingsvg from "../assets/svg/bookings.svg";
@@ -18,7 +18,7 @@ import Navbar from "../components/navbar";
 import Language from "../components/language";
 import { FaUserAlt } from "react-icons/fa";
 import Popup from "../components/popup";
-import GoogleTranslate from "./GoogleTranslate";
+// import GoogleTranslate from "./GoogleTranslate";
 
 const Herosection = () => {
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ const Herosection = () => {
       <div className="relative z-50 flex items-center justify-between gap-[88vw]">
         <div className="flex flex-col gap-x-2">
           <Navbar />
-          <ThemeToggle />
+          
         </div>
 
         <div className="flex items-center justify-center">
@@ -79,7 +79,7 @@ const Herosection = () => {
         className="translate relative z-50 flex items-center"
         style={{ marginLeft: "70px", top: "-100px" }}
       >
-        <GoogleTranslate />
+        {/* <GoogleTranslate /> */}
       </div>
 
       <h1 className="pl-4 text-4xl font-black text-center text-white">

@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes, FaUser, FaHandsHelping, FaBell, FaStar, FaCreditCard, FaInfoCircle, FaQuestionCircle } from 'react-icons/fa';
 import { IoSettings } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
+import ThemeToggle from "../components/ThemeToggle"
 import axios from 'axios';  // Import axios
+
+import GoogleTranslate from "../Pages/GoogleTranslate";
+ 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,145 +102,64 @@ const Navbar = () => {
     setIsModalOpen(true);
   };
 
+ 
   return (
     <>
-      {/* Navigation Toggle for All Screens (Mobile and Larger Screens) */}
-      <div className="flex items-center justify-between p-4 bg-blue-500 dark:bg-black">
-        <button onClick={toggleMenu}>
-          {isOpen ? <FaTimes className="text-2xl text-black" /> : <FaBars className="text-2xl text-white" />}
-        </button>
-
-        {/* Google Translate widget with dynamic z-index */}
-        <div
-          id="google_element"
-          className="google-translate-container"
-          style={{
-            position: 'fixed',
-            top: '-40px',          // Adjust top positioning as needed
-            left: '60px',        // Adjust right positioning as needed
-            zIndex: isOpen ? -1 : 10,  // Lower z-index when sidebar is open
-          }}
-        >
-          <style jsx>
-            {`
-        .goog-te-combo {
-          display: inline-block;
-          background-color: white;
-          border: 3px solid blue;
-          border-radius: 0.5rem;
-          padding: 0.5rem 1rem;
-          font-size: 0.9rem;
-          transition: all 0.3s ease;
-          outline: none;
-          color: black;
-          font-weight: 500;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-        }
-        .goog-te-combo:hover {
-          box-shadow: 0 6px 8px rgba(0, 0, 0, 0.8);
-        }
-        .goog-logo-link, .goog-te-gadget > span > a {
-          display: none !important;
-        }
-        .goog-te-gadget .goog-te-combo {
-          color: blue;
-        }
-        .goog-te-gadget-simple .goog-te-menu-value span:first-child {
-          display: none;
-        }
-        .goog-te-gadget-simple .goog-te-menu-value:before {
-          content: "Translate";
-          color: #c01c1c;
-        }
-        .goog-te-banner-frame, .goog-te-menu-frame {
-          display: none !important;
-        }
-        .skiptranslate > iframe {
-          height: 0 !important;
-          border-style: none;
-          box-shadow: none;
-        }
-      `}
-          </style>
+      {/* Top Horizontal Navbar */}
+      
+      <div className="flex items-center justify-between p-4 bg-white shadow-md space-x-20 overflow-x-auto">
+        <div className="flex items-center space-x-4">
+          <FaUser className="text-3xl text-blue-500" />
+          <span className="text-lg font-semibold">Yatree</span>
         </div>
+        
+        <nav className="flex items-center space-x-8 text-gray-700 ">
+          <div onClick={() => handleNavigation('/payment')} className="flex items-center cursor-pointer hover:text-blue-500 whitespace-nowrap">
+            <FaCreditCard className="inline mr-1" />
+            <span>Make a Payment</span>
+          </div>
+          <div onClick={() => handleNavigation('/help-and-support')} className="flex items-center cursor-pointer hover:text-blue-500 whitespace-nowrap">
+            <FaHandsHelping className="inline mr-1" />
+            <span>Help and Support</span>
+          </div>
+          <div onClick={() => handleNavigation('/emergency')} className="flex items-center cursor-pointer hover:text-blue-500 whitespace-nowrap">
+            <FaBell className="inline mr-1" />
+            <span>Emergency</span>
+          </div>
+          <div onClick={() => handleNavigation('/about')} className="flex items-center cursor-pointer hover:text-blue-500 whitespace-nowrap">
+            <FaInfoCircle className="inline mr-1" />
+            <span>About Us</span>
+          </div>
+          <div onClick={handleOpenModal} className="flex items-center cursor-pointer hover:text-blue-500 whitespace-nowrap">
+            <FaStar className="inline mr-1" />
+            <span>Feedback</span>
+          </div>
+          <div onClick={() => handleNavigation('/complain')} className="flex items-center cursor-pointer hover:text-blue-500 whitespace-nowrap">
+            <FaStar className="inline mr-0" />
+            <span>Complain</span>
+          </div>
+          <div onClick={() => handleNavigation('/settings')} className="flex items-center cursor-pointer hover:text-blue-500 whitespace-nowrap">
+            <IoSettings className="inline mr-1" />
+            <span>Settings</span>
+          </div>
+          <div onClick={() => handleNavigation('/Faq')} className="flex items-center cursor-pointer hover:text-blue-500 whitespace-nowrap">
+            <FaQuestionCircle className="inline mr-1" />
+            <span>FAQ</span>
+          </div>
+          {/* <div className='mr-80'></div> */}
+          {/* <span><GoogleTranslate /></span> */}
+          <ThemeToggle />  
+        </nav>
+
+        {/* Privacy Policy
+        <a
+          href="/privacy-policy"
+          onClick={() => handleNavigation('/privacy-policy')}
+          className="text-blue-500 hover:underline"
+        >
+          Privacy Policy
+        </a> */}
       </div>
-
-
-{/* Sidebar Navigation */}
-<div className={`fixed inset-y-0 left-0 bg-white shadow-lg ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 w-[70%] lg:w-1/4 flex flex-col`}>
-
-  {/* Close Button */}
-  <div className="flex justify-end p-4">
-    <button onClick={toggleMenu}>
-      <FaTimes className="text-3xl text-black" />
-    </button>
-  </div>
-
-  {/* Profile Section */}
-  <div className="flex flex-col items-center p-6 text-white bg-blue-500">
-    <FaUser className="text-6xl mb-2" />
-    <p className="text-lg font-semibold">Yatree</p>
-    <p className="text-sm">5.0 ★</p>
-  </div>
-
-  {/* Sidebar Content with Scrollable Area */}
-  <div className="flex-grow overflow-y-auto">
-    <nav className="mt-6">
-      <ul className="space-y-4 px-6">
-        {/* Menu items */}
-        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handlePaymentClick}>
-          <FaCreditCard className="mr-3 text-blue-300" />
-          <span className="text-lg">Make a Payment</span>
-        </li>
-        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleHelpAndSupportClick}>
-          <FaHandsHelping className="mr-3 text-blue-300" />
-          <span className="text-lg">Help and Support</span>
-        </li>
-        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleEmergencyClick}>
-          <FaBell className="mr-3 text-blue-300" />
-          <span className="text-lg">Emergency</span>
-        </li>
-        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleAboutUsClick}>
-          <FaInfoCircle className="mr-3 text-blue-300" />
-          <span className="text-lg">About Us</span>
-        </li>
-        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleOpenModal}>
-          <FaStar className="mr-3 text-blue-300" />
-          <span className="text-lg">Feedback</span>
-        </li>
-        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleOpenComplain}>
-          <FaStar className="mr-3 text-blue-300" />
-          <span className="text-lg">Complain</span>
-        </li>
-        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleSettingsClick}>
-          <IoSettings className="mr-3 text-blue-300" />
-          <span className="text-lg">Settings</span>
-        </li>
-        <li className="flex items-center text-black cursor-pointer hover:text-white hover:bg-blue-600 p-2 rounded-md" onClick={handleFaqClick}>
-          <FaQuestionCircle className="mr-3 text-blue-300" />
-          <span className="text-lg">FAQ</span>
-        </li>
-      </ul>
-    </nav>
-  </div>
-
-  {/* Footer */}
-  <div className="p-4 text-sm text-center text-gray-500 bg-white">
-    <p>© {new Date().getFullYear()} Station Saarthi. All rights reserved.</p>
-    <a
-      href="/privacy-policy"
-      onClick={() => {
-        navigate('/privacy-policy');
-        setIsOpen(false);
-      }}
-      className="block mt-2 text-blue-500 hover:underline"
-    >
-      Privacy and Policy
-    </a>
-    <span>App version 1.0.0.0</span>
-  </div>
-</div>
-
 
       {/* Rating Modal */}
       {isModalOpen && (

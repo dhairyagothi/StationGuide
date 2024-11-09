@@ -8,7 +8,7 @@ const ThemeSwitcher = () => {
 
   return (
     <div className="flex flex-row justify-center items-center">
-      <label className="relative inline-block w-16 h-9">
+      <label className="relative inline-block w-16 h-9 mr-24">
   <input
     type="checkbox"
     className="sr-only peer"
