@@ -217,6 +217,7 @@ const Login = () => {
           />
           Sign in with Google
         </button>
+        </p>
         {/* Don't have an account link */}
         <div className="flex justify-center">
           <p className="mt-6 text-gray-600">
