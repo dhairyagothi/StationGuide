@@ -76,6 +76,9 @@ const GoogleTranslate = () => {
             color: black; /* Black text */
             font-weight: 500; /* Tailwind: font-medium */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Slight shadow */
+            top: -35px;
+            position: relative;
+            left: 1050px; 
           }
 
           .goog-te-combo:hover {
