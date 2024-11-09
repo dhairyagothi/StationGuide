@@ -5,11 +5,12 @@ import backicon from "../assets/svg/backicon.svg";
 import { FaFacebook, FaUser, FaPhone } from "react-icons/fa";
 import { MdAttachEmail, MdOutlinePassword } from "react-icons/md";
 import { registerValidation } from "../validations/validation";
-
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Register = () => {
   useEffect(() => {
-    document.title = 'Station Saarthi | Register'; 
+    document.title = "Station Saarthi | Register";
   }, []);
 
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ const Register = () => {
   const [passwordStrength, setPasswordStrength] = useState("");
   const [errors, setErrors] = useState({});
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [loader, SetLoader] = useState(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -44,6 +46,7 @@ const Register = () => {
     }
 
     try {
+      SetLoader(true);
       const response = await fetch(
         "https://stationguidebackend.onrender.com/api/register",
         {
@@ -64,7 +67,7 @@ const Register = () => {
       const data = await response.json();
 
       if (response.ok) {
-        localStorage.setItem('accessToken', data.token);
+        localStorage.setItem("accessToken", data.token);
         setConfirmationMessage(
           "Your account is created successfully. Please login to access the website."
         );
@@ -72,12 +75,15 @@ const Register = () => {
         setPhoneNumber("");
         setEmail("");
         setPassword("");
+        SetLoader(false);
       } else {
         console.log(data.error);
         setConfirmationMessage(`Error: ${data.error}`);
+        SetLoader(false);
       }
     } catch (error) {
       setConfirmationMessage("Registration failed. Please try again.");
+      SetLoader(false);
     }
   };
 
@@ -120,6 +126,13 @@ const Register = () => {
           </div>
         )}
 
+        <Backdrop
+          sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}
+          open={loader}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+
         <button onClick={HomeClick} className="absolute left-0 top-2">
           <img src={backicon} alt="Back" className="h-[5vh]" />
         </button>
@@ -142,11 +155,14 @@ const Register = () => {
           className="w-full max-w-lg p-6 bg-white rounded-lg shadow-md"
         >
           <h2 className="py-1 mb-4 text-xl font-bold text-center bg-blue-100 border border-blue-300 shadow-sm rounded-3xl">
-            Register 
+            Register
           </h2>
 
           <div className="mb-4">
-            <label className="flex gap-2 mb-1 font-semibold text-gray-700" htmlFor="username">
+            <label
+              className="flex gap-2 mb-1 font-semibold text-gray-700"
+              htmlFor="username"
+            >
               Username <FaUser />
             </label>
             <input
@@ -158,11 +174,16 @@ const Register = () => {
               className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
-            {errors.username && <div className="text-red-800">{errors.username}</div>}
+            {errors.username && (
+              <div className="text-red-800">{errors.username}</div>
+            )}
           </div>
 
           <div className="mb-4">
-            <label className="flex gap-2 mb-1 font-medium text-gray-700" htmlFor="phoneNumber">
+            <label
+              className="flex gap-2 mb-1 font-medium text-gray-700"
+              htmlFor="phoneNumber"
+            >
               Phone Number <FaPhone />
             </label>
             <input
@@ -176,11 +197,16 @@ const Register = () => {
               className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
-            {errors.phoneNumber && <div className="text-red-800">{errors.phoneNumber}</div>}
+            {errors.phoneNumber && (
+              <div className="text-red-800">{errors.phoneNumber}</div>
+            )}
           </div>
 
           <div className="mb-4">
-            <label className="flex gap-2 mb-1 font-medium text-gray-700" htmlFor="email">
+            <label
+              className="flex gap-2 mb-1 font-medium text-gray-700"
+              htmlFor="email"
+            >
               Email <MdAttachEmail className="h-7" />
             </label>
             <input
@@ -196,7 +222,10 @@ const Register = () => {
           </div>
 
           <div className="mb-5">
-            <label className="flex gap-2 mb-1 font-medium text-gray-700" htmlFor="password">
+            <label
+              className="flex gap-2 mb-1 font-medium text-gray-700"
+              htmlFor="password"
+            >
               Password <MdOutlinePassword className="h-7" />
             </label>
             <input
@@ -211,17 +240,30 @@ const Register = () => {
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              style={{ position: 'relative', bottom: '30px', left: '430px' }}
+              style={{ position: "relative", bottom: "30px", left: "430px" }}
             >
               {passwordVisible ? "👁️" : "👁️‍🗨️"}
             </button>
-            <p className={`mt-1 text-sm ${passwordStrength === "Strong" ? "text-green-500" : passwordStrength === "Moderate" ? "text-yellow-500" : "text-red-500"}`}>
+            <p
+              className={`mt-1 text-sm ${
+                passwordStrength === "Strong"
+                  ? "text-green-500"
+                  : passwordStrength === "Moderate"
+                  ? "text-yellow-500"
+                  : "text-red-500"
+              }`}
+            >
               {password && `Password strength: ${passwordStrength}`}
             </p>
-            {errors.password && <div className="text-red-800">{errors.password}</div>}
+            {errors.password && (
+              <div className="text-red-800">{errors.password}</div>
+            )}
           </div>
 
-          <button type="submit" className="w-full px-4 py-2 mt-4 text-white bg-blue-600 rounded-md hover:bg-blue-700">
+          <button
+            type="submit"
+            className="w-full px-4 py-2 mt-4 text-white bg-blue-600 rounded-md hover:bg-blue-700"
+          >
             Register
           </button>
 
@@ -234,7 +276,9 @@ const Register = () => {
           <div className="mt-4">
             <button
               type="button"
-              onClick={() => (window.location.href = 'https://accounts.google.com')}
+              onClick={() =>
+                (window.location.href = "https://accounts.google.com")
+              }
               className="flex items-center justify-center w-full py-3 font-semibold text-white transition duration-300 ease-in-out transform bg-red-500 rounded-lg hover:bg-red-600 hover:scale-105"
             >
               <img
@@ -245,7 +289,7 @@ const Register = () => {
               Sign in with Google
             </button>
           </div>
-          
+
           <div className="mt-4 text-center">
             <p className="text-sm text-gray-600">
               Already have an account?{" "}
