@@ -32,10 +32,15 @@ import stationRoutes from "./routes/stationRoutes.js";
 import trainRoutes from "./routes/trainRoutes.js";
 import contactUs from "./routes/contactUsRouter.js";
 import complaintRoutes from "./routes/complaintRoutes.js";
+
 import ticketRoutes from "./routes/ticketRoutes.js";
+
+import userRoutes from "./routes/userRoutes.js";
+
 
 app.use("/auth", authRoutes);
 app.use("/api", authRoutes);
+app.use("/api", userRoutes);
 app.use("/api", complaintRoutes);
 app.use("/api", ticketRoutes);
 app.use("/station", stationRoutes);

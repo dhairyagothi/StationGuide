@@ -30,7 +30,11 @@ import ComplainBox from "./Pages/ComplainBox";
 import Metadata from "./metadata";
 import SettingsPage from "./Pages/Settings";
 import Faq from './Pages/Faq';
+
 import TicketSearchComponent from "./Pages/TicketsAvailability";
+
+import ProfilePage from "./Pages/Profile";
+
 
 function App() {
   return (
@@ -50,7 +54,11 @@ function App() {
           <Route path="/Notification" element={<NotificationPage />} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/ContactUs" element={<ContactUs />} />
+
           <Route path="/Tickets" element={<TicketSearchComponent/>} />
+
+          <Route path="/profile" element={<ProfilePage />} />
+
     
           <Route path="/GoogleTranslate" element={<GoogleTranslate />} />
           <Route path="/help" element={<Help />} />
