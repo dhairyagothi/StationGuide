@@ -29,12 +29,11 @@ import User from "./Pages/User"; // Added from the other version
 import ComplainBox from "./Pages/ComplainBox";
 import Metadata from "./metadata";
 import SettingsPage from "./Pages/Settings";
-import Faq from './Pages/Faq';
-
+import Faq from "./Pages/Faq";
+import Feedback from "./Pages/feedback";
 import TicketSearchComponent from "./Pages/TicketsAvailability";
 
 import ProfilePage from "./Pages/Profile";
-
 
 function App() {
   return (
@@ -54,12 +53,9 @@ function App() {
           <Route path="/Notification" element={<NotificationPage />} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/ContactUs" element={<ContactUs />} />
-
-          <Route path="/Tickets" element={<TicketSearchComponent/>} />
-
+          <Route path="/Tickets" element={<TicketSearchComponent />} />
+          <Route path="/Feedback" element={<Feedback />} />
           <Route path="/profile" element={<ProfilePage />} />
-
-    
           <Route path="/GoogleTranslate" element={<GoogleTranslate />} />
           <Route path="/help" element={<Help />} />
           <Route path="/about" element={<AboutUs />} />
@@ -70,7 +66,7 @@ function App() {
           <Route path="/help-and-support" element={<HelpAndSupport />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/Faq" element={<Faq />} />
-          <Route path="/complain" element={<ComplainBox/>} />
+          <Route path="/complain" element={<ComplainBox />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />{" "}
           {/* Restored PrivacyPolicy */}
           <Route path="/user" element={<User />} /> {/* Added User */}
@@ -105,15 +101,15 @@ export function ProtectedRoute() {
       console.log("Token Verification error:", data.error);
 
       if (data.error || res.status === 400 || res.status === 500) {
-        navigate('/Login');
+        navigate("/Login");
       }
 
       if (res.status === 400 || res.status === 500) {
-        navigate('/Login');
+        navigate("/Login");
       }
     } catch (error) {
-      console.error('Error verifying token:', error);
-      navigate('/Login');
+      console.error("Error verifying token:", error);
+      navigate("/Login");
     }
   };
 
