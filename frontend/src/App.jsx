@@ -30,7 +30,7 @@ import ComplainBox from "./Pages/ComplainBox";
 import Metadata from "./metadata";
 import SettingsPage from "./Pages/Settings";
 import Faq from "./Pages/Faq";
-import Feedback from "./Pages/feedback";
+import Feedback from "./Pages/Feedback";
 import TicketSearchComponent from "./Pages/TicketsAvailability";
 
 import ProfilePage from "./Pages/Profile";
