@@ -521,9 +521,10 @@ document.getElementById('sendMessage').addEventListener('click', function () {
     
         // Update the coordinates when the mouse moves
         window.addEventListener("mousemove", function (e) {
-            coords.x = e.clientX;
-            coords.y = e.clientY;
+        coords.x = e.clientX;
+        coords.y = e.clientY + window.scrollY; // Adjust y position based on scroll
         });
+
     
         // Easing function to make the animation smoother
         function lerp(start, end, t) {
