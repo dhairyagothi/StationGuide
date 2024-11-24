@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 import Herosection from "./Pages/Herosection";
 import LoginPage from "./Pages/LoginPage";
 import Register from "./Pages/Register";
@@ -72,6 +72,7 @@ function App() {
           {/* Restored PrivacyPolicy */}
           <Route path="/user" element={<User />} /> {/* Added User */}
           <Route path="*" element={<Error />} />
+          <Analytics/>
         </Routes>
       </Router>
 
