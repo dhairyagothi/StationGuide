@@ -72,9 +72,10 @@ function App() {
           {/* Restored PrivacyPolicy */}
           <Route path="/user" element={<User />} /> {/* Added User */}
           <Route path="*" element={<Error />} />
-          <Analytics/>
+          
         </Routes>
       </Router>
+      <Analytics/>
 
       {/* Optional chatbot icon at the bottom right */}
       {/* <div className='fixed bottom-0 right-0 z-50 m-4 cursor-pointer'>
