@@ -455,7 +455,8 @@ Forking allows you to create a personal copy of the repository, where you can ex
 
 If you have questions, suggestions, or feedback, please reach out via email at dhairyag31@gmail.com. You can also join our [discussion forum](https://github.com/dhairyagothi/StationGuide/discussions).
 
-We value open communication and are happy to help!
+We value open communication 
+And are happy to help!
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
