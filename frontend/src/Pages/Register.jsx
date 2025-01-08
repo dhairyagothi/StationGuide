@@ -180,7 +180,19 @@ const Register = () => {
               type="text"
               id="username"
               value={username}
-              onChange={(e) => setUserName(e.target.value)}
+              onChange={(e) => {
+    const value = e.target.value;
+    // Validate the input: Only allow alphabetic characters
+    if (/^[a-zA-Z]*$/.test(value)) {
+      setUserName(value); // Update state only if valid
+      setErrors((prevErrors) => {
+        const { username, ...rest } = prevErrors;
+        return rest; // Remove username error if input is valid
+      });
+    } else {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        username: "Username can only contain alphabetic character
               placeholder="Enter your username"
               className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
